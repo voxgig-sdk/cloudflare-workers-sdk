@@ -1,0 +1,75 @@
+{
+  "existing": {
+    "value": {
+      "VALUE00": {
+        "datasets": [],
+        "errors": [],
+        "filters": [],
+        "key": "s71",
+        "limit": 114,
+        "messages": [],
+        "needle": {},
+        "result": [],
+        "success": true,
+        "timeframe": {},
+        "type": "s78",
+        "account_id": "ACCOUNT01",
+        "id": "VALUE00"
+      },
+      "VALUE01": {
+        "datasets": [],
+        "errors": [],
+        "filters": [],
+        "key": "sdf",
+        "limit": 224,
+        "messages": [],
+        "needle": {},
+        "result": [],
+        "success": true,
+        "timeframe": {},
+        "type": "se6",
+        "account_id": "ACCOUNT01",
+        "id": "VALUE01"
+      },
+      "VALUE02": {
+        "datasets": [],
+        "errors": [],
+        "filters": [],
+        "key": "s14d",
+        "limit": 334,
+        "messages": [],
+        "needle": {},
+        "result": [],
+        "success": true,
+        "timeframe": {},
+        "type": "s154",
+        "account_id": "ACCOUNT01",
+        "id": "VALUE02"
+      }
+    }
+  },
+  "new": {
+    "value": {
+      "value_ref01": {
+        "datasets": [],
+        "errors": [],
+        "filters": [],
+        "key": "s1bb",
+        "limit": 444,
+        "messages": [],
+        "needle": {},
+        "result": [],
+        "success": true,
+        "timeframe": {},
+        "type": "s1c2"
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/workers/observability/telemetry/values": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

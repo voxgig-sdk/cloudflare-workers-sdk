@@ -1,0 +1,735 @@
+# Entity: version
+
+main: kit: entity: version: {
+
+  alias: field: {}
+
+  fields: {
+    annotations: {
+      h: "Annotations"
+      n: "annotations"
+      r: false
+      sh: "Metadata about the version."
+      t: "`$OBJECT`"
+    }
+    assets: {
+      h: "Assets"
+      n: "assets"
+      r: false
+      sh: "Configuration for assets within a Worker."
+      t: "`$OBJECT`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 4
+      }
+    }
+    author_email: {
+      fo: "email"
+      h: "Author Email"
+      n: "author_email"
+      r: false
+      ro: true
+      sh: "Email of the user who created the version."
+      t: "`$STRING`"
+    }
+    author_id: {
+      h: "Author Id"
+      n: "author_id"
+      r: false
+      ro: true
+      sh: "Identifier of the user who created the version."
+      t: "`$STRING`"
+    }
+    bindings: {
+      h: "Bindings"
+      n: "bindings"
+      r: false
+      sh: "List of bindings attached to a Worker."
+      t: "`$ARRAY`"
+    }
+    cache_options: {
+      h: "Cache Options"
+      n: "cache_options"
+      r: true
+      sh: "Global CacheW configuration for the Worker."
+      t: "`$OBJECT`"
+    }
+    compatibility_date: {
+      h: "Compatibility Date"
+      n: "compatibility_date"
+      r: false
+      sh: "Date indicating targeted support in the Workers runtime."
+      t: "`$STRING`"
+    }
+    compatibility_flags: {
+      h: "Compatibility Flags"
+      n: "compatibility_flags"
+      r: false
+      sh: "Flags that enable or disable certain features in the Workers runtime."
+      t: "`$ARRAY`"
+    }
+    containers: {
+      h: "Containers"
+      n: "containers"
+      r: false
+      sh: "List of containers attached to a Worker."
+      t: "`$ARRAY`"
+    }
+    created_on: {
+      fo: "date-time"
+      h: "Created On"
+      n: "created_on"
+      r: true
+      ro: true
+      sh: "When the version was created."
+      t: "`$STRING`"
+    }
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: true
+      t: "`$ARRAY`"
+    }
+    exports: {
+      h: "Exports"
+      n: "exports"
+      r: false
+      sh: "Declarative exports for the version, including Durable Object classes (with their `storage` backend) and named Worker entrypoints."
+      t: "`$ANY`"
+      union: {
+        branches: 5
+        count: 1
+        depth: 5
+      }
+    }
+    exports_reconciliation: {
+      h: "Exports Reconciliation"
+      n: "exports_reconciliation"
+      r: false
+      sh: "Summary of the declarative exports reconciliation that ran on this upload."
+      t: "`$ANY`"
+    }
+    id: {
+      fo: "uuid"
+      h: "Id"
+      n: "id"
+      r: true
+      ro: true
+      sh: "Version identifier."
+      t: "`$STRING`"
+    }
+    limits: {
+      h: "Limits"
+      n: "limits"
+      r: false
+      sh: "Resource limits enforced at runtime."
+      t: "`$OBJECT`"
+    }
+    main_module: {
+      h: "Main Module"
+      n: "main_module"
+      r: false
+      sh: "The name of the main module in the `modules` array (e.g."
+      t: "`$STRING`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: true
+      t: "`$ARRAY`"
+    }
+    migration_tag: {
+      h: "Migration Tag"
+      n: "migration_tag"
+      r: false
+      ro: true
+      sh: "Durable Object migration tag."
+      t: "`$STRING`"
+    }
+    migrations: {
+      h: "Migrations"
+      n: "migrations"
+      r: false
+      sh: "Migrations for Durable Objects associated with the version."
+      t: "`$ANY`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 0
+      }
+    }
+    modules: {
+      h: "Modules"
+      n: "modules"
+      r: false
+      sh: "Code, sourcemaps, and other content used at runtime."
+      t: "`$ARRAY`"
+    }
+    number: {
+      h: "Number"
+      n: "number"
+      r: true
+      ro: true
+      sh: "The integer version number, starting from one."
+      t: "`$INTEGER`"
+    }
+    package_dependencies: {
+      h: "Package Dependencies"
+      n: "package_dependencies"
+      r: false
+      sh: "The list of npm packages that were installed and used when this Worker version was built."
+      t: "`$ARRAY`"
+    }
+    placement: {
+      h: "Placement"
+      n: "placement"
+      r: false
+      sh: "Configuration for [Smart Placement](https://developers.cloudflare.com/workers/configuration/smart-placement)."
+      t: "`$OBJECT`"
+      union: {
+        branches: 8
+        count: 2
+        depth: 5
+      }
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: true
+      t: "`$OBJECT`"
+      union: {
+        branches: 8
+        count: 5
+        depth: 7
+      }
+    }
+    source: {
+      h: "Source"
+      n: "source"
+      r: false
+      ro: true
+      sh: "The client used to create the version."
+      t: "`$STRING`"
+    }
+    startup_time_ms: {
+      h: "Startup Time Ms"
+      n: "startup_time_ms"
+      r: false
+      ro: true
+      sh: "Time in milliseconds spent on [Worker startup](https://developers.cloudflare.com/workers/platform/limits/#worker-startup-time)."
+      t: "`$INTEGER`"
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      sh: "Whether the API call was successful."
+      t: "`$BOOLEAN`"
+    }
+    urls: {
+      h: "Urls"
+      n: "urls"
+      r: true
+      ro: true
+      sh: "All routable URLs that always point to this version."
+      t: "`$ARRAY`"
+    }
+    usage_model: {
+      de: true
+      h: "Usage Model"
+      n: "usage_model"
+      r: false
+      sh: "Usage model for the version."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "version"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/workers/workers/{worker_id}/versions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "worker_id"
+                or: "worker_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "deploy"
+                or: "deploy"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/workers/workers/{worker_id}/versions"
+          q: {
+            exist: [
+              "account_id"
+              "deploy"
+              "worker_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              var: "worker_id"
+            }
+            {
+              lit: "versions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/workers/workers/{worker_id}/versions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "worker_id"
+                or: "worker_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 10
+                k: "query"
+                n: "per_page"
+                or: "per_page"
+                r: false
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/workers/workers/{worker_id}/versions"
+          q: {
+            exist: [
+              "account_id"
+              "page"
+              "per_page"
+              "worker_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              var: "worker_id"
+            }
+            {
+              lit: "versions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/workers/workers/{worker_id}/versions/latest"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "worker_id"
+                or: "worker_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/workers/workers/{worker_id}/versions/latest"
+          q: {
+            "$action": "latest"
+            exist: [
+              "account_id"
+              "include"
+              "worker_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              var: "worker_id"
+            }
+            {
+              lit: "versions"
+            }
+            {
+              lit: "latest"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/workers/workers/{worker_id}/versions/{version_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "version_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "worker_id"
+                or: "worker_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "include"
+                or: "include"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/workers/workers/{worker_id}/versions/{version_id}"
+          q: {
+            exist: [
+              "account_id"
+              "id"
+              "include"
+              "worker_id"
+            ]
+          }
+          r: {
+            param: {
+              version_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              var: "worker_id"
+            }
+            {
+              lit: "versions"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/workers/workers/{worker_id}/versions/{version_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "version_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "worker_id"
+                or: "worker_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/workers/workers/{worker_id}/versions/{version_id}"
+          q: {
+            exist: [
+              "account_id"
+              "id"
+              "worker_id"
+            ]
+          }
+          r: {
+            param: {
+              version_id: "id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              var: "worker_id"
+            }
+            {
+              lit: "versions"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /accounts/{account_id}/workers/workers/{worker_id}/versions/latest"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "worker_id"
+                or: "worker_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "deploy"
+                or: "deploy"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/accounts/{account_id}/workers/workers/{worker_id}/versions/latest"
+          q: {
+            "$action": "latest"
+            exist: [
+              "account_id"
+              "deploy"
+              "worker_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              var: "worker_id"
+            }
+            {
+              lit: "versions"
+            }
+            {
+              lit: "latest"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account") path("$.main.kit.entity.worker")]
+  ]
+
+}

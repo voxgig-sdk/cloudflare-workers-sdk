@@ -1,0 +1,75 @@
+{
+  "existing": {
+    "key": {
+      "KEY00": {
+        "datasets": [],
+        "errors": [],
+        "filters": [],
+        "from": 113,
+        "keyNeedle": {},
+        "limit": 115,
+        "messages": [],
+        "needle": {},
+        "result": [],
+        "success": false,
+        "to": 120,
+        "account_id": "ACCOUNT01",
+        "id": "KEY00"
+      },
+      "KEY01": {
+        "datasets": [],
+        "errors": [],
+        "filters": [],
+        "from": 223,
+        "keyNeedle": {},
+        "limit": 225,
+        "messages": [],
+        "needle": {},
+        "result": [],
+        "success": false,
+        "to": 230,
+        "account_id": "ACCOUNT01",
+        "id": "KEY01"
+      },
+      "KEY02": {
+        "datasets": [],
+        "errors": [],
+        "filters": [],
+        "from": 333,
+        "keyNeedle": {},
+        "limit": 335,
+        "messages": [],
+        "needle": {},
+        "result": [],
+        "success": false,
+        "to": 340,
+        "account_id": "ACCOUNT01",
+        "id": "KEY02"
+      }
+    }
+  },
+  "new": {
+    "key": {
+      "key_ref01": {
+        "datasets": [],
+        "errors": [],
+        "filters": [],
+        "from": 443,
+        "keyNeedle": {},
+        "limit": 445,
+        "messages": [],
+        "needle": {},
+        "result": [],
+        "success": false,
+        "to": 450
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/workers/observability/telemetry/keys": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

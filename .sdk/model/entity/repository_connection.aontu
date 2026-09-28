@@ -1,0 +1,106 @@
+# Entity: repository_connection
+
+main: kit: entity: repository_connection: {
+
+  alias: field: {}
+
+  fields: {
+    provider_account_id: {
+      h: "Provider Account Id"
+      n: "provider_account_id"
+      r: true
+      sh: "Provider-specific identifier of the account or namespace that owns the repository."
+      t: "`$STRING`"
+    }
+    provider_account_name: {
+      h: "Provider Account Name"
+      n: "provider_account_name"
+      r: true
+      sh: "Human-readable name of the account or namespace that owns the repository."
+      t: "`$STRING`"
+    }
+    provider_type: {
+      h: "Provider Type"
+      n: "provider_type"
+      r: true
+      sh: "Source control provider."
+      t: "`$STRING`"
+    }
+    repo_id: {
+      h: "Repo Id"
+      n: "repo_id"
+      r: true
+      sh: "Provider-specific repository identifier."
+      t: "`$STRING`"
+    }
+    repo_name: {
+      h: "Repo Name"
+      n: "repo_name"
+      r: true
+      sh: "Human-readable repository name."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "repository_connection"
+  op: {
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /accounts/{account_id}/builds/repos/connections"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "account-123"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/accounts/{account_id}/builds/repos/connections"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "builds"
+            }
+            {
+              lit: "repos"
+            }
+            {
+              lit: "connections"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account")]
+  ]
+
+}

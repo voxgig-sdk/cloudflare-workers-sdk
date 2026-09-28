@@ -1,0 +1,44 @@
+{
+  "existing": {
+    "workers_namespace_list": {
+      "WORKERS_NAMESPACE_LIST00": {
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "success": false,
+        "account_id": "ACCOUNT01"
+      },
+      "WORKERS_NAMESPACE_LIST01": {
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "success": false,
+        "account_id": "ACCOUNT01"
+      },
+      "WORKERS_NAMESPACE_LIST02": {
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "success": false,
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "workers_namespace_list": {
+      "workers_namespace_list_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": [],
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/workers/dispatch/namespaces": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,165 @@
+
+
+import Path from 'node:path'
+import * as Fs from 'node:fs'
+
+import { test, describe, afterEach } from 'node:test'
+import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
+
+
+import { CloudflareWorkersSDK, BaseFeature, stdutil } from '../../..'
+
+import {
+  envOverride,
+  liveClientOptions,
+  liveDelay,
+  loadEnvLocal,
+  makeCtrl,
+  makeMatch,
+  makeReqdata,
+  makeStepData,
+  makeValid,
+  maybeSkipControl,
+} from '../../utility'
+
+
+loadEnvLocal(__dirname + '/../../../.env.local')
+
+
+describe('SecretsStoreStoreEntity', async () => {
+
+  // Per-test live pacing. Delay is read from sdk-test-control.json's
+  // `test.live.delayMs`; only sleeps when CLOUDFLARE_WORKERS_TEST_LIVE=TRUE.
+  afterEach(liveDelay('CLOUDFLARE_WORKERS_TEST_LIVE'))
+
+  test('instance', async () => {
+    const testsdk = CloudflareWorkersSDK.test()
+    const ent = testsdk.SecretsStoreStore()
+    assert(null != ent)
+  })
+
+
+  test('basic', async (t) => {
+
+    const live = 'TRUE' === process.env.CLOUDFLARE_WORKERS_TEST_LIVE
+    for (const op of ['create', 'load']) {
+      if (!live && maybeSkipControl(t, 'entityOp', 'secrets_store_store.' + op, live)) return
+    }
+
+    
+    const setup = basicSetup()
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"id":{"a":true,"h":"Id","n":"id","r":false,"t":"`$STRING`","key$":"id","index$":0},"name":{"a":true,"h":"Name","n":"name","r":true,"sh":"The name of the store.","t":"`$STRING`","key$":"name","index$":1},"result":{"a":true,"h":"Result","n":"result","r":true,"t":"`$ANY`","key$":"result","index$":2}},"id":{"field":"id","name":"id"},"name":"secrets_store_store","op":{"create":{"input":"data","name":"create","points":[{"a":true,"co":{"id":"POST /accounts/{account_id}/secrets_store/stores","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"985e105f4ecef8ad9ca31a8372d0c353","k":"param","n":"account_id","or":"account_id","r":true,"t":"`$STRING`","index$":0}]},"k":"http","m":"POST","o":"/accounts/{account_id}/secrets_store/stores","q":{"exist":["account_id"]},"r":{},"s":[{"lit":"accounts"},{"var":"account_id"},{"lit":"secrets_store"},{"lit":"stores"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"create"},"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /accounts/{account_id}/secrets_store/stores/{store_id}","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"985e105f4ecef8ad9ca31a8372d0c353","k":"param","n":"account_id","or":"account_id","r":true,"t":"`$STRING`","index$":0},{"a":true,"ex":"023e105f4ecef8ad9ca31a8372d0c353","k":"param","n":"id","or":"store_id","r":true,"t":"`$STRING`","index$":1}]},"k":"http","m":"GET","o":"/accounts/{account_id}/secrets_store/stores/{store_id}","q":{"exist":["account_id","id"]},"r":{"param":{"store_id":"id"}},"s":[{"lit":"accounts"},{"var":"account_id"},{"lit":"secrets_store"},{"lit":"stores"},{"var":"id"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[["$.main.kit.entity.account"]]},"key$":"secrets_store_store","name__orig":"secrets_store_store","Name":"SecretsStoreStore","name_":"secrets_store_store","name-":"secrets-store-store","NAME":"SECRETS_STORE_STORE","index$":35}, {"active":true,"entity":"secrets_store_store","key$":"BasicSecretsStoreStoreFlow","kind":"basic","name":"BasicSecretsStoreStoreFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"secrets_store_store_ref01"},"m":{"account_id":"account01"},"o":"create","s":[],"v":[],"index$":0},{"a":true,"d":{},"i":{"ref":"secrets_store_store_ref01","srcdatavar":"secrets_store_store_ref01_data","suffix":"_dt0"},"m":{"account_id":"account01","id":"secrets_store_store01"},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-secrets_store_store_ref01"}}],"index$":1}]}, 'SecretsStoreStore', {"POST /accounts/{account_id}/secrets_store/stores":{"protocol":"http","requestBody":{"required":true,"content":{"application/json":{"schema":{"properties":{"name":{"description":"The name of the store.","type":"string","example":"service_x_keys","x-ref":"#/components/schemas/secrets-store_store_name","key$":"name"}},"required":["name"],"x-ref":"#/components/schemas/secrets-store_createStoreObject","index$":1}}}},"parameters":[{"description":"Account identifier.","in":"path","name":"account_id","required":true,"schema":{"type":"string","example":"985e105f4ecef8ad9ca31a8372d0c353","maxLength":32},"x-ref":"#/components/parameters/secrets-store_account_id","index$":0}]},"GET /accounts/{account_id}/secrets_store/stores/{store_id}":{"protocol":"http","parameters":[{"description":"Account identifier.","in":"path","name":"account_id","required":true,"schema":{"type":"string","example":"985e105f4ecef8ad9ca31a8372d0c353","maxLength":32},"x-ref":"#/components/parameters/secrets-store_account_id","index$":0},{"description":"Store identifier.","in":"path","name":"store_id","required":true,"schema":{"type":"string","example":"023e105f4ecef8ad9ca31a8372d0c353","maxLength":32},"x-ref":"#/components/parameters/secrets-store_store_id","index$":1}]}})
+    }
+    const client = setup.client
+    const struct = setup.struct
+
+    const isempty = struct.isempty
+    const select = struct.select
+
+
+    // CREATE
+    const secrets_store_store_ref01_ent = client.SecretsStoreStore()
+    let secrets_store_store_ref01_data = setup.data.new.secrets_store_store['secrets_store_store_ref01']
+    secrets_store_store_ref01_data['account_id'] = setup.idmap['account01']
+
+    secrets_store_store_ref01_data = (await secrets_store_store_ref01_ent.create(secrets_store_store_ref01_data)).data()
+    assert(null != secrets_store_store_ref01_data.id)
+
+
+    // LOAD
+    const secrets_store_store_ref01_match_dt0: any = {}
+    secrets_store_store_ref01_match_dt0.id = secrets_store_store_ref01_data.id
+    const secrets_store_store_ref01_data_dt0 = (await secrets_store_store_ref01_ent.load(secrets_store_store_ref01_match_dt0)).data()
+    assert(secrets_store_store_ref01_data_dt0.id === secrets_store_store_ref01_data.id)
+
+
+  })
+})
+
+
+
+function basicSetup(extra?: any) {
+  // TODO: fix test def options
+  const options: any = {} // null
+
+  // TODO: needs test utility to resolve path
+  const entityDataFile =
+    Path.resolve(__dirname, 
+      '../../../../.sdk/test/entity/secrets_store_store/SecretsStoreStoreTestData.json')
+
+  // TODO: file ready util needed?
+  const entityDataSource = Fs.readFileSync(entityDataFile).toString('utf8')
+
+  // TODO: need a xlang JSON parse utility in voxgig/struct with better error msgs
+  const entityData = JSON.parse(entityDataSource)
+
+  options.entity = entityData.existing
+
+  let client = CloudflareWorkersSDK.test(options, extra)
+  const struct = client.utility().struct
+  const merge = struct.merge
+  const transform = struct.transform
+
+  let idmap = transform(
+    ['secrets_store_store01','secrets_store_store02','secrets_store_store03','account01','account02','account03'],
+    {
+      '`$PACK`': ['', {
+        '`$KEY`': '`$COPY`',
+        '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
+      }]
+    })
+
+  const env = envOverride({
+    'CLOUDFLARE_WORKERS_TEST_SECRETS_STORE_STORE_ENTID': idmap,
+    'CLOUDFLARE_WORKERS_TEST_LIVE': 'FALSE',
+    'CLOUDFLARE_WORKERS_TEST_EXPLAIN': 'FALSE',
+    'CLOUDFLARE_WORKERS_APIKEY': '',
+  })
+
+  idmap = env['CLOUDFLARE_WORKERS_TEST_SECRETS_STORE_STORE_ENTID']
+
+  const live = 'TRUE' === env.CLOUDFLARE_WORKERS_TEST_LIVE
+
+  const transport = createLiveTransport()
+  if (live) {
+    const rawIds = process.env['CLOUDFLARE_WORKERS_TEST_SECRETS_STORE_STORE_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
+    client = new CloudflareWorkersSDK(merge([
+      // FIRST, so the generated fields below win: sdk-test-control.json's
+      // test.client.options adds to the live client, it does not redirect it.
+      liveClientOptions(),
+      {
+        apikey: env.CLOUDFLARE_WORKERS_APIKEY,
+      },
+      // 'extra || {}', not a bare 'extra': struct.merge returns UNDEFINED when the
+      // last entry is undefined, and basicSetup is normally called with no
+      // argument at all - so a bare 'extra' silently discarded the apikey
+      // and server values above and handed the SDK undefined. Harmless
+      // while there was nothing in that object; not harmless now.
+      extra || {},
+      { system: { fetch: transport.fetch } }
+    ]))
+  }
+
+  const setup = {
+    idmap,
+    env,
+    options,
+    client,
+    struct,
+    data: entityData,
+    explain: 'TRUE' === env.CLOUDFLARE_WORKERS_TEST_EXPLAIN,
+    live,
+    transport,
+    now: Date.now(),
+  }
+
+  return setup
+}
+  

@@ -1,0 +1,1273 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Application | Cloudflare Workers</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare Workers<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-workers-sdk">voxgig-sdk/cloudflare-workers-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare Workers</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account.html">Account</a>
+<a aria-current="page" href="../api/application.html">Application</a><div class="nav-sections"><a class="nav-section" href="#post-accountsaccount_idcontainersapplications">POST /accounts/{account_id}/containers/applications</a>
+<a class="nav-section" href="#get-accountsaccount_idcontainersapplications">GET /accounts/{account_id}/containers/applications</a>
+<a class="nav-section" href="#get-accountsaccount_idcontainersapplicationsapplication_idversions">GET /accounts/{account_id}/containers/applications/{application_id}/versions</a>
+<a class="nav-section" href="#get-accountsaccount_idcontainersapplicationsapplication_id">GET /accounts/{account_id}/containers/applications/{application_id}</a>
+<a class="nav-section" href="#delete-accountsaccount_idcontainersapplicationsapplication_id">DELETE /accounts/{account_id}/containers/applications/{application_id}</a>
+<a class="nav-section" href="#patch-accountsaccount_idcontainersapplicationsapplication_id">PATCH /accounts/{account_id}/containers/applications/{application_id}</a></div>
+<a href="../api/brapi.html">Brapi</a>
+<a href="../api/build.html">Build</a>
+<a href="../api/build_token.html">BuildToken</a>
+<a href="../api/builds_api.html">BuildsApi</a>
+<a href="../api/connection.html">Connection</a>
+<a href="../api/container_image.html">ContainerImage</a>
+<a href="../api/container_instance.html">ContainerInstance</a>
+<a href="../api/deploy_hook.html">DeployHook</a>
+<a href="../api/deployment.html">Deployment</a>
+<a href="../api/destination.html">Destination</a>
+<a href="../api/domain.html">Domain</a>
+<a href="../api/durable_objects_namespace.html">DurableObjectsNamespace</a>
+<a href="../api/environment_variable.html">EnvironmentVariable</a>
+<a href="../api/git_hub_integration.html">GitHubIntegration</a>
+<a href="../api/hyperdrive.html">Hyperdrive</a>
+<a href="../api/image_registry.html">ImageRegistry</a>
+<a href="../api/issue.html">Issue</a>
+<a href="../api/key.html">Key</a>
+<a href="../api/live_tail.html">LiveTail</a>
+<a href="../api/metrics_export.html">MetricsExport</a>
+<a href="../api/namespace.html">Namespace</a>
+<a href="../api/preview.html">Preview</a>
+<a href="../api/preview_deployment.html">PreviewDeployment</a>
+<a href="../api/query.html">Query</a>
+<a href="../api/repository_connection.html">RepositoryConnection</a>
+<a href="../api/rollout.html">Rollout</a>
+<a href="../api/saved_query.html">SavedQuery</a>
+<a href="../api/script.html">Script</a>
+<a href="../api/script_setting.html">ScriptSetting</a>
+<a href="../api/secret.html">Secret</a>
+<a href="../api/secrets_store_delete.html">SecretsStoreDelete</a>
+<a href="../api/secrets_store_quota.html">SecretsStoreQuota</a>
+<a href="../api/secrets_store_secret.html">SecretsStoreSecret</a>
+<a href="../api/secrets_store_store.html">SecretsStoreStore</a>
+<a href="../api/secrets_store_stores_response_collection.html">SecretsStoreStoresResponseCollection</a>
+<a href="../api/setting.html">Setting</a>
+<a href="../api/shared.html">Shared</a>
+<a href="../api/tail.html">Tail</a>
+<a href="../api/token.html">Token</a>
+<a href="../api/trigger.html">Trigger</a>
+<a href="../api/usage.html">Usage</a>
+<a href="../api/value.html">Value</a>
+<a href="../api/version.html">Version</a>
+<a href="../api/worker.html">Worker</a>
+<a href="../api/worker_cron_trigger.html">WorkerCronTrigger</a>
+<a href="../api/worker_deployment.html">WorkerDeployment</a>
+<a href="../api/worker_environment.html">WorkerEnvironment</a>
+<a href="../api/worker_route.html">WorkerRoute</a>
+<a href="../api/worker_script.html">WorkerScript</a>
+<a href="../api/worker_subdomain.html">WorkerSubdomain</a>
+<a href="../api/worker_tail_log.html">WorkerTailLog</a>
+<a href="../api/workers_account_setting.html">WorkersAccountSetting</a>
+<a href="../api/workers_api_response_null_result.html">WorkersApiResponseNullResult</a>
+<a href="../api/workers_completed_upload_asset.html">WorkersCompletedUploadAsset</a>
+<a href="../api/workers_create_assets_upload_session.html">WorkersCreateAssetsUploadSession</a>
+<a href="../api/workers_for_platform.html">WorkersForPlatform</a>
+<a href="../api/workers_kv_api_response_common_no_result.html">WorkersKvApiResponseCommonNoResult</a>
+<a href="../api/workers_kv_namespace.html">WorkersKvNamespace</a>
+<a href="../api/workers_namespace_list.html">WorkersNamespaceList</a>
+<a href="../api/workers_namespace_script_delete_bulk.html">WorkersNamespaceScriptDeleteBulk</a>
+<a href="../api/workers_namespace_script_response_single.html">WorkersNamespaceScriptResponseSingle</a>
+<a href="../api/workers_namespace_single.html">WorkersNamespaceSingle</a>
+<a href="../api/workers_pipelines_other.html">WorkersPipelinesOther</a>
+<a href="../api/workers_script_and_version_setting.html">WorkersScriptAndVersionSetting</a>
+<a href="../api/workers_script_response_collection.html">WorkersScriptResponseCollection</a>
+<a href="../api/workers_script_response_single.html">WorkersScriptResponseSingle</a>
+<a href="../api/workers_smart_placement.html">WorkersSmartPlacement</a>
+<a href="../api/workers_usage_model.html">WorkersUsageModel</a>
+<a href="../api/workers_versions_list.html">WorkersVersionsList</a>
+<a href="../api/workers_versions_single.html">WorkersVersionsSingle</a>
+<a href="../api/workers_versions_upload.html">WorkersVersionsUpload</a>
+<a href="../api/workflow.html">Workflow</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="application">Application</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idcontainersapplications"><code>/accounts/{account_id}/containers/applications</code></a></td>
+<td><code>create</code></td>
+<td>A newly created application</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idcontainersapplications"><code>/accounts/{account_id}/containers/applications</code></a></td>
+<td><code>list</code></td>
+<td>Get all application associated with your account</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idcontainersapplicationsapplication_idversions"><code>/accounts/{account_id}/containers/applications/{application_id}/versions</code></a></td>
+<td><code>list</code></td>
+<td>List application versions</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idcontainersapplicationsapplication_id"><code>/accounts/{account_id}/containers/applications/{application_id}</code></a></td>
+<td><code>load</code></td>
+<td>A single application</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idcontainersapplicationsapplication_id"><code>/accounts/{account_id}/containers/applications/{application_id}</code></a></td>
+<td><code>remove</code></td>
+<td>Delete application response</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-accountsaccount_idcontainersapplicationsapplication_id"><code>/accounts/{account_id}/containers/applications/{application_id}</code></a></td>
+<td><code>update</code></td>
+<td>Modify application response</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">applications, err := client.Application(nil).List(map[string]any{&quot;account_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(applications)
+application, err := client.Application(nil).Load(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example_id&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(application)
+created, err := client.Application(nil).Create(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;errors&quot;: []any{}, &quot;messages&quot;: []any{}, &quot;result&quot;: &quot;example&quot;, &quot;result_info&quot;: map[string]any{}, &quot;success&quot;: true}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+updated, err := client.Application(nil).Update(map[string]any{&quot;id&quot;: &quot;example_id&quot;, &quot;account_id&quot;: &quot;example&quot;, &quot;configuration&quot;: map[string]any{}}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(updated)
+removed, err := client.Application(nil).Remove(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example_id&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local applications, err = client:Application():list({ account_id = &quot;example&quot; })
+local application, err = client:Application():load({ account_id = &quot;example&quot;, id = &quot;example_id&quot; })
+local created, err = client:Application():create({ account_id = &quot;example&quot;, errors = {}, messages = {}, result = &quot;example&quot;, result_info = {}, success = true })
+local updated, err = client:Application():update({ id = &quot;example_id&quot;, account_id = &quot;example&quot;, configuration = {} })
+local removed, err = client:Application():remove({ account_id = &quot;example&quot;, id = &quot;example_id&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$applications = $client-&gt;Application()-&gt;list([&quot;account_id&quot; =&gt; &quot;example&quot;]);
+$application = $client-&gt;Application()-&gt;load([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example_id&quot;]);
+$created = $client-&gt;Application()-&gt;create([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;errors&quot; =&gt; [], &quot;messages&quot; =&gt; [], &quot;result&quot; =&gt; &quot;example&quot;, &quot;result_info&quot; =&gt; [], &quot;success&quot; =&gt; true]);
+$updated = $client-&gt;Application()-&gt;update([&quot;id&quot; =&gt; &quot;example_id&quot;, &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;configuration&quot; =&gt; []]);
+$client-&gt;Application()-&gt;remove([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example_id&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">applications = client.Application().list({&quot;account_id&quot;: &quot;example&quot;})
+application = client.Application().load({&quot;account_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example_id&quot;})
+created = client.Application().create({ &quot;account_id&quot;: &quot;example&quot;, &quot;errors&quot;: [], &quot;messages&quot;: [], &quot;result&quot;: &quot;example&quot;, &quot;result_info&quot;: {}, &quot;success&quot;: True })
+updated = client.Application().update({&quot;id&quot;: &quot;example_id&quot;, &quot;account_id&quot;: &quot;example&quot;, &quot;configuration&quot;: {}})
+client.Application().remove({&quot;account_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example_id&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">applications = client.Application.list({ &quot;account_id&quot; =&gt; &quot;example&quot; })
+application = client.Application.load({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example_id&quot; })
+created = client.Application.create({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;errors&quot; =&gt; [], &quot;messages&quot; =&gt; [], &quot;result&quot; =&gt; &quot;example&quot;, &quot;result_info&quot; =&gt; {}, &quot;success&quot; =&gt; true })
+updated = client.Application.update({ &quot;id&quot; =&gt; &quot;example_id&quot;, &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;configuration&quot; =&gt; {} })
+client.Application.remove({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example_id&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const applications = await client.Application().list({ account_id: &quot;example&quot; })
+const application = await client.Application().load({ account_id: &quot;example&quot;, id: &quot;example_id&quot; })
+const created = await client.Application().create({ account_id: &quot;example&quot;, errors: [], messages: [], result: &quot;example&quot;, result_info: {}, success: true })
+const updated = await client.Application().update({ id: &quot;example_id&quot;, account_id: &quot;example&quot;, configuration: {} })
+await client.Application().remove({ account_id: &quot;example&quot;, id: &quot;example_id&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>configuration</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Application configuration fields you can change without creating a rollout.</td>
+</tr>
+<tr>
+<td><code>constraints</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Constraints</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Errors</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Id</td>
+</tr>
+<tr>
+<td><code>max_instances</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Maximum number of instances that an autoscaling application can run.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Messages</td>
+</tr>
+<tr>
+<td><code>observability</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Top-level application observability settings.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>any</code></td>
+<td>Yes</td>
+<td>The public Containers API returns an application.</td>
+</tr>
+<tr>
+<td><code>result_info</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Cursor pagination details for a v4 API list response.</td>
+</tr>
+<tr>
+<td><code>rollout_active_grace_period</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Grace period for active instances to stay alive before becoming eligible for shutdown signal due to a rollout, in seconds.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-accountsaccount_idcontainersapplications" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/containers/applications</h3>
+<p>Operation ID: <code>createApplication</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier. |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object or object</code>.</p>
+<h4 id="responses">Responses</h4>
+<h5 id="201-a-newly-created-application" class="status" data-status="2xx">201: A newly created application</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="400-could-not-create-the-application-because-of-inputlimits-reasons-more-details-in-the-error-code" class="status" data-status="4xx">400: Could not create the application because of input/limits reasons, more details in the error code</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="401-unauthorized" class="status" data-status="4xx">401: Unauthorized</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="403-the-account-is-deactivated" class="status" data-status="4xx">403: The account is deactivated</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="500-an-internal-error-has-occurred" class="status" data-status="5xx">500: An internal error has occurred</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-accountsaccount_idcontainersapplications" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/containers/applications</h3>
+<p>Operation ID: <code>listApplications</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier. |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No | Maximum number of applications to return per page. Defaults to all, or 100 when <code>page_token</code> is set. |
+| <code>page_token</code> | <code>query</code> | <code>string</code> | No | Opaque token from a previous response to retrieve the next page. |
+| <code>name</code> | <code>query</code> | <code>string</code> | No | Filter applications by name. |
+| <code>image</code> | <code>query</code> | <code>string</code> | No | Filter applications by image. |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-get-all-application-associated-with-your-account" class="status" data-status="2xx">200: Get all application associated with your account</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="400-bad-request-that-contains-a-specific-constant-code-and-details-object-about-the-error" class="status" data-status="4xx">400: Bad Request that contains a specific constant code and details object about the error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="401-unauthorized-1" class="status" data-status="4xx">401: Unauthorized</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="500-an-internal-error-has-occurred-1" class="status" data-status="5xx">500: An internal error has occurred</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idcontainersapplicationsapplication_idversions" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/containers/applications/{application_id}/versions</h3>
+<p>Operation ID: <code>listApplicationVersions</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier. |
+| <code>application_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-list-application-versions" class="status" data-status="2xx">200: List application versions</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="401-unauthorized-2" class="status" data-status="4xx">401: Unauthorized</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-response-body-when-an-application-is-not-found" class="status" data-status="4xx">404: Response body when an Application is not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="500-an-internal-error-has-occurred-2" class="status" data-status="5xx">500: An internal error has occurred</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-accountsaccount_idcontainersapplicationsapplication_id" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/containers/applications/{application_id}</h3>
+<p>Operation ID: <code>getApplication</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier. |
+| <code>application_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-a-single-application" class="status" data-status="2xx">200: A single application</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="401-unauthorized-3" class="status" data-status="4xx">401: Unauthorized</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-response-body-when-an-application-is-not-found-1" class="status" data-status="4xx">404: Response body when an Application is not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="500-an-internal-error-has-occurred-3" class="status" data-status="5xx">500: An internal error has occurred</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="remove">remove</h2>
+<h3 id="delete-accountsaccount_idcontainersapplicationsapplication_id" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/containers/applications/{application_id}</h3>
+<p>Operation ID: <code>deleteApplication</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier. |
+| <code>application_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-delete-application-response" class="status" data-status="2xx">200: Delete application response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="401-unauthorized-4" class="status" data-status="4xx">401: Unauthorized</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-response-body-when-an-application-is-not-found-2" class="status" data-status="4xx">404: Response body when an Application is not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="500-an-internal-error-has-occurred-4" class="status" data-status="5xx">500: An internal error has occurred</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="update">update</h2>
+<h3 id="patch-accountsaccount_idcontainersapplicationsapplication_id" class="operation" data-method="patch"><code>PATCH</code> /accounts/{account_id}/containers/applications/{application_id}</h3>
+<p>Operation ID: <code>modifyApplication</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Account identifier. |
+| <code>application_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>configuration</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Application configuration fields you can change without creating a rollout.</td>
+</tr>
+<tr>
+<td><code>configuration.authorized_keys</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>configuration.authorized_keys[].name</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional human readable name for this key.</td>
+</tr>
+<tr>
+<td><code>configuration.authorized_keys[].public_key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>An SSH public key.</td>
+</tr>
+<tr>
+<td><code>configuration.wrangler_ssh</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Configuration properties for connecting with SSH to a container using Wrangler.</td>
+</tr>
+<tr>
+<td><code>configuration.wrangler_ssh.enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>configuration.wrangler_ssh.port</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>constraints</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>constraints.jurisdiction</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Restricts placement to datacenters in the selected jurisdiction. Choose &quot;eu&quot;, &quot;fedramp&quot;, or &quot;us&quot;. When combined with regions, EU supports EEUR and WEUR while FedRAMP and US support ENAM and WNAM.</td>
+</tr>
+<tr>
+<td><code>constraints.regions</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>max_instances</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Maximum number of instances that an autoscaling application can run.</td>
+</tr>
+<tr>
+<td><code>observability</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Top-level application observability settings. Scheduler-backed applications hot-reload these settings across existing instances. An existing Durable Object-managed application accepts only <code>logs.enabled</code> and publishes these settings to runtime metadata without creating deployments or rollouts.</td>
+</tr>
+<tr>
+<td><code>rollout_active_grace_period</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Grace period for active instances to stay alive before becoming eligible for shutdown signal due to a rollout, in seconds. Defaults to 0.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-modify-application-response" class="status" data-status="2xx">200: Modify application response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="400-could-not-modify-the-application-because-of-inputlimits-reasons-more-details-in-the-error-code" class="status" data-status="4xx">400: Could not modify the application because of input/limits reasons, more details in the error code</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="401-unauthorized-5" class="status" data-status="4xx">401: Unauthorized</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="403-the-account-is-deactivated-1" class="status" data-status="4xx">403: The account is deactivated</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-response-body-when-an-application-is-not-found-3" class="status" data-status="4xx">404: Response body when an Application is not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="500-an-internal-error-has-occurred-5" class="status" data-status="5xx">500: An internal error has occurred</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

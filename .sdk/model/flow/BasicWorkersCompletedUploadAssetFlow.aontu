@@ -1,0 +1,22 @@
+# BasicWorkersCompletedUploadAssetFlow
+
+main: kit: flow: BasicWorkersCompletedUploadAssetFlow:
+{
+  entity: "workers_completed_upload_asset",
+  kind: "basic",
+  name: "BasicWorkersCompletedUploadAssetFlow",
+  step: [
+    {
+      i: {
+        ref: "workers_completed_upload_asset_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicWorkersCompletedUploadAssetFlow"
+}

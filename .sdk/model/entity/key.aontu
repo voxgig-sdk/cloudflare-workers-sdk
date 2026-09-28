@@ -1,0 +1,159 @@
+# Entity: key
+
+main: kit: entity: key: {
+
+  alias: field: {}
+
+  fields: {
+    datasets: {
+      h: "Datasets"
+      n: "datasets"
+      r: false
+      sh: "Leave this empty to use the default datasets"
+      t: "`$ARRAY`"
+    }
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: true
+      t: "`$ARRAY`"
+    }
+    filters: {
+      h: "Filters"
+      n: "filters"
+      r: false
+      sh: "Apply filters to narrow key discovery."
+      t: "`$ARRAY`"
+      union: {
+        branches: 3
+        count: 5
+        depth: 8
+      }
+    }
+    from: {
+      h: "From"
+      n: "from"
+      r: false
+      t: "`$NUMBER`"
+    }
+    keyNeedle: {
+      h: "Key Needle"
+      n: "keyNeedle"
+      r: true
+      sh: "If the user suggests a key, use this to narrow down the list of keys returned."
+      t: "`$OBJECT`"
+      union: {
+        branches: 3
+        count: 1
+        depth: 4
+      }
+    }
+    limit: {
+      h: "Limit"
+      n: "limit"
+      r: false
+      sh: "Advanced usage: set limit=1000+ to retrieve comprehensive key options without needing additional filtering."
+      t: "`$NUMBER`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: true
+      t: "`$ARRAY`"
+    }
+    needle: {
+      h: "Needle"
+      n: "needle"
+      r: true
+      sh: "Search for a specific substring in any of the events"
+      t: "`$OBJECT`"
+      union: {
+        branches: 3
+        count: 1
+        depth: 4
+      }
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: true
+      t: "`$ARRAY`"
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+    to: {
+      h: "To"
+      n: "to"
+      r: false
+      t: "`$NUMBER`"
+    }
+  }
+
+  name: "key"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/workers/observability/telemetry/keys"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/workers/observability/telemetry/keys"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              lit: "observability"
+            }
+            {
+              lit: "telemetry"
+            }
+            {
+              lit: "keys"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account")]
+  ]
+
+}

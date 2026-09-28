@@ -1,0 +1,49 @@
+# BasicScriptSettingFlow
+
+main: kit: flow: BasicScriptSettingFlow:
+{
+  entity: "script_setting",
+  kind: "basic",
+  name: "BasicScriptSettingFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01",
+        script_name: "script_name01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "script_setting_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        account_id: "account01"
+      }
+
+      i: {
+        ref: "script_setting_ref01",
+        srcdatavar: "script_setting_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-script_setting_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicScriptSettingFlow"
+}

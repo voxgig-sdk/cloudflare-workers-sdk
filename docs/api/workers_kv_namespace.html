@@ -1,0 +1,927 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>WorkersKvNamespace | Cloudflare Workers</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare Workers<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-workers-sdk">voxgig-sdk/cloudflare-workers-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare Workers</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account.html">Account</a>
+<a href="../api/application.html">Application</a>
+<a href="../api/brapi.html">Brapi</a>
+<a href="../api/build.html">Build</a>
+<a href="../api/build_token.html">BuildToken</a>
+<a href="../api/builds_api.html">BuildsApi</a>
+<a href="../api/connection.html">Connection</a>
+<a href="../api/container_image.html">ContainerImage</a>
+<a href="../api/container_instance.html">ContainerInstance</a>
+<a href="../api/deploy_hook.html">DeployHook</a>
+<a href="../api/deployment.html">Deployment</a>
+<a href="../api/destination.html">Destination</a>
+<a href="../api/domain.html">Domain</a>
+<a href="../api/durable_objects_namespace.html">DurableObjectsNamespace</a>
+<a href="../api/environment_variable.html">EnvironmentVariable</a>
+<a href="../api/git_hub_integration.html">GitHubIntegration</a>
+<a href="../api/hyperdrive.html">Hyperdrive</a>
+<a href="../api/image_registry.html">ImageRegistry</a>
+<a href="../api/issue.html">Issue</a>
+<a href="../api/key.html">Key</a>
+<a href="../api/live_tail.html">LiveTail</a>
+<a href="../api/metrics_export.html">MetricsExport</a>
+<a href="../api/namespace.html">Namespace</a>
+<a href="../api/preview.html">Preview</a>
+<a href="../api/preview_deployment.html">PreviewDeployment</a>
+<a href="../api/query.html">Query</a>
+<a href="../api/repository_connection.html">RepositoryConnection</a>
+<a href="../api/rollout.html">Rollout</a>
+<a href="../api/saved_query.html">SavedQuery</a>
+<a href="../api/script.html">Script</a>
+<a href="../api/script_setting.html">ScriptSetting</a>
+<a href="../api/secret.html">Secret</a>
+<a href="../api/secrets_store_delete.html">SecretsStoreDelete</a>
+<a href="../api/secrets_store_quota.html">SecretsStoreQuota</a>
+<a href="../api/secrets_store_secret.html">SecretsStoreSecret</a>
+<a href="../api/secrets_store_store.html">SecretsStoreStore</a>
+<a href="../api/secrets_store_stores_response_collection.html">SecretsStoreStoresResponseCollection</a>
+<a href="../api/setting.html">Setting</a>
+<a href="../api/shared.html">Shared</a>
+<a href="../api/tail.html">Tail</a>
+<a href="../api/token.html">Token</a>
+<a href="../api/trigger.html">Trigger</a>
+<a href="../api/usage.html">Usage</a>
+<a href="../api/value.html">Value</a>
+<a href="../api/version.html">Version</a>
+<a href="../api/worker.html">Worker</a>
+<a href="../api/worker_cron_trigger.html">WorkerCronTrigger</a>
+<a href="../api/worker_deployment.html">WorkerDeployment</a>
+<a href="../api/worker_environment.html">WorkerEnvironment</a>
+<a href="../api/worker_route.html">WorkerRoute</a>
+<a href="../api/worker_script.html">WorkerScript</a>
+<a href="../api/worker_subdomain.html">WorkerSubdomain</a>
+<a href="../api/worker_tail_log.html">WorkerTailLog</a>
+<a href="../api/workers_account_setting.html">WorkersAccountSetting</a>
+<a href="../api/workers_api_response_null_result.html">WorkersApiResponseNullResult</a>
+<a href="../api/workers_completed_upload_asset.html">WorkersCompletedUploadAsset</a>
+<a href="../api/workers_create_assets_upload_session.html">WorkersCreateAssetsUploadSession</a>
+<a href="../api/workers_for_platform.html">WorkersForPlatform</a>
+<a href="../api/workers_kv_api_response_common_no_result.html">WorkersKvApiResponseCommonNoResult</a>
+<a aria-current="page" href="../api/workers_kv_namespace.html">WorkersKvNamespace</a><div class="nav-sections"><a class="nav-section" href="#post-accountsaccount_idstoragekvnamespacesnamespace_idbulkdelete">POST /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk/delete</a>
+<a class="nav-section" href="#post-accountsaccount_idstoragekvnamespacesnamespace_idbulkget">POST /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk/get</a>
+<a class="nav-section" href="#post-accountsaccount_idstoragekvnamespaces">POST /accounts/{account_id}/storage/kv/namespaces</a>
+<a class="nav-section" href="#get-accountsaccount_idstoragekvnamespacesnamespace_idkeys">GET /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/keys</a>
+<a class="nav-section" href="#get-accountsaccount_idstoragekvnamespaces">GET /accounts/{account_id}/storage/kv/namespaces</a>
+<a class="nav-section" href="#get-accountsaccount_idstoragekvnamespacesnamespace_idmetadatakey_name">GET /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/metadata/{key_name}</a>
+<a class="nav-section" href="#get-accountsaccount_idstoragekvnamespacesnamespace_idvalueskey_name">GET /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name}</a>
+<a class="nav-section" href="#get-accountsaccount_idstoragekvnamespacesnamespace_id">GET /accounts/{account_id}/storage/kv/namespaces/{namespace_id}</a>
+<a class="nav-section" href="#delete-accountsaccount_idstoragekvnamespacesnamespace_idbulk">DELETE /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk</a>
+<a class="nav-section" href="#put-accountsaccount_idstoragekvnamespacesnamespace_id">PUT /accounts/{account_id}/storage/kv/namespaces/{namespace_id}</a>
+<a class="nav-section" href="#put-accountsaccount_idstoragekvnamespacesnamespace_idbulk">PUT /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk</a></div>
+<a href="../api/workers_namespace_list.html">WorkersNamespaceList</a>
+<a href="../api/workers_namespace_script_delete_bulk.html">WorkersNamespaceScriptDeleteBulk</a>
+<a href="../api/workers_namespace_script_response_single.html">WorkersNamespaceScriptResponseSingle</a>
+<a href="../api/workers_namespace_single.html">WorkersNamespaceSingle</a>
+<a href="../api/workers_pipelines_other.html">WorkersPipelinesOther</a>
+<a href="../api/workers_script_and_version_setting.html">WorkersScriptAndVersionSetting</a>
+<a href="../api/workers_script_response_collection.html">WorkersScriptResponseCollection</a>
+<a href="../api/workers_script_response_single.html">WorkersScriptResponseSingle</a>
+<a href="../api/workers_smart_placement.html">WorkersSmartPlacement</a>
+<a href="../api/workers_usage_model.html">WorkersUsageModel</a>
+<a href="../api/workers_versions_list.html">WorkersVersionsList</a>
+<a href="../api/workers_versions_single.html">WorkersVersionsSingle</a>
+<a href="../api/workers_versions_upload.html">WorkersVersionsUpload</a>
+<a href="../api/workflow.html">Workflow</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="workerskvnamespace">WorkersKvNamespace</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idstoragekvnamespacesnamespace_idbulkdelete"><code>/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk/delete</code></a></td>
+<td><code>create</code></td>
+<td>Delete multiple key-value pairs response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idstoragekvnamespacesnamespace_idbulkget"><code>/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk/get</code></a></td>
+<td><code>create</code></td>
+<td>Get multiple key-value pairs response</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idstoragekvnamespaces"><code>/accounts/{account_id}/storage/kv/namespaces</code></a></td>
+<td><code>create</code></td>
+<td>Create a Namespace response</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idstoragekvnamespacesnamespace_idkeys"><code>/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/keys</code></a></td>
+<td><code>list</code></td>
+<td>List a Namespace's Keys response</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idstoragekvnamespaces"><code>/accounts/{account_id}/storage/kv/namespaces</code></a></td>
+<td><code>list</code></td>
+<td>List Namespaces response</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idstoragekvnamespacesnamespace_idmetadatakey_name"><code>/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/metadata/{key_name}</code></a></td>
+<td><code>load</code></td>
+<td>Read the metadata for a key response</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idstoragekvnamespacesnamespace_idvalueskey_name"><code>/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name}</code></a></td>
+<td><code>load</code></td>
+<td>Read key-value pair response</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idstoragekvnamespacesnamespace_id"><code>/accounts/{account_id}/storage/kv/namespaces/{namespace_id}</code></a></td>
+<td><code>load</code></td>
+<td>Get a Namespace response</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idstoragekvnamespacesnamespace_idbulk"><code>/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk</code></a></td>
+<td><code>remove</code></td>
+<td>Delete multiple key-value pairs response</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-accountsaccount_idstoragekvnamespacesnamespace_id"><code>/accounts/{account_id}/storage/kv/namespaces/{namespace_id}</code></a></td>
+<td><code>update</code></td>
+<td>Rename a Namespace response</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-accountsaccount_idstoragekvnamespacesnamespace_idbulk"><code>/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk</code></a></td>
+<td><code>update</code></td>
+<td>Write multiple key-value pairs response</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">workers_kv_namespaces, err := client.WorkersKvNamespace(nil).List(map[string]any{&quot;account_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(workers_kv_namespaces)
+workers_kv_namespace, err := client.WorkersKvNamespace(nil).Load(map[string]any{&quot;account_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(workers_kv_namespace)
+created, err := client.WorkersKvNamespace(nil).Create(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;errors&quot;: []any{}, &quot;keys&quot;: []any{}, &quot;messages&quot;: []any{}, &quot;success&quot;: true, &quot;title&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+updated, err := client.WorkersKvNamespace(nil).Update(map[string]any{&quot;id&quot;: &quot;example_id&quot;, &quot;account_id&quot;: &quot;example&quot;, &quot;namespace_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(updated)
+removed, err := client.WorkersKvNamespace(nil).Remove(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;namespace_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local workers_kv_namespaces, err = client:WorkersKvNamespace():list({ account_id = &quot;example&quot; })
+local workers_kv_namespace, err = client:WorkersKvNamespace():load({ account_id = &quot;example&quot; })
+local created, err = client:WorkersKvNamespace():create({ account_id = &quot;example&quot;, errors = {}, keys = {}, messages = {}, success = true, title = &quot;example&quot; })
+local updated, err = client:WorkersKvNamespace():update({ id = &quot;example_id&quot;, account_id = &quot;example&quot;, namespace_id = &quot;example&quot; })
+local removed, err = client:WorkersKvNamespace():remove({ account_id = &quot;example&quot;, namespace_id = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$workers_kv_namespaces = $client-&gt;WorkersKvNamespace()-&gt;list([&quot;account_id&quot; =&gt; &quot;example&quot;]);
+$workers_kv_namespace = $client-&gt;WorkersKvNamespace()-&gt;load([&quot;account_id&quot; =&gt; &quot;example&quot;]);
+$created = $client-&gt;WorkersKvNamespace()-&gt;create([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;errors&quot; =&gt; [], &quot;keys&quot; =&gt; [], &quot;messages&quot; =&gt; [], &quot;success&quot; =&gt; true, &quot;title&quot; =&gt; &quot;example&quot;]);
+$updated = $client-&gt;WorkersKvNamespace()-&gt;update([&quot;id&quot; =&gt; &quot;example_id&quot;, &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;namespace_id&quot; =&gt; &quot;example&quot;]);
+$client-&gt;WorkersKvNamespace()-&gt;remove([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;namespace_id&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">workers_kv_namespaces = client.WorkersKvNamespace().list({&quot;account_id&quot;: &quot;example&quot;})
+workers_kv_namespace = client.WorkersKvNamespace().load({&quot;account_id&quot;: &quot;example&quot;})
+created = client.WorkersKvNamespace().create({ &quot;account_id&quot;: &quot;example&quot;, &quot;errors&quot;: [], &quot;keys&quot;: [], &quot;messages&quot;: [], &quot;success&quot;: True, &quot;title&quot;: &quot;example&quot; })
+updated = client.WorkersKvNamespace().update({&quot;id&quot;: &quot;example_id&quot;, &quot;account_id&quot;: &quot;example&quot;, &quot;namespace_id&quot;: &quot;example&quot;})
+client.WorkersKvNamespace().remove({&quot;account_id&quot;: &quot;example&quot;, &quot;namespace_id&quot;: &quot;example&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">workers_kv_namespaces = client.WorkersKvNamespace.list({ &quot;account_id&quot; =&gt; &quot;example&quot; })
+workers_kv_namespace = client.WorkersKvNamespace.load({ &quot;account_id&quot; =&gt; &quot;example&quot; })
+created = client.WorkersKvNamespace.create({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;errors&quot; =&gt; [], &quot;keys&quot; =&gt; [], &quot;messages&quot; =&gt; [], &quot;success&quot; =&gt; true, &quot;title&quot; =&gt; &quot;example&quot; })
+updated = client.WorkersKvNamespace.update({ &quot;id&quot; =&gt; &quot;example_id&quot;, &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;namespace_id&quot; =&gt; &quot;example&quot; })
+client.WorkersKvNamespace.remove({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;namespace_id&quot; =&gt; &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const workers_kv_namespaces = await client.WorkersKvNamespace().list({ account_id: &quot;example&quot; })
+const workers_kv_namespace = await client.WorkersKvNamespace().load({ account_id: &quot;example&quot; })
+const created = await client.WorkersKvNamespace().create({ account_id: &quot;example&quot;, errors: [], keys: [], messages: [], success: true, title: &quot;example&quot; })
+const updated = await client.WorkersKvNamespace().update({ id: &quot;example_id&quot;, account_id: &quot;example&quot;, namespace_id: &quot;example&quot; })
+await client.WorkersKvNamespace().remove({ account_id: &quot;example&quot;, namespace_id: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Errors</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Id</td>
+</tr>
+<tr>
+<td><code>jurisdiction</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Specify the jurisdiction to restrict the KV namespace to durably store data within.</td>
+</tr>
+<tr>
+<td><code>keys</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Array of keys to retrieve (maximum of 100).</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Messages</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Result</td>
+</tr>
+<tr>
+<td><code>result_info</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Result Info</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable string name for a Workers KV namespace.</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Return values as strings with <code>text</code>, or parse stored JSON values with <code>json</code>.</td>
+</tr>
+<tr>
+<td><code>withMetadata</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether to include metadata in the response.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-accountsaccount_idstoragekvnamespacesnamespace_idbulkdelete" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk/delete</h3>
+<p>Operation ID: <code>workers-kv-namespace-delete-multiple-key-value-pairs</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>namespace_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>array of string</code>.</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-delete-multiple-key-value-pairs-response" class="status" data-status="2xx">200: Delete multiple key-value pairs response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-delete-multiple-key-value-pairs-response-failure">4XX: Delete multiple key-value pairs response failure</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h3 id="post-accountsaccount_idstoragekvnamespacesnamespace_idbulkget" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk/get</h3>
+<p>Operation ID: <code>workers-kv-namespace-get-multiple-key-value-pairs</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>namespace_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>keys</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Array of keys to retrieve (maximum of 100).</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td><code>enum: text, json</code></td>
+<td>No</td>
+<td>Return values as strings with <code>text</code>, or parse stored JSON values with <code>json</code>.</td>
+</tr>
+<tr>
+<td><code>withMetadata</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether to include metadata in the response.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-get-multiple-key-value-pairs-response" class="status" data-status="2xx">200: Get multiple key-value pairs response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-get-multiple-key-value-pairs-response-failure">4XX: Get multiple key-value pairs response failure</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idstoragekvnamespaces" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/storage/kv/namespaces</h3>
+<p>Operation ID: <code>workers-kv-namespace-create-a-namespace</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-2">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>jurisdiction</code></td>
+<td><code>enum: eu, fedramp, us</code></td>
+<td>No</td>
+<td>Specify the jurisdiction to restrict the KV namespace to durably store data within. Can only be set at namespace creation time.</td>
+</tr>
+<tr>
+<td><code>title</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable string name for a Workers KV namespace.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-create-a-namespace-response" class="status" data-status="2xx">200: Create a Namespace response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-create-a-namespace-response-failure">4XX: Create a Namespace response failure</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-accountsaccount_idstoragekvnamespacesnamespace_idkeys" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/keys</h3>
+<p>Operation ID: <code>workers-kv-namespace-list-a-namespace'-s-keys</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>namespace_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>limit</code> | <code>query</code> | <code>number</code> | No |  |
+| <code>prefix</code> | <code>query</code> | <code>string</code> | No |  |
+| <code>cursor</code> | <code>query</code> | <code>string</code> | No |  |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-list-a-namespace39s-keys-response" class="status" data-status="2xx">200: List a Namespace's Keys response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-list-a-namespace39s-keys-response-failure">4XX: List a Namespace's Keys response failure</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idstoragekvnamespaces" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/storage/kv/namespaces</h3>
+<p>Operation ID: <code>workers-kv-namespace-list-namespaces</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>page</code> | <code>query</code> | <code>number</code> | No |  |
+| <code>per_page</code> | <code>query</code> | <code>number</code> | No |  |
+| <code>order</code> | <code>query</code> | <code>enum: id, title</code> | No |  |
+| <code>direction</code> | <code>query</code> | <code>enum: asc, desc</code> | No |  |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-list-namespaces-response" class="status" data-status="2xx">200: List Namespaces response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-list-namespaces-response-failure">4XX: List Namespaces response failure</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-accountsaccount_idstoragekvnamespacesnamespace_idmetadatakey_name" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/metadata/{key_name}</h3>
+<p>Operation ID: <code>workers-kv-namespace-read-the-metadata-for-a-key</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>key_name</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>namespace_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-read-the-metadata-for-a-key-response" class="status" data-status="2xx">200: Read the metadata for a key response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-read-the-metadata-for-a-key-response-failure">4XX: Read the metadata for a key response failure</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idstoragekvnamespacesnamespace_idvalueskey_name" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name}</h3>
+<p>Operation ID: <code>workers-kv-namespace-read-key-value-pair</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-6">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>key_name</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>namespace_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-6">Responses</h4>
+<h5 id="200-read-key-value-pair-response" class="status" data-status="2xx">200: Read key-value pair response</h5>
+<p><code>application/octet-stream</code></p>
+<p>The response is <code>string or string (binary)</code>.</p>
+<h5 id="4xx-read-key-value-pair-response-failure">4XX: Read key-value pair response failure</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idstoragekvnamespacesnamespace_id" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/storage/kv/namespaces/{namespace_id}</h3>
+<p>Operation ID: <code>workers-kv-namespace-get-a-namespace</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-7">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>namespace_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-7">Responses</h4>
+<h5 id="200-get-a-namespace-response" class="status" data-status="2xx">200: Get a Namespace response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-get-a-namespace-response-failure">4XX: Get a Namespace response failure</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="remove">remove</h2>
+<h3 id="delete-accountsaccount_idstoragekvnamespacesnamespace_idbulk" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk</h3>
+<p>Operation ID: <code>workers-kv-namespace-delete-multiple-key-value-pairs-deprecated</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-8">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>namespace_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-3">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>array of string</code>.</p>
+<h4 id="responses-8">Responses</h4>
+<h5 id="200-delete-multiple-key-value-pairs-response-1" class="status" data-status="2xx">200: Delete multiple key-value pairs response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-delete-multiple-key-value-pairs-response-failure-1">4XX: Delete multiple key-value pairs response failure</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h2 id="update">update</h2>
+<h3 id="put-accountsaccount_idstoragekvnamespacesnamespace_id" class="operation" data-method="put"><code>PUT</code> /accounts/{account_id}/storage/kv/namespaces/{namespace_id}</h3>
+<p>Operation ID: <code>workers-kv-namespace-rename-a-namespace</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-9">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>namespace_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-4">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>title</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Human-readable string name for a Workers KV namespace.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-9">Responses</h4>
+<h5 id="200-rename-a-namespace-response" class="status" data-status="2xx">200: Rename a Namespace response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-rename-a-namespace-response-failure">4XX: Rename a Namespace response failure</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="put-accountsaccount_idstoragekvnamespacesnamespace_idbulk" class="operation" data-method="put"><code>PUT</code> /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk</h3>
+<p>Operation ID: <code>workers-kv-namespace-write-multiple-key-value-pairs</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-10">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>namespace_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-5">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[].base64</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Indicates whether or not the server should base64 decode the value before storing it. Useful for writing values that wouldn't otherwise be valid JSON strings, such as images.</td>
+</tr>
+<tr>
+<td><code>[].expiration</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Expires the key at a certain time, measured in number of seconds since the UNIX epoch.</td>
+</tr>
+<tr>
+<td><code>[].expiration_ttl</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Number of seconds until the key expires. Must be at least 60. Takes precedence over <code>expiration</code> when both are specified.</td>
+</tr>
+<tr>
+<td><code>[].key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A key's name. The name may be at most 512 bytes. All printable, non-whitespace characters are valid.</td>
+</tr>
+<tr>
+<td><code>[].metadata</code></td>
+<td><code>string or number or integer or boolean or object or array of any and any</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>[].value</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>A UTF-8 encoded string to be stored, up to 25 MiB in length.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-10">Responses</h4>
+<h5 id="200-write-multiple-key-value-pairs-response" class="status" data-status="2xx">200: Write multiple key-value pairs response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-write-multiple-key-value-pairs-response-failure">4XX: Write multiple key-value pairs response failure</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

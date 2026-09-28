@@ -1,0 +1,203 @@
+
+
+import Path from 'node:path'
+import * as Fs from 'node:fs'
+
+import { test, describe, afterEach } from 'node:test'
+import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
+
+
+import { CloudflareWorkersSDK, BaseFeature, stdutil } from '../../..'
+
+import {
+  envOverride,
+  liveClientOptions,
+  liveDelay,
+  loadEnvLocal,
+  makeCtrl,
+  makeMatch,
+  makeReqdata,
+  makeStepData,
+  makeValid,
+  maybeSkipControl,
+} from '../../utility'
+
+
+loadEnvLocal(__dirname + '/../../../.env.local')
+
+
+describe('WorkersKvNamespaceEntity', async () => {
+
+  // Per-test live pacing. Delay is read from sdk-test-control.json's
+  // `test.live.delayMs`; only sleeps when CLOUDFLARE_WORKERS_TEST_LIVE=TRUE.
+  afterEach(liveDelay('CLOUDFLARE_WORKERS_TEST_LIVE'))
+
+  test('instance', async () => {
+    const testsdk = CloudflareWorkersSDK.test()
+    const ent = testsdk.WorkersKvNamespace()
+    assert(null != ent)
+  })
+
+
+  test('basic', async (t) => {
+
+    const live = 'TRUE' === process.env.CLOUDFLARE_WORKERS_TEST_LIVE
+    for (const op of ['create', 'list', 'update', 'load', 'remove']) {
+      if (!live && maybeSkipControl(t, 'entityOp', 'workers_kv_namespace.' + op, live)) return
+    }
+
+    
+    const setup = basicSetup()
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"errors":{"a":true,"h":"Errors","n":"errors","r":true,"t":"`$ARRAY`","key$":"errors","index$":0},"id":{"a":true,"h":"Id","n":"id","r":false,"t":"`$STRING`","key$":"id","index$":1},"jurisdiction":{"a":true,"h":"Jurisdiction","n":"jurisdiction","r":false,"sh":"Specify the jurisdiction to restrict the KV namespace to durably store data within.","t":"`$STRING`","key$":"jurisdiction","index$":2},"keys":{"a":true,"h":"Keys","n":"keys","r":true,"sh":"Array of keys to retrieve (maximum of 100).","t":"`$ARRAY`","key$":"keys","index$":3},"messages":{"a":true,"h":"Messages","n":"messages","r":true,"t":"`$ARRAY`","key$":"messages","index$":4},"result":{"a":true,"h":"Result","n":"result","op":{"load":{"req":true,"type":"`$OBJECT`"}},"r":false,"t":"`$ANY`","union":{"branches":6,"count":1,"depth":2},"key$":"result","index$":5},"result_info":{"a":true,"h":"Result Info","n":"result_info","r":false,"t":"`$OBJECT`","key$":"result_info","index$":6},"success":{"a":true,"h":"Success","n":"success","r":true,"sh":"Whether the API call was successful.","t":"`$BOOLEAN`","key$":"success","index$":7},"title":{"a":true,"h":"Title","n":"title","r":true,"sh":"Human-readable string name for a Workers KV namespace.","t":"`$STRING`","key$":"title","index$":8},"type":{"a":true,"h":"Type","n":"type","r":false,"sh":"Return values as strings with `text`, or parse stored JSON values with `json`.","t":"`$STRING`","key$":"type","index$":9},"withMetadata":{"a":true,"h":"With Metadata","n":"withMetadata","r":false,"sh":"Whether to include metadata in the response.","t":"`$BOOLEAN`","key$":"withMetadata","index$":10}},"id":{"field":"id","name":"id"},"name":"workers_kv_namespace","op":{"create":{"input":"data","name":"create","points":[{"a":true,"co":{"id":"POST /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk/delete","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"023e105f4ecef8ad9ca31a8372d0c353","k":"param","n":"account_id","or":"account_id","r":true,"t":"`$STRING`","index$":0},{"a":true,"ex":"0f2ac74b498b48028cb68387c421e279","k":"param","n":"namespace_id","or":"namespace_id","r":true,"t":"`$STRING`","index$":1}]},"k":"http","m":"POST","o":"/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk/delete","q":{"exist":["account_id","namespace_id"]},"r":{},"s":[{"lit":"accounts"},{"var":"account_id"},{"lit":"storage"},{"lit":"kv"},{"lit":"namespaces"},{"var":"namespace_id"},{"lit":"bulk"},{"lit":"delete"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0},{"a":true,"co":{"id":"POST /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk/get","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"023e105f4ecef8ad9ca31a8372d0c353","k":"param","n":"account_id","or":"account_id","r":true,"t":"`$STRING`","index$":0},{"a":true,"ex":"0f2ac74b498b48028cb68387c421e279","k":"param","n":"namespace_id","or":"namespace_id","r":true,"t":"`$STRING`","index$":1}]},"k":"http","m":"POST","o":"/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk/get","q":{"exist":["account_id","namespace_id"]},"r":{},"s":[{"lit":"accounts"},{"var":"account_id"},{"lit":"storage"},{"lit":"kv"},{"lit":"namespaces"},{"var":"namespace_id"},{"lit":"bulk"},{"lit":"get"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":1},{"a":true,"co":{"id":"POST /accounts/{account_id}/storage/kv/namespaces","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"023e105f4ecef8ad9ca31a8372d0c353","k":"param","n":"account_id","or":"account_id","r":true,"t":"`$STRING`","index$":0}]},"k":"http","m":"POST","o":"/accounts/{account_id}/storage/kv/namespaces","q":{"exist":["account_id"]},"r":{},"s":[{"lit":"accounts"},{"var":"account_id"},{"lit":"storage"},{"lit":"kv"},{"lit":"namespaces"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":2}],"key$":"create"},"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/keys","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"023e105f4ecef8ad9ca31a8372d0c353","k":"param","n":"account_id","or":"account_id","r":true,"t":"`$STRING`","index$":0},{"a":true,"ex":"0f2ac74b498b48028cb68387c421e279","k":"param","n":"namespace_id","or":"namespace_id","r":true,"t":"`$STRING`","index$":1}],"query":[{"a":true,"ex":"6Ck1la0VxJ0djhidm1MdX2FyDGxLKVeeHZZmORS_8XeSuhz9SjIJRaSa2lnsF01tQOHrfTGAP3R5X1Kv5iVUuMbNKhWNAXHOl6ePB0TUL8nw","k":"query","n":"cursor","or":"cursor","r":false,"t":"`$STRING`","index$":0},{"a":true,"ex":1000,"k":"query","n":"limit","or":"limit","r":false,"t":"`$NUMBER`","index$":1},{"a":true,"ex":"My-Prefix","k":"query","n":"prefix","or":"prefix","r":false,"t":"`$STRING`","index$":2}]},"k":"http","m":"GET","o":"/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/keys","q":{"exist":["account_id","cursor","limit","namespace_id","prefix"]},"r":{},"s":[{"lit":"accounts"},{"var":"account_id"},{"lit":"storage"},{"lit":"kv"},{"lit":"namespaces"},{"var":"namespace_id"},{"lit":"keys"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0},{"a":true,"co":{"id":"GET /accounts/{account_id}/storage/kv/namespaces","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"023e105f4ecef8ad9ca31a8372d0c353","k":"param","n":"account_id","or":"account_id","r":true,"t":"`$STRING`","index$":0}],"query":[{"a":true,"ex":"asc","k":"query","n":"direction","or":"direction","r":false,"t":"`$STRING`","index$":0},{"a":true,"ex":"id","k":"query","n":"order","or":"order","r":false,"t":"`$STRING`","index$":1},{"a":true,"ex":1,"k":"query","n":"page","or":"page","r":false,"t":"`$NUMBER`","index$":2},{"a":true,"ex":20,"k":"query","n":"per_page","or":"per_page","r":false,"t":"`$NUMBER`","index$":3}]},"k":"http","m":"GET","o":"/accounts/{account_id}/storage/kv/namespaces","q":{"exist":["account_id","direction","order","page","per_page"]},"r":{},"s":[{"lit":"accounts"},{"var":"account_id"},{"lit":"storage"},{"lit":"kv"},{"lit":"namespaces"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":1}],"key$":"list"},"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/metadata/{key_name}","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"023e105f4ecef8ad9ca31a8372d0c353","k":"param","n":"account_id","or":"account_id","r":true,"t":"`$STRING`","index$":0},{"a":true,"ex":"My-Key","k":"param","n":"key_name","or":"key_name","r":true,"t":"`$STRING`","index$":1},{"a":true,"ex":"0f2ac74b498b48028cb68387c421e279","k":"param","n":"namespace_id","or":"namespace_id","r":true,"t":"`$STRING`","index$":2}]},"k":"http","m":"GET","o":"/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/metadata/{key_name}","q":{"exist":["account_id","key_name","namespace_id"]},"r":{},"s":[{"lit":"accounts"},{"var":"account_id"},{"lit":"storage"},{"lit":"kv"},{"lit":"namespaces"},{"var":"namespace_id"},{"lit":"metadata"},{"var":"key_name"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0},{"a":true,"co":{"id":"GET /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name}","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"023e105f4ecef8ad9ca31a8372d0c353","k":"param","n":"account_id","or":"account_id","r":true,"t":"`$STRING`","index$":0},{"a":true,"ex":"My-Key","k":"param","n":"key_name","or":"key_name","r":true,"t":"`$STRING`","index$":1},{"a":true,"ex":"0f2ac74b498b48028cb68387c421e279","k":"param","n":"namespace_id","or":"namespace_id","r":true,"t":"`$STRING`","index$":2}]},"k":"http","m":"GET","o":"/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name}","q":{"exist":["account_id","key_name","namespace_id"]},"r":{},"s":[{"lit":"accounts"},{"var":"account_id"},{"lit":"storage"},{"lit":"kv"},{"lit":"namespaces"},{"var":"namespace_id"},{"lit":"values"},{"var":"key_name"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":1},{"a":true,"co":{"id":"GET /accounts/{account_id}/storage/kv/namespaces/{namespace_id}","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"023e105f4ecef8ad9ca31a8372d0c353","k":"param","n":"account_id","or":"account_id","r":true,"t":"`$STRING`","index$":0},{"a":true,"ex":"0f2ac74b498b48028cb68387c421e279","k":"param","n":"id","or":"namespace_id","r":true,"t":"`$STRING`","index$":1}]},"k":"http","m":"GET","o":"/accounts/{account_id}/storage/kv/namespaces/{namespace_id}","q":{"exist":["account_id","id"]},"r":{"param":{"namespace_id":"id"}},"s":[{"lit":"accounts"},{"var":"account_id"},{"lit":"storage"},{"lit":"kv"},{"lit":"namespaces"},{"var":"id"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":2}],"key$":"load"},"remove":{"input":"data","name":"remove","points":[{"a":true,"co":{"id":"DELETE /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"023e105f4ecef8ad9ca31a8372d0c353","k":"param","n":"account_id","or":"account_id","r":true,"t":"`$STRING`","index$":0},{"a":true,"ex":"0f2ac74b498b48028cb68387c421e279","k":"param","n":"namespace_id","or":"namespace_id","r":true,"t":"`$STRING`","index$":1}]},"k":"http","m":"DELETE","o":"/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk","q":{"exist":["account_id","namespace_id"]},"r":{},"s":[{"lit":"accounts"},{"var":"account_id"},{"lit":"storage"},{"lit":"kv"},{"lit":"namespaces"},{"var":"namespace_id"},{"lit":"bulk"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"remove"},"update":{"input":"data","name":"update","points":[{"a":true,"co":{"id":"PUT /accounts/{account_id}/storage/kv/namespaces/{namespace_id}","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"023e105f4ecef8ad9ca31a8372d0c353","k":"param","n":"account_id","or":"account_id","r":true,"t":"`$STRING`","index$":0},{"a":true,"ex":"0f2ac74b498b48028cb68387c421e279","k":"param","n":"id","or":"namespace_id","r":true,"t":"`$STRING`","index$":1}]},"k":"http","m":"PUT","o":"/accounts/{account_id}/storage/kv/namespaces/{namespace_id}","q":{"exist":["account_id","id"]},"r":{"param":{"namespace_id":"id"}},"s":[{"lit":"accounts"},{"var":"account_id"},{"lit":"storage"},{"lit":"kv"},{"lit":"namespaces"},{"var":"id"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0},{"a":true,"co":{"id":"PUT /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"023e105f4ecef8ad9ca31a8372d0c353","k":"param","n":"account_id","or":"account_id","r":true,"t":"`$STRING`","index$":0},{"a":true,"ex":"0f2ac74b498b48028cb68387c421e279","k":"param","n":"namespace_id","or":"namespace_id","r":true,"t":"`$STRING`","index$":1}]},"k":"http","m":"PUT","o":"/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk","q":{"exist":["account_id","namespace_id"]},"r":{},"s":[{"lit":"accounts"},{"var":"account_id"},{"lit":"storage"},{"lit":"kv"},{"lit":"namespaces"},{"var":"namespace_id"},{"lit":"bulk"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":1}],"key$":"update"}},"relations":{"ancestors":[["$.main.kit.entity.account"],["$.main.kit.entity.account","$.main.kit.entity.namespace"],["$.main.kit.entity.account","$.main.kit.entity.namespace"],["$.main.kit.entity.account","$.main.kit.entity.namespace","$.main.kit.entity.value"]]},"key$":"workers_kv_namespace","name__orig":"workers_kv_namespace","Name":"WorkersKvNamespace","name_":"workers_kv_namespace","name-":"workers-kv-namespace","NAME":"WORKERS_KV_NAMESPACE","index$":59}, {"active":true,"entity":"workers_kv_namespace","key$":"BasicWorkersKvNamespaceFlow","kind":"basic","name":"BasicWorkersKvNamespaceFlow","param":{},"step":[{"a":true,"d":{},"i":{"ref":"workers_kv_namespace_ref01"},"m":{"account_id":"account01","namespace_id":"namespace01"},"o":"create","s":[],"v":[],"index$":0},{"a":true,"d":{},"i":{},"m":{"account_id":"account01"},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"workers_kv_namespace_ref01"}}],"index$":1},{"a":true,"d":{"account_id":"account01"},"i":{"ref":"workers_kv_namespace_ref01","srcdatavar":"workers_kv_namespace_ref01_data","suffix":"_up0","textfield":"jurisdiction"},"m":{},"o":"update","s":[{"apply":"TextFieldMark","def":{"mark":"Mark01-workers_kv_namespace_ref01"}}],"v":[],"index$":2},{"a":true,"d":{},"i":{"ref":"workers_kv_namespace_ref01","srcdatavar":"workers_kv_namespace_ref01_data","suffix":"_dt0"},"m":{"account_id":"account01","id":"workers_kv_namespace01"},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-workers_kv_namespace_ref01"}}],"index$":3},{"a":true,"d":{},"i":{"ref":"workers_kv_namespace_ref01","suffix":"_rm0"},"m":{"account_id":"account01","id":"workers_kv_namespace01"},"o":"remove","s":[],"v":[],"index$":4},{"a":true,"d":{},"i":{"suffix":"_rt0"},"m":{"account_id":"account01"},"o":"list","s":[],"v":[{"apply":"ItemNotExists","def":{"ref":"workers_kv_namespace_ref01"}}],"index$":5}]}, 'WorkersKvNamespace', {"POST /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk/delete":{"protocol":"http","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"array","items":{"description":"A key's name. The name may be at most 512 bytes. All printable, non-whitespace characters are valid.","type":"string","example":"My-Key","maxLength":512,"x-ref":"#/components/schemas/workers-kv_key_name_bulk"},"maxItems":10000,"x-ref":"#/components/schemas/workers-kv_bulk_delete","index$":1}}}},"parameters":[{"name":"namespace_id","in":"path","required":true,"schema":{"description":"ID of the Workers KV namespace.","type":"string","example":"0f2ac74b498b48028cb68387c421e279","maxLength":32,"readOnly":true,"x-auditable":true,"x-ref":"#/components/schemas/workers-kv_namespace_identifier"},"index$":0},{"name":"account_id","in":"path","required":true,"schema":{"description":"ID of the Cloudflare account that owns the Workers KV namespaces.","type":"string","example":"023e105f4ecef8ad9ca31a8372d0c353","maxLength":32,"readOnly":true,"x-auditable":true,"x-ref":"#/components/schemas/workers-kv_identifier"},"index$":1}]},"POST /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk/get":{"protocol":"http","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"keys":{"description":"Array of keys to retrieve (maximum of 100).","type":"array","items":{"description":"A key's name. The name may be at most 512 bytes. All printable, non-whitespace characters are valid.","type":"string","example":"My-Key","maxLength":512,"x-ref":"#/components/schemas/workers-kv_key_name_bulk"},"maxItems":100,"key$":"keys"},"type":{"description":"Return values as strings with `text`, or parse stored JSON values with `json`.","type":"string","default":"text","enum":["text","json"],"key$":"type"},"withMetadata":{"description":"Whether to include metadata in the response.","type":"boolean","default":false,"key$":"withMetadata"}},"required":["keys"],"index$":1}}}},"parameters":[{"name":"namespace_id","in":"path","required":true,"schema":{"description":"ID of the Workers KV namespace.","type":"string","example":"0f2ac74b498b48028cb68387c421e279","maxLength":32,"readOnly":true,"x-auditable":true,"x-ref":"#/components/schemas/workers-kv_namespace_identifier"},"index$":0},{"name":"account_id","in":"path","required":true,"schema":{"description":"ID of the Cloudflare account that owns the Workers KV namespaces.","type":"string","example":"023e105f4ecef8ad9ca31a8372d0c353","maxLength":32,"readOnly":true,"x-auditable":true,"x-ref":"#/components/schemas/workers-kv_identifier"},"index$":1}]},"POST /accounts/{account_id}/storage/kv/namespaces":{"protocol":"http","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"jurisdiction":{"description":"Specify the jurisdiction to restrict the KV namespace to durably store data within. Can only be set at namespace creation time.","type":"string","example":"eu","enum":["eu","fedramp","us"],"x-auditable":true,"x-ref":"#/components/schemas/workers-kv_jurisdiction","key$":"jurisdiction"},"title":{"description":"Human-readable string name for a Workers KV namespace.","type":"string","example":"My Own Namespace","maxLength":512,"x-auditable":true,"x-ref":"#/components/schemas/workers-kv_namespace_title","key$":"title"}},"required":["title"],"x-ref":"#/components/schemas/workers-kv_create_namespace_body","index$":1}}}},"parameters":[{"name":"account_id","in":"path","required":true,"schema":{"description":"ID of the Cloudflare account that owns the Workers KV namespaces.","type":"string","example":"023e105f4ecef8ad9ca31a8372d0c353","maxLength":32,"readOnly":true,"x-auditable":true,"x-ref":"#/components/schemas/workers-kv_identifier"},"index$":0}]},"GET /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/keys":{"protocol":"http","parameters":[{"name":"namespace_id","in":"path","required":true,"schema":{"description":"ID of the Workers KV namespace.","type":"string","example":"0f2ac74b498b48028cb68387c421e279","maxLength":32,"readOnly":true,"x-auditable":true,"x-ref":"#/components/schemas/workers-kv_namespace_identifier"},"index$":0},{"name":"account_id","in":"path","required":true,"schema":{"description":"ID of the Cloudflare account that owns the Workers KV namespaces.","type":"string","example":"023e105f4ecef8ad9ca31a8372d0c353","maxLength":32,"readOnly":true,"x-auditable":true,"x-ref":"#/components/schemas/workers-kv_identifier"},"index$":1},{"name":"limit","in":"query","schema":{"description":"Maximum number of keys to return in one response. Pass `result_info.cursor` from the response as `cursor` to request the next page.","type":"number","default":1000,"maximum":1000,"minimum":10},"index$":2},{"name":"prefix","in":"query","schema":{"description":"Filters returned keys by a name prefix. Exact matches and any key names that begin with the prefix will be returned.","type":"string","example":"My-Prefix"},"index$":3},{"name":"cursor","in":"query","schema":{"description":"Opaque pagination token from `result_info.cursor` in the previous response. Pass it unchanged to request the next page of keys.","type":"string","example":"6Ck1la0VxJ0djhidm1MdX2FyDGxLKVeeHZZmORS_8XeSuhz9SjIJRaSa2lnsF01tQOHrfTGAP3R5X1Kv5iVUuMbNKhWNAXHOl6ePB0TUL8nw","x-stainless-pagination-property":{"purpose":"next_cursor_param"}},"index$":4}]},"GET /accounts/{account_id}/storage/kv/namespaces":{"protocol":"http","parameters":[{"name":"account_id","in":"path","required":true,"schema":{"description":"ID of the Cloudflare account that owns the Workers KV namespaces.","type":"string","example":"023e105f4ecef8ad9ca31a8372d0c353","maxLength":32,"readOnly":true,"x-auditable":true,"x-ref":"#/components/schemas/workers-kv_identifier"},"index$":0},{"name":"page","in":"query","schema":{"description":"Page number of paginated results.","type":"number","default":1,"minimum":1},"index$":1},{"name":"per_page","in":"query","schema":{"description":"Maximum number of results per page.","type":"number","default":20,"maximum":1000,"minimum":1},"index$":2},{"name":"order","in":"query","schema":{"description":"Namespace field to sort by (`id` or `title`).","type":"string","example":"id","enum":["id","title"]},"index$":3},{"name":"direction","in":"query","schema":{"description":"Sort namespaces in ascending (`asc`) or descending (`desc`) order.","type":"string","example":"asc","enum":["asc","desc"]},"index$":4}]},"GET /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/metadata/{key_name}":{"protocol":"http","parameters":[{"name":"key_name","in":"path","required":true,"schema":{"description":"A key's name. The name may be at most 512 bytes. All printable, non-whitespace characters are valid. Use percent-encoding to define key names as part of a URL.","type":"string","example":"My-Key","maxLength":512,"x-ref":"#/components/schemas/workers-kv_key_name"},"index$":0},{"name":"namespace_id","in":"path","required":true,"schema":{"description":"ID of the Workers KV namespace.","type":"string","example":"0f2ac74b498b48028cb68387c421e279","maxLength":32,"readOnly":true,"x-auditable":true,"x-ref":"#/components/schemas/workers-kv_namespace_identifier"},"index$":1},{"name":"account_id","in":"path","required":true,"schema":{"description":"ID of the Cloudflare account that owns the Workers KV namespaces.","type":"string","example":"023e105f4ecef8ad9ca31a8372d0c353","maxLength":32,"readOnly":true,"x-auditable":true,"x-ref":"#/components/schemas/workers-kv_identifier"},"index$":2}]},"GET /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name}":{"protocol":"http","parameters":[{"name":"key_name","in":"path","required":true,"schema":{"description":"A key's name. The name may be at most 512 bytes. All printable, non-whitespace characters are valid. Use percent-encoding to define key names as part of a URL.","type":"string","example":"My-Key","maxLength":512,"x-ref":"#/components/schemas/workers-kv_key_name"},"index$":0},{"name":"namespace_id","in":"path","required":true,"schema":{"description":"ID of the Workers KV namespace.","type":"string","example":"0f2ac74b498b48028cb68387c421e279","maxLength":32,"readOnly":true,"x-auditable":true,"x-ref":"#/components/schemas/workers-kv_namespace_identifier"},"index$":1},{"name":"account_id","in":"path","required":true,"schema":{"description":"ID of the Cloudflare account that owns the Workers KV namespaces.","type":"string","example":"023e105f4ecef8ad9ca31a8372d0c353","maxLength":32,"readOnly":true,"x-auditable":true,"x-ref":"#/components/schemas/workers-kv_identifier"},"index$":2}]},"GET /accounts/{account_id}/storage/kv/namespaces/{namespace_id}":{"protocol":"http","parameters":[{"name":"namespace_id","in":"path","required":true,"schema":{"description":"ID of the Workers KV namespace.","type":"string","example":"0f2ac74b498b48028cb68387c421e279","maxLength":32,"readOnly":true,"x-auditable":true,"x-ref":"#/components/schemas/workers-kv_namespace_identifier"},"index$":0},{"name":"account_id","in":"path","required":true,"schema":{"description":"ID of the Cloudflare account that owns the Workers KV namespaces.","type":"string","example":"023e105f4ecef8ad9ca31a8372d0c353","maxLength":32,"readOnly":true,"x-auditable":true,"x-ref":"#/components/schemas/workers-kv_identifier"},"index$":1}]},"DELETE /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk":{"protocol":"http","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"array","items":{"description":"A key's name. The name may be at most 512 bytes. All printable, non-whitespace characters are valid.","type":"string","example":"My-Key","maxLength":512,"x-ref":"#/components/schemas/workers-kv_key_name_bulk"},"maxItems":10000,"x-ref":"#/components/schemas/workers-kv_bulk_delete"}}}},"parameters":[{"name":"namespace_id","in":"path","required":true,"schema":{"description":"ID of the Workers KV namespace.","type":"string","example":"0f2ac74b498b48028cb68387c421e279","maxLength":32,"readOnly":true,"x-auditable":true,"x-ref":"#/components/schemas/workers-kv_namespace_identifier"},"index$":0},{"name":"account_id","in":"path","required":true,"schema":{"description":"ID of the Cloudflare account that owns the Workers KV namespaces.","type":"string","example":"023e105f4ecef8ad9ca31a8372d0c353","maxLength":32,"readOnly":true,"x-auditable":true,"x-ref":"#/components/schemas/workers-kv_identifier"},"index$":1}]},"PUT /accounts/{account_id}/storage/kv/namespaces/{namespace_id}":{"protocol":"http","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"object","properties":{"title":{"description":"Human-readable string name for a Workers KV namespace.","type":"string","example":"My Own Namespace","maxLength":512,"x-auditable":true,"x-ref":"#/components/schemas/workers-kv_namespace_title","key$":"title"}},"required":["title"],"x-ref":"#/components/schemas/workers-kv_create_rename_namespace_body","index$":1}}}},"parameters":[{"name":"namespace_id","in":"path","required":true,"schema":{"description":"ID of the Workers KV namespace.","type":"string","example":"0f2ac74b498b48028cb68387c421e279","maxLength":32,"readOnly":true,"x-auditable":true,"x-ref":"#/components/schemas/workers-kv_namespace_identifier"},"index$":0},{"name":"account_id","in":"path","required":true,"schema":{"description":"ID of the Cloudflare account that owns the Workers KV namespaces.","type":"string","example":"023e105f4ecef8ad9ca31a8372d0c353","maxLength":32,"readOnly":true,"x-auditable":true,"x-ref":"#/components/schemas/workers-kv_identifier"},"index$":1}]},"PUT /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk":{"protocol":"http","requestBody":{"required":true,"content":{"application/json":{"schema":{"type":"array","items":{"properties":{"base64":{"description":"Indicates whether or not the server should base64 decode the value before storing it. Useful for writing values that wouldn't otherwise be valid JSON strings, such as images.","type":"boolean","default":false},"expiration":{"description":"Expires the key at a certain time, measured in number of seconds since the UNIX epoch.","type":"number","example":1578435000,"x-ref":"#/components/schemas/workers-kv_expiration"},"expiration_ttl":{"description":"Number of seconds until the key expires. Must be at least 60. Takes precedence over `expiration` when both are specified.","type":"number","example":300,"minimum":60,"x-ref":"#/components/schemas/workers-kv_expiration_ttl"},"key":{"description":"A key's name. The name may be at most 512 bytes. All printable, non-whitespace characters are valid.","type":"string","example":"My-Key","maxLength":512,"x-ref":"#/components/schemas/workers-kv_key_name_bulk"},"metadata":{"allOf":[{"anyOf":[],"x-ref":"#/components/schemas/workers-kv_any","x-stainless-override-schema":{}},{"description":"Arbitrary JSON that is associated with a key.","example":{}}],"x-ref":"#/components/schemas/workers-kv_list_metadata"},"value":{"description":"A UTF-8 encoded string to be stored, up to 25 MiB in length.","type":"string","example":"Some string","maxLength":26214400}},"required":["key","value"],"type":"object"},"maxItems":10000,"x-ref":"#/components/schemas/workers-kv_bulk_write","index$":1}}}},"parameters":[{"name":"namespace_id","in":"path","required":true,"schema":{"description":"ID of the Workers KV namespace.","type":"string","example":"0f2ac74b498b48028cb68387c421e279","maxLength":32,"readOnly":true,"x-auditable":true,"x-ref":"#/components/schemas/workers-kv_namespace_identifier"},"index$":0},{"name":"account_id","in":"path","required":true,"schema":{"description":"ID of the Cloudflare account that owns the Workers KV namespaces.","type":"string","example":"023e105f4ecef8ad9ca31a8372d0c353","maxLength":32,"readOnly":true,"x-auditable":true,"x-ref":"#/components/schemas/workers-kv_identifier"},"index$":1}]}})
+    }
+    const client = setup.client
+    const struct = setup.struct
+
+    const isempty = struct.isempty
+    const select = struct.select
+
+
+    // CREATE
+    const workers_kv_namespace_ref01_ent = client.WorkersKvNamespace()
+    let workers_kv_namespace_ref01_data = setup.data.new.workers_kv_namespace['workers_kv_namespace_ref01']
+    workers_kv_namespace_ref01_data['account_id'] = setup.idmap['account01']
+    workers_kv_namespace_ref01_data['namespace_id'] = setup.idmap['namespace01']
+
+    workers_kv_namespace_ref01_data = (await workers_kv_namespace_ref01_ent.create(workers_kv_namespace_ref01_data)).data()
+    assert(null != workers_kv_namespace_ref01_data.id)
+
+
+    // LIST
+    const workers_kv_namespace_ref01_match: any = {}
+    workers_kv_namespace_ref01_match['account_id'] = setup.idmap['account01']
+
+    const workers_kv_namespace_ref01_list = (await workers_kv_namespace_ref01_ent.list(workers_kv_namespace_ref01_match)).map((e: any) => e.data())
+
+    assert(!isempty(select(workers_kv_namespace_ref01_list, { id: workers_kv_namespace_ref01_data.id })))
+
+
+    // UPDATE
+    const workers_kv_namespace_ref01_data_up0: any = {}
+    workers_kv_namespace_ref01_data_up0.id = workers_kv_namespace_ref01_data.id
+    workers_kv_namespace_ref01_data_up0 ['account_id'] = setup.idmap['account_id']
+
+    const workers_kv_namespace_ref01_markdef_up0 = { name: 'jurisdiction', value: 'Mark01-workers_kv_namespace_ref01_' + setup.now }
+    ;(workers_kv_namespace_ref01_data_up0 as any)[workers_kv_namespace_ref01_markdef_up0.name] = workers_kv_namespace_ref01_markdef_up0.value
+
+    const workers_kv_namespace_ref01_resdata_up0 = (await workers_kv_namespace_ref01_ent.update(workers_kv_namespace_ref01_data_up0)).data()
+    assert(workers_kv_namespace_ref01_resdata_up0.id === workers_kv_namespace_ref01_data_up0.id)
+
+    assert((workers_kv_namespace_ref01_resdata_up0 as any)[workers_kv_namespace_ref01_markdef_up0.name] === workers_kv_namespace_ref01_markdef_up0.value)
+
+
+    // LOAD
+    const workers_kv_namespace_ref01_match_dt0: any = {}
+    workers_kv_namespace_ref01_match_dt0.id = workers_kv_namespace_ref01_data.id
+    const workers_kv_namespace_ref01_data_dt0 = (await workers_kv_namespace_ref01_ent.load(workers_kv_namespace_ref01_match_dt0)).data()
+    assert(workers_kv_namespace_ref01_data_dt0.id === workers_kv_namespace_ref01_data.id)
+
+
+    // REMOVE
+    const workers_kv_namespace_ref01_match_rm0: any = { id: workers_kv_namespace_ref01_data.id }
+    await workers_kv_namespace_ref01_ent.remove(workers_kv_namespace_ref01_match_rm0)
+  
+
+    // LIST
+    const workers_kv_namespace_ref01_match_rt0: any = {}
+    workers_kv_namespace_ref01_match_rt0['account_id'] = setup.idmap['account01']
+
+    const workers_kv_namespace_ref01_list_rt0 = (await workers_kv_namespace_ref01_ent.list(workers_kv_namespace_ref01_match_rt0)).map((e: any) => e.data())
+
+    assert(isempty(select(workers_kv_namespace_ref01_list_rt0, { id: workers_kv_namespace_ref01_data.id })))
+
+
+  })
+})
+
+
+
+function basicSetup(extra?: any) {
+  // TODO: fix test def options
+  const options: any = {} // null
+
+  // TODO: needs test utility to resolve path
+  const entityDataFile =
+    Path.resolve(__dirname, 
+      '../../../../.sdk/test/entity/workers_kv_namespace/WorkersKvNamespaceTestData.json')
+
+  // TODO: file ready util needed?
+  const entityDataSource = Fs.readFileSync(entityDataFile).toString('utf8')
+
+  // TODO: need a xlang JSON parse utility in voxgig/struct with better error msgs
+  const entityData = JSON.parse(entityDataSource)
+
+  options.entity = entityData.existing
+
+  let client = CloudflareWorkersSDK.test(options, extra)
+  const struct = client.utility().struct
+  const merge = struct.merge
+  const transform = struct.transform
+
+  let idmap = transform(
+    ['workers_kv_namespace01','workers_kv_namespace02','workers_kv_namespace03','account01','account02','account03','namespace01','namespace02','namespace03','value01','value02','value03'],
+    {
+      '`$PACK`': ['', {
+        '`$KEY`': '`$COPY`',
+        '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
+      }]
+    })
+
+  const env = envOverride({
+    'CLOUDFLARE_WORKERS_TEST_WORKERS_KV_NAMESPACE_ENTID': idmap,
+    'CLOUDFLARE_WORKERS_TEST_LIVE': 'FALSE',
+    'CLOUDFLARE_WORKERS_TEST_EXPLAIN': 'FALSE',
+    'CLOUDFLARE_WORKERS_APIKEY': '',
+  })
+
+  idmap = env['CLOUDFLARE_WORKERS_TEST_WORKERS_KV_NAMESPACE_ENTID']
+
+  const live = 'TRUE' === env.CLOUDFLARE_WORKERS_TEST_LIVE
+
+  const transport = createLiveTransport()
+  if (live) {
+    const rawIds = process.env['CLOUDFLARE_WORKERS_TEST_WORKERS_KV_NAMESPACE_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
+    client = new CloudflareWorkersSDK(merge([
+      // FIRST, so the generated fields below win: sdk-test-control.json's
+      // test.client.options adds to the live client, it does not redirect it.
+      liveClientOptions(),
+      {
+        apikey: env.CLOUDFLARE_WORKERS_APIKEY,
+      },
+      // 'extra || {}', not a bare 'extra': struct.merge returns UNDEFINED when the
+      // last entry is undefined, and basicSetup is normally called with no
+      // argument at all - so a bare 'extra' silently discarded the apikey
+      // and server values above and handed the SDK undefined. Harmless
+      // while there was nothing in that object; not harmless now.
+      extra || {},
+      { system: { fetch: transport.fetch } }
+    ]))
+  }
+
+  const setup = {
+    idmap,
+    env,
+    options,
+    client,
+    struct,
+    data: entityData,
+    explain: 'TRUE' === env.CLOUDFLARE_WORKERS_TEST_EXPLAIN,
+    live,
+    transport,
+    now: Date.now(),
+  }
+
+  return setup
+}
+  

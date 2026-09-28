@@ -1,0 +1,49 @@
+# BasicEnvironmentVariableFlow
+
+main: kit: flow: BasicEnvironmentVariableFlow:
+{
+  entity: "environment_variable",
+  kind: "basic",
+  name: "BasicEnvironmentVariableFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01",
+        trigger_id: "trigger01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "environment_variable_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        account_id: "account01"
+      }
+
+      i: {
+        ref: "environment_variable_ref01",
+        srcdatavar: "environment_variable_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-environment_variable_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEnvironmentVariableFlow"
+}

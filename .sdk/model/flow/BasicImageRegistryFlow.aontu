@@ -1,0 +1,72 @@
+# BasicImageRegistryFlow
+
+main: kit: flow: BasicImageRegistryFlow:
+{
+  entity: "image_registry",
+  kind: "basic",
+  name: "BasicImageRegistryFlow",
+  step: [
+    {
+      i: {
+        ref: "image_registry_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "image_registry_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "image_registry_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "image_registry01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "image_registry_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicImageRegistryFlow"
+}

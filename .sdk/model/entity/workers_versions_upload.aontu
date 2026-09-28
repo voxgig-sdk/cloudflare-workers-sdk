@@ -1,0 +1,93 @@
+# Entity: workers_versions_upload
+
+main: kit: entity: workers_versions_upload: {
+
+  alias: field: {}
+
+  name: "workers_versions_upload"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/workers/scripts/{script_name}/versions"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "this-is_my_script-01"
+                k: "param"
+                n: "script_name"
+                or: "script_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "bindings_inherit"
+                or: "bindings_inherit"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/workers/scripts/{script_name}/versions"
+          q: {
+            exist: [
+              "account_id"
+              "bindings_inherit"
+              "script_name"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              lit: "scripts"
+            }
+            {
+              var: "script_name"
+            }
+            {
+              lit: "versions"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account") path("$.main.kit.entity.script")]
+  ]
+
+}

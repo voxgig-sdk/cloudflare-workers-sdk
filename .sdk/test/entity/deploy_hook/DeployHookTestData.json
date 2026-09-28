@@ -1,0 +1,90 @@
+{
+  "existing": {
+    "deploy_hook": {
+      "DEPLOY_HOOK00": {
+        "branch": "s50",
+        "deploy_hook_name": "s51",
+        "errors": [],
+        "id": "DEPLOY_HOOK00",
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "script_name": "SCRIPT_NAME01",
+        "worker_id": "WORKER01"
+      },
+      "DEPLOY_HOOK01": {
+        "branch": "sa0",
+        "deploy_hook_name": "sa1",
+        "errors": [],
+        "id": "DEPLOY_HOOK01",
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "script_name": "SCRIPT_NAME01",
+        "worker_id": "WORKER01"
+      },
+      "DEPLOY_HOOK02": {
+        "branch": "sf0",
+        "deploy_hook_name": "sf1",
+        "errors": [],
+        "id": "DEPLOY_HOOK02",
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "script_name": "SCRIPT_NAME01",
+        "worker_id": "WORKER01"
+      }
+    }
+  },
+  "new": {
+    "deploy_hook": {
+      "deploy_hook_ref01": {
+        "branch": "s140",
+        "deploy_hook_name": "s141",
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/builds/workers/{script_name}/deploy_hooks": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /workers/builds/deploy_hooks/{deploy_hook_uuid}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/builds/workers/{script_name}/deploy_hooks": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/builds/workers/{script_name}/deploy_hooks/{deploy_hook_uuid}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/builds/workers/{script_name}/deploy_hooks/{deploy_hook_uuid}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/builds/workers/{script_name}/deploy_hooks/{deploy_hook_uuid}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

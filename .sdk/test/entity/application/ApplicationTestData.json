@@ -1,0 +1,96 @@
+{
+  "existing": {
+    "application": {
+      "APPLICATION00": {
+        "configuration": {},
+        "constraints": {},
+        "errors": [],
+        "id": "APPLICATION00",
+        "max_instances": 114,
+        "messages": [],
+        "observability": "s74",
+        "result": "s75",
+        "result_info": {},
+        "rollout_active_grace_period": 119,
+        "success": true,
+        "account_id": "ACCOUNT01"
+      },
+      "APPLICATION01": {
+        "configuration": {},
+        "constraints": {},
+        "errors": [],
+        "id": "APPLICATION01",
+        "max_instances": 224,
+        "messages": [],
+        "observability": "se2",
+        "result": "se3",
+        "result_info": {},
+        "rollout_active_grace_period": 229,
+        "success": true,
+        "account_id": "ACCOUNT01"
+      },
+      "APPLICATION02": {
+        "configuration": {},
+        "constraints": {},
+        "errors": [],
+        "id": "APPLICATION02",
+        "max_instances": 334,
+        "messages": [],
+        "observability": "s150",
+        "result": "s151",
+        "result_info": {},
+        "rollout_active_grace_period": 339,
+        "success": true,
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "application": {
+      "application_ref01": {
+        "configuration": {},
+        "constraints": {},
+        "errors": [],
+        "max_instances": 444,
+        "messages": [],
+        "observability": "s1be",
+        "result": "s1bf",
+        "result_info": {},
+        "rollout_active_grace_period": 449,
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/containers/applications": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/containers/applications": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/containers/applications/{application_id}/versions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/containers/applications/{application_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/containers/applications/{application_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/containers/applications/{application_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,3284 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>WorkersPipelinesOther | Cloudflare Workers</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare Workers<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-workers-sdk">voxgig-sdk/cloudflare-workers-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare Workers</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account.html">Account</a>
+<a href="../api/application.html">Application</a>
+<a href="../api/brapi.html">Brapi</a>
+<a href="../api/build.html">Build</a>
+<a href="../api/build_token.html">BuildToken</a>
+<a href="../api/builds_api.html">BuildsApi</a>
+<a href="../api/connection.html">Connection</a>
+<a href="../api/container_image.html">ContainerImage</a>
+<a href="../api/container_instance.html">ContainerInstance</a>
+<a href="../api/deploy_hook.html">DeployHook</a>
+<a href="../api/deployment.html">Deployment</a>
+<a href="../api/destination.html">Destination</a>
+<a href="../api/domain.html">Domain</a>
+<a href="../api/durable_objects_namespace.html">DurableObjectsNamespace</a>
+<a href="../api/environment_variable.html">EnvironmentVariable</a>
+<a href="../api/git_hub_integration.html">GitHubIntegration</a>
+<a href="../api/hyperdrive.html">Hyperdrive</a>
+<a href="../api/image_registry.html">ImageRegistry</a>
+<a href="../api/issue.html">Issue</a>
+<a href="../api/key.html">Key</a>
+<a href="../api/live_tail.html">LiveTail</a>
+<a href="../api/metrics_export.html">MetricsExport</a>
+<a href="../api/namespace.html">Namespace</a>
+<a href="../api/preview.html">Preview</a>
+<a href="../api/preview_deployment.html">PreviewDeployment</a>
+<a href="../api/query.html">Query</a>
+<a href="../api/repository_connection.html">RepositoryConnection</a>
+<a href="../api/rollout.html">Rollout</a>
+<a href="../api/saved_query.html">SavedQuery</a>
+<a href="../api/script.html">Script</a>
+<a href="../api/script_setting.html">ScriptSetting</a>
+<a href="../api/secret.html">Secret</a>
+<a href="../api/secrets_store_delete.html">SecretsStoreDelete</a>
+<a href="../api/secrets_store_quota.html">SecretsStoreQuota</a>
+<a href="../api/secrets_store_secret.html">SecretsStoreSecret</a>
+<a href="../api/secrets_store_store.html">SecretsStoreStore</a>
+<a href="../api/secrets_store_stores_response_collection.html">SecretsStoreStoresResponseCollection</a>
+<a href="../api/setting.html">Setting</a>
+<a href="../api/shared.html">Shared</a>
+<a href="../api/tail.html">Tail</a>
+<a href="../api/token.html">Token</a>
+<a href="../api/trigger.html">Trigger</a>
+<a href="../api/usage.html">Usage</a>
+<a href="../api/value.html">Value</a>
+<a href="../api/version.html">Version</a>
+<a href="../api/worker.html">Worker</a>
+<a href="../api/worker_cron_trigger.html">WorkerCronTrigger</a>
+<a href="../api/worker_deployment.html">WorkerDeployment</a>
+<a href="../api/worker_environment.html">WorkerEnvironment</a>
+<a href="../api/worker_route.html">WorkerRoute</a>
+<a href="../api/worker_script.html">WorkerScript</a>
+<a href="../api/worker_subdomain.html">WorkerSubdomain</a>
+<a href="../api/worker_tail_log.html">WorkerTailLog</a>
+<a href="../api/workers_account_setting.html">WorkersAccountSetting</a>
+<a href="../api/workers_api_response_null_result.html">WorkersApiResponseNullResult</a>
+<a href="../api/workers_completed_upload_asset.html">WorkersCompletedUploadAsset</a>
+<a href="../api/workers_create_assets_upload_session.html">WorkersCreateAssetsUploadSession</a>
+<a href="../api/workers_for_platform.html">WorkersForPlatform</a>
+<a href="../api/workers_kv_api_response_common_no_result.html">WorkersKvApiResponseCommonNoResult</a>
+<a href="../api/workers_kv_namespace.html">WorkersKvNamespace</a>
+<a href="../api/workers_namespace_list.html">WorkersNamespaceList</a>
+<a href="../api/workers_namespace_script_delete_bulk.html">WorkersNamespaceScriptDeleteBulk</a>
+<a href="../api/workers_namespace_script_response_single.html">WorkersNamespaceScriptResponseSingle</a>
+<a href="../api/workers_namespace_single.html">WorkersNamespaceSingle</a>
+<a aria-current="page" href="../api/workers_pipelines_other.html">WorkersPipelinesOther</a><div class="nav-sections"><a class="nav-section" href="#post-accountsaccount_idpipelines">POST /accounts/{account_id}/pipelines</a>
+<a class="nav-section" href="#post-accountsaccount_idpipelinesv1pipelines">POST /accounts/{account_id}/pipelines/v1/pipelines</a>
+<a class="nav-section" href="#post-accountsaccount_idpipelinesv1sinks">POST /accounts/{account_id}/pipelines/v1/sinks</a>
+<a class="nav-section" href="#post-accountsaccount_idpipelinesv1streams">POST /accounts/{account_id}/pipelines/v1/streams</a>
+<a class="nav-section" href="#post-accountsaccount_idpipelinesv1validate_sql">POST /accounts/{account_id}/pipelines/v1/validate_sql</a>
+<a class="nav-section" href="#get-accountsaccount_idpipelinesv1sinks">GET /accounts/{account_id}/pipelines/v1/sinks</a>
+<a class="nav-section" href="#get-accountsaccount_idpipelinesv1streams">GET /accounts/{account_id}/pipelines/v1/streams</a>
+<a class="nav-section" href="#get-accountsaccount_idpipelinesv1pipelines">GET /accounts/{account_id}/pipelines/v1/pipelines</a>
+<a class="nav-section" href="#get-accountsaccount_idpipelines">GET /accounts/{account_id}/pipelines</a>
+<a class="nav-section" href="#get-accountsaccount_idpipelinesv1pipelinespipeline_id">GET /accounts/{account_id}/pipelines/v1/pipelines/{pipeline_id}</a>
+<a class="nav-section" href="#get-accountsaccount_idpipelinespipeline_name">GET /accounts/{account_id}/pipelines/{pipeline_name}</a>
+<a class="nav-section" href="#get-accountsaccount_idpipelinesv1sinkssink_id">GET /accounts/{account_id}/pipelines/v1/sinks/{sink_id}</a>
+<a class="nav-section" href="#get-accountsaccount_idpipelinesv1streamsstream_id">GET /accounts/{account_id}/pipelines/v1/streams/{stream_id}</a>
+<a class="nav-section" href="#patch-accountsaccount_idpipelinesv1streamsstream_id">PATCH /accounts/{account_id}/pipelines/v1/streams/{stream_id}</a>
+<a class="nav-section" href="#delete-accountsaccount_idpipelinesv1pipelinespipeline_id">DELETE /accounts/{account_id}/pipelines/v1/pipelines/{pipeline_id}</a>
+<a class="nav-section" href="#delete-accountsaccount_idpipelinespipeline_name">DELETE /accounts/{account_id}/pipelines/{pipeline_name}</a>
+<a class="nav-section" href="#delete-accountsaccount_idpipelinesv1sinkssink_id">DELETE /accounts/{account_id}/pipelines/v1/sinks/{sink_id}</a>
+<a class="nav-section" href="#delete-accountsaccount_idpipelinesv1streamsstream_id">DELETE /accounts/{account_id}/pipelines/v1/streams/{stream_id}</a>
+<a class="nav-section" href="#put-accountsaccount_idpipelinespipeline_name">PUT /accounts/{account_id}/pipelines/{pipeline_name}</a></div>
+<a href="../api/workers_script_and_version_setting.html">WorkersScriptAndVersionSetting</a>
+<a href="../api/workers_script_response_collection.html">WorkersScriptResponseCollection</a>
+<a href="../api/workers_script_response_single.html">WorkersScriptResponseSingle</a>
+<a href="../api/workers_smart_placement.html">WorkersSmartPlacement</a>
+<a href="../api/workers_usage_model.html">WorkersUsageModel</a>
+<a href="../api/workers_versions_list.html">WorkersVersionsList</a>
+<a href="../api/workers_versions_single.html">WorkersVersionsSingle</a>
+<a href="../api/workers_versions_upload.html">WorkersVersionsUpload</a>
+<a href="../api/workflow.html">Workflow</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="workerspipelinesother">WorkersPipelinesOther</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idpipelines"><code>/accounts/{account_id}/pipelines</code></a></td>
+<td><code>create</code></td>
+<td>[DEPRECATED] Indicates a successfully created pipeline. Use /pipelines/v1/pipelines instead</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idpipelinesv1pipelines"><code>/accounts/{account_id}/pipelines/v1/pipelines</code></a></td>
+<td><code>create</code></td>
+<td>Indicates a successfully created Pipeline</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idpipelinesv1sinks"><code>/accounts/{account_id}/pipelines/v1/sinks</code></a></td>
+<td><code>create</code></td>
+<td>Indicates a successfully created Sink</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idpipelinesv1streams"><code>/accounts/{account_id}/pipelines/v1/streams</code></a></td>
+<td><code>create</code></td>
+<td>Indicates a successfully created Stream</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idpipelinesv1validate_sql"><code>/accounts/{account_id}/pipelines/v1/validate_sql</code></a></td>
+<td><code>create</code></td>
+<td>Indicates SQL validation success</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idpipelinesv1sinks"><code>/accounts/{account_id}/pipelines/v1/sinks</code></a></td>
+<td><code>list</code></td>
+<td>Indicates successfully listed Sinks</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idpipelinesv1streams"><code>/accounts/{account_id}/pipelines/v1/streams</code></a></td>
+<td><code>list</code></td>
+<td>Indicates a successfully created Stream</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idpipelinesv1pipelines"><code>/accounts/{account_id}/pipelines/v1/pipelines</code></a></td>
+<td><code>list</code></td>
+<td>Indicates a successfully listed Pipelines</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idpipelines"><code>/accounts/{account_id}/pipelines</code></a></td>
+<td><code>list</code></td>
+<td>[DEPRECATED] Lists the pipelines. Use /pipelines/v1/pipelines instead</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idpipelinesv1pipelinespipeline_id"><code>/accounts/{account_id}/pipelines/v1/pipelines/{pipeline_id}</code></a></td>
+<td><code>load</code></td>
+<td>Indicates a successfully retrieved Pipeline</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idpipelinespipeline_name"><code>/accounts/{account_id}/pipelines/{pipeline_name}</code></a></td>
+<td><code>load</code></td>
+<td>[DEPRECATED] Describes the configuration of a pipeline</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idpipelinesv1sinkssink_id"><code>/accounts/{account_id}/pipelines/v1/sinks/{sink_id}</code></a></td>
+<td><code>load</code></td>
+<td>Indicates that Sink was retrieved</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idpipelinesv1streamsstream_id"><code>/accounts/{account_id}/pipelines/v1/streams/{stream_id}</code></a></td>
+<td><code>load</code></td>
+<td>Indicates a successfully retrieved Stream</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-accountsaccount_idpipelinesv1streamsstream_id"><code>/accounts/{account_id}/pipelines/v1/streams/{stream_id}</code></a></td>
+<td><code>patch</code></td>
+<td>Indicates a successfully updated Stream</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idpipelinesv1pipelinespipeline_id"><code>/accounts/{account_id}/pipelines/v1/pipelines/{pipeline_id}</code></a></td>
+<td><code>remove</code></td>
+<td>Indicates a successfully deleted Pipeline</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idpipelinespipeline_name"><code>/accounts/{account_id}/pipelines/{pipeline_name}</code></a></td>
+<td><code>remove</code></td>
+<td>[DEPRECATED] Indicates a successfully deleted pipeline</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idpipelinesv1sinkssink_id"><code>/accounts/{account_id}/pipelines/v1/sinks/{sink_id}</code></a></td>
+<td><code>remove</code></td>
+<td>Indicates a successfully deleted Sink</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idpipelinesv1streamsstream_id"><code>/accounts/{account_id}/pipelines/v1/streams/{stream_id}</code></a></td>
+<td><code>remove</code></td>
+<td>Indicates a successfully deleted Stream</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-accountsaccount_idpipelinespipeline_name"><code>/accounts/{account_id}/pipelines/{pipeline_name}</code></a></td>
+<td><code>update</code></td>
+<td>[DEPRECATED] Indicates a successfully updated pipeline</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">workers_pipelines_others, err := client.WorkersPipelinesOther(nil).List(map[string]any{&quot;account_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(workers_pipelines_others)
+workers_pipelines_other, err := client.WorkersPipelinesOther(nil).Load(map[string]any{&quot;account_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(workers_pipelines_other)
+created, err := client.WorkersPipelinesOther(nil).Create(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;created_at&quot;: &quot;example&quot;, &quot;destination&quot;: map[string]any{}, &quot;endpoint&quot;: &quot;example&quot;, &quot;graph&quot;: map[string]any{}, &quot;http&quot;: map[string]any{}, &quot;id&quot;: &quot;example&quot;, &quot;modified_at&quot;: &quot;example&quot;, &quot;name&quot;: &quot;example&quot;, &quot;source&quot;: []any{}, &quot;sql&quot;: &quot;example&quot;, &quot;status&quot;: &quot;example&quot;, &quot;tables&quot;: []any{}, &quot;type&quot;: &quot;example&quot;, &quot;version&quot;: 1, &quot;worker_binding&quot;: map[string]any{}}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+updated, err := client.WorkersPipelinesOther(nil).Update(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;pipeline_name&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(updated)
+removed, err := client.WorkersPipelinesOther(nil).Remove(map[string]any{&quot;account_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local workers_pipelines_others, err = client:WorkersPipelinesOther():list({ account_id = &quot;example&quot; })
+local workers_pipelines_other, err = client:WorkersPipelinesOther():load({ account_id = &quot;example&quot; })
+local created, err = client:WorkersPipelinesOther():create({ account_id = &quot;example&quot;, created_at = &quot;example&quot;, destination = {}, endpoint = &quot;example&quot;, graph = {}, http = {}, id = &quot;example&quot;, modified_at = &quot;example&quot;, name = &quot;example&quot;, source = {}, sql = &quot;example&quot;, status = &quot;example&quot;, tables = {}, type = &quot;example&quot;, version = 1, worker_binding = {} })
+local updated, err = client:WorkersPipelinesOther():update({ account_id = &quot;example&quot;, pipeline_name = &quot;example&quot; })
+local removed, err = client:WorkersPipelinesOther():remove({ account_id = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$workers_pipelines_others = $client-&gt;WorkersPipelinesOther()-&gt;list([&quot;account_id&quot; =&gt; &quot;example&quot;]);
+$workers_pipelines_other = $client-&gt;WorkersPipelinesOther()-&gt;load([&quot;account_id&quot; =&gt; &quot;example&quot;]);
+$created = $client-&gt;WorkersPipelinesOther()-&gt;create([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;created_at&quot; =&gt; &quot;example&quot;, &quot;destination&quot; =&gt; [], &quot;endpoint&quot; =&gt; &quot;example&quot;, &quot;graph&quot; =&gt; [], &quot;http&quot; =&gt; [], &quot;id&quot; =&gt; &quot;example&quot;, &quot;modified_at&quot; =&gt; &quot;example&quot;, &quot;name&quot; =&gt; &quot;example&quot;, &quot;source&quot; =&gt; [], &quot;sql&quot; =&gt; &quot;example&quot;, &quot;status&quot; =&gt; &quot;example&quot;, &quot;tables&quot; =&gt; [], &quot;type&quot; =&gt; &quot;example&quot;, &quot;version&quot; =&gt; 1, &quot;worker_binding&quot; =&gt; []]);
+$updated = $client-&gt;WorkersPipelinesOther()-&gt;update([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;pipeline_name&quot; =&gt; &quot;example&quot;]);
+$client-&gt;WorkersPipelinesOther()-&gt;remove([&quot;account_id&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">workers_pipelines_others = client.WorkersPipelinesOther().list({&quot;account_id&quot;: &quot;example&quot;})
+workers_pipelines_other = client.WorkersPipelinesOther().load({&quot;account_id&quot;: &quot;example&quot;})
+created = client.WorkersPipelinesOther().create({ &quot;account_id&quot;: &quot;example&quot;, &quot;created_at&quot;: &quot;example&quot;, &quot;destination&quot;: {}, &quot;endpoint&quot;: &quot;example&quot;, &quot;graph&quot;: {}, &quot;http&quot;: {}, &quot;id&quot;: &quot;example&quot;, &quot;modified_at&quot;: &quot;example&quot;, &quot;name&quot;: &quot;example&quot;, &quot;source&quot;: [], &quot;sql&quot;: &quot;example&quot;, &quot;status&quot;: &quot;example&quot;, &quot;tables&quot;: [], &quot;type&quot;: &quot;example&quot;, &quot;version&quot;: 1, &quot;worker_binding&quot;: {} })
+updated = client.WorkersPipelinesOther().update({&quot;account_id&quot;: &quot;example&quot;, &quot;pipeline_name&quot;: &quot;example&quot;})
+client.WorkersPipelinesOther().remove({&quot;account_id&quot;: &quot;example&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">workers_pipelines_others = client.WorkersPipelinesOther.list({ &quot;account_id&quot; =&gt; &quot;example&quot; })
+workers_pipelines_other = client.WorkersPipelinesOther.load({ &quot;account_id&quot; =&gt; &quot;example&quot; })
+created = client.WorkersPipelinesOther.create({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;created_at&quot; =&gt; &quot;example&quot;, &quot;destination&quot; =&gt; {}, &quot;endpoint&quot; =&gt; &quot;example&quot;, &quot;graph&quot; =&gt; {}, &quot;http&quot; =&gt; {}, &quot;id&quot; =&gt; &quot;example&quot;, &quot;modified_at&quot; =&gt; &quot;example&quot;, &quot;name&quot; =&gt; &quot;example&quot;, &quot;source&quot; =&gt; [], &quot;sql&quot; =&gt; &quot;example&quot;, &quot;status&quot; =&gt; &quot;example&quot;, &quot;tables&quot; =&gt; [], &quot;type&quot; =&gt; &quot;example&quot;, &quot;version&quot; =&gt; 1, &quot;worker_binding&quot; =&gt; {} })
+updated = client.WorkersPipelinesOther.update({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;pipeline_name&quot; =&gt; &quot;example&quot; })
+client.WorkersPipelinesOther.remove({ &quot;account_id&quot; =&gt; &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const workers_pipelines_others = await client.WorkersPipelinesOther().list({ account_id: &quot;example&quot; })
+const workers_pipelines_other = await client.WorkersPipelinesOther().load({ account_id: &quot;example&quot; })
+const created = await client.WorkersPipelinesOther().create({ account_id: &quot;example&quot;, created_at: &quot;example&quot;, destination: {}, endpoint: &quot;example&quot;, graph: {}, http: {}, id: &quot;example&quot;, modified_at: &quot;example&quot;, name: &quot;example&quot;, source: [], sql: &quot;example&quot;, status: &quot;example&quot;, tables: [], type: &quot;example&quot;, version: 1, worker_binding: {} })
+const updated = await client.WorkersPipelinesOther().update({ account_id: &quot;example&quot;, pipeline_name: &quot;example&quot; })
+await client.WorkersPipelinesOther().remove({ account_id: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>config</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Defines the configuration of the R2 Sink.</td>
+</tr>
+<tr>
+<td><code>created_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Created At</td>
+</tr>
+<tr>
+<td><code>destination</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Destination</td>
+</tr>
+<tr>
+<td><code>endpoint</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates the endpoint URL to send traffic.</td>
+</tr>
+<tr>
+<td><code>failure_reason</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Indicates the reason for the failure of the Pipeline.</td>
+</tr>
+<tr>
+<td><code>format</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Defines the output data format of a sink.</td>
+</tr>
+<tr>
+<td><code>graph</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Indicates the processing flow to implement the SQL.</td>
+</tr>
+<tr>
+<td><code>http</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Http</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates a unique identifier for this pipeline.</td>
+</tr>
+<tr>
+<td><code>modified_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Modified At</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates the name of the Pipeline.</td>
+</tr>
+<tr>
+<td><code>schema</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Defines the schema of the events in the data stream.</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Source</td>
+</tr>
+<tr>
+<td><code>sql</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies SQL for the Pipeline processing flow.</td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates the current status of the Pipeline.</td>
+</tr>
+<tr>
+<td><code>tables</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>List of streams and sinks used by this pipeline.</td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies the type of sink.</td>
+</tr>
+<tr>
+<td><code>version</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Indicates the version number of last saved configuration.</td>
+</tr>
+<tr>
+<td><code>worker_binding</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Worker Binding</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-accountsaccount_idpipelines" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/pipelines</h3>
+<p>Operation ID: <code>postV4AccountsByAccount_idPipelines_deprecated</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>destination</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>destination.batch</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>destination.batch.max_bytes</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Specifies rough maximum size of files.</td>
+</tr>
+<tr>
+<td><code>destination.batch.max_duration_s</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Specifies duration to wait to aggregate batches files.</td>
+</tr>
+<tr>
+<td><code>destination.batch.max_rows</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Specifies rough maximum number of rows per file.</td>
+</tr>
+<tr>
+<td><code>destination.compression</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>destination.compression.type</code></td>
+<td><code>enum: none, gzip, deflate</code></td>
+<td>No</td>
+<td>Specifies the desired compression algorithm and format.</td>
+</tr>
+<tr>
+<td><code>destination.credentials</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>destination.credentials.access_key_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies the R2 Bucket Access Key Id.</td>
+</tr>
+<tr>
+<td><code>destination.credentials.endpoint</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies the R2 Endpoint.</td>
+</tr>
+<tr>
+<td><code>destination.credentials.secret_access_key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies the R2 Bucket Secret Access Key.</td>
+</tr>
+<tr>
+<td><code>destination.format</code></td>
+<td><code>enum: json</code></td>
+<td>Yes</td>
+<td>Specifies the format of data to deliver.</td>
+</tr>
+<tr>
+<td><code>destination.path</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>destination.path.bucket</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies the R2 Bucket to store files.</td>
+</tr>
+<tr>
+<td><code>destination.path.filename</code></td>
+<td><code>string and string</code></td>
+<td>No</td>
+<td>Specifies the name pattern to for individual data files.</td>
+</tr>
+<tr>
+<td><code>destination.path.filepath</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Specifies the name pattern for directory.</td>
+</tr>
+<tr>
+<td><code>destination.path.prefix</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Specifies the base directory within the bucket.</td>
+</tr>
+<tr>
+<td><code>destination.type</code></td>
+<td><code>enum: r2</code></td>
+<td>Yes</td>
+<td>Specifies the type of destination.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Defines the name of the pipeline.</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td><code>array of object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="200-deprecated-indicates-a-successfully-created-pipeline-use-pipelinesv1pipelines-instead" class="status" data-status="2xx">200: [DEPRECATED] Indicates a successfully created pipeline. Use /pipelines/v1/pipelines instead</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>[DEPRECATED] Describes the configuration of a pipeline. Use the new streams/sinks/pipelines API instead.</td>
+</tr>
+<tr>
+<td><code>result.destination</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.destination.batch</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.destination.batch.max_bytes</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Specifies rough maximum size of files.</td>
+</tr>
+<tr>
+<td><code>result.destination.batch.max_duration_s</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Specifies duration to wait to aggregate batches files.</td>
+</tr>
+<tr>
+<td><code>result.destination.batch.max_rows</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Specifies rough maximum number of rows per file.</td>
+</tr>
+<tr>
+<td><code>result.destination.compression</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.destination.compression.type</code></td>
+<td><code>enum: none, gzip, deflate</code></td>
+<td>Yes</td>
+<td>Specifies the desired compression algorithm and format.</td>
+</tr>
+<tr>
+<td><code>result.destination.format</code></td>
+<td><code>enum: json</code></td>
+<td>Yes</td>
+<td>Specifies the format of data to deliver.</td>
+</tr>
+<tr>
+<td><code>result.destination.path</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.destination.path.bucket</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies the R2 Bucket to store files.</td>
+</tr>
+<tr>
+<td><code>result.destination.path.filename</code></td>
+<td><code>string and string</code></td>
+<td>No</td>
+<td>Specifies the name pattern to for individual data files.</td>
+</tr>
+<tr>
+<td><code>result.destination.path.filepath</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Specifies the name pattern for directory.</td>
+</tr>
+<tr>
+<td><code>result.destination.path.prefix</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Specifies the base directory within the bucket.</td>
+</tr>
+<tr>
+<td><code>result.destination.type</code></td>
+<td><code>enum: r2</code></td>
+<td>Yes</td>
+<td>Specifies the type of destination.</td>
+</tr>
+<tr>
+<td><code>result.endpoint</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates the endpoint URL to send traffic.</td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies the pipeline identifier.</td>
+</tr>
+<tr>
+<td><code>result.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Defines the name of the pipeline.</td>
+</tr>
+<tr>
+<td><code>result.source</code></td>
+<td><code>array of object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.version</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Indicates the version number of last saved configuration.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-indicates-an-error-in-creating-a-pipeline">4XX: Indicates an error in creating a pipeline</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="post-accountsaccount_idpipelinesv1pipelines" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/pipelines/v1/pipelines</h3>
+<p>Operation ID: <code>postV4AccountsByAccount_idPipelinesV1Pipelines</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies the name of the Pipeline.</td>
+</tr>
+<tr>
+<td><code>sql</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies SQL for the Pipeline processing flow.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-indicates-a-successfully-created-pipeline" class="status" data-status="2xx">200: Indicates a successfully created Pipeline</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates a unique identifier for this pipeline.</td>
+</tr>
+<tr>
+<td><code>result.modified_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates the name of the Pipeline.</td>
+</tr>
+<tr>
+<td><code>result.sql</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies SQL for the Pipeline processing flow.</td>
+</tr>
+<tr>
+<td><code>result.status</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates the current status of the Pipeline.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-indicates-an-error-in-creating-a-pipeline-1">4XX: Indicates an error in creating a Pipeline</h5>
+<h3 id="post-accountsaccount_idpipelinesv1sinks" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/pipelines/v1/sinks</h3>
+<p>Operation ID: <code>postV4AccountsByAccount_idPipelinesV1Sinks</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-2">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>config</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td>Defines the configuration of the R2 Sink.</td>
+</tr>
+<tr>
+<td><code>format</code></td>
+<td><code>object and object or object and object</code></td>
+<td>No</td>
+<td>Defines the output data format of a sink.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Defines the name of the Sink.</td>
+</tr>
+<tr>
+<td><code>schema</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Defines the schema of the events in the data stream.</td>
+</tr>
+<tr>
+<td><code>schema.fields</code></td>
+<td><code>array of object or object or object or object or object or object or object or object and object or object or object and object or object and object and object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>schema.inferred</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>type</code></td>
+<td><code>enum: r2, r2_data_catalog</code></td>
+<td>Yes</td>
+<td>Specifies the type of sink.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-indicates-a-successfully-created-sink" class="status" data-status="2xx">200: Indicates a successfully created Sink</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.config</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.format</code></td>
+<td><code>object and object or object and object</code></td>
+<td>No</td>
+<td>Defines the output data format of a sink.</td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates a unique identifier for this sink.</td>
+</tr>
+<tr>
+<td><code>result.modified_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Defines the name of the Sink.</td>
+</tr>
+<tr>
+<td><code>result.schema</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Defines the schema of the events in the data stream.</td>
+</tr>
+<tr>
+<td><code>result.schema.fields</code></td>
+<td><code>array of object or object or object or object or object or object or object or object and object or object or object and object or object and object and object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.schema.inferred</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.type</code></td>
+<td><code>enum: r2, r2_data_catalog</code></td>
+<td>Yes</td>
+<td>Specifies the type of sink.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-indicates-an-error-in-creating-a-sink">4XX: Indicates an error in creating a Sink</h5>
+<h3 id="post-accountsaccount_idpipelinesv1streams" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/pipelines/v1/streams</h3>
+<p>Operation ID: <code>postV4AccountsByAccount_idPipelinesV1Streams</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-3">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>format</code></td>
+<td><code>object and object or object and object</code></td>
+<td>No</td>
+<td>Defines the data format of the events.</td>
+</tr>
+<tr>
+<td><code>http</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>http.authentication</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates that authentication is required for the HTTP endpoint.</td>
+</tr>
+<tr>
+<td><code>http.cors</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Specifies the CORS options for the HTTP endpoint.</td>
+</tr>
+<tr>
+<td><code>http.cors.origins</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>http.enabled</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates that the HTTP endpoint is enabled.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies the name of the Stream.</td>
+</tr>
+<tr>
+<td><code>schema</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Defines the schema of the events in the data stream.</td>
+</tr>
+<tr>
+<td><code>schema.fields</code></td>
+<td><code>array of object or object or object or object or object or object or object or object and object or object or object and object or object and object and object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>schema.inferred</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>worker_binding</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>worker_binding.enabled</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates that the worker binding is enabled.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-indicates-a-successfully-created-stream" class="status" data-status="2xx">200: Indicates a successfully created Stream</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.endpoint</code></td>
+<td><code>string (uri)</code></td>
+<td>No</td>
+<td>Indicates the endpoint URL of this stream.</td>
+</tr>
+<tr>
+<td><code>result.format</code></td>
+<td><code>object and object or object and object</code></td>
+<td>No</td>
+<td>Defines the data format of the events.</td>
+</tr>
+<tr>
+<td><code>result.http</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.http.authentication</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates that authentication is required for the HTTP endpoint.</td>
+</tr>
+<tr>
+<td><code>result.http.cors</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Specifies the CORS options for the HTTP endpoint.</td>
+</tr>
+<tr>
+<td><code>result.http.cors.origins</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.http.enabled</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates that the HTTP endpoint is enabled.</td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates a unique identifier for this stream.</td>
+</tr>
+<tr>
+<td><code>result.modified_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates the name of the Stream.</td>
+</tr>
+<tr>
+<td><code>result.schema</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Defines the schema of the events in the data stream.</td>
+</tr>
+<tr>
+<td><code>result.schema.fields</code></td>
+<td><code>array of object or object or object or object or object or object or object or object and object or object or object and object or object and object and object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.schema.inferred</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.version</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Indicates the current version of this stream.</td>
+</tr>
+<tr>
+<td><code>result.worker_binding</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.worker_binding.enabled</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates that the worker binding is enabled.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-indicates-an-error-in-creating-a-stream">4XX: Indicates an error in creating a Stream</h5>
+<h3 id="post-accountsaccount_idpipelinesv1validate_sql" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/pipelines/v1/validate_sql</h3>
+<p>Operation ID: <code>postV4AccountsByAccount_idPipelinesV1Validate_sql</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-4">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sql</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies SQL to validate.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-indicates-sql-validation-success" class="status" data-status="2xx">200: Indicates SQL validation success</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.graph</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Indicates the processing flow to implement the SQL.</td>
+</tr>
+<tr>
+<td><code>result.graph.edges</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.graph.edges[].dest_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.graph.edges[].edge_type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.graph.edges[].key_type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.graph.edges[].src_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.graph.edges[].value_type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.graph.nodes</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.graph.nodes[].description</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.graph.nodes[].node_id</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.graph.nodes[].operator</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.graph.nodes[].parallelism</code></td>
+<td><code>integer (int32)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.tables</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Indicates tables involved in the processing.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="422-indicates-sql-validation-failed" class="status" data-status="4xx">422: Indicates SQL validation failed</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>diagnostics</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>diagnostics[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>diagnostics[].span</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>diagnostics[].span.end</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>diagnostics[].span.end.column</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>diagnostics[].span.end.line</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>diagnostics[].span.start</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>diagnostics[].span.start.column</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>diagnostics[].span.start.line</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-indicates-sql-validation-failed">4XX: Indicates SQL validation failed</h5>
+<h2 id="list">list</h2>
+<h3 id="get-accountsaccount_idpipelinesv1sinks" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/pipelines/v1/sinks</h3>
+<p>Operation ID: <code>getV4AccountsByAccount_idPipelinesV1Sinks</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>pipeline_id</code> | <code>query</code> | <code>string</code> | No |  |
+| <code>name</code> | <code>query</code> | <code>string</code> | No | Filters sinks by name (case-insensitive substring). |
+| <code>page</code> | <code>query</code> | <code>number</code> | No |  |
+| <code>per_page</code> | <code>query</code> | <code>number</code> | No |  |</p>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-indicates-successfully-listed-sinks" class="status" data-status="2xx">200: Indicates successfully listed Sinks</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].config</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td>Defines the configuration of the R2 Sink.</td>
+</tr>
+<tr>
+<td><code>result[].created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].format</code></td>
+<td><code>object and object or object and object</code></td>
+<td>No</td>
+<td>Defines the output data format of a sink.</td>
+</tr>
+<tr>
+<td><code>result[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates a unique identifier for this sink.</td>
+</tr>
+<tr>
+<td><code>result[].modified_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Defines the name of the Sink.</td>
+</tr>
+<tr>
+<td><code>result[].schema</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Defines the schema of the events in the data stream.</td>
+</tr>
+<tr>
+<td><code>result[].schema.fields</code></td>
+<td><code>array of object or object or object or object or object or object or object or object and object or object or object and object or object and object and object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].schema.inferred</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].type</code></td>
+<td><code>enum: r2, r2_data_catalog</code></td>
+<td>Yes</td>
+<td>Specifies the type of sink.</td>
+</tr>
+<tr>
+<td><code>result_info</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.count</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Indicates the number of items on current page.</td>
+</tr>
+<tr>
+<td><code>result_info.page</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Indicates the current page number.</td>
+</tr>
+<tr>
+<td><code>result_info.per_page</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Indicates the number of items per page.</td>
+</tr>
+<tr>
+<td><code>result_info.total_count</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Indicates the total number of items.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-indicates-an-error-in-listing-sinks">4XX: Indicates an error in listing Sinks</h5>
+<h3 id="get-accountsaccount_idpipelinesv1streams" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/pipelines/v1/streams</h3>
+<p>Operation ID: <code>getV4AccountsByAccount_idPipelinesV1Streams</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-6">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>pipeline_id</code> | <code>query</code> | <code>string</code> | No |  |
+| <code>name</code> | <code>query</code> | <code>string</code> | No | Filters streams by name (case-insensitive substring). |
+| <code>page</code> | <code>query</code> | <code>number</code> | No |  |
+| <code>per_page</code> | <code>query</code> | <code>number</code> | No |  |</p>
+<h4 id="responses-6">Responses</h4>
+<h5 id="200-indicates-a-successfully-created-stream-1" class="status" data-status="2xx">200: Indicates a successfully created Stream</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].endpoint</code></td>
+<td><code>string (uri)</code></td>
+<td>No</td>
+<td>Indicates the endpoint URL of this stream.</td>
+</tr>
+<tr>
+<td><code>result[].format</code></td>
+<td><code>object and object or object and object</code></td>
+<td>No</td>
+<td>Defines the data format of the events.</td>
+</tr>
+<tr>
+<td><code>result[].http</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].http.authentication</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates that authentication is required for the HTTP endpoint.</td>
+</tr>
+<tr>
+<td><code>result[].http.cors</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Specifies the CORS options for the HTTP endpoint.</td>
+</tr>
+<tr>
+<td><code>result[].http.cors.origins</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].http.enabled</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates that the HTTP endpoint is enabled.</td>
+</tr>
+<tr>
+<td><code>result[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates a unique identifier for this stream.</td>
+</tr>
+<tr>
+<td><code>result[].modified_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates the name of the Stream.</td>
+</tr>
+<tr>
+<td><code>result[].schema</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Defines the schema of the events in the data stream.</td>
+</tr>
+<tr>
+<td><code>result[].schema.fields</code></td>
+<td><code>array of object or object or object or object or object or object or object or object and object or object or object and object or object and object and object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].schema.inferred</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].version</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Indicates the current version of this stream.</td>
+</tr>
+<tr>
+<td><code>result[].worker_binding</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].worker_binding.enabled</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates that the worker binding is enabled.</td>
+</tr>
+<tr>
+<td><code>result_info</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.count</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Indicates the number of items on current page.</td>
+</tr>
+<tr>
+<td><code>result_info.page</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Indicates the current page number.</td>
+</tr>
+<tr>
+<td><code>result_info.per_page</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Indicates the number of items per page.</td>
+</tr>
+<tr>
+<td><code>result_info.total_count</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Indicates the total number of items.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-indicates-an-error-in-listing-streams">4XX: Indicates an error in listing Streams</h5>
+<h3 id="get-accountsaccount_idpipelinesv1pipelines" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/pipelines/v1/pipelines</h3>
+<p>Operation ID: <code>getV4AccountsByAccount_idPipelinesV1Pipelines</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-7">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>page</code> | <code>query</code> | <code>number</code> | No |  |
+| <code>per_page</code> | <code>query</code> | <code>number</code> | No |  |
+| <code>name</code> | <code>query</code> | <code>string</code> | No | Filters pipelines by name (case-insensitive substring). |</p>
+<h4 id="responses-7">Responses</h4>
+<h5 id="200-indicates-a-successfully-listed-pipelines" class="status" data-status="2xx">200: Indicates a successfully listed Pipelines</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].created_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates a unique identifier for this pipeline.</td>
+</tr>
+<tr>
+<td><code>result[].modified_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates the name of the Pipeline.</td>
+</tr>
+<tr>
+<td><code>result[].sql</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies SQL for the Pipeline processing flow.</td>
+</tr>
+<tr>
+<td><code>result[].status</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates the current status of the Pipeline.</td>
+</tr>
+<tr>
+<td><code>result_info</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.count</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Indicates the number of items on current page.</td>
+</tr>
+<tr>
+<td><code>result_info.page</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Indicates the current page number.</td>
+</tr>
+<tr>
+<td><code>result_info.per_page</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Indicates the number of items per page.</td>
+</tr>
+<tr>
+<td><code>result_info.total_count</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Indicates the total number of items.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-indicates-an-error-in-listing-pipelines">4XX: Indicates an error in listing Pipelines</h5>
+<h3 id="get-accountsaccount_idpipelines" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/pipelines</h3>
+<p>Operation ID: <code>getV4AccountsByAccount_idPipelines_deprecated</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-8">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>search</code> | <code>query</code> | <code>string</code> | No |  |
+| <code>page</code> | <code>query</code> | <code>string</code> | No |  |
+| <code>per_page</code> | <code>query</code> | <code>string</code> | No |  |</p>
+<h4 id="responses-8">Responses</h4>
+<h5 id="200-deprecated-lists-the-pipelines-use-pipelinesv1pipelines-instead" class="status" data-status="2xx">200: [DEPRECATED] Lists the pipelines. Use /pipelines/v1/pipelines instead</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result_info</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result_info.count</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Indicates the number of items on current page.</td>
+</tr>
+<tr>
+<td><code>result_info.page</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Indicates the current page number.</td>
+</tr>
+<tr>
+<td><code>result_info.per_page</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Indicates the number of items per page.</td>
+</tr>
+<tr>
+<td><code>result_info.total_count</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Indicates the total number of items.</td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].destination</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].destination.batch</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].destination.batch.max_bytes</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Specifies rough maximum size of files.</td>
+</tr>
+<tr>
+<td><code>results[].destination.batch.max_duration_s</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Specifies duration to wait to aggregate batches files.</td>
+</tr>
+<tr>
+<td><code>results[].destination.batch.max_rows</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Specifies rough maximum number of rows per file.</td>
+</tr>
+<tr>
+<td><code>results[].destination.compression</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].destination.compression.type</code></td>
+<td><code>enum: none, gzip, deflate</code></td>
+<td>Yes</td>
+<td>Specifies the desired compression algorithm and format.</td>
+</tr>
+<tr>
+<td><code>results[].destination.format</code></td>
+<td><code>enum: json</code></td>
+<td>Yes</td>
+<td>Specifies the format of data to deliver.</td>
+</tr>
+<tr>
+<td><code>results[].destination.path</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].destination.path.bucket</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies the R2 Bucket to store files.</td>
+</tr>
+<tr>
+<td><code>results[].destination.path.filename</code></td>
+<td><code>string and string</code></td>
+<td>No</td>
+<td>Specifies the name pattern to for individual data files.</td>
+</tr>
+<tr>
+<td><code>results[].destination.path.filepath</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Specifies the name pattern for directory.</td>
+</tr>
+<tr>
+<td><code>results[].destination.path.prefix</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Specifies the base directory within the bucket.</td>
+</tr>
+<tr>
+<td><code>results[].destination.type</code></td>
+<td><code>enum: r2</code></td>
+<td>Yes</td>
+<td>Specifies the type of destination.</td>
+</tr>
+<tr>
+<td><code>results[].endpoint</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates the endpoint URL to send traffic.</td>
+</tr>
+<tr>
+<td><code>results[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies the pipeline identifier.</td>
+</tr>
+<tr>
+<td><code>results[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Defines the name of the pipeline.</td>
+</tr>
+<tr>
+<td><code>results[].source</code></td>
+<td><code>array of object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results[].version</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Indicates the version number of last saved configuration.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-indicates-the-error-trying-to-list-pipelines">4XX: Indicates the error trying to list pipelines</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-accountsaccount_idpipelinesv1pipelinespipeline_id" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/pipelines/v1/pipelines/{pipeline_id}</h3>
+<p>Operation ID: <code>getV4AccountsByAccount_idPipelinesV1PipelinesByPipeline_id</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-9">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>pipeline_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-9">Responses</h4>
+<h5 id="200-indicates-a-successfully-retrieved-pipeline" class="status" data-status="2xx">200: Indicates a successfully retrieved Pipeline</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.failure_reason</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Indicates the reason for the failure of the Pipeline.</td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates a unique identifier for this pipeline.</td>
+</tr>
+<tr>
+<td><code>result.modified_at</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates the name of the Pipeline.</td>
+</tr>
+<tr>
+<td><code>result.sql</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies SQL for the Pipeline processing flow.</td>
+</tr>
+<tr>
+<td><code>result.status</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates the current status of the Pipeline.</td>
+</tr>
+<tr>
+<td><code>result.tables</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td>List of streams and sinks used by this pipeline.</td>
+</tr>
+<tr>
+<td><code>result.tables[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique identifier for the connection (stream or sink).</td>
+</tr>
+<tr>
+<td><code>result.tables[].latest</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Latest available version of the connection.</td>
+</tr>
+<tr>
+<td><code>result.tables[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Name of the connection.</td>
+</tr>
+<tr>
+<td><code>result.tables[].type</code></td>
+<td><code>enum: stream, sink</code></td>
+<td>Yes</td>
+<td>Type of the connection.</td>
+</tr>
+<tr>
+<td><code>result.tables[].version</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Current version of the connection used by this pipeline.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-indicates-an-error-in-retrieving-pipelines">4XX: Indicates an error in retrieving Pipelines</h5>
+<h3 id="get-accountsaccount_idpipelinespipeline_name" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/pipelines/{pipeline_name}</h3>
+<p>Operation ID: <code>getV4AccountsByAccount_idPipelinesByPipeline_name_deprecated</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-10">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>pipeline_name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-10">Responses</h4>
+<h5 id="200-deprecated-describes-the-configuration-of-a-pipeline" class="status" data-status="2xx">200: [DEPRECATED] Describes the configuration of a pipeline</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>[DEPRECATED] Describes the configuration of a pipeline. Use the new streams/sinks/pipelines API instead.</td>
+</tr>
+<tr>
+<td><code>result.destination</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.destination.batch</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.destination.batch.max_bytes</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Specifies rough maximum size of files.</td>
+</tr>
+<tr>
+<td><code>result.destination.batch.max_duration_s</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Specifies duration to wait to aggregate batches files.</td>
+</tr>
+<tr>
+<td><code>result.destination.batch.max_rows</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Specifies rough maximum number of rows per file.</td>
+</tr>
+<tr>
+<td><code>result.destination.compression</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.destination.compression.type</code></td>
+<td><code>enum: none, gzip, deflate</code></td>
+<td>Yes</td>
+<td>Specifies the desired compression algorithm and format.</td>
+</tr>
+<tr>
+<td><code>result.destination.format</code></td>
+<td><code>enum: json</code></td>
+<td>Yes</td>
+<td>Specifies the format of data to deliver.</td>
+</tr>
+<tr>
+<td><code>result.destination.path</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.destination.path.bucket</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies the R2 Bucket to store files.</td>
+</tr>
+<tr>
+<td><code>result.destination.path.filename</code></td>
+<td><code>string and string</code></td>
+<td>No</td>
+<td>Specifies the name pattern to for individual data files.</td>
+</tr>
+<tr>
+<td><code>result.destination.path.filepath</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Specifies the name pattern for directory.</td>
+</tr>
+<tr>
+<td><code>result.destination.path.prefix</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Specifies the base directory within the bucket.</td>
+</tr>
+<tr>
+<td><code>result.destination.type</code></td>
+<td><code>enum: r2</code></td>
+<td>Yes</td>
+<td>Specifies the type of destination.</td>
+</tr>
+<tr>
+<td><code>result.endpoint</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates the endpoint URL to send traffic.</td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies the pipeline identifier.</td>
+</tr>
+<tr>
+<td><code>result.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Defines the name of the pipeline.</td>
+</tr>
+<tr>
+<td><code>result.source</code></td>
+<td><code>array of object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.version</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Indicates the version number of last saved configuration.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="404-indicates-that-the-pipeline-was-not-found" class="status" data-status="4xx">404: Indicates that the pipeline was not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idpipelinesv1sinkssink_id" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/pipelines/v1/sinks/{sink_id}</h3>
+<p>Operation ID: <code>getV4AccountsByAccount_idPipelinesV1SinksBySink_id</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-11">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>sink_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-11">Responses</h4>
+<h5 id="200-indicates-that-sink-was-retrieved" class="status" data-status="2xx">200: Indicates that Sink was retrieved</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.config</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td>Defines the configuration of the R2 Sink.</td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.format</code></td>
+<td><code>object and object or object and object</code></td>
+<td>No</td>
+<td>Defines the output data format of a sink.</td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates a unique identifier for this sink.</td>
+</tr>
+<tr>
+<td><code>result.modified_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Defines the name of the Sink.</td>
+</tr>
+<tr>
+<td><code>result.schema</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Defines the schema of the events in the data stream.</td>
+</tr>
+<tr>
+<td><code>result.schema.fields</code></td>
+<td><code>array of object or object or object or object or object or object or object or object and object or object or object and object or object and object and object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.schema.inferred</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.type</code></td>
+<td><code>enum: r2, r2_data_catalog</code></td>
+<td>Yes</td>
+<td>Specifies the type of sink.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-indicates-an-error-in-listing-sinks-1">4XX: Indicates an error in listing Sinks</h5>
+<h3 id="get-accountsaccount_idpipelinesv1streamsstream_id" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/pipelines/v1/streams/{stream_id}</h3>
+<p>Operation ID: <code>getV4AccountsByAccount_idPipelinesV1StreamsByStream_id</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-12">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>stream_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-12">Responses</h4>
+<h5 id="200-indicates-a-successfully-retrieved-stream" class="status" data-status="2xx">200: Indicates a successfully retrieved Stream</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.endpoint</code></td>
+<td><code>string (uri)</code></td>
+<td>No</td>
+<td>Indicates the endpoint URL of this stream.</td>
+</tr>
+<tr>
+<td><code>result.format</code></td>
+<td><code>object and object or object and object</code></td>
+<td>No</td>
+<td>Defines the data format of the events.</td>
+</tr>
+<tr>
+<td><code>result.http</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.http.authentication</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates that authentication is required for the HTTP endpoint.</td>
+</tr>
+<tr>
+<td><code>result.http.cors</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Specifies the CORS options for the HTTP endpoint.</td>
+</tr>
+<tr>
+<td><code>result.http.cors.origins</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.http.enabled</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates that the HTTP endpoint is enabled.</td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates a unique identifier for this stream.</td>
+</tr>
+<tr>
+<td><code>result.modified_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates the name of the Stream.</td>
+</tr>
+<tr>
+<td><code>result.schema</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Defines the schema of the events in the data stream.</td>
+</tr>
+<tr>
+<td><code>result.schema.fields</code></td>
+<td><code>array of object or object or object or object or object or object or object or object and object or object or object and object or object and object and object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.schema.inferred</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.version</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Indicates the current version of this stream.</td>
+</tr>
+<tr>
+<td><code>result.worker_binding</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.worker_binding.enabled</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates that the worker binding is enabled.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-indicates-an-error-in-retrieving-stream">4XX: Indicates an error in retrieving Stream</h5>
+<h2 id="patch">patch</h2>
+<h3 id="patch-accountsaccount_idpipelinesv1streamsstream_id" class="operation" data-method="patch"><code>PATCH</code> /accounts/{account_id}/pipelines/v1/streams/{stream_id}</h3>
+<p>Operation ID: <code>patchV4AccountsByAccount_idPipelinesV1StreamsByStream_id</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-13">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>stream_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-5">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>http</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>http.authentication</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates that authentication is required for the HTTP endpoint.</td>
+</tr>
+<tr>
+<td><code>http.cors</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Specifies the CORS options for the HTTP endpoint.</td>
+</tr>
+<tr>
+<td><code>http.cors.origins</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>http.enabled</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates that the HTTP endpoint is enabled.</td>
+</tr>
+<tr>
+<td><code>worker_binding</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>worker_binding.enabled</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates that the worker binding is enabled.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-13">Responses</h4>
+<h5 id="200-indicates-a-successfully-updated-stream" class="status" data-status="2xx">200: Indicates a successfully updated Stream</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.created_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.endpoint</code></td>
+<td><code>string (uri)</code></td>
+<td>No</td>
+<td>Indicates the endpoint URL of this stream.</td>
+</tr>
+<tr>
+<td><code>result.format</code></td>
+<td><code>object and object or object and object</code></td>
+<td>No</td>
+<td>Defines the data format of the events.</td>
+</tr>
+<tr>
+<td><code>result.http</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.http.authentication</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates that authentication is required for the HTTP endpoint.</td>
+</tr>
+<tr>
+<td><code>result.http.cors</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Specifies the CORS options for the HTTP endpoint.</td>
+</tr>
+<tr>
+<td><code>result.http.cors.origins</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.http.enabled</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates that the HTTP endpoint is enabled.</td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates a unique identifier for this stream.</td>
+</tr>
+<tr>
+<td><code>result.modified_at</code></td>
+<td><code>string (date-time)</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates the name of the Stream.</td>
+</tr>
+<tr>
+<td><code>result.schema</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Defines the schema of the events in the data stream.</td>
+</tr>
+<tr>
+<td><code>result.schema.fields</code></td>
+<td><code>array of object or object or object or object or object or object or object or object and object or object or object and object or object and object and object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.schema.inferred</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.version</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Indicates the current version of this stream.</td>
+</tr>
+<tr>
+<td><code>result.worker_binding</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.worker_binding.enabled</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates that the worker binding is enabled.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-indicates-an-error-in-creating-a-stream-1">4XX: Indicates an error in creating a Stream</h5>
+<h2 id="remove">remove</h2>
+<h3 id="delete-accountsaccount_idpipelinesv1pipelinespipeline_id" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/pipelines/v1/pipelines/{pipeline_id}</h3>
+<p>Operation ID: <code>deleteV4AccountsByAccount_idPipelinesV1PipelinesByPipeline_id</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-14">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>pipeline_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-14">Responses</h4>
+<h5 id="200-indicates-a-successfully-deleted-pipeline" class="status" data-status="2xx">200: Indicates a successfully deleted Pipeline</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-indicates-an-error-in-listing-pipelines-1">4XX: Indicates an error in listing Pipelines</h5>
+<h3 id="delete-accountsaccount_idpipelinespipeline_name" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/pipelines/{pipeline_name}</h3>
+<p>Operation ID: <code>deleteV4AccountsByAccount_idPipelinesByPipeline_name_deprecated</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-15">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>pipeline_name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-15">Responses</h4>
+<h5 id="200-deprecated-indicates-a-successfully-deleted-pipeline" class="status" data-status="2xx">200: [DEPRECATED] Indicates a successfully deleted pipeline</h5>
+<h5 id="4xx-indicates-an-error-in-deleting-a-pipeline">4XX: Indicates an error in deleting a pipeline</h5>
+<h3 id="delete-accountsaccount_idpipelinesv1sinkssink_id" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/pipelines/v1/sinks/{sink_id}</h3>
+<p>Operation ID: <code>deleteV4AccountsByAccount_idPipelinesV1SinksBySink_id</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-16">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>sink_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-16">Responses</h4>
+<h5 id="200-indicates-a-successfully-deleted-sink" class="status" data-status="2xx">200: Indicates a successfully deleted Sink</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-indicates-an-error-in-listing-sinks-2">4XX: Indicates an error in listing Sinks</h5>
+<h3 id="delete-accountsaccount_idpipelinesv1streamsstream_id" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/pipelines/v1/streams/{stream_id}</h3>
+<p>Operation ID: <code>deleteV4AccountsByAccount_idPipelinesV1StreamsByStream_id</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-17">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>stream_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-17">Responses</h4>
+<h5 id="200-indicates-a-successfully-deleted-stream" class="status" data-status="2xx">200: Indicates a successfully deleted Stream</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-indicates-an-error-in-listing-streams-1">4XX: Indicates an error in listing Streams</h5>
+<h2 id="update">update</h2>
+<h3 id="put-accountsaccount_idpipelinespipeline_name" class="operation" data-method="put"><code>PUT</code> /accounts/{account_id}/pipelines/{pipeline_name}</h3>
+<p>Operation ID: <code>putV4AccountsByAccount_idPipelinesByPipeline_name_deprecated</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-18">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>pipeline_name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-6">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>destination</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>destination.batch</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>destination.batch.max_bytes</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Specifies rough maximum size of files.</td>
+</tr>
+<tr>
+<td><code>destination.batch.max_duration_s</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Specifies duration to wait to aggregate batches files.</td>
+</tr>
+<tr>
+<td><code>destination.batch.max_rows</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Specifies rough maximum number of rows per file.</td>
+</tr>
+<tr>
+<td><code>destination.compression</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>destination.compression.type</code></td>
+<td><code>enum: none, gzip, deflate</code></td>
+<td>No</td>
+<td>Specifies the desired compression algorithm and format.</td>
+</tr>
+<tr>
+<td><code>destination.credentials</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>destination.credentials.access_key_id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies the R2 Bucket Access Key Id.</td>
+</tr>
+<tr>
+<td><code>destination.credentials.endpoint</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies the R2 Endpoint.</td>
+</tr>
+<tr>
+<td><code>destination.credentials.secret_access_key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies the R2 Bucket Secret Access Key.</td>
+</tr>
+<tr>
+<td><code>destination.format</code></td>
+<td><code>enum: json</code></td>
+<td>Yes</td>
+<td>Specifies the format of data to deliver.</td>
+</tr>
+<tr>
+<td><code>destination.path</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>destination.path.bucket</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies the R2 Bucket to store files.</td>
+</tr>
+<tr>
+<td><code>destination.path.filename</code></td>
+<td><code>string and string</code></td>
+<td>No</td>
+<td>Specifies the name pattern to for individual data files.</td>
+</tr>
+<tr>
+<td><code>destination.path.filepath</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Specifies the name pattern for directory.</td>
+</tr>
+<tr>
+<td><code>destination.path.prefix</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Specifies the base directory within the bucket.</td>
+</tr>
+<tr>
+<td><code>destination.type</code></td>
+<td><code>enum: r2</code></td>
+<td>Yes</td>
+<td>Specifies the type of destination.</td>
+</tr>
+<tr>
+<td><code>name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Defines the name of the pipeline.</td>
+</tr>
+<tr>
+<td><code>source</code></td>
+<td><code>array of object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-18">Responses</h4>
+<h5 id="200-deprecated-indicates-a-successfully-updated-pipeline" class="status" data-status="2xx">200: [DEPRECATED] Indicates a successfully updated pipeline</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>[DEPRECATED] Describes the configuration of a pipeline. Use the new streams/sinks/pipelines API instead.</td>
+</tr>
+<tr>
+<td><code>result.destination</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.destination.batch</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.destination.batch.max_bytes</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Specifies rough maximum size of files.</td>
+</tr>
+<tr>
+<td><code>result.destination.batch.max_duration_s</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Specifies duration to wait to aggregate batches files.</td>
+</tr>
+<tr>
+<td><code>result.destination.batch.max_rows</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Specifies rough maximum number of rows per file.</td>
+</tr>
+<tr>
+<td><code>result.destination.compression</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.destination.compression.type</code></td>
+<td><code>enum: none, gzip, deflate</code></td>
+<td>Yes</td>
+<td>Specifies the desired compression algorithm and format.</td>
+</tr>
+<tr>
+<td><code>result.destination.format</code></td>
+<td><code>enum: json</code></td>
+<td>Yes</td>
+<td>Specifies the format of data to deliver.</td>
+</tr>
+<tr>
+<td><code>result.destination.path</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.destination.path.bucket</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies the R2 Bucket to store files.</td>
+</tr>
+<tr>
+<td><code>result.destination.path.filename</code></td>
+<td><code>string and string</code></td>
+<td>No</td>
+<td>Specifies the name pattern to for individual data files.</td>
+</tr>
+<tr>
+<td><code>result.destination.path.filepath</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Specifies the name pattern for directory.</td>
+</tr>
+<tr>
+<td><code>result.destination.path.prefix</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Specifies the base directory within the bucket.</td>
+</tr>
+<tr>
+<td><code>result.destination.type</code></td>
+<td><code>enum: r2</code></td>
+<td>Yes</td>
+<td>Specifies the type of destination.</td>
+</tr>
+<tr>
+<td><code>result.endpoint</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Indicates the endpoint URL to send traffic.</td>
+</tr>
+<tr>
+<td><code>result.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Specifies the pipeline identifier.</td>
+</tr>
+<tr>
+<td><code>result.name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Defines the name of the pipeline.</td>
+</tr>
+<tr>
+<td><code>result.source</code></td>
+<td><code>array of object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.version</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Indicates the version number of last saved configuration.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Indicates whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-indicates-an-error-updating-pipeline">4XX: Indicates an error updating pipeline</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>results</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

@@ -1,0 +1,131 @@
+# Entity: rollout
+
+main: kit: entity: rollout: {
+
+  alias: field: {}
+
+  fields: {
+    description: {
+      h: "Description"
+      n: "description"
+      r: true
+      sh: "Description of the rollout process."
+      t: "`$STRING`"
+    }
+    kind: {
+      h: "Kind"
+      n: "kind"
+      r: false
+      sh: "Kind of the rollout process."
+      t: "`$STRING`"
+    }
+    percentage: {
+      h: "Percentage"
+      n: "percentage"
+      r: false
+      sh: "Initial target version percentage (0-100)."
+      t: "`$INTEGER`"
+    }
+    step_percentage: {
+      h: "Step Percentage"
+      n: "step_percentage"
+      r: false
+      sh: "Percentage of rollout to increase in each step when \"steps\" is absent."
+      t: "`$INTEGER`"
+    }
+    steps: {
+      h: "Steps"
+      n: "steps"
+      r: false
+      sh: "Steps defining the rollout process, used when \"step_percentage\" is absent."
+      t: "`$ARRAY`"
+    }
+    strategy: {
+      h: "Strategy"
+      n: "strategy"
+      r: true
+      sh: "Strategy used for the rollout."
+      t: "`$STRING`"
+    }
+    target_configuration: {
+      h: "Target Configuration"
+      n: "target_configuration"
+      r: true
+      sh: "User-specified container configuration changes."
+      t: "`$OBJECT`"
+    }
+  }
+
+  name: "rollout"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/containers/applications/{application_id}/rollouts"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "account-123"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "application_id"
+                or: "application_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/containers/applications/{application_id}/rollouts"
+          q: {
+            exist: [
+              "account_id"
+              "application_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "containers"
+            }
+            {
+              lit: "applications"
+            }
+            {
+              var: "application_id"
+            }
+            {
+              lit: "rollouts"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account") path("$.main.kit.entity.application")]
+  ]
+
+}

@@ -1,0 +1,38 @@
+# BasicBuildTokenFlow
+
+main: kit: flow: BasicBuildTokenFlow:
+{
+  entity: "build_token",
+  kind: "basic",
+  name: "BasicBuildTokenFlow",
+  step: [
+    {
+      i: {
+        ref: "build_token_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "build_token_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicBuildTokenFlow"
+}

@@ -1,0 +1,2793 @@
+# Entity: brapi
+
+main: kit: entity: brapi: {
+
+  alias: field: {}
+
+  fields: {
+    Browser: {
+      h: "Browser"
+      n: "Browser"
+      r: true
+      sh: "Browser name and version."
+      t: "`$STRING`"
+    }
+    ProtocolVersion: {
+      h: "Protocol Version"
+      n: "ProtocolVersion"
+      r: true
+      sh: "Chrome DevTools Protocol version."
+      t: "`$STRING`"
+    }
+    UserAgent: {
+      h: "User Agent"
+      n: "UserAgent"
+      r: true
+      sh: "User agent string."
+      t: "`$STRING`"
+    }
+    V8Version: {
+      h: "V8 Version"
+      n: "V8Version"
+      r: true
+      sh: "V8 JavaScript engine version."
+      t: "`$STRING`"
+    }
+    WebKitVersion: {
+      h: "Web Kit Version"
+      n: "WebKitVersion"
+      r: true
+      sh: "WebKit version."
+      t: "`$STRING`"
+    }
+    actionTimeout: {
+      h: "Action Timeout"
+      n: "actionTimeout"
+      r: false
+      sh: "The maximum duration allowed for the browser action to complete after the page has loaded (such as taking screenshots, extracting content, or generating PDFs)."
+      t: "`$NUMBER`"
+    }
+    addScriptTag: {
+      h: "Add Script Tag"
+      n: "addScriptTag"
+      r: false
+      sh: "Adds a script element into the page with the desired URL or content."
+      t: "`$ARRAY`"
+    }
+    addStyleTag: {
+      h: "Add Style Tag"
+      n: "addStyleTag"
+      r: false
+      sh: "Adds a `<link rel=\"stylesheet\">` tag into the page with the desired URL or a `<style type=\"text/css\">` tag with the content."
+      t: "`$ARRAY`"
+    }
+    allowRequestPattern: {
+      h: "Allow Request Pattern"
+      n: "allowRequestPattern"
+      r: false
+      sh: "Only allow requests that match the provided regex patterns, eg."
+      t: "`$ARRAY`"
+    }
+    allowResourceTypes: {
+      h: "Allow Resource Types"
+      n: "allowResourceTypes"
+      r: false
+      sh: "Only allow requests that match the provided resource types, eg."
+      t: "`$ARRAY`"
+      union: {
+        branches: 18
+        count: 1
+        depth: 1
+      }
+    }
+    authenticate: {
+      h: "Authenticate"
+      n: "authenticate"
+      r: true
+      sh: "Provide credentials for HTTP authentication."
+      t: "`$OBJECT`"
+    }
+    bestAttempt: {
+      h: "Best Attempt"
+      n: "bestAttempt"
+      r: false
+      sh: "Attempt to proceed when 'awaited' events fail or timeout."
+      t: "`$BOOLEAN`"
+    }
+    closeReason: {
+      h: "Close Reason"
+      n: "closeReason"
+      r: false
+      sh: "Reason code for session closure."
+      t: "`$NUMBER`"
+    }
+    closeReasonText: {
+      h: "Close Reason Text"
+      n: "closeReasonText"
+      r: false
+      sh: "Human-readable close reason."
+      t: "`$STRING`"
+    }
+    commands: {
+      h: "Commands"
+      n: "commands"
+      r: false
+      sh: "Available commands."
+      t: "`$ARRAY`"
+    }
+    connectionEndTime: {
+      h: "Connection End Time"
+      n: "connectionEndTime"
+      r: false
+      sh: "Connection end time."
+      t: "`$NUMBER`"
+    }
+    connectionId: {
+      h: "Connection Id"
+      n: "connectionId"
+      r: false
+      sh: "Connection ID."
+      t: "`$STRING`"
+    }
+    connectionStartTime: {
+      h: "Connection Start Time"
+      n: "connectionStartTime"
+      r: false
+      sh: "Connection start time."
+      t: "`$NUMBER`"
+    }
+    cookies: {
+      h: "Cookies"
+      n: "cookies"
+      r: false
+      sh: "Check [options](https://pptr.dev/api/puppeteer.page.setcookie)."
+      t: "`$ARRAY`"
+      union: {
+        branches: 3
+        count: 3
+        depth: 3
+      }
+    }
+    custom_ai: {
+      h: "Custom Ai"
+      n: "custom_ai"
+      r: false
+      sh: "Optional list of custom AI models to use for the request."
+      t: "`$ARRAY`"
+    }
+    dependencies: {
+      h: "Dependencies"
+      n: "dependencies"
+      r: false
+      sh: "Domain dependencies."
+      t: "`$ARRAY`"
+    }
+    description: {
+      h: "Description"
+      n: "description"
+      r: false
+      sh: "Target description."
+      t: "`$STRING`"
+    }
+    devtoolsFrontendUrl: {
+      h: "Devtools Frontend Url"
+      n: "devtoolsFrontendUrl"
+      r: false
+      sh: "DevTools frontend URL."
+      t: "`$STRING`"
+    }
+    domain: {
+      h: "Domain"
+      n: "domain"
+      r: true
+      sh: "Domain name."
+      t: "`$STRING`"
+    }
+    elements: {
+      h: "Elements"
+      n: "elements"
+      r: true
+      t: "`$ARRAY`"
+    }
+    emulateMediaType: {
+      h: "Emulate Media Type"
+      n: "emulateMediaType"
+      r: false
+      t: "`$STRING`"
+    }
+    endTime: {
+      h: "End Time"
+      n: "endTime"
+      r: false
+      sh: "Session end time."
+      t: "`$NUMBER`"
+    }
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: false
+      t: "`$ARRAY`"
+    }
+    events: {
+      h: "Events"
+      n: "events"
+      r: false
+      sh: "Available events."
+      t: "`$ARRAY`"
+    }
+    excludeExternalLinks: {
+      h: "Exclude External Links"
+      n: "excludeExternalLinks"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    experimental: {
+      h: "Experimental"
+      n: "experimental"
+      r: false
+      sh: "Whether this domain is experimental."
+      t: "`$BOOLEAN`"
+    }
+    formats: {
+      h: "Formats"
+      n: "formats"
+      r: false
+      t: "`$ARRAY`"
+    }
+    gotoOptions: {
+      h: "Goto Options"
+      n: "gotoOptions"
+      r: false
+      sh: "Check [options](https://pptr.dev/api/puppeteer.gotooptions)."
+      t: "`$OBJECT`"
+      union: {
+        branches: 5
+        count: 2
+        depth: 5
+      }
+    }
+    guardrails: {
+      h: "Guardrails"
+      n: "guardrails"
+      r: false
+      t: "`$OBJECT`"
+    }
+    html: {
+      h: "Html"
+      n: "html"
+      r: false
+      sh: "Set the content of the page, eg: `<h1>Hello World!!</h1>`."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Target ID."
+      t: "`$STRING`"
+    }
+    interestingOnly: {
+      h: "Interesting Only"
+      n: "interestingOnly"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    lastUpdated: {
+      h: "Last Updated"
+      n: "lastUpdated"
+      r: false
+      sh: "Last updated timestamp."
+      t: "`$NUMBER`"
+    }
+    message: {
+      h: "Message"
+      n: "message"
+      r: true
+      sh: "Target activated."
+      t: "`$STRING`"
+    }
+    meta: {
+      h: "Meta"
+      n: "meta"
+      r: true
+      t: "`$OBJECT`"
+    }
+    pdfOptions: {
+      h: "Pdf Options"
+      n: "pdfOptions"
+      r: false
+      sh: "Check [options](https://pptr.dev/api/puppeteer.pdfoptions)."
+      t: "`$OBJECT`"
+      union: {
+        branches: 2
+        count: 6
+        depth: 4
+      }
+    }
+    prompt: {
+      h: "Prompt"
+      n: "prompt"
+      r: false
+      t: "`$STRING`"
+    }
+    rejectRequestPattern: {
+      h: "Reject Request Pattern"
+      n: "rejectRequestPattern"
+      r: false
+      sh: "Block undesired requests that match the provided regex patterns, eg."
+      t: "`$ARRAY`"
+    }
+    rejectResourceTypes: {
+      h: "Reject Resource Types"
+      n: "rejectResourceTypes"
+      r: false
+      sh: "Block undesired requests that match the provided resource types, eg."
+      t: "`$ARRAY`"
+      union: {
+        branches: 18
+        count: 1
+        depth: 1
+      }
+    }
+    response_format: {
+      h: "Response Format"
+      n: "response_format"
+      r: true
+      t: "`$OBJECT`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      op: {
+        create: {
+          req: false
+          type: "`$OBJECT`"
+        }
+      }
+      r: true
+      sh: "HTML content."
+      t: "`$OBJECT`"
+    }
+    root: {
+      h: "Root"
+      n: "root"
+      r: false
+      t: "`$STRING`"
+    }
+    screenshotOptions: {
+      h: "Screenshot Options"
+      n: "screenshotOptions"
+      r: false
+      sh: "Check [options](https://pptr.dev/api/puppeteer.screenshotoptions)."
+      t: "`$OBJECT`"
+      union: {
+        branches: 3
+        count: 2
+        depth: 2
+      }
+    }
+    scrollPage: {
+      h: "Scroll Page"
+      n: "scrollPage"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    selector: {
+      h: "Selector"
+      n: "selector"
+      r: false
+      t: "`$STRING`"
+    }
+    sessionId: {
+      fo: "uuid"
+      h: "Session Id"
+      n: "sessionId"
+      r: true
+      sh: "Session ID."
+      t: "`$STRING`"
+    }
+    setExtraHTTPHeaders: {
+      h: "Set Extra Http Headers"
+      n: "setExtraHTTPHeaders"
+      r: false
+      t: "`$OBJECT`"
+    }
+    setJavaScriptEnabled: {
+      h: "Set Java Script Enabled"
+      n: "setJavaScriptEnabled"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    startTime: {
+      h: "Start Time"
+      n: "startTime"
+      r: false
+      sh: "Session start time."
+      t: "`$NUMBER`"
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      sh: "Response status."
+      t: "`$BOOLEAN`"
+    }
+    title: {
+      h: "Title"
+      n: "title"
+      r: false
+      sh: "Title of the target."
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: true
+      sh: "Target type (page, background_page, worker, etc.)."
+      t: "`$STRING`"
+    }
+    types: {
+      h: "Types"
+      n: "types"
+      r: false
+      sh: "Type definitions."
+      t: "`$ARRAY`"
+    }
+    url: {
+      fo: "uri"
+      h: "Url"
+      n: "url"
+      op: {
+        create: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "URL of the target."
+      t: "`$STRING`"
+    }
+    userAgent: {
+      h: "User Agent"
+      n: "userAgent"
+      r: false
+      t: "`$STRING`"
+    }
+    viewport: {
+      h: "Viewport"
+      n: "viewport"
+      r: true
+      sh: "Check [options](https://pptr.dev/api/puppeteer.page.setviewport)."
+      t: "`$OBJECT`"
+    }
+    visibleLinksOnly: {
+      h: "Visible Links Only"
+      n: "visibleLinksOnly"
+      r: false
+      t: "`$BOOLEAN`"
+    }
+    waitForSelector: {
+      h: "Wait For Selector"
+      n: "waitForSelector"
+      r: true
+      sh: "Wait for the selector to appear in page."
+      t: "`$OBJECT`"
+    }
+    waitForTimeout: {
+      h: "Wait For Timeout"
+      n: "waitForTimeout"
+      r: false
+      sh: "Waits for a specified timeout before continuing."
+      t: "`$NUMBER`"
+    }
+    webSocketDebuggerUrl: {
+      h: "Web Socket Debugger Url"
+      n: "webSocketDebuggerUrl"
+      op: {
+        load: {
+          req: true
+          type: "`$STRING`"
+        }
+      }
+      r: false
+      sh: "WebSocket URL for debugging this target."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "brapi"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/browser-rendering/devtools/browser"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 60000
+                k: "query"
+                n: "keep_alive"
+                or: "keep_alive"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "lab"
+                or: "lab"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: 300000
+                k: "query"
+                n: "live_view_url_expires_in_m"
+                or: "live_view_url_expires_in_m"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "recording"
+                or: "recording"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "target"
+                or: "target"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/browser-rendering/devtools/browser"
+          q: {
+            exist: [
+              "account_id"
+              "keep_alive"
+              "lab"
+              "live_view_url_expires_in_m"
+              "recording"
+              "target"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "devtools"
+            }
+            {
+              lit: "browser"
+            }
+          ]
+          t: {
+            req: {
+              guardrails: "`reqdata.guardrail`"
+            }
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/live_view"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "browser_id"
+                or: "session_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/live_view"
+          q: {
+            "$action": "live_view"
+            exist: [
+              "account_id"
+              "browser_id"
+            ]
+          }
+          r: {
+            param: {
+              session_id: "browser_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "devtools"
+            }
+            {
+              lit: "browser"
+            }
+            {
+              var: "browser_id"
+            }
+            {
+              lit: "live_view"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.options`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/browser-rendering/accessibilityTree"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 5
+                k: "query"
+                n: "cache_ttl"
+                or: "cache_ttl"
+                r: false
+                t: "`$NUMBER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/browser-rendering/accessibilityTree"
+          q: {
+            exist: [
+              "account_id"
+              "cache_ttl"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "accessibilityTree"
+            }
+          ]
+          t: {
+            req: {
+              actionTimeout: "`reqdata.action_timeout`"
+              addScriptTag: "`reqdata.add_script_tag`"
+              addStyleTag: "`reqdata.add_style_tag`"
+              allowRequestPattern: "`reqdata.allow_request_pattern`"
+              allowResourceTypes: "`reqdata.allow_resource_type`"
+              authenticate: "`reqdata.authenticate`"
+              bestAttempt: "`reqdata.best_attempt`"
+              cookies: "`reqdata.cooky`"
+              emulateMediaType: "`reqdata.emulate_media_type`"
+              gotoOptions: "`reqdata.goto_option`"
+              html: "`reqdata.html`"
+              interestingOnly: "`reqdata.interesting_only`"
+              rejectRequestPattern: "`reqdata.reject_request_pattern`"
+              rejectResourceTypes: "`reqdata.reject_resource_type`"
+              root: "`reqdata.root`"
+              setExtraHTTPHeaders: "`reqdata.set_extra_http_header`"
+              setJavaScriptEnabled: "`reqdata.set_java_script_enabled`"
+              url: "`reqdata.url`"
+              userAgent: "`reqdata.user_agent`"
+              viewport: "`reqdata.viewport`"
+              waitForSelector: "`reqdata.wait_for_selector`"
+              waitForTimeout: "`reqdata.wait_for_timeout`"
+            }
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/browser-rendering/content"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 5
+                k: "query"
+                n: "cache_ttl"
+                or: "cache_ttl"
+                r: false
+                t: "`$NUMBER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/browser-rendering/content"
+          q: {
+            exist: [
+              "account_id"
+              "cache_ttl"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "content"
+            }
+          ]
+          t: {
+            req: {
+              actionTimeout: "`reqdata.action_timeout`"
+              addScriptTag: "`reqdata.add_script_tag`"
+              addStyleTag: "`reqdata.add_style_tag`"
+              allowRequestPattern: "`reqdata.allow_request_pattern`"
+              allowResourceTypes: "`reqdata.allow_resource_type`"
+              authenticate: "`reqdata.authenticate`"
+              bestAttempt: "`reqdata.best_attempt`"
+              cookies: "`reqdata.cooky`"
+              emulateMediaType: "`reqdata.emulate_media_type`"
+              gotoOptions: "`reqdata.goto_option`"
+              html: "`reqdata.html`"
+              rejectRequestPattern: "`reqdata.reject_request_pattern`"
+              rejectResourceTypes: "`reqdata.reject_resource_type`"
+              setExtraHTTPHeaders: "`reqdata.set_extra_http_header`"
+              setJavaScriptEnabled: "`reqdata.set_java_script_enabled`"
+              url: "`reqdata.url`"
+              userAgent: "`reqdata.user_agent`"
+              viewport: "`reqdata.viewport`"
+              waitForSelector: "`reqdata.wait_for_selector`"
+              waitForTimeout: "`reqdata.wait_for_timeout`"
+            }
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/browser-rendering/crawl"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 5
+                k: "query"
+                n: "cache_ttl"
+                or: "cache_ttl"
+                r: false
+                t: "`$NUMBER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/browser-rendering/crawl"
+          q: {
+            exist: [
+              "account_id"
+              "cache_ttl"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "crawl"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/browser-rendering/json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 5
+                k: "query"
+                n: "cache_ttl"
+                or: "cache_ttl"
+                r: false
+                t: "`$NUMBER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/browser-rendering/json"
+          q: {
+            exist: [
+              "account_id"
+              "cache_ttl"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "json"
+            }
+          ]
+          t: {
+            req: {
+              actionTimeout: "`reqdata.action_timeout`"
+              addScriptTag: "`reqdata.add_script_tag`"
+              addStyleTag: "`reqdata.add_style_tag`"
+              allowRequestPattern: "`reqdata.allow_request_pattern`"
+              allowResourceTypes: "`reqdata.allow_resource_type`"
+              authenticate: "`reqdata.authenticate`"
+              bestAttempt: "`reqdata.best_attempt`"
+              cookies: "`reqdata.cooky`"
+              custom_ai: "`reqdata.custom_ai`"
+              emulateMediaType: "`reqdata.emulate_media_type`"
+              gotoOptions: "`reqdata.goto_option`"
+              html: "`reqdata.html`"
+              prompt: "`reqdata.prompt`"
+              rejectRequestPattern: "`reqdata.reject_request_pattern`"
+              rejectResourceTypes: "`reqdata.reject_resource_type`"
+              response_format: "`reqdata.response_format`"
+              setExtraHTTPHeaders: "`reqdata.set_extra_http_header`"
+              setJavaScriptEnabled: "`reqdata.set_java_script_enabled`"
+              url: "`reqdata.url`"
+              userAgent: "`reqdata.user_agent`"
+              viewport: "`reqdata.viewport`"
+              waitForSelector: "`reqdata.wait_for_selector`"
+              waitForTimeout: "`reqdata.wait_for_timeout`"
+            }
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/browser-rendering/links"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 5
+                k: "query"
+                n: "cache_ttl"
+                or: "cache_ttl"
+                r: false
+                t: "`$NUMBER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/browser-rendering/links"
+          q: {
+            exist: [
+              "account_id"
+              "cache_ttl"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "links"
+            }
+          ]
+          t: {
+            req: {
+              actionTimeout: "`reqdata.action_timeout`"
+              addScriptTag: "`reqdata.add_script_tag`"
+              addStyleTag: "`reqdata.add_style_tag`"
+              allowRequestPattern: "`reqdata.allow_request_pattern`"
+              allowResourceTypes: "`reqdata.allow_resource_type`"
+              authenticate: "`reqdata.authenticate`"
+              bestAttempt: "`reqdata.best_attempt`"
+              cookies: "`reqdata.cooky`"
+              emulateMediaType: "`reqdata.emulate_media_type`"
+              excludeExternalLinks: "`reqdata.exclude_external_link`"
+              gotoOptions: "`reqdata.goto_option`"
+              html: "`reqdata.html`"
+              rejectRequestPattern: "`reqdata.reject_request_pattern`"
+              rejectResourceTypes: "`reqdata.reject_resource_type`"
+              setExtraHTTPHeaders: "`reqdata.set_extra_http_header`"
+              setJavaScriptEnabled: "`reqdata.set_java_script_enabled`"
+              url: "`reqdata.url`"
+              userAgent: "`reqdata.user_agent`"
+              viewport: "`reqdata.viewport`"
+              visibleLinksOnly: "`reqdata.visible_links_only`"
+              waitForSelector: "`reqdata.wait_for_selector`"
+              waitForTimeout: "`reqdata.wait_for_timeout`"
+            }
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/browser-rendering/markdown"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 5
+                k: "query"
+                n: "cache_ttl"
+                or: "cache_ttl"
+                r: false
+                t: "`$NUMBER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/browser-rendering/markdown"
+          q: {
+            exist: [
+              "account_id"
+              "cache_ttl"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "markdown"
+            }
+          ]
+          t: {
+            req: {
+              actionTimeout: "`reqdata.action_timeout`"
+              addScriptTag: "`reqdata.add_script_tag`"
+              addStyleTag: "`reqdata.add_style_tag`"
+              allowRequestPattern: "`reqdata.allow_request_pattern`"
+              allowResourceTypes: "`reqdata.allow_resource_type`"
+              authenticate: "`reqdata.authenticate`"
+              bestAttempt: "`reqdata.best_attempt`"
+              cookies: "`reqdata.cooky`"
+              emulateMediaType: "`reqdata.emulate_media_type`"
+              gotoOptions: "`reqdata.goto_option`"
+              html: "`reqdata.html`"
+              rejectRequestPattern: "`reqdata.reject_request_pattern`"
+              rejectResourceTypes: "`reqdata.reject_resource_type`"
+              setExtraHTTPHeaders: "`reqdata.set_extra_http_header`"
+              setJavaScriptEnabled: "`reqdata.set_java_script_enabled`"
+              url: "`reqdata.url`"
+              userAgent: "`reqdata.user_agent`"
+              viewport: "`reqdata.viewport`"
+              waitForSelector: "`reqdata.wait_for_selector`"
+              waitForTimeout: "`reqdata.wait_for_timeout`"
+            }
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/browser-rendering/pdf"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 5
+                k: "query"
+                n: "cache_ttl"
+                or: "cache_ttl"
+                r: false
+                t: "`$NUMBER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/browser-rendering/pdf"
+          q: {
+            exist: [
+              "account_id"
+              "cache_ttl"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "pdf"
+            }
+          ]
+          t: {
+            req: {
+              actionTimeout: "`reqdata.action_timeout`"
+              addScriptTag: "`reqdata.add_script_tag`"
+              addStyleTag: "`reqdata.add_style_tag`"
+              allowRequestPattern: "`reqdata.allow_request_pattern`"
+              allowResourceTypes: "`reqdata.allow_resource_type`"
+              authenticate: "`reqdata.authenticate`"
+              bestAttempt: "`reqdata.best_attempt`"
+              cookies: "`reqdata.cooky`"
+              emulateMediaType: "`reqdata.emulate_media_type`"
+              gotoOptions: "`reqdata.goto_option`"
+              html: "`reqdata.html`"
+              pdfOptions: "`reqdata.pdf_option`"
+              rejectRequestPattern: "`reqdata.reject_request_pattern`"
+              rejectResourceTypes: "`reqdata.reject_resource_type`"
+              setExtraHTTPHeaders: "`reqdata.set_extra_http_header`"
+              setJavaScriptEnabled: "`reqdata.set_java_script_enabled`"
+              url: "`reqdata.url`"
+              userAgent: "`reqdata.user_agent`"
+              viewport: "`reqdata.viewport`"
+              waitForSelector: "`reqdata.wait_for_selector`"
+              waitForTimeout: "`reqdata.wait_for_timeout`"
+            }
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/browser-rendering/scrape"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 5
+                k: "query"
+                n: "cache_ttl"
+                or: "cache_ttl"
+                r: false
+                t: "`$NUMBER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/browser-rendering/scrape"
+          q: {
+            exist: [
+              "account_id"
+              "cache_ttl"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "scrape"
+            }
+          ]
+          t: {
+            req: {
+              actionTimeout: "`reqdata.action_timeout`"
+              addScriptTag: "`reqdata.add_script_tag`"
+              addStyleTag: "`reqdata.add_style_tag`"
+              allowRequestPattern: "`reqdata.allow_request_pattern`"
+              allowResourceTypes: "`reqdata.allow_resource_type`"
+              authenticate: "`reqdata.authenticate`"
+              bestAttempt: "`reqdata.best_attempt`"
+              cookies: "`reqdata.cooky`"
+              elements: "`reqdata.element`"
+              emulateMediaType: "`reqdata.emulate_media_type`"
+              gotoOptions: "`reqdata.goto_option`"
+              html: "`reqdata.html`"
+              rejectRequestPattern: "`reqdata.reject_request_pattern`"
+              rejectResourceTypes: "`reqdata.reject_resource_type`"
+              setExtraHTTPHeaders: "`reqdata.set_extra_http_header`"
+              setJavaScriptEnabled: "`reqdata.set_java_script_enabled`"
+              url: "`reqdata.url`"
+              userAgent: "`reqdata.user_agent`"
+              viewport: "`reqdata.viewport`"
+              waitForSelector: "`reqdata.wait_for_selector`"
+              waitForTimeout: "`reqdata.wait_for_timeout`"
+            }
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/browser-rendering/screenshot"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 5
+                k: "query"
+                n: "cache_ttl"
+                or: "cache_ttl"
+                r: false
+                t: "`$NUMBER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/browser-rendering/screenshot"
+          q: {
+            exist: [
+              "account_id"
+              "cache_ttl"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "screenshot"
+            }
+          ]
+          t: {
+            req: {
+              actionTimeout: "`reqdata.action_timeout`"
+              addScriptTag: "`reqdata.add_script_tag`"
+              addStyleTag: "`reqdata.add_style_tag`"
+              allowRequestPattern: "`reqdata.allow_request_pattern`"
+              allowResourceTypes: "`reqdata.allow_resource_type`"
+              authenticate: "`reqdata.authenticate`"
+              bestAttempt: "`reqdata.best_attempt`"
+              cookies: "`reqdata.cooky`"
+              emulateMediaType: "`reqdata.emulate_media_type`"
+              gotoOptions: "`reqdata.goto_option`"
+              html: "`reqdata.html`"
+              rejectRequestPattern: "`reqdata.reject_request_pattern`"
+              rejectResourceTypes: "`reqdata.reject_resource_type`"
+              screenshotOptions: "`reqdata.screenshot_option`"
+              scrollPage: "`reqdata.scroll_page`"
+              selector: "`reqdata.selector`"
+              setExtraHTTPHeaders: "`reqdata.set_extra_http_header`"
+              setJavaScriptEnabled: "`reqdata.set_java_script_enabled`"
+              url: "`reqdata.url`"
+              userAgent: "`reqdata.user_agent`"
+              viewport: "`reqdata.viewport`"
+              waitForSelector: "`reqdata.wait_for_selector`"
+              waitForTimeout: "`reqdata.wait_for_timeout`"
+            }
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/browser-rendering/snapshot"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 5
+                k: "query"
+                n: "cache_ttl"
+                or: "cache_ttl"
+                r: false
+                t: "`$NUMBER`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/browser-rendering/snapshot"
+          q: {
+            exist: [
+              "account_id"
+              "cache_ttl"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "snapshot"
+            }
+          ]
+          t: {
+            req: {
+              actionTimeout: "`reqdata.action_timeout`"
+              addScriptTag: "`reqdata.add_script_tag`"
+              addStyleTag: "`reqdata.add_style_tag`"
+              allowRequestPattern: "`reqdata.allow_request_pattern`"
+              allowResourceTypes: "`reqdata.allow_resource_type`"
+              authenticate: "`reqdata.authenticate`"
+              bestAttempt: "`reqdata.best_attempt`"
+              cookies: "`reqdata.cooky`"
+              emulateMediaType: "`reqdata.emulate_media_type`"
+              formats: "`reqdata.format`"
+              gotoOptions: "`reqdata.goto_option`"
+              html: "`reqdata.html`"
+              rejectRequestPattern: "`reqdata.reject_request_pattern`"
+              rejectResourceTypes: "`reqdata.reject_resource_type`"
+              screenshotOptions: "`reqdata.screenshot_option`"
+              setExtraHTTPHeaders: "`reqdata.set_extra_http_header`"
+              setJavaScriptEnabled: "`reqdata.set_java_script_enabled`"
+              url: "`reqdata.url`"
+              userAgent: "`reqdata.user_agent`"
+              viewport: "`reqdata.viewport`"
+              waitForSelector: "`reqdata.wait_for_selector`"
+              waitForTimeout: "`reqdata.wait_for_timeout`"
+            }
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "browser_id"
+                or: "session_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 300000
+                k: "query"
+                n: "live_view_url_expires_in_m"
+                or: "live_view_url_expires_in_m"
+                r: false
+                t: "`$NUMBER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json"
+          q: {
+            exist: [
+              "account_id"
+              "browser_id"
+              "live_view_url_expires_in_m"
+            ]
+          }
+          r: {
+            param: {
+              session_id: "browser_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "devtools"
+            }
+            {
+              lit: "browser"
+            }
+            {
+              var: "browser_id"
+            }
+            {
+              lit: "json"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json/list"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "browser_id"
+                or: "session_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 300000
+                k: "query"
+                n: "live_view_url_expires_in_m"
+                or: "live_view_url_expires_in_m"
+                r: false
+                t: "`$NUMBER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json/list"
+          q: {
+            exist: [
+              "account_id"
+              "browser_id"
+              "live_view_url_expires_in_m"
+            ]
+          }
+          r: {
+            param: {
+              session_id: "browser_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "devtools"
+            }
+            {
+              lit: "browser"
+            }
+            {
+              var: "browser_id"
+            }
+            {
+              lit: "json"
+            }
+            {
+              lit: "list"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/browser-rendering/devtools/session"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 200
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$NUMBER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/browser-rendering/devtools/session"
+          q: {
+            exist: [
+              "account_id"
+              "limit"
+              "offset"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "devtools"
+            }
+            {
+              lit: "session"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json/protocol"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "browser_id"
+                or: "session_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json/protocol"
+          q: {
+            exist: [
+              "account_id"
+              "browser_id"
+            ]
+          }
+          r: {
+            param: {
+              session_id: "browser_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "devtools"
+            }
+            {
+              lit: "browser"
+            }
+            {
+              var: "browser_id"
+            }
+            {
+              lit: "json"
+            }
+            {
+              lit: "protocol"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/browser-rendering/crawl/{job_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "job_id"
+                or: "job_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 5
+                k: "query"
+                n: "cache_ttl"
+                or: "cache_ttl"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "cursor"
+                or: "cursor"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "status"
+                or: "status"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/browser-rendering/crawl/{job_id}"
+          q: {
+            exist: [
+              "account_id"
+              "cache_ttl"
+              "cursor"
+              "job_id"
+              "limit"
+              "status"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "crawl"
+            }
+            {
+              var: "job_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/browser-rendering/devtools/browser/{session_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "eyJtb2RlIjoicmVhZG9ubHkifQ"
+                k: "header"
+                n: "cf_brapi_guardrail"
+                or: "cf_brapi_guardrail"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "session_id"
+                or: "session_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 60000
+                k: "query"
+                n: "keep_alive"
+                or: "keep_alive"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "lab"
+                or: "lab"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "recording"
+                or: "recording"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/browser-rendering/devtools/browser/{session_id}"
+          q: {
+            exist: [
+              "account_id"
+              "cf_brapi_guardrail"
+              "keep_alive"
+              "lab"
+              "recording"
+              "session_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "devtools"
+            }
+            {
+              lit: "browser"
+            }
+            {
+              var: "session_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/browser-rendering/devtools/browser"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "eyJhbGxvd2VkRG9tYWlucyI6WyIqLmV4YW1wbGUuY29tIl19"
+                k: "header"
+                n: "cf_brapi_guardrail"
+                or: "cf_brapi_guardrail"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 60000
+                k: "query"
+                n: "keep_alive"
+                or: "keep_alive"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "lab"
+                or: "lab"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: false
+                k: "query"
+                n: "recording"
+                or: "recording"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/browser-rendering/devtools/browser"
+          q: {
+            exist: [
+              "account_id"
+              "cf_brapi_guardrail"
+              "keep_alive"
+              "lab"
+              "recording"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "devtools"
+            }
+            {
+              lit: "browser"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/page/{target_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                ex: "eyJtb2RlIjoicmVhZG9ubHkifQ"
+                k: "header"
+                n: "cf_brapi_guardrail"
+                or: "cf_brapi_guardrail"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "browser_id"
+                or: "session_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "target_id"
+                or: "target_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/page/{target_id}"
+          q: {
+            exist: [
+              "account_id"
+              "browser_id"
+              "cf_brapi_guardrail"
+              "target_id"
+            ]
+          }
+          r: {
+            param: {
+              session_id: "browser_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "devtools"
+            }
+            {
+              lit: "browser"
+            }
+            {
+              var: "browser_id"
+            }
+            {
+              lit: "page"
+            }
+            {
+              var: "target_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/browser-rendering/recording/{session_id}/network"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "recording_id"
+                or: "session_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "format"
+                or: "format"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "target"
+                or: "target"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/browser-rendering/recording/{session_id}/network"
+          q: {
+            exist: [
+              "account_id"
+              "format"
+              "recording_id"
+              "target"
+            ]
+          }
+          r: {
+            param: {
+              session_id: "recording_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "recording"
+            }
+            {
+              var: "recording_id"
+            }
+            {
+              lit: "network"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json/activate/{target_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "browser_id"
+                or: "session_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "target_id"
+                or: "target_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json/activate/{target_id}"
+          q: {
+            exist: [
+              "account_id"
+              "browser_id"
+              "target_id"
+            ]
+          }
+          r: {
+            param: {
+              session_id: "browser_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "devtools"
+            }
+            {
+              lit: "browser"
+            }
+            {
+              var: "browser_id"
+            }
+            {
+              lit: "json"
+            }
+            {
+              lit: "activate"
+            }
+            {
+              var: "target_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json/close/{target_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "browser_id"
+                or: "session_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "target_id"
+                or: "target_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json/close/{target_id}"
+          q: {
+            exist: [
+              "account_id"
+              "browser_id"
+              "target_id"
+            ]
+          }
+          r: {
+            param: {
+              session_id: "browser_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "devtools"
+            }
+            {
+              lit: "browser"
+            }
+            {
+              var: "browser_id"
+            }
+            {
+              lit: "json"
+            }
+            {
+              lit: "close"
+            }
+            {
+              var: "target_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json/list/{target_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "browser_id"
+                or: "session_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "target_id"
+                or: "target_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json/list/{target_id}"
+          q: {
+            exist: [
+              "account_id"
+              "browser_id"
+              "target_id"
+            ]
+          }
+          r: {
+            param: {
+              session_id: "browser_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "devtools"
+            }
+            {
+              lit: "browser"
+            }
+            {
+              var: "browser_id"
+            }
+            {
+              lit: "json"
+            }
+            {
+              lit: "list"
+            }
+            {
+              var: "target_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json/version"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "browser_id"
+                or: "session_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json/version"
+          q: {
+            exist: [
+              "account_id"
+              "browser_id"
+            ]
+          }
+          r: {
+            param: {
+              session_id: "browser_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "devtools"
+            }
+            {
+              lit: "browser"
+            }
+            {
+              var: "browser_id"
+            }
+            {
+              lit: "json"
+            }
+            {
+              lit: "version"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/browser-rendering/devtools/session/{session_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "session_id"
+                or: "session_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/browser-rendering/devtools/session/{session_id}"
+          q: {
+            exist: [
+              "account_id"
+              "session_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "devtools"
+            }
+            {
+              lit: "session"
+            }
+            {
+              var: "session_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/browser-rendering/recording/{session_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "session_id"
+                or: "session_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/browser-rendering/recording/{session_id}"
+          q: {
+            exist: [
+              "account_id"
+              "session_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "recording"
+            }
+            {
+              var: "session_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/browser-rendering/crawl/{job_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "job_id"
+                or: "job_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/browser-rendering/crawl/{job_id}"
+          q: {
+            exist: [
+              "account_id"
+              "job_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "crawl"
+            }
+            {
+              var: "job_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/browser-rendering/devtools/browser/{session_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "session_id"
+                or: "session_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/browser-rendering/devtools/browser/{session_id}"
+          q: {
+            exist: [
+              "account_id"
+              "session_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "devtools"
+            }
+            {
+              lit: "browser"
+            }
+            {
+              var: "session_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json/new"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "browser_id"
+                or: "session_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 300000
+                k: "query"
+                n: "live_view_url_expires_in_m"
+                or: "live_view_url_expires_in_m"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                k: "query"
+                n: "url"
+                or: "url"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json/new"
+          q: {
+            exist: [
+              "account_id"
+              "browser_id"
+              "live_view_url_expires_in_m"
+              "url"
+            ]
+          }
+          r: {
+            param: {
+              session_id: "browser_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "browser-rendering"
+            }
+            {
+              lit: "devtools"
+            }
+            {
+              lit: "browser"
+            }
+            {
+              var: "browser_id"
+            }
+            {
+              lit: "json"
+            }
+            {
+              lit: "new"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account")]
+    [path("$.main.kit.entity.account")]
+    [path("$.main.kit.entity.account")]
+    [path("$.main.kit.entity.account")]
+    [path("$.main.kit.entity.account")]
+    [path("$.main.kit.entity.account")]
+    [path("$.main.kit.entity.account")]
+    [path("$.main.kit.entity.account")]
+    [path("$.main.kit.entity.account")]
+  ]
+
+}

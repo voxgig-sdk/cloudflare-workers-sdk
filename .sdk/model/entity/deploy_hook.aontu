@@ -1,0 +1,512 @@
+# Entity: deploy_hook
+
+main: kit: entity: deploy_hook: {
+
+  alias: field: {}
+
+  fields: {
+    branch: {
+      h: "Branch"
+      n: "branch"
+      r: true
+      sh: "Git branch name."
+      t: "`$STRING`"
+    }
+    deploy_hook_name: {
+      h: "Deploy Hook Name"
+      n: "deploy_hook_name"
+      r: true
+      sh: "Deploy hook name (1-58 characters)."
+      t: "`$STRING`"
+    }
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: true
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: true
+      t: "`$ARRAY`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      op: {
+        create: {
+          req: false
+          type: "`$OBJECT`"
+        }
+        list: {
+          req: false
+          type: "`$OBJECT`"
+        }
+        load: {
+          req: false
+          type: "`$OBJECT`"
+        }
+      }
+      r: true
+      t: "`$OBJECT`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 4
+      }
+    }
+    result_info: {
+      h: "Result Info"
+      n: "result_info"
+      r: false
+      t: "`$OBJECT`"
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "deploy_hook"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/builds/workers/{script_name}/deploy_hooks"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "account-123"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-worker"
+                k: "param"
+                n: "script_name"
+                or: "script_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/builds/workers/{script_name}/deploy_hooks"
+          q: {
+            exist: [
+              "account_id"
+              "script_name"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "builds"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              var: "script_name"
+            }
+            {
+              lit: "deploy_hooks"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /workers/builds/deploy_hooks/{deploy_hook_uuid}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "deploy_hook_uuid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/workers/builds/deploy_hooks/{deploy_hook_uuid}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              deploy_hook_uuid: "id"
+            }
+          }
+          s: [
+            {
+              lit: "workers"
+            }
+            {
+              lit: "builds"
+            }
+            {
+              lit: "deploy_hooks"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/builds/workers/{script_name}/deploy_hooks"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "account-123"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-worker"
+                k: "param"
+                n: "script_name"
+                or: "script_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/builds/workers/{script_name}/deploy_hooks"
+          q: {
+            exist: [
+              "account_id"
+              "script_name"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "builds"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              var: "script_name"
+            }
+            {
+              lit: "deploy_hooks"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/builds/workers/{script_name}/deploy_hooks/{deploy_hook_uuid}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "account-123"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "deploy_hook_uuid"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-worker"
+                k: "param"
+                n: "worker_id"
+                or: "script_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/builds/workers/{script_name}/deploy_hooks/{deploy_hook_uuid}"
+          q: {
+            exist: [
+              "account_id"
+              "id"
+              "worker_id"
+            ]
+          }
+          r: {
+            param: {
+              deploy_hook_uuid: "id"
+              script_name: "worker_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "builds"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              var: "worker_id"
+            }
+            {
+              lit: "deploy_hooks"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/builds/workers/{script_name}/deploy_hooks/{deploy_hook_uuid}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "account-123"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "deploy_hook_uuid"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-worker"
+                k: "param"
+                n: "worker_id"
+                or: "script_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/builds/workers/{script_name}/deploy_hooks/{deploy_hook_uuid}"
+          q: {
+            exist: [
+              "account_id"
+              "id"
+              "worker_id"
+            ]
+          }
+          r: {
+            param: {
+              deploy_hook_uuid: "id"
+              script_name: "worker_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "builds"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              var: "worker_id"
+            }
+            {
+              lit: "deploy_hooks"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /accounts/{account_id}/builds/workers/{script_name}/deploy_hooks/{deploy_hook_uuid}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "account-123"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "deploy_hook_uuid"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-worker"
+                k: "param"
+                n: "worker_id"
+                or: "script_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/accounts/{account_id}/builds/workers/{script_name}/deploy_hooks/{deploy_hook_uuid}"
+          q: {
+            exist: [
+              "account_id"
+              "id"
+              "worker_id"
+            ]
+          }
+          r: {
+            param: {
+              deploy_hook_uuid: "id"
+              script_name: "worker_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "builds"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              var: "worker_id"
+            }
+            {
+              lit: "deploy_hooks"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account") path("$.main.kit.entity.worker")]
+  ]
+
+}

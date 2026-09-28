@@ -1,0 +1,300 @@
+# Entity: workers_script_response_single
+
+main: kit: entity: workers_script_response_single: {
+
+  alias: field: {}
+
+  name: "workers_script_response_single"
+  op: {
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /accounts/{account_id}/workers/services/{service_name}/environments/{environment_name}/content"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "cf_worker_body_part"
+                or: "cf_worker_body_part"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "header"
+                n: "cf_worker_main_module_part"
+                or: "cf_worker_main_module_part"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "production"
+                k: "param"
+                n: "environment_name"
+                or: "environment_name"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-worker"
+                k: "param"
+                n: "service_id"
+                or: "service_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/accounts/{account_id}/workers/services/{service_name}/environments/{environment_name}/content"
+          q: {
+            exist: [
+              "account_id"
+              "cf_worker_body_part"
+              "cf_worker_main_module_part"
+              "environment_name"
+              "service_id"
+            ]
+          }
+          r: {
+            param: {
+              service_name: "service_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              lit: "services"
+            }
+            {
+              var: "service_id"
+            }
+            {
+              lit: "environments"
+            }
+            {
+              var: "environment_name"
+            }
+            {
+              lit: "content"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/content"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "cf_worker_body_part"
+                or: "cf_worker_body_part"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "header"
+                n: "cf_worker_main_module_part"
+                or: "cf_worker_main_module_part"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-dispatch-namespace"
+                k: "param"
+                n: "namespace_id"
+                or: "dispatch_namespace"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "this-is_my_script-01"
+                k: "param"
+                n: "script_name"
+                or: "script_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/content"
+          q: {
+            exist: [
+              "account_id"
+              "cf_worker_body_part"
+              "cf_worker_main_module_part"
+              "namespace_id"
+              "script_name"
+            ]
+          }
+          r: {
+            param: {
+              dispatch_namespace: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              lit: "dispatch"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "scripts"
+            }
+            {
+              var: "script_name"
+            }
+            {
+              lit: "content"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /accounts/{account_id}/workers/scripts/{script_name}/content"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            header: [
+              {
+                k: "header"
+                n: "cf_worker_body_part"
+                or: "cf_worker_body_part"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "header"
+                n: "cf_worker_main_module_part"
+                or: "cf_worker_main_module_part"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "this-is_my_script-01"
+                k: "param"
+                n: "script_name"
+                or: "script_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/accounts/{account_id}/workers/scripts/{script_name}/content"
+          q: {
+            exist: [
+              "account_id"
+              "cf_worker_body_part"
+              "cf_worker_main_module_part"
+              "script_name"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              lit: "scripts"
+            }
+            {
+              var: "script_name"
+            }
+            {
+              lit: "content"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account") path("$.main.kit.entity.script")]
+    [path("$.main.kit.entity.account") path("$.main.kit.entity.namespace") path("$.main.kit.entity.script")]
+    [path("$.main.kit.entity.account")]
+  ]
+
+}

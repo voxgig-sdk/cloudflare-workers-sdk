@@ -1,0 +1,62 @@
+{
+  "existing": {
+    "builds_api": {
+      "BUILDS_API00": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "trigger_id": "TRIGGER01",
+        "environment_variable_key": "ENVIRONMENT_VARIABLE_KEY01",
+        "id": "BUILDS_API00"
+      },
+      "BUILDS_API01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "trigger_id": "TRIGGER01",
+        "environment_variable_key": "ENVIRONMENT_VARIABLE_KEY01",
+        "id": "BUILDS_API01"
+      },
+      "BUILDS_API02": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "trigger_id": "TRIGGER01",
+        "environment_variable_key": "ENVIRONMENT_VARIABLE_KEY01",
+        "id": "BUILDS_API02"
+      }
+    }
+  },
+  "new": {
+    "builds_api": {
+      "builds_api_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/builds/triggers/{trigger_uuid}/purge_build_cache": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/builds/triggers/{trigger_uuid}/environment_variables/{environment_variable_key}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

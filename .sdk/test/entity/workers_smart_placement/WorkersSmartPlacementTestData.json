@@ -1,0 +1,44 @@
+{
+  "existing": {
+    "workers_smart_placement": {
+      "WORKERS_SMART_PLACEMENT00": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01"
+      },
+      "WORKERS_SMART_PLACEMENT01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01"
+      },
+      "WORKERS_SMART_PLACEMENT02": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "workers_smart_placement": {
+      "workers_smart_placement_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/workers/placement/regions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

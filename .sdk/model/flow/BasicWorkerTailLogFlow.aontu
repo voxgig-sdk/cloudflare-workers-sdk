@@ -1,0 +1,40 @@
+# BasicWorkerTailLogFlow
+
+main: kit: flow: BasicWorkerTailLogFlow:
+{
+  entity: "worker_tail_log",
+  kind: "basic",
+  name: "BasicWorkerTailLogFlow",
+  step: [
+    {
+      i: {
+        ref: "worker_tail_log_ref01"
+      }
+
+      m: {
+        account_id: "account01",
+        script_name: "script_name01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        account_id: "account01",
+        script_name: "script_name01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "worker_tail_log_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkerTailLogFlow"
+}

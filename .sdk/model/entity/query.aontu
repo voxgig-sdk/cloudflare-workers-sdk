@@ -1,0 +1,213 @@
+# Entity: query
+
+main: kit: entity: query: {
+
+  alias: field: {}
+
+  fields: {
+    chart: {
+      h: "Chart"
+      n: "chart"
+      r: false
+      sh: "When true, includes time-series data in the response."
+      t: "`$BOOLEAN`"
+    }
+    chartType: {
+      h: "Chart Type"
+      n: "chartType"
+      r: false
+      sh: "Controls the SQL shape and response payload for the 'calculations' view."
+      t: "`$STRING`"
+    }
+    compare: {
+      h: "Compare"
+      n: "compare"
+      r: false
+      sh: "When true, includes a comparison dataset from the previous time period of equal length."
+      t: "`$BOOLEAN`"
+    }
+    distributionScale: {
+      h: "Distribution Scale"
+      n: "distributionScale"
+      r: false
+      sh: "Value-axis bucketing for chartType 'distribution'."
+      t: "`$STRING`"
+    }
+    dry: {
+      h: "Dry"
+      n: "dry"
+      r: false
+      sh: "When true, executes the query without persisting the results."
+      t: "`$BOOLEAN`"
+    }
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: true
+      t: "`$ARRAY`"
+    }
+    granularity: {
+      h: "Granularity"
+      n: "granularity"
+      r: false
+      sh: "Number of time-series buckets."
+      t: "`$NUMBER`"
+    }
+    ignoreSeries: {
+      h: "Ignore Series"
+      n: "ignoreSeries"
+      r: false
+      sh: "When true, omits time-series data from the response and returns only aggregated values."
+      t: "`$BOOLEAN`"
+    }
+    limit: {
+      h: "Limit"
+      n: "limit"
+      r: false
+      sh: "Maximum number of events to return when view is 'events'."
+      t: "`$NUMBER`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: true
+      t: "`$ARRAY`"
+    }
+    offset: {
+      h: "Offset"
+      n: "offset"
+      r: false
+      sh: "Cursor for pagination in event, trace, invocation, and agent views."
+      t: "`$STRING`"
+    }
+    offsetBy: {
+      h: "Offset By"
+      n: "offsetBy"
+      r: false
+      sh: "Numeric offset for paginating grouped/pattern results (top-N lists)."
+      t: "`$NUMBER`"
+    }
+    offsetDirection: {
+      h: "Offset Direction"
+      n: "offsetDirection"
+      r: false
+      sh: "Pagination direction: 'next' for forward, 'prev' for backward."
+      t: "`$STRING`"
+    }
+    parameters: {
+      h: "Parameters"
+      n: "parameters"
+      r: false
+      sh: "Query parameters defining what data to retrieve — filters, calculations, group-bys, and ordering."
+      t: "`$OBJECT`"
+      union: {
+        branches: 3
+        count: 6
+        depth: 10
+      }
+    }
+    queryId: {
+      h: "Query Id"
+      n: "queryId"
+      r: true
+      sh: "Identifier for the query."
+      t: "`$STRING`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: true
+      sh: "Complete results of a query run."
+      t: "`$OBJECT`"
+      union: {
+        branches: 3
+        count: 12
+        depth: 15
+      }
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+    timeframe: {
+      h: "Timeframe"
+      n: "timeframe"
+      r: true
+      sh: "Timeframe for the query using Unix timestamps in milliseconds."
+      t: "`$OBJECT`"
+    }
+    view: {
+      h: "View"
+      n: "view"
+      r: false
+      sh: "Controls the shape of the response."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "query"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/workers/observability/telemetry/query"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/workers/observability/telemetry/query"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              lit: "observability"
+            }
+            {
+              lit: "telemetry"
+            }
+            {
+              lit: "query"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account")]
+  ]
+
+}

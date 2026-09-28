@@ -1,0 +1,168 @@
+# Entity: git_hub_integration
+
+main: kit: entity: git_hub_integration: {
+
+  alias: field: {}
+
+  fields: {
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: true
+      t: "`$ARRAY`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: true
+      t: "`$ARRAY`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      op: {
+        list: {
+          req: false
+          type: "`$OBJECT`"
+        }
+      }
+      r: true
+      t: "`$OBJECT`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 4
+      }
+    }
+    result_info: {
+      h: "Result Info"
+      n: "result_info"
+      r: false
+      t: "`$OBJECT`"
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "git_hub_integration"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/builds/repos/{provider_type}/{provider_account_id}/{repo_id}/config_autofill"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "account-123"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "cloudflare"
+                k: "param"
+                n: "provider_account_id"
+                or: "provider_account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "github"
+                k: "param"
+                n: "provider_type"
+                or: "provider_type"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "workers-sdk"
+                k: "param"
+                n: "repo_id"
+                or: "repo_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: "main"
+                k: "query"
+                n: "branch"
+                or: "branch"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "/"
+                k: "query"
+                n: "root_directory"
+                or: "root_directory"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/builds/repos/{provider_type}/{provider_account_id}/{repo_id}/config_autofill"
+          q: {
+            exist: [
+              "account_id"
+              "branch"
+              "provider_account_id"
+              "provider_type"
+              "repo_id"
+              "root_directory"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "builds"
+            }
+            {
+              lit: "repos"
+            }
+            {
+              var: "provider_type"
+            }
+            {
+              var: "provider_account_id"
+            }
+            {
+              var: "repo_id"
+            }
+            {
+              lit: "config_autofill"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account")]
+  ]
+
+}

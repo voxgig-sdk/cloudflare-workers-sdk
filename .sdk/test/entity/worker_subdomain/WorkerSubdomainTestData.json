@@ -1,0 +1,61 @@
+{
+  "existing": {
+    "worker_subdomain": {
+      "WORKER_SUBDOMAIN00": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "subdomain": "s35",
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "id": "WORKER_SUBDOMAIN00"
+      },
+      "WORKER_SUBDOMAIN01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "subdomain": "s67",
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "id": "WORKER_SUBDOMAIN01"
+      },
+      "WORKER_SUBDOMAIN02": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "subdomain": "s99",
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "id": "WORKER_SUBDOMAIN02"
+      }
+    }
+  },
+  "new": {
+    "worker_subdomain": {
+      "worker_subdomain_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "subdomain": "scb",
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/workers/subdomain": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/workers/subdomain": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/workers/subdomain": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,9 @@
+# BasicConnectionFlow
+
+main: kit: flow: BasicConnectionFlow:
+{
+  entity: "connection",
+  kind: "basic",
+  name: "BasicConnectionFlow",
+  "key$": "BasicConnectionFlow"
+}

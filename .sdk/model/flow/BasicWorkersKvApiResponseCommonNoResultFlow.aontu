@@ -1,0 +1,33 @@
+# BasicWorkersKvApiResponseCommonNoResultFlow
+
+main: kit: flow: BasicWorkersKvApiResponseCommonNoResultFlow:
+{
+  entity: "workers_kv_api_response_common_no_result",
+  kind: "basic",
+  name: "BasicWorkersKvApiResponseCommonNoResultFlow",
+  step: [
+    {
+      d: {
+        account_id: "account01",
+        namespace_id: "namespace01"
+      }
+
+      i: {
+        ref: "workers_kv_api_response_common_no_result_ref01",
+        srcdatavar: "workers_kv_api_response_common_no_result_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-workers_kv_api_response_common_no_result_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkersKvApiResponseCommonNoResultFlow"
+}

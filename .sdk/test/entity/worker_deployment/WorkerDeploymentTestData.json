@@ -1,0 +1,87 @@
+{
+  "existing": {
+    "worker_deployment": {
+      "WORKER_DEPLOYMENT00": {
+        "annotations": {},
+        "author_email": "s6f",
+        "created_on": "s70",
+        "errors": [],
+        "id": "WORKER_DEPLOYMENT00",
+        "messages": [],
+        "result": {},
+        "source": "s75",
+        "strategy": "s76",
+        "success": false,
+        "versions": [],
+        "account_id": "ACCOUNT01",
+        "script_name": "SCRIPT_NAME01",
+        "script_id": "SCRIPT01"
+      },
+      "WORKER_DEPLOYMENT01": {
+        "annotations": {},
+        "author_email": "sdd",
+        "created_on": "sde",
+        "errors": [],
+        "id": "WORKER_DEPLOYMENT01",
+        "messages": [],
+        "result": {},
+        "source": "se3",
+        "strategy": "se4",
+        "success": false,
+        "versions": [],
+        "account_id": "ACCOUNT01",
+        "script_name": "SCRIPT_NAME01",
+        "script_id": "SCRIPT01"
+      },
+      "WORKER_DEPLOYMENT02": {
+        "annotations": {},
+        "author_email": "s14b",
+        "created_on": "s14c",
+        "errors": [],
+        "id": "WORKER_DEPLOYMENT02",
+        "messages": [],
+        "result": {},
+        "source": "s151",
+        "strategy": "s152",
+        "success": false,
+        "versions": [],
+        "account_id": "ACCOUNT01",
+        "script_name": "SCRIPT_NAME01",
+        "script_id": "SCRIPT01"
+      }
+    }
+  },
+  "new": {
+    "worker_deployment": {
+      "worker_deployment_ref01": {
+        "annotations": {},
+        "author_email": "s1b9",
+        "created_on": "s1ba",
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "source": "s1bf",
+        "strategy": "s1c0",
+        "success": false,
+        "versions": []
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/workers/scripts/{script_name}/deployments": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/scripts/{script_name}/deployments": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/scripts/{script_name}/deployments/{deployment_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

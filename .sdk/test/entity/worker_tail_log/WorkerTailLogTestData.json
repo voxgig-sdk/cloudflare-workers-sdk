@@ -1,0 +1,55 @@
+{
+  "existing": {
+    "worker_tail_log": {
+      "WORKER_TAIL_LOG00": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "script_name": "SCRIPT_NAME01",
+        "id": "WORKER_TAIL_LOG00"
+      },
+      "WORKER_TAIL_LOG01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "script_name": "SCRIPT_NAME01",
+        "id": "WORKER_TAIL_LOG01"
+      },
+      "WORKER_TAIL_LOG02": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "script_name": "SCRIPT_NAME01",
+        "id": "WORKER_TAIL_LOG02"
+      }
+    }
+  },
+  "new": {
+    "worker_tail_log": {
+      "worker_tail_log_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/workers/scripts/{script_name}/tails": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/scripts/{script_name}/tails": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

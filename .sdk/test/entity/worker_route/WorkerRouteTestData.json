@@ -1,0 +1,75 @@
+{
+  "existing": {
+    "worker_route": {
+      "WORKER_ROUTE00": {
+        "errors": [],
+        "id": "WORKER_ROUTE00",
+        "messages": [],
+        "pattern": "s49",
+        "result": {},
+        "script": "s4b",
+        "success": true,
+        "zone_id": "ZONE01"
+      },
+      "WORKER_ROUTE01": {
+        "errors": [],
+        "id": "WORKER_ROUTE01",
+        "messages": [],
+        "pattern": "s8f",
+        "result": {},
+        "script": "s91",
+        "success": true,
+        "zone_id": "ZONE01"
+      },
+      "WORKER_ROUTE02": {
+        "errors": [],
+        "id": "WORKER_ROUTE02",
+        "messages": [],
+        "pattern": "sd5",
+        "result": {},
+        "script": "sd7",
+        "success": true,
+        "zone_id": "ZONE01"
+      }
+    }
+  },
+  "new": {
+    "worker_route": {
+      "worker_route_ref01": {
+        "errors": [],
+        "messages": [],
+        "pattern": "s11b",
+        "result": {},
+        "script": "s11d",
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "POST /zones/{zone_id}/workers/routes": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /zones/{zone_id}/workers/routes": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /zones/{zone_id}/workers/routes/{route_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /zones/{zone_id}/workers/routes/{route_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /zones/{zone_id}/workers/routes/{route_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "existing": {
+    "query": {
+      "QUERY00": {
+        "chart": true,
+        "chartType": "sbf",
+        "compare": true,
+        "distributionScale": "sc1",
+        "dry": true,
+        "errors": [],
+        "granularity": 196,
+        "ignoreSeries": false,
+        "limit": 198,
+        "messages": [],
+        "offset": "sc8",
+        "offsetBy": 201,
+        "offsetDirection": "sca",
+        "parameters": {},
+        "queryId": "scc",
+        "result": {},
+        "success": true,
+        "timeframe": {},
+        "view": "sd0",
+        "account_id": "ACCOUNT01",
+        "id": "QUERY00"
+      },
+      "QUERY01": {
+        "chart": true,
+        "chartType": "s17d",
+        "compare": true,
+        "distributionScale": "s17f",
+        "dry": true,
+        "errors": [],
+        "granularity": 386,
+        "ignoreSeries": false,
+        "limit": 388,
+        "messages": [],
+        "offset": "s186",
+        "offsetBy": 391,
+        "offsetDirection": "s188",
+        "parameters": {},
+        "queryId": "s18a",
+        "result": {},
+        "success": true,
+        "timeframe": {},
+        "view": "s18e",
+        "account_id": "ACCOUNT01",
+        "id": "QUERY01"
+      },
+      "QUERY02": {
+        "chart": true,
+        "chartType": "s23b",
+        "compare": true,
+        "distributionScale": "s23d",
+        "dry": true,
+        "errors": [],
+        "granularity": 576,
+        "ignoreSeries": false,
+        "limit": 578,
+        "messages": [],
+        "offset": "s244",
+        "offsetBy": 581,
+        "offsetDirection": "s246",
+        "parameters": {},
+        "queryId": "s248",
+        "result": {},
+        "success": true,
+        "timeframe": {},
+        "view": "s24c",
+        "account_id": "ACCOUNT01",
+        "id": "QUERY02"
+      }
+    }
+  },
+  "new": {
+    "query": {
+      "query_ref01": {
+        "chart": true,
+        "chartType": "s2f9",
+        "compare": true,
+        "distributionScale": "s2fb",
+        "dry": true,
+        "errors": [],
+        "granularity": 766,
+        "ignoreSeries": false,
+        "limit": 768,
+        "messages": [],
+        "offset": "s302",
+        "offsetBy": 771,
+        "offsetDirection": "s304",
+        "parameters": {},
+        "queryId": "s306",
+        "result": {},
+        "success": true,
+        "timeframe": {},
+        "view": "s30a"
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/workers/observability/telemetry/query": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+# BasicWorkersSmartPlacementFlow
+
+main: kit: flow: BasicWorkersSmartPlacementFlow:
+{
+  entity: "workers_smart_placement",
+  kind: "basic",
+  name: "BasicWorkersSmartPlacementFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "workers_smart_placement_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkersSmartPlacementFlow"
+}

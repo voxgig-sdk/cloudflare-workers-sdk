@@ -1,0 +1,32 @@
+# BasicWorkersScriptResponseSingleFlow
+
+main: kit: flow: BasicWorkersScriptResponseSingleFlow:
+{
+  entity: "workers_script_response_single",
+  kind: "basic",
+  name: "BasicWorkersScriptResponseSingleFlow",
+  step: [
+    {
+      d: {
+        account_id: "account01"
+      }
+
+      i: {
+        ref: "workers_script_response_single_ref01",
+        srcdatavar: "workers_script_response_single_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-workers_script_response_single_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkersScriptResponseSingleFlow"
+}

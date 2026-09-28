@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "script": {
+      "SCRIPT00": {
+        "id": "SCRIPT00",
+        "account_id": "ACCOUNT01"
+      },
+      "SCRIPT01": {
+        "id": "SCRIPT01",
+        "account_id": "ACCOUNT01"
+      },
+      "SCRIPT02": {
+        "id": "SCRIPT02",
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "script": {
+      "script_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /accounts/{account_id}/workers/scripts/{script_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

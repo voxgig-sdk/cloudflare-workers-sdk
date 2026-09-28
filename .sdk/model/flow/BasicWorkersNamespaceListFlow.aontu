@@ -1,0 +1,26 @@
+# BasicWorkersNamespaceListFlow
+
+main: kit: flow: BasicWorkersNamespaceListFlow:
+{
+  entity: "workers_namespace_list",
+  kind: "basic",
+  name: "BasicWorkersNamespaceListFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "workers_namespace_list_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkersNamespaceListFlow"
+}

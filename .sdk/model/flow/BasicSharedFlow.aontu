@@ -1,0 +1,45 @@
+# BasicSharedFlow
+
+main: kit: flow: BasicSharedFlow:
+{
+  entity: "shared",
+  kind: "basic",
+  name: "BasicSharedFlow",
+  step: [
+    {
+      i: {
+        ref: "shared_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "shared_ref01",
+        srcdatavar: "shared_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "shared01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-shared_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSharedFlow"
+}

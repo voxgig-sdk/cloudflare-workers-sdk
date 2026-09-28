@@ -1,0 +1,47 @@
+{
+  "existing": {
+    "workers_versions_list": {
+      "WORKERS_VERSIONS_LIST00": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "script_name": "SCRIPT_NAME01"
+      },
+      "WORKERS_VERSIONS_LIST01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "script_name": "SCRIPT_NAME01"
+      },
+      "WORKERS_VERSIONS_LIST02": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "script_name": "SCRIPT_NAME01"
+      }
+    }
+  },
+  "new": {
+    "workers_versions_list": {
+      "workers_versions_list_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/workers/scripts/{script_name}/versions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

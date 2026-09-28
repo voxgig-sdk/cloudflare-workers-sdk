@@ -1,0 +1,60 @@
+{
+  "existing": {
+    "metrics_export": {
+      "METRICS_EXPORT00": {
+        "errors": [],
+        "messages": [],
+        "requester": {},
+        "resources": [],
+        "result": [],
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "id": "METRICS_EXPORT00"
+      },
+      "METRICS_EXPORT01": {
+        "errors": [],
+        "messages": [],
+        "requester": {},
+        "resources": [],
+        "result": [],
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "id": "METRICS_EXPORT01"
+      },
+      "METRICS_EXPORT02": {
+        "errors": [],
+        "messages": [],
+        "requester": {},
+        "resources": [],
+        "result": [],
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "id": "METRICS_EXPORT02"
+      }
+    }
+  },
+  "new": {
+    "metrics_export": {
+      "metrics_export_ref01": {
+        "errors": [],
+        "messages": [],
+        "requester": {},
+        "resources": [],
+        "result": [],
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/workers/observability/metricsexport": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/observability/metricsexport": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

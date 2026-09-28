@@ -1,0 +1,9 @@
+# BasicWorkersNamespaceScriptDeleteBulkFlow
+
+main: kit: flow: BasicWorkersNamespaceScriptDeleteBulkFlow:
+{
+  entity: "workers_namespace_script_delete_bulk",
+  kind: "basic",
+  name: "BasicWorkersNamespaceScriptDeleteBulkFlow",
+  "key$": "BasicWorkersNamespaceScriptDeleteBulkFlow"
+}

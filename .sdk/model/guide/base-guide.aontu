@@ -1,0 +1,1314 @@
+# Generated from the API definition and overwritten on every build: do not
+# edit this file. Put customizations in the guide entry file, which includes
+# this one and overrides its defaults:
+#   guide.aontu
+
+guide: {
+  metrics: count: entity: 74
+  metrics: count: path: 192
+  metrics: count: method: 303
+
+  entity: account: {
+    path: "/accounts/{account_id}/builds/account/limits": {
+      action: "limit": {}
+      rename: param: "account_id": *"id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: application: {
+    path: "/accounts/{account_id}/containers/applications": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/containers/applications/{application_id}": {
+      rename: param: "application_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/containers/applications/{application_id}/versions": {
+      action: "version": {}
+      rename: param: "application_id": *"id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: brapi: {
+    path: "/accounts/{account_id}/browser-rendering/accessibilityTree": {
+      op: create: method: *POST
+      op: create: transform: req: "actionTimeout": *("`reqdata.action_timeout`")|top
+      op: create: transform: req: "addScriptTag": *("`reqdata.add_script_tag`")|top
+      op: create: transform: req: "addStyleTag": *("`reqdata.add_style_tag`")|top
+      op: create: transform: req: "allowRequestPattern": *("`reqdata.allow_request_pattern`")|top
+      op: create: transform: req: "allowResourceTypes": *("`reqdata.allow_resource_type`")|top
+      op: create: transform: req: "authenticate": *("`reqdata.authenticate`")|top
+      op: create: transform: req: "bestAttempt": *("`reqdata.best_attempt`")|top
+      op: create: transform: req: "cookies": *("`reqdata.cooky`")|top
+      op: create: transform: req: "emulateMediaType": *("`reqdata.emulate_media_type`")|top
+      op: create: transform: req: "gotoOptions": *("`reqdata.goto_option`")|top
+      op: create: transform: req: "html": *("`reqdata.html`")|top
+      op: create: transform: req: "interestingOnly": *("`reqdata.interesting_only`")|top
+      op: create: transform: req: "rejectRequestPattern": *("`reqdata.reject_request_pattern`")|top
+      op: create: transform: req: "rejectResourceTypes": *("`reqdata.reject_resource_type`")|top
+      op: create: transform: req: "root": *("`reqdata.root`")|top
+      op: create: transform: req: "setExtraHTTPHeaders": *("`reqdata.set_extra_http_header`")|top
+      op: create: transform: req: "setJavaScriptEnabled": *("`reqdata.set_java_script_enabled`")|top
+      op: create: transform: req: "url": *("`reqdata.url`")|top
+      op: create: transform: req: "userAgent": *("`reqdata.user_agent`")|top
+      op: create: transform: req: "viewport": *("`reqdata.viewport`")|top
+      op: create: transform: req: "waitForSelector": *("`reqdata.wait_for_selector`")|top
+      op: create: transform: req: "waitForTimeout": *("`reqdata.wait_for_timeout`")|top
+    }
+    path: "/accounts/{account_id}/browser-rendering/content": {
+      op: create: method: *POST
+      op: create: transform: req: "actionTimeout": *("`reqdata.action_timeout`")|top
+      op: create: transform: req: "addScriptTag": *("`reqdata.add_script_tag`")|top
+      op: create: transform: req: "addStyleTag": *("`reqdata.add_style_tag`")|top
+      op: create: transform: req: "allowRequestPattern": *("`reqdata.allow_request_pattern`")|top
+      op: create: transform: req: "allowResourceTypes": *("`reqdata.allow_resource_type`")|top
+      op: create: transform: req: "authenticate": *("`reqdata.authenticate`")|top
+      op: create: transform: req: "bestAttempt": *("`reqdata.best_attempt`")|top
+      op: create: transform: req: "cookies": *("`reqdata.cooky`")|top
+      op: create: transform: req: "emulateMediaType": *("`reqdata.emulate_media_type`")|top
+      op: create: transform: req: "gotoOptions": *("`reqdata.goto_option`")|top
+      op: create: transform: req: "html": *("`reqdata.html`")|top
+      op: create: transform: req: "rejectRequestPattern": *("`reqdata.reject_request_pattern`")|top
+      op: create: transform: req: "rejectResourceTypes": *("`reqdata.reject_resource_type`")|top
+      op: create: transform: req: "setExtraHTTPHeaders": *("`reqdata.set_extra_http_header`")|top
+      op: create: transform: req: "setJavaScriptEnabled": *("`reqdata.set_java_script_enabled`")|top
+      op: create: transform: req: "url": *("`reqdata.url`")|top
+      op: create: transform: req: "userAgent": *("`reqdata.user_agent`")|top
+      op: create: transform: req: "viewport": *("`reqdata.viewport`")|top
+      op: create: transform: req: "waitForSelector": *("`reqdata.wait_for_selector`")|top
+      op: create: transform: req: "waitForTimeout": *("`reqdata.wait_for_timeout`")|top
+    }
+    path: "/accounts/{account_id}/browser-rendering/crawl": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/browser-rendering/crawl/{job_id}": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/browser-rendering/devtools/browser": {
+      op: create: method: *POST
+      op: create: transform: req: "guardrails": *("`reqdata.guardrail`")|top
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/browser-rendering/devtools/browser/{session_id}": {
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json": {
+      rename: param: "session_id": *"browser_id"
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json/activate/{target_id}": {
+      rename: param: "session_id": *"browser_id"
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json/close/{target_id}": {
+      rename: param: "session_id": *"browser_id"
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json/list": {
+      rename: param: "session_id": *"browser_id"
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json/list/{target_id}": {
+      rename: param: "session_id": *"browser_id"
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json/new": {
+      rename: param: "session_id": *"browser_id"
+      op: update: method: *PUT
+    }
+    path: "/accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json/protocol": {
+      rename: param: "session_id": *"browser_id"
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/json/version": {
+      rename: param: "session_id": *"browser_id"
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/live_view": {
+      action: "live_view": {}
+      rename: param: "session_id": *"browser_id"
+      op: create: method: *POST
+      op: create: transform: res: *("`body.options`")|top
+    }
+    path: "/accounts/{account_id}/browser-rendering/devtools/browser/{session_id}/page/{target_id}": {
+      rename: param: "session_id": *"browser_id"
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/browser-rendering/devtools/session": {
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/browser-rendering/devtools/session/{session_id}": {
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/browser-rendering/json": {
+      op: create: method: *POST
+      op: create: transform: req: "actionTimeout": *("`reqdata.action_timeout`")|top
+      op: create: transform: req: "addScriptTag": *("`reqdata.add_script_tag`")|top
+      op: create: transform: req: "addStyleTag": *("`reqdata.add_style_tag`")|top
+      op: create: transform: req: "allowRequestPattern": *("`reqdata.allow_request_pattern`")|top
+      op: create: transform: req: "allowResourceTypes": *("`reqdata.allow_resource_type`")|top
+      op: create: transform: req: "authenticate": *("`reqdata.authenticate`")|top
+      op: create: transform: req: "bestAttempt": *("`reqdata.best_attempt`")|top
+      op: create: transform: req: "cookies": *("`reqdata.cooky`")|top
+      op: create: transform: req: "custom_ai": *("`reqdata.custom_ai`")|top
+      op: create: transform: req: "emulateMediaType": *("`reqdata.emulate_media_type`")|top
+      op: create: transform: req: "gotoOptions": *("`reqdata.goto_option`")|top
+      op: create: transform: req: "html": *("`reqdata.html`")|top
+      op: create: transform: req: "prompt": *("`reqdata.prompt`")|top
+      op: create: transform: req: "rejectRequestPattern": *("`reqdata.reject_request_pattern`")|top
+      op: create: transform: req: "rejectResourceTypes": *("`reqdata.reject_resource_type`")|top
+      op: create: transform: req: "response_format": *("`reqdata.response_format`")|top
+      op: create: transform: req: "setExtraHTTPHeaders": *("`reqdata.set_extra_http_header`")|top
+      op: create: transform: req: "setJavaScriptEnabled": *("`reqdata.set_java_script_enabled`")|top
+      op: create: transform: req: "url": *("`reqdata.url`")|top
+      op: create: transform: req: "userAgent": *("`reqdata.user_agent`")|top
+      op: create: transform: req: "viewport": *("`reqdata.viewport`")|top
+      op: create: transform: req: "waitForSelector": *("`reqdata.wait_for_selector`")|top
+      op: create: transform: req: "waitForTimeout": *("`reqdata.wait_for_timeout`")|top
+    }
+    path: "/accounts/{account_id}/browser-rendering/links": {
+      op: create: method: *POST
+      op: create: transform: req: "actionTimeout": *("`reqdata.action_timeout`")|top
+      op: create: transform: req: "addScriptTag": *("`reqdata.add_script_tag`")|top
+      op: create: transform: req: "addStyleTag": *("`reqdata.add_style_tag`")|top
+      op: create: transform: req: "allowRequestPattern": *("`reqdata.allow_request_pattern`")|top
+      op: create: transform: req: "allowResourceTypes": *("`reqdata.allow_resource_type`")|top
+      op: create: transform: req: "authenticate": *("`reqdata.authenticate`")|top
+      op: create: transform: req: "bestAttempt": *("`reqdata.best_attempt`")|top
+      op: create: transform: req: "cookies": *("`reqdata.cooky`")|top
+      op: create: transform: req: "emulateMediaType": *("`reqdata.emulate_media_type`")|top
+      op: create: transform: req: "excludeExternalLinks": *("`reqdata.exclude_external_link`")|top
+      op: create: transform: req: "gotoOptions": *("`reqdata.goto_option`")|top
+      op: create: transform: req: "html": *("`reqdata.html`")|top
+      op: create: transform: req: "rejectRequestPattern": *("`reqdata.reject_request_pattern`")|top
+      op: create: transform: req: "rejectResourceTypes": *("`reqdata.reject_resource_type`")|top
+      op: create: transform: req: "setExtraHTTPHeaders": *("`reqdata.set_extra_http_header`")|top
+      op: create: transform: req: "setJavaScriptEnabled": *("`reqdata.set_java_script_enabled`")|top
+      op: create: transform: req: "url": *("`reqdata.url`")|top
+      op: create: transform: req: "userAgent": *("`reqdata.user_agent`")|top
+      op: create: transform: req: "viewport": *("`reqdata.viewport`")|top
+      op: create: transform: req: "visibleLinksOnly": *("`reqdata.visible_links_only`")|top
+      op: create: transform: req: "waitForSelector": *("`reqdata.wait_for_selector`")|top
+      op: create: transform: req: "waitForTimeout": *("`reqdata.wait_for_timeout`")|top
+    }
+    path: "/accounts/{account_id}/browser-rendering/markdown": {
+      op: create: method: *POST
+      op: create: transform: req: "actionTimeout": *("`reqdata.action_timeout`")|top
+      op: create: transform: req: "addScriptTag": *("`reqdata.add_script_tag`")|top
+      op: create: transform: req: "addStyleTag": *("`reqdata.add_style_tag`")|top
+      op: create: transform: req: "allowRequestPattern": *("`reqdata.allow_request_pattern`")|top
+      op: create: transform: req: "allowResourceTypes": *("`reqdata.allow_resource_type`")|top
+      op: create: transform: req: "authenticate": *("`reqdata.authenticate`")|top
+      op: create: transform: req: "bestAttempt": *("`reqdata.best_attempt`")|top
+      op: create: transform: req: "cookies": *("`reqdata.cooky`")|top
+      op: create: transform: req: "emulateMediaType": *("`reqdata.emulate_media_type`")|top
+      op: create: transform: req: "gotoOptions": *("`reqdata.goto_option`")|top
+      op: create: transform: req: "html": *("`reqdata.html`")|top
+      op: create: transform: req: "rejectRequestPattern": *("`reqdata.reject_request_pattern`")|top
+      op: create: transform: req: "rejectResourceTypes": *("`reqdata.reject_resource_type`")|top
+      op: create: transform: req: "setExtraHTTPHeaders": *("`reqdata.set_extra_http_header`")|top
+      op: create: transform: req: "setJavaScriptEnabled": *("`reqdata.set_java_script_enabled`")|top
+      op: create: transform: req: "url": *("`reqdata.url`")|top
+      op: create: transform: req: "userAgent": *("`reqdata.user_agent`")|top
+      op: create: transform: req: "viewport": *("`reqdata.viewport`")|top
+      op: create: transform: req: "waitForSelector": *("`reqdata.wait_for_selector`")|top
+      op: create: transform: req: "waitForTimeout": *("`reqdata.wait_for_timeout`")|top
+    }
+    path: "/accounts/{account_id}/browser-rendering/pdf": {
+      op: create: method: *POST
+      op: create: transform: req: "actionTimeout": *("`reqdata.action_timeout`")|top
+      op: create: transform: req: "addScriptTag": *("`reqdata.add_script_tag`")|top
+      op: create: transform: req: "addStyleTag": *("`reqdata.add_style_tag`")|top
+      op: create: transform: req: "allowRequestPattern": *("`reqdata.allow_request_pattern`")|top
+      op: create: transform: req: "allowResourceTypes": *("`reqdata.allow_resource_type`")|top
+      op: create: transform: req: "authenticate": *("`reqdata.authenticate`")|top
+      op: create: transform: req: "bestAttempt": *("`reqdata.best_attempt`")|top
+      op: create: transform: req: "cookies": *("`reqdata.cooky`")|top
+      op: create: transform: req: "emulateMediaType": *("`reqdata.emulate_media_type`")|top
+      op: create: transform: req: "gotoOptions": *("`reqdata.goto_option`")|top
+      op: create: transform: req: "html": *("`reqdata.html`")|top
+      op: create: transform: req: "pdfOptions": *("`reqdata.pdf_option`")|top
+      op: create: transform: req: "rejectRequestPattern": *("`reqdata.reject_request_pattern`")|top
+      op: create: transform: req: "rejectResourceTypes": *("`reqdata.reject_resource_type`")|top
+      op: create: transform: req: "setExtraHTTPHeaders": *("`reqdata.set_extra_http_header`")|top
+      op: create: transform: req: "setJavaScriptEnabled": *("`reqdata.set_java_script_enabled`")|top
+      op: create: transform: req: "url": *("`reqdata.url`")|top
+      op: create: transform: req: "userAgent": *("`reqdata.user_agent`")|top
+      op: create: transform: req: "viewport": *("`reqdata.viewport`")|top
+      op: create: transform: req: "waitForSelector": *("`reqdata.wait_for_selector`")|top
+      op: create: transform: req: "waitForTimeout": *("`reqdata.wait_for_timeout`")|top
+    }
+    path: "/accounts/{account_id}/browser-rendering/recording/{session_id}": {
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/browser-rendering/recording/{session_id}/network": {
+      rename: param: "session_id": *"recording_id"
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/browser-rendering/scrape": {
+      op: create: method: *POST
+      op: create: transform: req: "actionTimeout": *("`reqdata.action_timeout`")|top
+      op: create: transform: req: "addScriptTag": *("`reqdata.add_script_tag`")|top
+      op: create: transform: req: "addStyleTag": *("`reqdata.add_style_tag`")|top
+      op: create: transform: req: "allowRequestPattern": *("`reqdata.allow_request_pattern`")|top
+      op: create: transform: req: "allowResourceTypes": *("`reqdata.allow_resource_type`")|top
+      op: create: transform: req: "authenticate": *("`reqdata.authenticate`")|top
+      op: create: transform: req: "bestAttempt": *("`reqdata.best_attempt`")|top
+      op: create: transform: req: "cookies": *("`reqdata.cooky`")|top
+      op: create: transform: req: "elements": *("`reqdata.element`")|top
+      op: create: transform: req: "emulateMediaType": *("`reqdata.emulate_media_type`")|top
+      op: create: transform: req: "gotoOptions": *("`reqdata.goto_option`")|top
+      op: create: transform: req: "html": *("`reqdata.html`")|top
+      op: create: transform: req: "rejectRequestPattern": *("`reqdata.reject_request_pattern`")|top
+      op: create: transform: req: "rejectResourceTypes": *("`reqdata.reject_resource_type`")|top
+      op: create: transform: req: "setExtraHTTPHeaders": *("`reqdata.set_extra_http_header`")|top
+      op: create: transform: req: "setJavaScriptEnabled": *("`reqdata.set_java_script_enabled`")|top
+      op: create: transform: req: "url": *("`reqdata.url`")|top
+      op: create: transform: req: "userAgent": *("`reqdata.user_agent`")|top
+      op: create: transform: req: "viewport": *("`reqdata.viewport`")|top
+      op: create: transform: req: "waitForSelector": *("`reqdata.wait_for_selector`")|top
+      op: create: transform: req: "waitForTimeout": *("`reqdata.wait_for_timeout`")|top
+    }
+    path: "/accounts/{account_id}/browser-rendering/screenshot": {
+      op: create: method: *POST
+      op: create: transform: req: "actionTimeout": *("`reqdata.action_timeout`")|top
+      op: create: transform: req: "addScriptTag": *("`reqdata.add_script_tag`")|top
+      op: create: transform: req: "addStyleTag": *("`reqdata.add_style_tag`")|top
+      op: create: transform: req: "allowRequestPattern": *("`reqdata.allow_request_pattern`")|top
+      op: create: transform: req: "allowResourceTypes": *("`reqdata.allow_resource_type`")|top
+      op: create: transform: req: "authenticate": *("`reqdata.authenticate`")|top
+      op: create: transform: req: "bestAttempt": *("`reqdata.best_attempt`")|top
+      op: create: transform: req: "cookies": *("`reqdata.cooky`")|top
+      op: create: transform: req: "emulateMediaType": *("`reqdata.emulate_media_type`")|top
+      op: create: transform: req: "gotoOptions": *("`reqdata.goto_option`")|top
+      op: create: transform: req: "html": *("`reqdata.html`")|top
+      op: create: transform: req: "rejectRequestPattern": *("`reqdata.reject_request_pattern`")|top
+      op: create: transform: req: "rejectResourceTypes": *("`reqdata.reject_resource_type`")|top
+      op: create: transform: req: "screenshotOptions": *("`reqdata.screenshot_option`")|top
+      op: create: transform: req: "scrollPage": *("`reqdata.scroll_page`")|top
+      op: create: transform: req: "selector": *("`reqdata.selector`")|top
+      op: create: transform: req: "setExtraHTTPHeaders": *("`reqdata.set_extra_http_header`")|top
+      op: create: transform: req: "setJavaScriptEnabled": *("`reqdata.set_java_script_enabled`")|top
+      op: create: transform: req: "url": *("`reqdata.url`")|top
+      op: create: transform: req: "userAgent": *("`reqdata.user_agent`")|top
+      op: create: transform: req: "viewport": *("`reqdata.viewport`")|top
+      op: create: transform: req: "waitForSelector": *("`reqdata.wait_for_selector`")|top
+      op: create: transform: req: "waitForTimeout": *("`reqdata.wait_for_timeout`")|top
+    }
+    path: "/accounts/{account_id}/browser-rendering/snapshot": {
+      op: create: method: *POST
+      op: create: transform: req: "actionTimeout": *("`reqdata.action_timeout`")|top
+      op: create: transform: req: "addScriptTag": *("`reqdata.add_script_tag`")|top
+      op: create: transform: req: "addStyleTag": *("`reqdata.add_style_tag`")|top
+      op: create: transform: req: "allowRequestPattern": *("`reqdata.allow_request_pattern`")|top
+      op: create: transform: req: "allowResourceTypes": *("`reqdata.allow_resource_type`")|top
+      op: create: transform: req: "authenticate": *("`reqdata.authenticate`")|top
+      op: create: transform: req: "bestAttempt": *("`reqdata.best_attempt`")|top
+      op: create: transform: req: "cookies": *("`reqdata.cooky`")|top
+      op: create: transform: req: "emulateMediaType": *("`reqdata.emulate_media_type`")|top
+      op: create: transform: req: "formats": *("`reqdata.format`")|top
+      op: create: transform: req: "gotoOptions": *("`reqdata.goto_option`")|top
+      op: create: transform: req: "html": *("`reqdata.html`")|top
+      op: create: transform: req: "rejectRequestPattern": *("`reqdata.reject_request_pattern`")|top
+      op: create: transform: req: "rejectResourceTypes": *("`reqdata.reject_resource_type`")|top
+      op: create: transform: req: "screenshotOptions": *("`reqdata.screenshot_option`")|top
+      op: create: transform: req: "setExtraHTTPHeaders": *("`reqdata.set_extra_http_header`")|top
+      op: create: transform: req: "setJavaScriptEnabled": *("`reqdata.set_java_script_enabled`")|top
+      op: create: transform: req: "url": *("`reqdata.url`")|top
+      op: create: transform: req: "userAgent": *("`reqdata.user_agent`")|top
+      op: create: transform: req: "viewport": *("`reqdata.viewport`")|top
+      op: create: transform: req: "waitForSelector": *("`reqdata.wait_for_selector`")|top
+      op: create: transform: req: "waitForTimeout": *("`reqdata.wait_for_timeout`")|top
+    }
+  }
+
+  entity: build: {
+    path: "/accounts/{account_id}/builds/builds": {
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/builds/builds/latest": {
+      action: "latest": {}
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/builds/builds/{build_uuid}": {
+      rename: param: "build_uuid": *"id"
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/builds/builds/{build_uuid}/cancel": {
+      action: "cancel": {}
+      rename: param: "build_uuid": *"id"
+      op: update: method: *PUT
+    }
+    path: "/accounts/{account_id}/builds/builds/{build_uuid}/logs": {
+      action: "log": {}
+      rename: param: "build_uuid": *"id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: build_token: {
+    path: "/accounts/{account_id}/builds/tokens": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+  }
+
+  entity: builds_api: {
+    path: "/accounts/{account_id}/builds/triggers/{trigger_uuid}/environment_variables/{environment_variable_key}": {
+      rename: param: "trigger_uuid": *"trigger_id"
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/builds/triggers/{trigger_uuid}/purge_build_cache": {
+      rename: param: "trigger_uuid": *"trigger_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: connection: {
+    path: "/accounts/{account_id}/builds/repos/connections/{repo_connection_uuid}": {
+      rename: param: "repo_connection_uuid": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: container_image: {
+    path: "/accounts/{account_id}/containers/image-preparations": {
+      op: create: method: *POST
+      op: create: transform: req: "image": *("`reqdata.image`")|top
+    }
+  }
+
+  entity: container_instance: {
+    path: "/accounts/{account_id}/containers/applications/{application_id}/instances": {
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/containers/applications/{application_id}/instances-v2": {
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/containers/applications/{application_id}/instances/{instance_id}": {
+      rename: param: "instance_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: deploy_hook: {
+    path: "/accounts/{account_id}/builds/workers/{script_name}/deploy_hooks": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/builds/workers/{script_name}/deploy_hooks/{deploy_hook_uuid}": {
+      rename: param: "deploy_hook_uuid": *"id"
+      rename: param: "script_name": *"worker_id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/workers/builds/deploy_hooks/{deploy_hook_uuid}": {
+      rename: param: "deploy_hook_uuid": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: deployment: {
+    path: "/accounts/{account_id}/workers/scripts/{script_name}/deployments/{deployment_id}": {
+      rename: param: "deployment_id": *"id"
+      rename: param: "script_name": *"script_id"
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}/deployments/{deployment_id}": {
+      rename: param: "deployment_id": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: destination: {
+    path: "/accounts/{account_id}/workers/observability/destinations": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/workers/observability/destinations/{slug}": {
+      rename: param: "slug": *"id"
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: domain: {
+    path: "/accounts/{account_id}/workers/domains": {
+      op: list: method: *GET
+      op: update: method: *PUT
+    }
+    path: "/accounts/{account_id}/workers/domains/{domain_id}": {
+      rename: param: "domain_id": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: durable_objects_namespace: {
+    path: "/accounts/{account_id}/workers/durable_objects/namespaces": {
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/workers/durable_objects/namespaces/{id}/objects": {
+      rename: param: "id": *"namespace_id"
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/workers/durable_objects/namespaces/{id}/query/v2": {
+      rename: param: "id": *"namespace_id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: environment_variable: {
+    path: "/accounts/{account_id}/builds/triggers/{trigger_uuid}/environment_variables": {
+      rename: param: "trigger_uuid": *"trigger_id"
+      op: list: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: git_hub_integration: {
+    path: "/accounts/{account_id}/builds/repos/{provider_type}/{provider_account_id}/{repo_id}/config_autofill": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: hyperdrive: {
+    path: "/accounts/{account_id}/hyperdrive/configs": {
+      action: "config": {}
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/hyperdrive/configs/{hyperdrive_id}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/accounts/{account_id}/hyperdrive/configs/{hyperdrive_id}/restart": {
+      action: "restart": {}
+      rename: param: "hyperdrive_id": *"config_id"
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/hyperdrive/integrationsOperations/{integration}/createDatabaseSignature": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: image_registry: {
+    path: "/accounts/{account_id}/containers/registries": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/containers/registries/{domain}": {
+      rename: param: "domain": *"id"
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/containers/registries/{domain}/credentials": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: issue: {
+    path: "/accounts/{account_id}/workers/observability/issues": {
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/workers/observability/issues/automations": {
+      action: "automation": {}
+      op: create: method: *POST
+      op: create: transform: req: "afterInactivitySeconds": *("`reqdata.after_inactivity_second`")|top
+      op: create: transform: req: "afterOccurrences": *("`reqdata.after_occurrence`")|top
+      op: create: transform: req: "enabled": *("`reqdata.enabled`")|top
+      op: create: transform: req: "name": *("`reqdata.name`")|top
+      op: create: transform: req: "policyId": *("`reqdata.policy_id`")|top
+      op: create: transform: req: "service": *("`reqdata.service`")|top
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/workers/observability/issues/automations/{automationId}": {
+      rename: param: "automationId": *"automation_id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+      op: update: transform: req: "afterInactivitySeconds": *("`reqdata.after_inactivity_second`")|top
+      op: update: transform: req: "afterOccurrences": *("`reqdata.after_occurrence`")|top
+      op: update: transform: req: "enabled": *("`reqdata.enabled`")|top
+      op: update: transform: req: "name": *("`reqdata.name`")|top
+      op: update: transform: req: "policyId": *("`reqdata.policy_id`")|top
+      op: update: transform: req: "service": *("`reqdata.service`")|top
+    }
+    path: "/accounts/{account_id}/workers/observability/issues/groups": {
+      action: "group": {}
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/workers/observability/issues/groups/{groupId}": {
+      rename: param: "groupId": *"group_id"
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/workers/observability/issues/groups/{groupId}/members": {
+      rename: param: "groupId": *"group_id"
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/workers/observability/issues/groups/{groupId}/members/{issueId}": {
+      rename: param: "groupId": *"group_id"
+      rename: param: "issueId": *"issue_id"
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/workers/observability/issues/summary": {
+      action: "summary": {}
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/workers/observability/issues/{issueId}": {
+      rename: param: "issueId": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/accounts/{account_id}/workers/observability/issues/{issueId}/notification-runs": {
+      action: "notification_run": {}
+      rename: param: "issueId": *"id"
+      op: create: method: *POST
+      op: create: transform: req: "policyId": *("`reqdata.policy_id`")|top
+    }
+    path: "/accounts/{account_id}/workers/observability/issues/{issueId}/occurrences": {
+      action: "occurrence": {}
+      rename: param: "issueId": *"id"
+      op: list: method: *GET
+    }
+  }
+
+  entity: key: {
+    path: "/accounts/{account_id}/workers/observability/telemetry/keys": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: live_tail: {
+    path: "/accounts/{account_id}/workers/observability/telemetry/live-tail": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/workers/observability/telemetry/live-tail/heartbeat": {
+      action: "heartbeat": {}
+      op: create: method: *POST
+    }
+  }
+
+  entity: metrics_export: {
+    path: "/accounts/{account_id}/workers/observability/metricsexport": {
+      op: create: method: *POST
+      op: create: transform: req: "requester": *("`reqdata.requester`")|top
+      op: create: transform: req: "resources": *("`reqdata.resource`")|top
+      op: list: method: *GET
+    }
+  }
+
+  entity: namespace: {
+    path: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}": {
+      rename: param: "dispatch_namespace": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: preview: {
+    path: "/accounts/{account_id}/workers/workers/{worker_id}/previews": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}": {
+      rename: param: "preview_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+  }
+
+  entity: preview_deployment: {
+    path: "/accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}/deployments": {
+      rename: param: "preview_id": *"id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}/deployments/latest": {
+      op: patch: method: *PATCH
+    }
+    path: "/accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}/deployments/{deployment_id}": {
+      rename: param: "deployment_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: query: {
+    path: "/accounts/{account_id}/workers/observability/telemetry/query": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: repository_connection: {
+    path: "/accounts/{account_id}/builds/repos/connections": {
+      op: update: method: *PUT
+    }
+  }
+
+  entity: rollout: {
+    path: "/accounts/{account_id}/containers/applications/{application_id}/rollouts": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: saved_query: {
+    path: "/accounts/{account_id}/workers/observability/queries": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/workers/observability/queries/{queryId}": {
+      rename: param: "queryId": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: script: {
+    path: "/accounts/{account_id}/workers/scripts/{script_name}": {
+      rename: param: "script_name": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: script_setting: {
+    path: "/accounts/{account_id}/workers/scripts/{script_name}/script-settings": {
+      op: list: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: secret: {
+    path: "/accounts/{account_id}/secrets_store/stores/{store_id}/secrets": {
+      op: create: method: *POST
+      op: list: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/secrets_store/stores/{store_id}/secrets/{secret_id}": {
+      rename: param: "secret_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: secrets_store_delete: {
+    path: "/accounts/{account_id}/secrets_store/stores/{store_id}": {
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: secrets_store_quota: {
+    path: "/accounts/{account_id}/secrets_store/quota": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: secrets_store_secret: {
+    path: "/accounts/{account_id}/secrets_store/stores/{store_id}/secrets/{secret_id}/duplicate": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: secrets_store_store: {
+    path: "/accounts/{account_id}/secrets_store/stores": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/secrets_store/stores/{store_id}": {
+      rename: param: "store_id": *"id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: secrets_store_stores_response_collection: {
+    path: "/accounts/{account_id}/secrets_store/stores": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: setting: {
+    path: "/accounts/{account_id}/workers/services/{service_name}/environments/{environment_name}/settings": {
+      rename: param: "service_name": *"service_id"
+      op: list: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: shared: {
+    path: "/accounts/{account_id}/workers/observability/shared/query": {
+      action: "query": {}
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/workers/observability/shared/query/{id}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: tail: {
+    path: "/accounts/{account_id}/workers/scripts/{script_name}/tails/{id}": {
+      rename: param: "script_name": *"script_id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: token: {
+    path: "/accounts/{account_id}/builds/tokens/{build_token_uuid}": {
+      rename: param: "build_token_uuid": *"id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: trigger: {
+    path: "/accounts/{account_id}/builds/triggers": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/builds/triggers/{trigger_uuid}": {
+      rename: param: "trigger_uuid": *"id"
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/builds/triggers/{trigger_uuid}/builds": {
+      action: "build": {}
+      rename: param: "trigger_uuid": *"id"
+      op: create: method: *POST
+    }
+  }
+
+  entity: usage: {
+    path: "/accounts/{account_id}/workers/observability/usage": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: value: {
+    path: "/accounts/{account_id}/workers/observability/telemetry/values": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: version: {
+    path: "/accounts/{account_id}/workers/workers/{worker_id}/versions": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/workers/workers/{worker_id}/versions/latest": {
+      action: "latest": {}
+      op: list: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/accounts/{account_id}/workers/workers/{worker_id}/versions/{version_id}": {
+      rename: param: "version_id": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: worker: {
+    path: "/accounts/{account_id}/builds/workers": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/builds/workers/{external_script_id}/builds": {
+      action: "build": {}
+      rename: param: "external_script_id": *"id"
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/builds/workers/{external_script_id}/triggers": {
+      action: "trigger": {}
+      rename: param: "external_script_id": *"id"
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/builds/workers/{script_tag}": {
+      rename: param: "script_tag": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/builds/workers/{script_tag}/migrate_to_previews": {
+      action: "migrate_to_preview": {}
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/builds/workers/{script_tag}/previews": {
+      action: "preview": {}
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/builds/workers/{script_tag}/previews/{preview_id}": {
+      rename: param: "script_tag": *"worker_id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/accounts/{account_id}/builds/workers/{script_tag}/previews/{preview_id}/builds": {
+      rename: param: "script_tag": *"worker_id"
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/workers/workers": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/workers/workers/{worker_id}": {
+      rename: param: "worker_id": *"id"
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+  }
+
+  entity: worker_cron_trigger: {
+    path: "/accounts/{account_id}/workers/scripts/{script_name}/schedules": {
+      op: list: method: *GET
+      op: update: method: *PUT
+    }
+  }
+
+  entity: worker_deployment: {
+    path: "/accounts/{account_id}/workers/scripts/{script_name}/deployments": {
+      op: create: method: *POST
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/workers/scripts/{script_name}/deployments/{deployment_id}": {
+      rename: param: "deployment_id": *"id"
+      rename: param: "script_name": *"script_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: worker_environment: {
+    path: "/accounts/{account_id}/workers/services/{service_name}/environments/{environment_name}/content": {
+      rename: param: "service_name": *"service_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: worker_route: {
+    path: "/zones/{zone_id}/workers/routes": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/zones/{zone_id}/workers/routes/{route_id}": {
+      rename: param: "route_id": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+  }
+
+  entity: worker_script: {
+    path: "/accounts/{account_id}/workers/scripts-search": {
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/workers/scripts/{script_name}": {
+      rename: param: "script_name": *"id"
+      op: load: method: *GET
+      op: update: method: *PUT
+    }
+    path: "/accounts/{account_id}/workers/scripts/{script_name}/content/v2": {
+      rename: param: "script_name": *"script_id"
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/workers/scripts/{script_name}/secrets": {
+      op: list: method: *GET
+      op: update: method: *PUT
+    }
+    path: "/accounts/{account_id}/workers/scripts/{script_name}/secrets-bulk": {
+      action: "secrets_bulk": {}
+      op: patch: method: *PATCH
+    }
+    path: "/accounts/{account_id}/workers/scripts/{script_name}/secrets/{secret_name}": {
+      rename: param: "script_name": *"script_id"
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/workers/scripts/{script_name}/subdomain": {
+      action: "subdomain": {}
+      op: create: method: *POST
+      op: list: method: *GET
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: worker_subdomain: {
+    path: "/accounts/{account_id}/workers/subdomain": {
+      op: list: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+  }
+
+  entity: worker_tail_log: {
+    path: "/accounts/{account_id}/workers/scripts/{script_name}/tails": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+  }
+
+  entity: workers_account_setting: {
+    path: "/accounts/{account_id}/workers/account-settings": {
+      op: list: method: *GET
+      op: update: method: *PUT
+    }
+  }
+
+  entity: workers_api_response_null_result: {
+    path: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}": {
+      rename: param: "dispatch_namespace": *"namespace_id"
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets/{secret_name}": {
+      rename: param: "dispatch_namespace": *"namespace_id"
+      rename: param: "script_name": *"script_id"
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/tags/{tag}": {
+      rename: param: "dispatch_namespace": *"namespace_id"
+      rename: param: "script_name": *"script_id"
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/accounts/{account_id}/workers/scripts/{script_name}/secrets/{secret_name}": {
+      rename: param: "script_name": *"script_id"
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: workers_completed_upload_asset: {
+    path: "/accounts/{account_id}/workers/assets/upload": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: workers_create_assets_upload_session: {
+    path: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/assets-upload-session": {
+      rename: param: "dispatch_namespace": *"namespace_id"
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/workers/scripts/{script_name}/assets-upload-session": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: workers_for_platform: {
+    path: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts": {
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}": {
+      rename: param: "dispatch_namespace": *"namespace_id"
+      op: update: method: *PUT
+    }
+    path: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/bindings": {
+      rename: param: "dispatch_namespace": *"namespace_id"
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/content": {
+      rename: param: "dispatch_namespace": *"namespace_id"
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets": {
+      rename: param: "dispatch_namespace": *"namespace_id"
+      op: list: method: *GET
+      op: update: method: *PUT
+    }
+    path: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets/{secret_name}": {
+      rename: param: "dispatch_namespace": *"namespace_id"
+      rename: param: "script_name": *"script_id"
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/settings": {
+      rename: param: "dispatch_namespace": *"namespace_id"
+      op: list: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/tags": {
+      rename: param: "dispatch_namespace": *"namespace_id"
+      op: list: method: *GET
+      op: update: method: *PUT
+    }
+  }
+
+  entity: workers_kv_api_response_common_no_result: {
+    path: "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}": {
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name}": {
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+  }
+
+  entity: workers_kv_namespace: {
+    path: "/accounts/{account_id}/storage/kv/namespaces": {
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}": {
+      rename: param: "namespace_id": *"id"
+      op: load: method: *GET
+      op: update: method: *PUT
+    }
+    path: "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk": {
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk/delete": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk/get": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/keys": {
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/metadata/{key_name}": {
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name}": {
+      op: load: method: *GET
+    }
+  }
+
+  entity: workers_namespace_list: {
+    path: "/accounts/{account_id}/workers/dispatch/namespaces": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: workers_namespace_script_delete_bulk: {
+    path: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts": {
+      op: remove: method: *DELETE
+    }
+  }
+
+  entity: workers_namespace_script_response_single: {
+    path: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}": {
+      rename: param: "dispatch_namespace": *"namespace_id"
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets-bulk": {
+      action: "secrets_bulk": {}
+      rename: param: "dispatch_namespace": *"namespace_id"
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: workers_namespace_single: {
+    path: "/accounts/{account_id}/workers/dispatch/namespaces": {
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: update: method: *PUT
+    }
+  }
+
+  entity: workers_pipelines_other: {
+    path: "/accounts/{account_id}/pipelines": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/pipelines/v1/pipelines": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/pipelines/v1/pipelines/{pipeline_id}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/pipelines/v1/sinks": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/pipelines/v1/sinks/{sink_id}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/pipelines/v1/streams": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/pipelines/v1/streams/{stream_id}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+      op: patch: method: *PATCH
+      op: patch: transform: res: *("`body.result`")|top
+      op: remove: method: *DELETE
+      op: remove: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/pipelines/v1/validate_sql": {
+      op: create: method: *POST
+      op: create: transform: res: *("`body.result`")|top
+    }
+    path: "/accounts/{account_id}/pipelines/{pipeline_name}": {
+      op: load: method: *GET
+      op: load: transform: res: *("`body.result`")|top
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+      op: update: transform: res: *("`body.result`")|top
+    }
+  }
+
+  entity: workers_script_and_version_setting: {
+    path: "/accounts/{account_id}/workers/scripts/{script_name}/settings": {
+      op: list: method: *GET
+      op: patch: method: *PATCH
+    }
+  }
+
+  entity: workers_script_response_collection: {
+    path: "/accounts/{account_id}/workers/scripts": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: workers_script_response_single: {
+    path: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/content": {
+      rename: param: "dispatch_namespace": *"namespace_id"
+      op: update: method: *PUT
+    }
+    path: "/accounts/{account_id}/workers/scripts/{script_name}/content": {
+      op: update: method: *PUT
+    }
+    path: "/accounts/{account_id}/workers/services/{service_name}/environments/{environment_name}/content": {
+      rename: param: "service_name": *"service_id"
+      op: update: method: *PUT
+    }
+  }
+
+  entity: workers_smart_placement: {
+    path: "/accounts/{account_id}/workers/placement/regions": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: workers_usage_model: {
+    path: "/accounts/{account_id}/workers/scripts/{script_name}/usage-model": {
+      op: list: method: *GET
+      op: update: method: *PUT
+    }
+  }
+
+  entity: workers_versions_list: {
+    path: "/accounts/{account_id}/workers/scripts/{script_name}/versions": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: workers_versions_single: {
+    path: "/accounts/{account_id}/workers/scripts/{script_name}/versions/{version_id}": {
+      rename: param: "script_name": *"script_id"
+      op: load: method: *GET
+    }
+  }
+
+  entity: workers_versions_upload: {
+    path: "/accounts/{account_id}/workers/scripts/{script_name}/versions": {
+      op: create: method: *POST
+    }
+  }
+
+  entity: workflow: {
+    path: "/accounts/{account_id}/triggers/{script_name}": {
+      op: load: method: *GET
+      op: patch: method: *PATCH
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/accounts/{account_id}/workflows": {
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/workflows/settings": {
+      action: "setting": {}
+      op: list: method: *GET
+      op: patch: method: *PATCH
+    }
+    path: "/accounts/{account_id}/workflows/{workflow_name}": {
+      rename: param: "workflow_name": *"id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+      op: update: method: *PUT
+    }
+    path: "/accounts/{account_id}/workflows/{workflow_name}/instances": {
+      action: "instance": {}
+      op: create: method: *POST
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/workflows/{workflow_name}/instances/batch": {
+      action: "instance_batch": {}
+      rename: param: "workflow_name": *"workflow_id"
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/workflows/{workflow_name}/instances/batch/delete": {
+      rename: param: "workflow_name": *"workflow_id"
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/workflows/{workflow_name}/instances/batch/terminate": {
+      rename: param: "workflow_name": *"workflow_id"
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/workflows/{workflow_name}/instances/terminate": {
+      action: "instance_terminate": {}
+      rename: param: "workflow_name": *"workflow_id"
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/workflows/{workflow_name}/instances/{instance_id}": {
+      rename: param: "workflow_name": *"workflow_id"
+      op: load: method: *GET
+      op: remove: method: *DELETE
+    }
+    path: "/accounts/{account_id}/workflows/{workflow_name}/instances/{instance_id}/events/{event_type}": {
+      rename: param: "workflow_name": *"workflow_id"
+      op: create: method: *POST
+    }
+    path: "/accounts/{account_id}/workflows/{workflow_name}/instances/{instance_id}/status": {
+      action: "status": {}
+      rename: param: "workflow_name": *"workflow_id"
+      op: patch: method: *PATCH
+    }
+    path: "/accounts/{account_id}/workflows/{workflow_name}/instances/{instance_id}/step": {
+      rename: param: "workflow_name": *"workflow_id"
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/workflows/{workflow_name}/instances/{instance_id}/subscribe": {
+      rename: param: "workflow_name": *"workflow_id"
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/workflows/{workflow_name}/instances/{instance_id}/subscribe/token": {
+      rename: param: "workflow_name": *"workflow_id"
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/workflows/{workflow_name}/versions": {
+      action: "version": {}
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/workflows/{workflow_name}/versions/{version_id}": {
+      rename: param: "workflow_name": *"workflow_id"
+      op: load: method: *GET
+    }
+    path: "/accounts/{account_id}/workflows/{workflow_name}/versions/{version_id}/dag": {
+      rename: param: "workflow_name": *"workflow_id"
+      op: list: method: *GET
+    }
+    path: "/accounts/{account_id}/workflows/{workflow_name}/versions/{version_id}/graph": {
+      rename: param: "workflow_name": *"workflow_id"
+      op: list: method: *GET
+    }
+  }
+
+}

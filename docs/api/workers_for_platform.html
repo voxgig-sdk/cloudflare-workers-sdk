@@ -1,0 +1,1412 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>WorkersForPlatform | Cloudflare Workers</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare Workers<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-workers-sdk">voxgig-sdk/cloudflare-workers-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare Workers</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account.html">Account</a>
+<a href="../api/application.html">Application</a>
+<a href="../api/brapi.html">Brapi</a>
+<a href="../api/build.html">Build</a>
+<a href="../api/build_token.html">BuildToken</a>
+<a href="../api/builds_api.html">BuildsApi</a>
+<a href="../api/connection.html">Connection</a>
+<a href="../api/container_image.html">ContainerImage</a>
+<a href="../api/container_instance.html">ContainerInstance</a>
+<a href="../api/deploy_hook.html">DeployHook</a>
+<a href="../api/deployment.html">Deployment</a>
+<a href="../api/destination.html">Destination</a>
+<a href="../api/domain.html">Domain</a>
+<a href="../api/durable_objects_namespace.html">DurableObjectsNamespace</a>
+<a href="../api/environment_variable.html">EnvironmentVariable</a>
+<a href="../api/git_hub_integration.html">GitHubIntegration</a>
+<a href="../api/hyperdrive.html">Hyperdrive</a>
+<a href="../api/image_registry.html">ImageRegistry</a>
+<a href="../api/issue.html">Issue</a>
+<a href="../api/key.html">Key</a>
+<a href="../api/live_tail.html">LiveTail</a>
+<a href="../api/metrics_export.html">MetricsExport</a>
+<a href="../api/namespace.html">Namespace</a>
+<a href="../api/preview.html">Preview</a>
+<a href="../api/preview_deployment.html">PreviewDeployment</a>
+<a href="../api/query.html">Query</a>
+<a href="../api/repository_connection.html">RepositoryConnection</a>
+<a href="../api/rollout.html">Rollout</a>
+<a href="../api/saved_query.html">SavedQuery</a>
+<a href="../api/script.html">Script</a>
+<a href="../api/script_setting.html">ScriptSetting</a>
+<a href="../api/secret.html">Secret</a>
+<a href="../api/secrets_store_delete.html">SecretsStoreDelete</a>
+<a href="../api/secrets_store_quota.html">SecretsStoreQuota</a>
+<a href="../api/secrets_store_secret.html">SecretsStoreSecret</a>
+<a href="../api/secrets_store_store.html">SecretsStoreStore</a>
+<a href="../api/secrets_store_stores_response_collection.html">SecretsStoreStoresResponseCollection</a>
+<a href="../api/setting.html">Setting</a>
+<a href="../api/shared.html">Shared</a>
+<a href="../api/tail.html">Tail</a>
+<a href="../api/token.html">Token</a>
+<a href="../api/trigger.html">Trigger</a>
+<a href="../api/usage.html">Usage</a>
+<a href="../api/value.html">Value</a>
+<a href="../api/version.html">Version</a>
+<a href="../api/worker.html">Worker</a>
+<a href="../api/worker_cron_trigger.html">WorkerCronTrigger</a>
+<a href="../api/worker_deployment.html">WorkerDeployment</a>
+<a href="../api/worker_environment.html">WorkerEnvironment</a>
+<a href="../api/worker_route.html">WorkerRoute</a>
+<a href="../api/worker_script.html">WorkerScript</a>
+<a href="../api/worker_subdomain.html">WorkerSubdomain</a>
+<a href="../api/worker_tail_log.html">WorkerTailLog</a>
+<a href="../api/workers_account_setting.html">WorkersAccountSetting</a>
+<a href="../api/workers_api_response_null_result.html">WorkersApiResponseNullResult</a>
+<a href="../api/workers_completed_upload_asset.html">WorkersCompletedUploadAsset</a>
+<a href="../api/workers_create_assets_upload_session.html">WorkersCreateAssetsUploadSession</a>
+<a aria-current="page" href="../api/workers_for_platform.html">WorkersForPlatform</a><div class="nav-sections"><a class="nav-section" href="#get-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescripts">GET /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts</a>
+<a class="nav-section" href="#get-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_namebindings">GET /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/bindings</a>
+<a class="nav-section" href="#get-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_namesecrets">GET /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets</a>
+<a class="nav-section" href="#get-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_namesettings">GET /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/settings</a>
+<a class="nav-section" href="#get-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_nametags">GET /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/tags</a>
+<a class="nav-section" href="#get-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_namesecretssecret_name">GET /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets/{secret_name}</a>
+<a class="nav-section" href="#get-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_namecontent">GET /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/content</a>
+<a class="nav-section" href="#patch-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_namesettings">PATCH /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/settings</a>
+<a class="nav-section" href="#put-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_name">PUT /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}</a>
+<a class="nav-section" href="#put-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_namesecrets">PUT /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets</a>
+<a class="nav-section" href="#put-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_nametags">PUT /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/tags</a></div>
+<a href="../api/workers_kv_api_response_common_no_result.html">WorkersKvApiResponseCommonNoResult</a>
+<a href="../api/workers_kv_namespace.html">WorkersKvNamespace</a>
+<a href="../api/workers_namespace_list.html">WorkersNamespaceList</a>
+<a href="../api/workers_namespace_script_delete_bulk.html">WorkersNamespaceScriptDeleteBulk</a>
+<a href="../api/workers_namespace_script_response_single.html">WorkersNamespaceScriptResponseSingle</a>
+<a href="../api/workers_namespace_single.html">WorkersNamespaceSingle</a>
+<a href="../api/workers_pipelines_other.html">WorkersPipelinesOther</a>
+<a href="../api/workers_script_and_version_setting.html">WorkersScriptAndVersionSetting</a>
+<a href="../api/workers_script_response_collection.html">WorkersScriptResponseCollection</a>
+<a href="../api/workers_script_response_single.html">WorkersScriptResponseSingle</a>
+<a href="../api/workers_smart_placement.html">WorkersSmartPlacement</a>
+<a href="../api/workers_usage_model.html">WorkersUsageModel</a>
+<a href="../api/workers_versions_list.html">WorkersVersionsList</a>
+<a href="../api/workers_versions_single.html">WorkersVersionsSingle</a>
+<a href="../api/workers_versions_upload.html">WorkersVersionsUpload</a>
+<a href="../api/workflow.html">Workflow</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="workersforplatform">WorkersForPlatform</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescripts"><code>/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts</code></a></td>
+<td><code>list</code></td>
+<td>List scripts in namespace response</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_namebindings"><code>/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/bindings</code></a></td>
+<td><code>list</code></td>
+<td>Fetch script bindings (Workers for Platforms)</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_namesecrets"><code>/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets</code></a></td>
+<td><code>list</code></td>
+<td>List script secrets</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_namesettings"><code>/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/settings</code></a></td>
+<td><code>list</code></td>
+<td>Fetch script settings</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_nametags"><code>/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/tags</code></a></td>
+<td><code>list</code></td>
+<td>Fetch script tags</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_namesecretssecret_name"><code>/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets/{secret_name}</code></a></td>
+<td><code>load</code></td>
+<td>Get script secret (Workers for Platforms)</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_namecontent"><code>/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/content</code></a></td>
+<td><code>load</code></td>
+<td>Get script content</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_namesettings"><code>/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/settings</code></a></td>
+<td><code>patch</code></td>
+<td>Patch script settings</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_name"><code>/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}</code></a></td>
+<td><code>update</code></td>
+<td>Upload Worker Module response</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_namesecrets"><code>/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets</code></a></td>
+<td><code>update</code></td>
+<td>Fetch script bindings (Workers for Platforms)</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_nametags"><code>/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/tags</code></a></td>
+<td><code>update</code></td>
+<td>Fetch script tags</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">workers_for_platforms, err := client.WorkersForPlatform(nil).List(map[string]any{&quot;account_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(workers_for_platforms)
+workers_for_platform, err := client.WorkersForPlatform(nil).Load(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;namespace_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(workers_for_platform)
+updated, err := client.WorkersForPlatform(nil).Update(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;namespace_id&quot;: &quot;example&quot;, &quot;script_name&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(updated)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local workers_for_platforms, err = client:WorkersForPlatform():list({ account_id = &quot;example&quot; })
+local workers_for_platform, err = client:WorkersForPlatform():load({ account_id = &quot;example&quot;, namespace_id = &quot;example&quot; })
+local updated, err = client:WorkersForPlatform():update({ account_id = &quot;example&quot;, namespace_id = &quot;example&quot;, script_name = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$workers_for_platforms = $client-&gt;WorkersForPlatform()-&gt;list([&quot;account_id&quot; =&gt; &quot;example&quot;]);
+$workers_for_platform = $client-&gt;WorkersForPlatform()-&gt;load([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;namespace_id&quot; =&gt; &quot;example&quot;]);
+$updated = $client-&gt;WorkersForPlatform()-&gt;update([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;namespace_id&quot; =&gt; &quot;example&quot;, &quot;script_name&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">workers_for_platforms = client.WorkersForPlatform().list({&quot;account_id&quot;: &quot;example&quot;})
+workers_for_platform = client.WorkersForPlatform().load({&quot;account_id&quot;: &quot;example&quot;, &quot;namespace_id&quot;: &quot;example&quot;})
+updated = client.WorkersForPlatform().update({&quot;account_id&quot;: &quot;example&quot;, &quot;namespace_id&quot;: &quot;example&quot;, &quot;script_name&quot;: &quot;example&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">workers_for_platforms = client.WorkersForPlatform.list({ &quot;account_id&quot; =&gt; &quot;example&quot; })
+workers_for_platform = client.WorkersForPlatform.load({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;namespace_id&quot; =&gt; &quot;example&quot; })
+updated = client.WorkersForPlatform.update({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;namespace_id&quot; =&gt; &quot;example&quot;, &quot;script_name&quot; =&gt; &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const workers_for_platforms = await client.WorkersForPlatform().list({ account_id: &quot;example&quot; })
+const workers_for_platform = await client.WorkersForPlatform().load({ account_id: &quot;example&quot;, namespace_id: &quot;example&quot; })
+const updated = await client.WorkersForPlatform().update({ account_id: &quot;example&quot;, namespace_id: &quot;example&quot;, script_name: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Errors</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Messages</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>A secret value accessible through a binding.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list</h2>
+<h3 id="get-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescripts" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts</h3>
+<p>Operation ID: <code>namespace-worker-list-scripts</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>dispatch_namespace</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>tags</code> | <code>query</code> | <code>string</code> | No | Filter scripts by tags. Format: comma-separated list of tag:allowed pairs where allowed is 'yes' or 'no'. |</p>
+<h4 id="responses">Responses</h4>
+<h5 id="200-list-scripts-in-namespace-response" class="status" data-status="2xx">200: List scripts in namespace response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-list-scripts-in-namespace-response-failure">4XX: List scripts in namespace response failure</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_namebindings" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/bindings</h3>
+<p>Operation ID: <code>namespace-worker-get-script-bindings</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>dispatch_namespace</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>script_name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-fetch-script-bindings-workers-for-platforms" class="status" data-status="2xx">200: Fetch script bindings (Workers for Platforms)</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-fetch-script-bindings-failure-workers-for-platforms">4XX: Fetch script bindings failure (Workers for Platforms)</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_namesecrets" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets</h3>
+<p>Operation ID: <code>namespace-worker-list-script-secrets</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>dispatch_namespace</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>script_name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-list-script-secrets" class="status" data-status="2xx">200: List script secrets</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-list-script-secrets-failure">4XX: List script secrets failure</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_namesettings" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/settings</h3>
+<p>Operation ID: <code>namespace-worker-get-script-settings</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>dispatch_namespace</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>script_name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-fetch-script-settings" class="status" data-status="2xx">200: Fetch script settings</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-fetch-script-settings-failure">4XX: Fetch script settings failure</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_nametags" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/tags</h3>
+<p>Operation ID: <code>namespace-worker-get-script-tags</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>dispatch_namespace</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>script_name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-fetch-script-tags" class="status" data-status="2xx">200: Fetch script tags</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-fetch-script-tags-failure">4XX: Fetch script tags failure</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_namesecretssecret_name" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets/{secret_name}</h3>
+<p>Operation ID: <code>namespace-worker-get-script-secrets</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>dispatch_namespace</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>script_name</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>secret_name</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>url_encoded</code> | <code>query</code> | <code>boolean</code> | No |  |</p>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-get-script-secret-workers-for-platforms" class="status" data-status="2xx">200: Get script secret (Workers for Platforms)</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-get-script-secret-failure-workers-for-platforms">4XX: Get script secret failure (Workers for Platforms)</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="get-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_namecontent" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/content</h3>
+<p>Operation ID: <code>namespace-worker-get-script-content</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-6">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>dispatch_namespace</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>script_name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-6">Responses</h4>
+<h5 id="200-get-script-content" class="status" data-status="2xx">200: Get script content</h5>
+<p><code>string</code></p>
+<p>The response is <code>string</code>.</p>
+<h5 id="4xx-get-script-content-failure">4XX: Get script content failure</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="patch">patch</h2>
+<h3 id="patch-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_namesettings" class="operation" data-method="patch"><code>PATCH</code> /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/settings</h3>
+<p>Operation ID: <code>namespace-worker-patch-script-settings</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-7">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>dispatch_namespace</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>script_name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>multipart/form-data</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>settings</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Script and version settings for Workers for Platforms namespace scripts. Same as script-and-version-settings-item but without annotations, which are not supported for namespace scripts.</td>
+</tr>
+<tr>
+<td><code>settings.bindings</code></td>
+<td><code>array of object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object and array of object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>settings.cache_options</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Global CacheW configuration for the Worker. When caching is on, the platform provisions a <code>cloudflare.app</code> zone for the Worker. A <code>type: worker</code> entry in the <code>exports</code> map can override this value for a single entrypoint.</td>
+</tr>
+<tr>
+<td><code>settings.cache_options.cross_version_cache</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether cached responses are shared across Worker version uploads. This is independent of <code>enabled</code>. It can stay true while caching is off, so the preference survives turning caching off and back on.</td>
+</tr>
+<tr>
+<td><code>settings.cache_options.enabled</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether caching is enabled for this Worker.</td>
+</tr>
+<tr>
+<td><code>settings.compatibility_date</code></td>
+<td><code>string and string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>settings.compatibility_flags</code></td>
+<td><code>array of string and array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>settings.exports</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Declarative exports for the Worker. Worker entrypoint entries (<code>type: worker</code>) carry cache configuration for that entrypoint.</td>
+</tr>
+<tr>
+<td><code>settings.exports_reconciliation</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Summary of the declarative exports reconciliation that ran on this upload. Populated only when the uploaded metadata included an <code>exports</code> block. Durable Object entries drive reconciliation; <code>type: worker</code> entries do not contribute to this summary.</td>
+</tr>
+<tr>
+<td><code>settings.limits</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Limits to apply for this Worker.</td>
+</tr>
+<tr>
+<td><code>settings.limits.cpu_ms</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>The amount of CPU time this Worker can use in milliseconds.</td>
+</tr>
+<tr>
+<td><code>settings.limits.subrequests</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>The number of subrequests this Worker can make per request.</td>
+</tr>
+<tr>
+<td><code>settings.logpush</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether Logpush is turned on for the Worker.</td>
+</tr>
+<tr>
+<td><code>settings.migrations</code></td>
+<td><code>object and object or object and object</code></td>
+<td>No</td>
+<td>Migrations to apply for Durable Objects associated with this Worker.</td>
+</tr>
+<tr>
+<td><code>settings.observability</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Observability settings for the Worker.</td>
+</tr>
+<tr>
+<td><code>settings.observability.enabled</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether observability is enabled for the Worker.</td>
+</tr>
+<tr>
+<td><code>settings.observability.head_sampling_rate</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>The sampling rate for incoming requests. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.</td>
+</tr>
+<tr>
+<td><code>settings.observability.issues</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Real-time Issues settings for the Worker.</td>
+</tr>
+<tr>
+<td><code>settings.observability.issues.enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether real-time Issues are enabled for the Worker.</td>
+</tr>
+<tr>
+<td><code>settings.observability.logs</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Log settings for the Worker.</td>
+</tr>
+<tr>
+<td><code>settings.observability.logs.destinations</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>A list of destinations where logs will be exported to.</td>
+</tr>
+<tr>
+<td><code>settings.observability.logs.enabled</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether logs are enabled for the Worker.</td>
+</tr>
+<tr>
+<td><code>settings.observability.logs.head_sampling_rate</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>The sampling rate for logs. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.</td>
+</tr>
+<tr>
+<td><code>settings.observability.logs.invocation_logs</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether <a href="https://developers.cloudflare.com/workers/observability/logs/workers-logs/#invocation-logs">invocation logs</a> are enabled for the Worker.</td>
+</tr>
+<tr>
+<td><code>settings.observability.logs.persist</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether log persistence is enabled for the Worker.</td>
+</tr>
+<tr>
+<td><code>settings.observability.redact_query_string</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether query strings are removed from request URLs in logs and traces.</td>
+</tr>
+<tr>
+<td><code>settings.observability.traces</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Trace settings for the Worker.</td>
+</tr>
+<tr>
+<td><code>settings.observability.traces.destinations</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>A list of destinations where traces will be exported to.</td>
+</tr>
+<tr>
+<td><code>settings.observability.traces.enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether traces are enabled for the Worker.</td>
+</tr>
+<tr>
+<td><code>settings.observability.traces.head_sampling_rate</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>The sampling rate for traces. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.</td>
+</tr>
+<tr>
+<td><code>settings.observability.traces.persist</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether trace persistence is enabled for the Worker.</td>
+</tr>
+<tr>
+<td><code>settings.observability.traces.propagation_policy</code></td>
+<td><code>enum: authenticated, accept, null</code></td>
+<td>No</td>
+<td>Controls how inbound trace context (traceparent/tracestate) headers on incoming requests are handled. &quot;authenticated&quot; honors inbound trace context only when accompanied by a valid trace auth token. &quot;accept&quot; unconditionally accepts inbound trace context. Requires the trace propagation feature to be enabled. Returns null when the trace propagation feature is not enabled for the account.</td>
+</tr>
+<tr>
+<td><code>settings.placement</code></td>
+<td><code>object or object or object or object or object or object or object or object and object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>settings.tags</code></td>
+<td><code>array of string and array of string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>settings.tail_consumers</code></td>
+<td><code>array of object and array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>settings.usage_model</code></td>
+<td><code>enum: standard, bundled, unbound</code></td>
+<td>No</td>
+<td>Usage model for the Worker invocations.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses-7">Responses</h4>
+<h5 id="200-patch-script-settings" class="status" data-status="2xx">200: Patch script settings</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-patch-script-settings-failure-when-the-patch-uses-the-declarative-exports-field-and-one-or-more-entries-fail-reconciliation-the-response-is-the-exports-reconciliation-error-envelope-error-code-100402-with-per-class-detail-in-errorsmetadetails">4XX: Patch script settings failure. When the patch uses the declarative <code>exports</code> field and one or more entries fail reconciliation, the response is the exports reconciliation error envelope (error code 100402) with per-class detail in <code>errors[].meta.details</code>.</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object or object</code>.</p>
+<h2 id="update">update</h2>
+<h3 id="put-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_name" class="operation" data-method="put"><code>PUT</code> /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}</h3>
+<p>Operation ID: <code>namespace-worker-script-upload-worker-module</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-8">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>dispatch_namespace</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>script_name</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>bindings_inherit</code> | <code>query</code> | <code>enum: strict</code> | No | When set to &quot;strict&quot;, the upload will fail if any <code>inherit</code> type bindings cannot be resolved against the previous version of the script. Without this, unresolvable inherit bindings are silently dropped. |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/javascript</code></p>
+<p>The request body is <code>string</code>.</p>
+<p><code>multipart/form-data</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>files</code></td>
+<td><code>array of string (binary)</code></td>
+<td>No</td>
+<td>An array of modules (often JavaScript files) comprising a Worker script. At least one module must be present and referenced in the metadata as <code>main_module</code> or <code>body_part</code> by filename. Possible Content-Type(s) are: <code>application/javascript+module</code>, <code>text/javascript+module</code>, <code>application/javascript</code>, <code>text/javascript</code>, <code>text/x-python</code>, <code>text/x-python-requirement</code>, <code>application/wasm</code>, <code>text/plain</code>, <code>application/octet-stream</code>, <code>application/source-map</code>.</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>JSON-encoded metadata about the uploaded parts and Worker configuration.</td>
+</tr>
+<tr>
+<td><code>metadata.assets</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Configuration for assets within a Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.assets.config</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Configuration for assets within a Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.assets.config._headers</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The contents of a _headers file (used to attach custom headers on asset responses).</td>
+</tr>
+<tr>
+<td><code>metadata.assets.config._redirects</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The contents of a _redirects file (used to apply redirects or proxy paths ahead of asset serving).</td>
+</tr>
+<tr>
+<td><code>metadata.assets.config.base_path</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The public URL path prefix under which assets are served. A null request value resets it to <code>/</code>; responses represent the root as <code>/</code>. All versions in a gradual deployment must use the same canonical value. To change it, first deploy the version containing the change at 100%.</td>
+</tr>
+<tr>
+<td><code>metadata.assets.config.html_handling</code></td>
+<td><code>enum: auto-trailing-slash, force-trailing-slash, drop-trailing-slash, none</code></td>
+<td>No</td>
+<td>Determines the redirects and rewrites of requests for HTML content.</td>
+</tr>
+<tr>
+<td><code>metadata.assets.config.not_found_handling</code></td>
+<td><code>enum: none, 404-page, single-page-application</code></td>
+<td>No</td>
+<td>Determines the response when a request does not match a static asset, and there is no Worker script.</td>
+</tr>
+<tr>
+<td><code>metadata.assets.config.run_worker_first</code></td>
+<td><code>array of string or boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.assets.config.serve_directly</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When true and the incoming request matches an asset, that will be served instead of invoking the Worker script. When false, requests will always invoke the Worker script.</td>
+</tr>
+<tr>
+<td><code>metadata.assets.jwt</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Token provided upon successful upload of all files from a registered manifest.</td>
+</tr>
+<tr>
+<td><code>metadata.bindings</code></td>
+<td><code>array of object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object</code></td>
+<td>No</td>
+<td>List of bindings attached to a Worker. You can find more about bindings on our docs: https://developers.cloudflare.com/workers/configuration/multipart-upload-metadata/#bindings.</td>
+</tr>
+<tr>
+<td><code>metadata.body_part</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Name of the uploaded file that contains the script (for example the file adding a listener to the <code>fetch</code> event). Indicates a <code>service worker syntax</code> Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.cache_options</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Global CacheW configuration for the Worker. When caching is on, the platform provisions a <code>cloudflare.app</code> zone for the Worker. A <code>type: worker</code> entry in the <code>exports</code> map can override this value for a single entrypoint.</td>
+</tr>
+<tr>
+<td><code>metadata.cache_options.cross_version_cache</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether cached responses are shared across Worker version uploads. This is independent of <code>enabled</code>. It can stay true while caching is off, so the preference survives turning caching off and back on.</td>
+</tr>
+<tr>
+<td><code>metadata.cache_options.enabled</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether caching is enabled for this Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.compatibility_date</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Date indicating targeted support in the Workers runtime. Backwards incompatible fixes to the runtime following this date will not affect this Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.compatibility_flags</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Flags that enable or disable certain features in the Workers runtime. Used to enable upcoming features or opt in or out of specific changes not included in a <code>compatibility_date</code>.</td>
+</tr>
+<tr>
+<td><code>metadata.exports</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Declarative exports for the Worker. Worker entrypoint entries (<code>type: worker</code>) carry cache configuration for that entrypoint.</td>
+</tr>
+<tr>
+<td><code>metadata.exports_reconciliation</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Summary of the declarative exports reconciliation that ran on this upload. Populated only when the uploaded metadata included an <code>exports</code> block. Durable Object entries drive reconciliation; <code>type: worker</code> entries do not contribute to this summary.</td>
+</tr>
+<tr>
+<td><code>metadata.keep_assets</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Retain assets which exist for a previously uploaded Worker version; used in lieu of providing a completion token. An explicit <code>assets</code> upload takes precedence over <code>keep_assets</code>.</td>
+</tr>
+<tr>
+<td><code>metadata.keep_bindings</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>List of binding types to keep from <code>previous_upload</code>.</td>
+</tr>
+<tr>
+<td><code>metadata.limits</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Limits to apply for this Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.limits.cpu_ms</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>The amount of CPU time this Worker can use in milliseconds.</td>
+</tr>
+<tr>
+<td><code>metadata.limits.subrequests</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>The number of subrequests this Worker can make per request.</td>
+</tr>
+<tr>
+<td><code>metadata.logpush</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether Logpush is turned on for the Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.main_module</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Name of the uploaded file that contains the main module (for example the file exporting a <code>fetch</code> handler). Indicates a <code>module syntax</code> Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.migrations</code></td>
+<td><code>object and object or object and object</code></td>
+<td>No</td>
+<td>Migrations to apply for Durable Objects associated with this Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.observability</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Observability settings for the Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.observability.enabled</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether observability is enabled for the Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.observability.head_sampling_rate</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>The sampling rate for incoming requests. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.</td>
+</tr>
+<tr>
+<td><code>metadata.observability.issues</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Real-time Issues settings for the Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.observability.issues.enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether real-time Issues are enabled for the Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.observability.logs</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Log settings for the Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.observability.logs.destinations</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>A list of destinations where logs will be exported to.</td>
+</tr>
+<tr>
+<td><code>metadata.observability.logs.enabled</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether logs are enabled for the Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.observability.logs.head_sampling_rate</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>The sampling rate for logs. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.</td>
+</tr>
+<tr>
+<td><code>metadata.observability.logs.invocation_logs</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether <a href="https://developers.cloudflare.com/workers/observability/logs/workers-logs/#invocation-logs">invocation logs</a> are enabled for the Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.observability.logs.persist</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether log persistence is enabled for the Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.observability.redact_query_string</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether query strings are removed from request URLs in logs and traces.</td>
+</tr>
+<tr>
+<td><code>metadata.observability.traces</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Trace settings for the Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.observability.traces.destinations</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>A list of destinations where traces will be exported to.</td>
+</tr>
+<tr>
+<td><code>metadata.observability.traces.enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether traces are enabled for the Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.observability.traces.head_sampling_rate</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>The sampling rate for traces. From 0 to 1 (1 = 100%, 0.1 = 10%). Default is 1.</td>
+</tr>
+<tr>
+<td><code>metadata.observability.traces.persist</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether trace persistence is enabled for the Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.observability.traces.propagation_policy</code></td>
+<td><code>enum: authenticated, accept, null</code></td>
+<td>No</td>
+<td>Controls how inbound trace context (traceparent/tracestate) headers on incoming requests are handled. &quot;authenticated&quot; honors inbound trace context only when accompanied by a valid trace auth token. &quot;accept&quot; unconditionally accepts inbound trace context. Requires the trace propagation feature to be enabled. Returns null when the trace propagation feature is not enabled for the account.</td>
+</tr>
+<tr>
+<td><code>metadata.package_dependencies</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The list of npm packages that were installed and used when this Worker version was built.</td>
+</tr>
+<tr>
+<td><code>metadata.package_dependencies[].installedVersion</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The exact version that was resolved and installed by the package manager.</td>
+</tr>
+<tr>
+<td><code>metadata.package_dependencies[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The npm package name.</td>
+</tr>
+<tr>
+<td><code>metadata.package_dependencies[].packageJsonVersion</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The version constraint as written in package.json.</td>
+</tr>
+<tr>
+<td><code>metadata.placement</code></td>
+<td><code>object or object or object or object or object or object or object or object and object</code></td>
+<td>No</td>
+<td>Configuration for <a href="https://developers.cloudflare.com/workers/configuration/smart-placement">Smart Placement</a>. Specify mode='smart' for Smart Placement, or one of region/hostname/host.</td>
+</tr>
+<tr>
+<td><code>metadata.tags</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>List of strings to use as tags for this Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.tail_consumers</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>List of Workers that will consume logs from the attached Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.tail_consumers[].environment</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional environment if the Worker utilizes one.</td>
+</tr>
+<tr>
+<td><code>metadata.tail_consumers[].namespace</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Optional dispatch namespace the script belongs to.</td>
+</tr>
+<tr>
+<td><code>metadata.tail_consumers[].service</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Name of Worker that is to be the consumer.</td>
+</tr>
+<tr>
+<td><code>metadata.usage_model</code></td>
+<td><code>enum: standard, bundled, unbound</code></td>
+<td>No</td>
+<td>Usage model for the Worker invocations.</td>
+</tr>
+</tbody>
+</table>
+<p><code>text/javascript</code></p>
+<p>The request body is <code>string</code>.</p>
+<h4 id="responses-8">Responses</h4>
+<h5 id="200-upload-worker-module-response" class="status" data-status="2xx">200: Upload Worker Module response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-upload-worker-module-response-failure-when-the-upload-uses-the-declarative-exports-field-and-one-or-more-entries-fail-reconciliation-the-response-is-the-exports-reconciliation-error-envelope-error-code-100402-with-per-class-detail-in-errorsmetadetails">4XX: Upload Worker Module response failure. When the upload uses the declarative <code>exports</code> field and one or more entries fail reconciliation, the response is the exports reconciliation error envelope (error code 100402) with per-class detail in <code>errors[].meta.details</code>.</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object or object</code>.</p>
+<h3 id="put-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_namesecrets" class="operation" data-method="put"><code>PUT</code> /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets</h3>
+<p>Operation ID: <code>namespace-worker-put-script-secrets</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-9">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>dispatch_namespace</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>script_name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-2">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object or object</code>.</p>
+<h4 id="responses-9">Responses</h4>
+<h5 id="200-fetch-script-bindings-workers-for-platforms-1" class="status" data-status="2xx">200: Fetch script bindings (Workers for Platforms)</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="429-too-many-requests-are-currently-modifying-the-script" class="status" data-status="4xx">429: Too many requests are currently modifying the script</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4xx-fetch-script-bindings-failure-workers-for-platforms-1">4XX: Fetch script bindings failure (Workers for Platforms)</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="put-accountsaccount_idworkersdispatchnamespacesdispatch_namespacescriptsscript_nametags" class="operation" data-method="put"><code>PUT</code> /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/tags</h3>
+<p>Operation ID: <code>namespace-worker-put-script-tags</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-10">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>dispatch_namespace</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>script_name</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-3">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>array of string</code>.</p>
+<h4 id="responses-10">Responses</h4>
+<h5 id="200-fetch-script-tags-1" class="status" data-status="2xx">200: Fetch script tags</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-fetch-script-tags-failure-1">4XX: Fetch script tags failure</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

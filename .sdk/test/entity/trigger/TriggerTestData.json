@@ -1,0 +1,94 @@
+{
+  "existing": {
+    "trigger": {
+      "TRIGGER00": {
+        "branch_excludes": [],
+        "branch_includes": [],
+        "build_caching_enabled": true,
+        "build_command": "s85",
+        "build_token_uuid": "s86",
+        "deploy_command": "s87",
+        "external_script_id": "EXTERNAL_SCRIPT01",
+        "id": "TRIGGER00",
+        "path_excludes": [],
+        "path_includes": [],
+        "repo_connection_uuid": "s8c",
+        "root_directory": "s8d",
+        "trigger_name": "s8e",
+        "account_id": "ACCOUNT01"
+      },
+      "TRIGGER01": {
+        "branch_excludes": [],
+        "branch_includes": [],
+        "build_caching_enabled": true,
+        "build_command": "s107",
+        "build_token_uuid": "s108",
+        "deploy_command": "s109",
+        "external_script_id": "EXTERNAL_SCRIPT01",
+        "id": "TRIGGER01",
+        "path_excludes": [],
+        "path_includes": [],
+        "repo_connection_uuid": "s10e",
+        "root_directory": "s10f",
+        "trigger_name": "s110",
+        "account_id": "ACCOUNT01"
+      },
+      "TRIGGER02": {
+        "branch_excludes": [],
+        "branch_includes": [],
+        "build_caching_enabled": true,
+        "build_command": "s189",
+        "build_token_uuid": "s18a",
+        "deploy_command": "s18b",
+        "external_script_id": "EXTERNAL_SCRIPT01",
+        "id": "TRIGGER02",
+        "path_excludes": [],
+        "path_includes": [],
+        "repo_connection_uuid": "s190",
+        "root_directory": "s191",
+        "trigger_name": "s192",
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "trigger": {
+      "trigger_ref01": {
+        "branch_excludes": [],
+        "branch_includes": [],
+        "build_caching_enabled": true,
+        "build_command": "s20b",
+        "build_token_uuid": "s20c",
+        "deploy_command": "s20d",
+        "external_script_id": "EXTERNAL_SCRIPT01",
+        "path_excludes": [],
+        "path_includes": [],
+        "repo_connection_uuid": "s212",
+        "root_directory": "s213",
+        "trigger_name": "s214"
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/builds/triggers/{trigger_uuid}/builds": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/builds/triggers": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/builds/triggers/{trigger_uuid}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/builds/triggers/{trigger_uuid}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

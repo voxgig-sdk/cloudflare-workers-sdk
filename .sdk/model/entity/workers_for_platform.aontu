@@ -1,0 +1,997 @@
+# Entity: workers_for_platform
+
+main: kit: entity: workers_for_platform: {
+
+  alias: field: {}
+
+  fields: {
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: true
+      t: "`$ARRAY`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: true
+      t: "`$ARRAY`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      op: {
+        list: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      sh: "A secret value accessible through a binding."
+      t: "`$OBJECT`"
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      sh: "Whether the API call was successful."
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "workers_for_platform"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-dispatch-namespace"
+                k: "param"
+                n: "dispatch_namespace"
+                or: "dispatch_namespace"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: "production:yes,staging:no"
+                k: "query"
+                n: "tag"
+                or: "tag"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts"
+          q: {
+            exist: [
+              "account_id"
+              "dispatch_namespace"
+              "tag"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              lit: "dispatch"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "dispatch_namespace"
+            }
+            {
+              lit: "scripts"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/bindings"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-dispatch-namespace"
+                k: "param"
+                n: "namespace_id"
+                or: "dispatch_namespace"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "this-is_my_script-01"
+                k: "param"
+                n: "script_name"
+                or: "script_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/bindings"
+          q: {
+            exist: [
+              "account_id"
+              "namespace_id"
+              "script_name"
+            ]
+          }
+          r: {
+            param: {
+              dispatch_namespace: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              lit: "dispatch"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "scripts"
+            }
+            {
+              var: "script_name"
+            }
+            {
+              lit: "bindings"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-dispatch-namespace"
+                k: "param"
+                n: "namespace_id"
+                or: "dispatch_namespace"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "this-is_my_script-01"
+                k: "param"
+                n: "script_name"
+                or: "script_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets"
+          q: {
+            exist: [
+              "account_id"
+              "namespace_id"
+              "script_name"
+            ]
+          }
+          r: {
+            param: {
+              dispatch_namespace: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              lit: "dispatch"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "scripts"
+            }
+            {
+              var: "script_name"
+            }
+            {
+              lit: "secrets"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/settings"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-dispatch-namespace"
+                k: "param"
+                n: "namespace_id"
+                or: "dispatch_namespace"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "this-is_my_script-01"
+                k: "param"
+                n: "script_name"
+                or: "script_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/settings"
+          q: {
+            exist: [
+              "account_id"
+              "namespace_id"
+              "script_name"
+            ]
+          }
+          r: {
+            param: {
+              dispatch_namespace: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              lit: "dispatch"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "scripts"
+            }
+            {
+              var: "script_name"
+            }
+            {
+              lit: "settings"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/tags"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-dispatch-namespace"
+                k: "param"
+                n: "namespace_id"
+                or: "dispatch_namespace"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "this-is_my_script-01"
+                k: "param"
+                n: "script_name"
+                or: "script_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/tags"
+          q: {
+            exist: [
+              "account_id"
+              "namespace_id"
+              "script_name"
+            ]
+          }
+          r: {
+            param: {
+              dispatch_namespace: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              lit: "dispatch"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "scripts"
+            }
+            {
+              var: "script_name"
+            }
+            {
+              lit: "tags"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets/{secret_name}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-dispatch-namespace"
+                k: "param"
+                n: "namespace_id"
+                or: "dispatch_namespace"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "this-is_my_script-01"
+                k: "param"
+                n: "script_id"
+                or: "script_name"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "mySecret"
+                k: "param"
+                n: "secret_name"
+                or: "secret_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: true
+                k: "query"
+                n: "url_encoded"
+                or: "url_encoded"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets/{secret_name}"
+          q: {
+            exist: [
+              "account_id"
+              "namespace_id"
+              "script_id"
+              "secret_name"
+              "url_encoded"
+            ]
+          }
+          r: {
+            param: {
+              dispatch_namespace: "namespace_id"
+              script_name: "script_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              lit: "dispatch"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "scripts"
+            }
+            {
+              var: "script_id"
+            }
+            {
+              lit: "secrets"
+            }
+            {
+              var: "secret_name"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/content"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-dispatch-namespace"
+                k: "param"
+                n: "namespace_id"
+                or: "dispatch_namespace"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "this-is_my_script-01"
+                k: "param"
+                n: "script_name"
+                or: "script_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/content"
+          q: {
+            exist: [
+              "account_id"
+              "namespace_id"
+              "script_name"
+            ]
+          }
+          r: {
+            param: {
+              dispatch_namespace: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              lit: "dispatch"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "scripts"
+            }
+            {
+              var: "script_name"
+            }
+            {
+              lit: "content"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    patch: {
+      name: "patch"
+      points: [
+        {
+          co: {
+            id: "PATCH /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/settings"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-dispatch-namespace"
+                k: "param"
+                n: "namespace_id"
+                or: "dispatch_namespace"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "this-is_my_script-01"
+                k: "param"
+                n: "script_name"
+                or: "script_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/settings"
+          q: {
+            exist: [
+              "account_id"
+              "namespace_id"
+              "script_name"
+            ]
+          }
+          r: {
+            param: {
+              dispatch_namespace: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              lit: "dispatch"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "scripts"
+            }
+            {
+              var: "script_name"
+            }
+            {
+              lit: "settings"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-dispatch-namespace"
+                k: "param"
+                n: "namespace_id"
+                or: "dispatch_namespace"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "this-is_my_script-01"
+                k: "param"
+                n: "script_name"
+                or: "script_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                k: "query"
+                n: "bindings_inherit"
+                or: "bindings_inherit"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}"
+          q: {
+            exist: [
+              "account_id"
+              "bindings_inherit"
+              "namespace_id"
+              "script_name"
+            ]
+          }
+          r: {
+            param: {
+              dispatch_namespace: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              lit: "dispatch"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "scripts"
+            }
+            {
+              var: "script_name"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-dispatch-namespace"
+                k: "param"
+                n: "namespace_id"
+                or: "dispatch_namespace"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "this-is_my_script-01"
+                k: "param"
+                n: "script_name"
+                or: "script_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets"
+          q: {
+            exist: [
+              "account_id"
+              "namespace_id"
+              "script_name"
+            ]
+          }
+          r: {
+            param: {
+              dispatch_namespace: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              lit: "dispatch"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "scripts"
+            }
+            {
+              var: "script_name"
+            }
+            {
+              lit: "secrets"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "PUT /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/tags"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-dispatch-namespace"
+                k: "param"
+                n: "namespace_id"
+                or: "dispatch_namespace"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "this-is_my_script-01"
+                k: "param"
+                n: "script_name"
+                or: "script_name"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/tags"
+          q: {
+            exist: [
+              "account_id"
+              "namespace_id"
+              "script_name"
+            ]
+          }
+          r: {
+            param: {
+              dispatch_namespace: "namespace_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              lit: "dispatch"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "scripts"
+            }
+            {
+              var: "script_name"
+            }
+            {
+              lit: "tags"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account") path("$.main.kit.entity.namespace")]
+    [path("$.main.kit.entity.account") path("$.main.kit.entity.namespace") path("$.main.kit.entity.script")]
+    [path("$.main.kit.entity.account") path("$.main.kit.entity.namespace") path("$.main.kit.entity.script") path("$.main.kit.entity.secret")]
+  ]
+
+}

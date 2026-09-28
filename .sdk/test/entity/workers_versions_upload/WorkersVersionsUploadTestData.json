@@ -1,0 +1,33 @@
+{
+  "existing": {
+    "workers_versions_upload": {
+      "WORKERS_VERSIONS_UPLOAD00": {
+        "account_id": "ACCOUNT01",
+        "script_name": "SCRIPT_NAME01",
+        "id": "WORKERS_VERSIONS_UPLOAD00"
+      },
+      "WORKERS_VERSIONS_UPLOAD01": {
+        "account_id": "ACCOUNT01",
+        "script_name": "SCRIPT_NAME01",
+        "id": "WORKERS_VERSIONS_UPLOAD01"
+      },
+      "WORKERS_VERSIONS_UPLOAD02": {
+        "account_id": "ACCOUNT01",
+        "script_name": "SCRIPT_NAME01",
+        "id": "WORKERS_VERSIONS_UPLOAD02"
+      }
+    }
+  },
+  "new": {
+    "workers_versions_upload": {
+      "workers_versions_upload_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/workers/scripts/{script_name}/versions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

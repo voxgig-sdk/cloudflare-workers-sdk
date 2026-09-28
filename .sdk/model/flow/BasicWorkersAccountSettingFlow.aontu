@@ -1,0 +1,45 @@
+# BasicWorkersAccountSettingFlow
+
+main: kit: flow: BasicWorkersAccountSettingFlow:
+{
+  entity: "workers_account_setting",
+  kind: "basic",
+  name: "BasicWorkersAccountSettingFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "workers_account_setting_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "workers_account_setting_ref01",
+        srcdatavar: "workers_account_setting_ref01_data",
+        suffix: "_up0",
+        textfield: "default_usage_model"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-workers_account_setting_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkersAccountSettingFlow"
+}

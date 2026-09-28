@@ -1,0 +1,63 @@
+{
+  "existing": {
+    "workers_usage_model": {
+      "WORKERS_USAGE_MODEL00": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false,
+        "usage_model": "s40",
+        "user_limits": {},
+        "account_id": "ACCOUNT01",
+        "script_name": "SCRIPT_NAME01",
+        "id": "WORKERS_USAGE_MODEL00"
+      },
+      "WORKERS_USAGE_MODEL01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false,
+        "usage_model": "s7c",
+        "user_limits": {},
+        "account_id": "ACCOUNT01",
+        "script_name": "SCRIPT_NAME01",
+        "id": "WORKERS_USAGE_MODEL01"
+      },
+      "WORKERS_USAGE_MODEL02": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false,
+        "usage_model": "sb8",
+        "user_limits": {},
+        "account_id": "ACCOUNT01",
+        "script_name": "SCRIPT_NAME01",
+        "id": "WORKERS_USAGE_MODEL02"
+      }
+    }
+  },
+  "new": {
+    "workers_usage_model": {
+      "workers_usage_model_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false,
+        "usage_model": "sf4",
+        "user_limits": {}
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/workers/scripts/{script_name}/usage-model": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/workers/scripts/{script_name}/usage-model": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

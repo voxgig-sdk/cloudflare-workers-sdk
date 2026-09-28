@@ -1,0 +1,58 @@
+{
+  "existing": {
+    "workers_namespace_script_response_single": {
+      "WORKERS_NAMESPACE_SCRIPT_RESPONSE_SINGLE00": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "namespace_id": "NAMESPACE01",
+        "script_name": "SCRIPT_NAME01",
+        "id": "WORKERS_NAMESPACE_SCRIPT_RESPONSE_SINGLE00"
+      },
+      "WORKERS_NAMESPACE_SCRIPT_RESPONSE_SINGLE01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "namespace_id": "NAMESPACE01",
+        "script_name": "SCRIPT_NAME01",
+        "id": "WORKERS_NAMESPACE_SCRIPT_RESPONSE_SINGLE01"
+      },
+      "WORKERS_NAMESPACE_SCRIPT_RESPONSE_SINGLE02": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "namespace_id": "NAMESPACE01",
+        "script_name": "SCRIPT_NAME01",
+        "id": "WORKERS_NAMESPACE_SCRIPT_RESPONSE_SINGLE02"
+      }
+    }
+  },
+  "new": {
+    "workers_namespace_script_response_single": {
+      "workers_namespace_script_response_single_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets-bulk": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,413 @@
+# Entity: trigger
+
+main: kit: entity: trigger: {
+
+  alias: field: {}
+
+  fields: {
+    branch_excludes: {
+      h: "Branch Excludes"
+      n: "branch_excludes"
+      op: {
+        update: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      sh: "Branch patterns that must not start builds."
+      t: "`$ARRAY`"
+    }
+    branch_includes: {
+      h: "Branch Includes"
+      n: "branch_includes"
+      op: {
+        update: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      sh: "Branch patterns that can start builds."
+      t: "`$ARRAY`"
+    }
+    build_caching_enabled: {
+      h: "Build Caching Enabled"
+      n: "build_caching_enabled"
+      r: false
+      sh: "Whether builds reuse cached dependencies and build artifacts."
+      t: "`$BOOLEAN`"
+    }
+    build_command: {
+      h: "Build Command"
+      n: "build_command"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Command to build the Worker."
+      t: "`$STRING`"
+    }
+    build_token_uuid: {
+      fo: "uuid"
+      h: "Build Token Uuid"
+      n: "build_token_uuid"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "UUID of the build token used when deploying the Worker."
+      t: "`$STRING`"
+    }
+    deploy_command: {
+      h: "Deploy Command"
+      n: "deploy_command"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Command to deploy the Worker."
+      t: "`$STRING`"
+    }
+    external_script_id: {
+      h: "External Script Id"
+      n: "external_script_id"
+      r: true
+      sh: "System-generated tag of the Worker."
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    path_excludes: {
+      h: "Path Excludes"
+      n: "path_excludes"
+      op: {
+        update: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      sh: "Path patterns that must not start builds."
+      t: "`$ARRAY`"
+    }
+    path_includes: {
+      h: "Path Includes"
+      n: "path_includes"
+      op: {
+        update: {
+          req: false
+          type: "`$ARRAY`"
+        }
+      }
+      r: true
+      sh: "Path patterns that can start builds."
+      t: "`$ARRAY`"
+    }
+    repo_connection_uuid: {
+      fo: "uuid"
+      h: "Repo Connection Uuid"
+      n: "repo_connection_uuid"
+      r: true
+      sh: "Repository connection UUID."
+      t: "`$STRING`"
+    }
+    root_directory: {
+      h: "Root Directory"
+      n: "root_directory"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Repository directory in which build and deploy commands run."
+      t: "`$STRING`"
+    }
+    trigger_name: {
+      h: "Trigger Name"
+      n: "trigger_name"
+      op: {
+        update: {
+          req: false
+          type: "`$STRING`"
+        }
+      }
+      r: true
+      sh: "Human-readable name of the build trigger."
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "trigger"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/builds/triggers/{trigger_uuid}/builds"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "account-123"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "trigger_uuid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/builds/triggers/{trigger_uuid}/builds"
+          q: {
+            "$action": "build"
+            exist: [
+              "account_id"
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              trigger_uuid: "id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "builds"
+            }
+            {
+              lit: "triggers"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "builds"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "POST /accounts/{account_id}/builds/triggers"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "account-123"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/builds/triggers"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "builds"
+            }
+            {
+              lit: "triggers"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/builds/triggers/{trigger_uuid}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "account-123"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "trigger_uuid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/builds/triggers/{trigger_uuid}"
+          q: {
+            exist: [
+              "account_id"
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              trigger_uuid: "id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "builds"
+            }
+            {
+              lit: "triggers"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PATCH /accounts/{account_id}/builds/triggers/{trigger_uuid}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "account-123"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "id"
+                or: "trigger_uuid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "PATCH"
+          o: "/accounts/{account_id}/builds/triggers/{trigger_uuid}"
+          q: {
+            exist: [
+              "account_id"
+              "id"
+            ]
+          }
+          r: {
+            param: {
+              trigger_uuid: "id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "builds"
+            }
+            {
+              lit: "triggers"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account")]
+  ]
+
+}

@@ -1,0 +1,52 @@
+{
+  "existing": {
+    "shared": {
+      "SHARED00": {
+        "errors": [],
+        "id": "SHARED00",
+        "messages": [],
+        "result": {},
+        "success": true,
+        "account_id": "ACCOUNT01"
+      },
+      "SHARED01": {
+        "errors": [],
+        "id": "SHARED01",
+        "messages": [],
+        "result": {},
+        "success": true,
+        "account_id": "ACCOUNT01"
+      },
+      "SHARED02": {
+        "errors": [],
+        "id": "SHARED02",
+        "messages": [],
+        "result": {},
+        "success": true,
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "shared": {
+      "shared_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/workers/observability/shared/query": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/observability/shared/query/{id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

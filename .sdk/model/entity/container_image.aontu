@@ -1,0 +1,77 @@
+# Entity: container_image
+
+main: kit: entity: container_image: {
+
+  alias: field: {}
+
+  fields: {
+    image: {
+      h: "Image"
+      n: "image"
+      r: true
+      sh: "Image url."
+      t: "`$STRING`"
+    }
+  }
+
+  name: "container_image"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/containers/image-preparations"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "account-123"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/containers/image-preparations"
+          q: {
+            exist: [
+              "account_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "containers"
+            }
+            {
+              lit: "image-preparations"
+            }
+          ]
+          t: {
+            req: {
+              image: "`reqdata.image`"
+            }
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account")]
+  ]
+
+}

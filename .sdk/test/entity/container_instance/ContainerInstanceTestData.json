@@ -1,0 +1,64 @@
+{
+  "existing": {
+    "container_instance": {
+      "CONTAINER_INSTANCE00": {
+        "errors": [],
+        "id": "CONTAINER_INSTANCE00",
+        "messages": [],
+        "result": "s3f",
+        "result_info": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "application_id": "APPLICATION01"
+      },
+      "CONTAINER_INSTANCE01": {
+        "errors": [],
+        "id": "CONTAINER_INSTANCE01",
+        "messages": [],
+        "result": "s7b",
+        "result_info": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "application_id": "APPLICATION01"
+      },
+      "CONTAINER_INSTANCE02": {
+        "errors": [],
+        "id": "CONTAINER_INSTANCE02",
+        "messages": [],
+        "result": "sb7",
+        "result_info": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "application_id": "APPLICATION01"
+      }
+    }
+  },
+  "new": {
+    "container_instance": {
+      "container_instance_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": "sf3",
+        "result_info": {},
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/containers/applications/{application_id}/instances": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/containers/applications/{application_id}/instances-v2": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/containers/applications/{application_id}/instances/{instance_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

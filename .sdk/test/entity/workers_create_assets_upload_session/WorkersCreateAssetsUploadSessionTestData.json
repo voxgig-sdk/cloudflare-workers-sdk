@@ -1,0 +1,46 @@
+{
+  "existing": {
+    "workers_create_assets_upload_session": {
+      "WORKERS_CREATE_ASSETS_UPLOAD_SESSION00": {
+        "manifest": {},
+        "account_id": "ACCOUNT01",
+        "namespace_id": "NAMESPACE01",
+        "script_name": "SCRIPT_NAME01",
+        "id": "WORKERS_CREATE_ASSETS_UPLOAD_SESSION00"
+      },
+      "WORKERS_CREATE_ASSETS_UPLOAD_SESSION01": {
+        "manifest": {},
+        "account_id": "ACCOUNT01",
+        "namespace_id": "NAMESPACE01",
+        "script_name": "SCRIPT_NAME01",
+        "id": "WORKERS_CREATE_ASSETS_UPLOAD_SESSION01"
+      },
+      "WORKERS_CREATE_ASSETS_UPLOAD_SESSION02": {
+        "manifest": {},
+        "account_id": "ACCOUNT01",
+        "namespace_id": "NAMESPACE01",
+        "script_name": "SCRIPT_NAME01",
+        "id": "WORKERS_CREATE_ASSETS_UPLOAD_SESSION02"
+      }
+    }
+  },
+  "new": {
+    "workers_create_assets_upload_session": {
+      "workers_create_assets_upload_session_ref01": {
+        "manifest": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/assets-upload-session": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/workers/scripts/{script_name}/assets-upload-session": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

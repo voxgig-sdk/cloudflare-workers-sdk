@@ -1,0 +1,57 @@
+# BasicWorkersNamespaceScriptResponseSingleFlow
+
+main: kit: flow: BasicWorkersNamespaceScriptResponseSingleFlow:
+{
+  entity: "workers_namespace_script_response_single",
+  kind: "basic",
+  name: "BasicWorkersNamespaceScriptResponseSingleFlow",
+  step: [
+    {
+      d: {
+        account_id: "account01",
+        namespace_id: "namespace01"
+      }
+
+      i: {
+        ref: "workers_namespace_script_response_single_ref01",
+        srcdatavar: "workers_namespace_script_response_single_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-workers_namespace_script_response_single_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "workers_namespace_script_response_single_ref01",
+        srcdatavar: "workers_namespace_script_response_single_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "workers_namespace_script_response_single01",
+        namespace_id: "namespace01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-workers_namespace_script_response_single_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkersNamespaceScriptResponseSingleFlow"
+}

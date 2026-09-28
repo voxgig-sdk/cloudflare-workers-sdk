@@ -1,0 +1,73 @@
+{
+  "existing": {
+    "workers_namespace_single": {
+      "WORKERS_NAMESPACE_SINGLE00": {
+        "errors": [],
+        "messages": [],
+        "name": "s3e",
+        "result": {},
+        "success": true,
+        "trusted_workers": false,
+        "account_id": "ACCOUNT01",
+        "dispatch_namespace": "DISPATCH_NAMESPACE01",
+        "id": "WORKERS_NAMESPACE_SINGLE00"
+      },
+      "WORKERS_NAMESPACE_SINGLE01": {
+        "errors": [],
+        "messages": [],
+        "name": "s7a",
+        "result": {},
+        "success": true,
+        "trusted_workers": false,
+        "account_id": "ACCOUNT01",
+        "dispatch_namespace": "DISPATCH_NAMESPACE01",
+        "id": "WORKERS_NAMESPACE_SINGLE01"
+      },
+      "WORKERS_NAMESPACE_SINGLE02": {
+        "errors": [],
+        "messages": [],
+        "name": "sb6",
+        "result": {},
+        "success": true,
+        "trusted_workers": false,
+        "account_id": "ACCOUNT01",
+        "dispatch_namespace": "DISPATCH_NAMESPACE01",
+        "id": "WORKERS_NAMESPACE_SINGLE02"
+      }
+    }
+  },
+  "new": {
+    "workers_namespace_single": {
+      "workers_namespace_single_ref01": {
+        "errors": [],
+        "messages": [],
+        "name": "sf2",
+        "result": {},
+        "success": true,
+        "trusted_workers": false
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/workers/dispatch/namespaces": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+# BasicWorkersVersionsListFlow
+
+main: kit: flow: BasicWorkersVersionsListFlow:
+{
+  entity: "workers_versions_list",
+  kind: "basic",
+  name: "BasicWorkersVersionsListFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01",
+        script_name: "script_name01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "workers_versions_list_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkersVersionsListFlow"
+}

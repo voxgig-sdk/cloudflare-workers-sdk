@@ -1,0 +1,75 @@
+{
+  "existing": {
+    "preview": {
+      "PREVIEW00": {
+        "errors": [],
+        "id": "PREVIEW00",
+        "messages": [],
+        "result": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "worker_id": "WORKER01"
+      },
+      "PREVIEW01": {
+        "errors": [],
+        "id": "PREVIEW01",
+        "messages": [],
+        "result": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "worker_id": "WORKER01"
+      },
+      "PREVIEW02": {
+        "errors": [],
+        "id": "PREVIEW02",
+        "messages": [],
+        "result": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "worker_id": "WORKER01"
+      }
+    }
+  },
+  "new": {
+    "preview": {
+      "preview_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/workers/workers/{worker_id}/previews": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/workers/{worker_id}/previews": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,203 @@
+# Entity: builds_api
+
+main: kit: entity: builds_api: {
+
+  alias: field: {}
+
+  fields: {
+    errors: {
+      h: "Errors"
+      n: "errors"
+      r: true
+      t: "`$ARRAY`"
+    }
+    messages: {
+      h: "Messages"
+      n: "messages"
+      r: true
+      t: "`$ARRAY`"
+    }
+    result: {
+      h: "Result"
+      n: "result"
+      r: true
+      t: "`$OBJECT`"
+      union: {
+        branches: 2
+        count: 1
+        depth: 4
+      }
+    }
+    result_info: {
+      h: "Result Info"
+      n: "result_info"
+      r: false
+      t: "`$OBJECT`"
+    }
+    success: {
+      h: "Success"
+      n: "success"
+      r: true
+      t: "`$BOOLEAN`"
+    }
+  }
+
+  name: "builds_api"
+  op: {
+    create: {
+      name: "create"
+      points: [
+        {
+          co: {
+            id: "POST /accounts/{account_id}/builds/triggers/{trigger_uuid}/purge_build_cache"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "account-123"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "trigger_id"
+                or: "trigger_uuid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "POST"
+          o: "/accounts/{account_id}/builds/triggers/{trigger_uuid}/purge_build_cache"
+          q: {
+            exist: [
+              "account_id"
+              "trigger_id"
+            ]
+          }
+          r: {
+            param: {
+              trigger_uuid: "trigger_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "builds"
+            }
+            {
+              lit: "triggers"
+            }
+            {
+              var: "trigger_id"
+            }
+            {
+              lit: "purge_build_cache"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/builds/triggers/{trigger_uuid}/environment_variables/{environment_variable_key}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "account-123"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "NODE_ENV"
+                k: "param"
+                n: "environment_variable_key"
+                or: "environment_variable_key"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                k: "param"
+                n: "trigger_id"
+                or: "trigger_uuid"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/builds/triggers/{trigger_uuid}/environment_variables/{environment_variable_key}"
+          q: {
+            exist: [
+              "account_id"
+              "environment_variable_key"
+              "trigger_id"
+            ]
+          }
+          r: {
+            param: {
+              trigger_uuid: "trigger_id"
+            }
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "builds"
+            }
+            {
+              lit: "triggers"
+            }
+            {
+              var: "trigger_id"
+            }
+            {
+              lit: "environment_variables"
+            }
+            {
+              var: "environment_variable_key"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account") path("$.main.kit.entity.trigger")]
+    [path("$.main.kit.entity.account") path("$.main.kit.entity.trigger") path("$.main.kit.entity.environment_variable")]
+  ]
+
+}

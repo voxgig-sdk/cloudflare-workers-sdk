@@ -1,0 +1,186 @@
+{
+  "existing": {
+    "worker": {
+      "WORKER00": {
+        "auto_build": true,
+        "auto_delete": false,
+        "branch": "sac",
+        "commit_hash": "sad",
+        "errors": [],
+        "git_repository": "saf",
+        "id": "WORKER00",
+        "messages": [],
+        "previews_base_config": {},
+        "previews_enabled": false,
+        "production_settings": {},
+        "result": {},
+        "result_info": {},
+        "script_tag": "sb7",
+        "seed_repo": "sb8",
+        "settings": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "preview_id": "PREVIEW01",
+        "worker_id": "WORKER01"
+      },
+      "WORKER01": {
+        "auto_build": true,
+        "auto_delete": false,
+        "branch": "s156",
+        "commit_hash": "s157",
+        "errors": [],
+        "git_repository": "s159",
+        "id": "WORKER01",
+        "messages": [],
+        "previews_base_config": {},
+        "previews_enabled": false,
+        "production_settings": {},
+        "result": {},
+        "result_info": {},
+        "script_tag": "s161",
+        "seed_repo": "s162",
+        "settings": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "preview_id": "PREVIEW01",
+        "worker_id": "WORKER01"
+      },
+      "WORKER02": {
+        "auto_build": true,
+        "auto_delete": false,
+        "branch": "s200",
+        "commit_hash": "s201",
+        "errors": [],
+        "git_repository": "s203",
+        "id": "WORKER02",
+        "messages": [],
+        "previews_base_config": {},
+        "previews_enabled": false,
+        "production_settings": {},
+        "result": {},
+        "result_info": {},
+        "script_tag": "s20b",
+        "seed_repo": "s20c",
+        "settings": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "preview_id": "PREVIEW01",
+        "worker_id": "WORKER01"
+      }
+    }
+  },
+  "new": {
+    "worker": {
+      "worker_ref01": {
+        "auto_build": true,
+        "auto_delete": false,
+        "branch": "s2aa",
+        "commit_hash": "s2ab",
+        "errors": [],
+        "git_repository": "s2ad",
+        "messages": [],
+        "previews_base_config": {},
+        "previews_enabled": false,
+        "production_settings": {},
+        "result": {},
+        "result_info": {},
+        "script_tag": "s2b5",
+        "seed_repo": "s2b6",
+        "settings": {},
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/builds/workers/{script_tag}/previews/{preview_id}/builds": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/builds/workers/{script_tag}/migrate_to_previews": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/builds/workers": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/workers/workers": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/workers": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/builds/workers/{script_tag}/previews/{preview_id}/builds": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/builds/workers/{external_script_id}/builds": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/builds/workers/{script_tag}/previews": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/builds/workers/{external_script_id}/triggers": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/builds/workers/{script_tag}/previews/{preview_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/builds/workers/{script_tag}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/workers/{worker_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/builds/workers/{script_tag}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/builds/workers/{script_tag}/previews/{preview_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/workers/workers/{worker_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/workers/workers/{worker_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/builds/workers/{script_tag}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/workers/workers/{worker_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

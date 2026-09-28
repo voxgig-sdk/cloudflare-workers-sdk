@@ -1,0 +1,34 @@
+# BasicWorkersApiResponseNullResultFlow
+
+main: kit: flow: BasicWorkersApiResponseNullResultFlow:
+{
+  entity: "workers_api_response_null_result",
+  kind: "basic",
+  name: "BasicWorkersApiResponseNullResultFlow",
+  step: [
+    {
+      d: {
+        account_id: "account01",
+        namespace_id: "namespace01",
+        script_id: "script01"
+      }
+
+      i: {
+        ref: "workers_api_response_null_result_ref01",
+        srcdatavar: "workers_api_response_null_result_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-workers_api_response_null_result_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkersApiResponseNullResultFlow"
+}

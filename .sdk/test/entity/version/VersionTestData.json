@@ -1,0 +1,171 @@
+{
+  "existing": {
+    "version": {
+      "VERSION00": {
+        "annotations": {},
+        "assets": {},
+        "author_email": "s124",
+        "author_id": "AUTHOR01",
+        "bindings": [],
+        "cache_options": {},
+        "compatibility_date": "s128",
+        "compatibility_flags": [],
+        "containers": [],
+        "created_on": "s12b",
+        "errors": [],
+        "exports": "s12d",
+        "exports_reconciliation": "s12e",
+        "id": "VERSION00",
+        "limits": {},
+        "main_module": "s131",
+        "messages": [],
+        "migration_tag": "s133",
+        "migrations": "s134",
+        "modules": [],
+        "number": 310,
+        "package_dependencies": [],
+        "placement": {},
+        "result": {},
+        "source": "s13a",
+        "startup_time_ms": 315,
+        "success": true,
+        "urls": [],
+        "usage_model": "s13e",
+        "account_id": "ACCOUNT01",
+        "worker_id": "WORKER01"
+      },
+      "VERSION01": {
+        "annotations": {},
+        "assets": {},
+        "author_email": "s246",
+        "author_id": "AUTHOR01",
+        "bindings": [],
+        "cache_options": {},
+        "compatibility_date": "s24a",
+        "compatibility_flags": [],
+        "containers": [],
+        "created_on": "s24d",
+        "errors": [],
+        "exports": "s24f",
+        "exports_reconciliation": "s250",
+        "id": "VERSION01",
+        "limits": {},
+        "main_module": "s253",
+        "messages": [],
+        "migration_tag": "s255",
+        "migrations": "s256",
+        "modules": [],
+        "number": 600,
+        "package_dependencies": [],
+        "placement": {},
+        "result": {},
+        "source": "s25c",
+        "startup_time_ms": 605,
+        "success": true,
+        "urls": [],
+        "usage_model": "s260",
+        "account_id": "ACCOUNT01",
+        "worker_id": "WORKER01"
+      },
+      "VERSION02": {
+        "annotations": {},
+        "assets": {},
+        "author_email": "s368",
+        "author_id": "AUTHOR01",
+        "bindings": [],
+        "cache_options": {},
+        "compatibility_date": "s36c",
+        "compatibility_flags": [],
+        "containers": [],
+        "created_on": "s36f",
+        "errors": [],
+        "exports": "s371",
+        "exports_reconciliation": "s372",
+        "id": "VERSION02",
+        "limits": {},
+        "main_module": "s375",
+        "messages": [],
+        "migration_tag": "s377",
+        "migrations": "s378",
+        "modules": [],
+        "number": 890,
+        "package_dependencies": [],
+        "placement": {},
+        "result": {},
+        "source": "s37e",
+        "startup_time_ms": 895,
+        "success": true,
+        "urls": [],
+        "usage_model": "s382",
+        "account_id": "ACCOUNT01",
+        "worker_id": "WORKER01"
+      }
+    }
+  },
+  "new": {
+    "version": {
+      "version_ref01": {
+        "annotations": {},
+        "assets": {},
+        "author_email": "s48a",
+        "author_id": "AUTHOR01",
+        "bindings": [],
+        "cache_options": {},
+        "compatibility_date": "s48e",
+        "compatibility_flags": [],
+        "containers": [],
+        "created_on": "s491",
+        "errors": [],
+        "exports": "s493",
+        "exports_reconciliation": "s494",
+        "limits": {},
+        "main_module": "s497",
+        "messages": [],
+        "migration_tag": "s499",
+        "migrations": "s49a",
+        "modules": [],
+        "number": 1180,
+        "package_dependencies": [],
+        "placement": {},
+        "result": {},
+        "source": "s4a0",
+        "startup_time_ms": 1185,
+        "success": true,
+        "urls": [],
+        "usage_model": "s4a4"
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/workers/workers/{worker_id}/versions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/workers/{worker_id}/versions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/workers/{worker_id}/versions/latest": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/workers/{worker_id}/versions/{version_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/workers/workers/{worker_id}/versions/{version_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/workers/workers/{worker_id}/versions/latest": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+# BasicWorkersVersionsUploadFlow
+
+main: kit: flow: BasicWorkersVersionsUploadFlow:
+{
+  entity: "workers_versions_upload",
+  kind: "basic",
+  name: "BasicWorkersVersionsUploadFlow",
+  step: [
+    {
+      i: {
+        ref: "workers_versions_upload_ref01"
+      }
+
+      m: {
+        account_id: "account01",
+        script_name: "script_name01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicWorkersVersionsUploadFlow"
+}

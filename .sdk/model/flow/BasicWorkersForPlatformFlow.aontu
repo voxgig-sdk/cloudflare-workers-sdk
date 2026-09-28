@@ -1,0 +1,75 @@
+# BasicWorkersForPlatformFlow
+
+main: kit: flow: BasicWorkersForPlatformFlow:
+{
+  entity: "workers_for_platform",
+  kind: "basic",
+  name: "BasicWorkersForPlatformFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01",
+        namespace_id: "namespace01",
+        script_name: "script_name01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "workers_for_platform_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        account_id: "account01",
+        namespace_id: "namespace01"
+      }
+
+      i: {
+        ref: "workers_for_platform_ref01",
+        srcdatavar: "workers_for_platform_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-workers_for_platform_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "workers_for_platform_ref01",
+        srcdatavar: "workers_for_platform_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "workers_for_platform01",
+        namespace_id: "namespace01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-workers_for_platform_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkersForPlatformFlow"
+}

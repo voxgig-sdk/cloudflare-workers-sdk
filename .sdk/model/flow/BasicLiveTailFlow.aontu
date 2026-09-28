@@ -1,0 +1,22 @@
+# BasicLiveTailFlow
+
+main: kit: flow: BasicLiveTailFlow:
+{
+  entity: "live_tail",
+  kind: "basic",
+  name: "BasicLiveTailFlow",
+  step: [
+    {
+      i: {
+        ref: "live_tail_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicLiveTailFlow"
+}

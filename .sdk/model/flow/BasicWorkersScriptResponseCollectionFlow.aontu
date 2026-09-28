@@ -1,0 +1,26 @@
+# BasicWorkersScriptResponseCollectionFlow
+
+main: kit: flow: BasicWorkersScriptResponseCollectionFlow:
+{
+  entity: "workers_script_response_collection",
+  kind: "basic",
+  name: "BasicWorkersScriptResponseCollectionFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "workers_script_response_collection_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkersScriptResponseCollectionFlow"
+}

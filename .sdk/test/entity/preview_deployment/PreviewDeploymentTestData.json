@@ -1,0 +1,68 @@
+{
+  "existing": {
+    "preview_deployment": {
+      "PREVIEW_DEPLOYMENT00": {
+        "errors": [],
+        "id": "PREVIEW_DEPLOYMENT00",
+        "messages": [],
+        "result": "s35",
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "worker_id": "WORKER01",
+        "preview_id": "PREVIEW01"
+      },
+      "PREVIEW_DEPLOYMENT01": {
+        "errors": [],
+        "id": "PREVIEW_DEPLOYMENT01",
+        "messages": [],
+        "result": "s67",
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "worker_id": "WORKER01",
+        "preview_id": "PREVIEW01"
+      },
+      "PREVIEW_DEPLOYMENT02": {
+        "errors": [],
+        "id": "PREVIEW_DEPLOYMENT02",
+        "messages": [],
+        "result": "s99",
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "worker_id": "WORKER01",
+        "preview_id": "PREVIEW01"
+      }
+    }
+  },
+  "new": {
+    "preview_deployment": {
+      "preview_deployment_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": "scb",
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}/deployments": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}/deployments": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}/deployments/{deployment_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}/deployments/latest": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

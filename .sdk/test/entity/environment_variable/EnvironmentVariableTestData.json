@@ -1,0 +1,59 @@
+{
+  "existing": {
+    "environment_variable": {
+      "ENVIRONMENT_VARIABLE00": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "trigger_id": "TRIGGER01",
+        "id": "ENVIRONMENT_VARIABLE00"
+      },
+      "ENVIRONMENT_VARIABLE01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "trigger_id": "TRIGGER01",
+        "id": "ENVIRONMENT_VARIABLE01"
+      },
+      "ENVIRONMENT_VARIABLE02": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "trigger_id": "TRIGGER01",
+        "id": "ENVIRONMENT_VARIABLE02"
+      }
+    }
+  },
+  "new": {
+    "environment_variable": {
+      "environment_variable_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/builds/triggers/{trigger_uuid}/environment_variables": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/builds/triggers/{trigger_uuid}/environment_variables": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+# BasicDurableObjectsNamespaceFlow
+
+main: kit: flow: BasicDurableObjectsNamespaceFlow:
+{
+  entity: "durable_objects_namespace",
+  kind: "basic",
+  name: "BasicDurableObjectsNamespaceFlow",
+  step: [
+    {
+      i: {
+        ref: "durable_objects_namespace_ref01"
+      }
+
+      m: {
+        account_id: "account01",
+        namespace_id: "namespace01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "durable_objects_namespace_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDurableObjectsNamespaceFlow"
+}

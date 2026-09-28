@@ -1,0 +1,68 @@
+{
+  "existing": {
+    "build_token": {
+      "BUILD_TOKEN00": {
+        "build_token_name": "s50",
+        "build_token_secret": "s51",
+        "cloudflare_token_id": "CLOUDFLARE_TOKEN01",
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "id": "BUILD_TOKEN00"
+      },
+      "BUILD_TOKEN01": {
+        "build_token_name": "sa0",
+        "build_token_secret": "sa1",
+        "cloudflare_token_id": "CLOUDFLARE_TOKEN01",
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "id": "BUILD_TOKEN01"
+      },
+      "BUILD_TOKEN02": {
+        "build_token_name": "sf0",
+        "build_token_secret": "sf1",
+        "cloudflare_token_id": "CLOUDFLARE_TOKEN01",
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "id": "BUILD_TOKEN02"
+      }
+    }
+  },
+  "new": {
+    "build_token": {
+      "build_token_ref01": {
+        "build_token_name": "s140",
+        "build_token_secret": "s141",
+        "cloudflare_token_id": "CLOUDFLARE_TOKEN01",
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/builds/tokens": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/builds/tokens": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

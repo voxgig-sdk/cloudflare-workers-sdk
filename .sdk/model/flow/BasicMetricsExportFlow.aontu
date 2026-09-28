@@ -1,0 +1,38 @@
+# BasicMetricsExportFlow
+
+main: kit: flow: BasicMetricsExportFlow:
+{
+  entity: "metrics_export",
+  kind: "basic",
+  name: "BasicMetricsExportFlow",
+  step: [
+    {
+      i: {
+        ref: "metrics_export_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "metrics_export_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicMetricsExportFlow"
+}

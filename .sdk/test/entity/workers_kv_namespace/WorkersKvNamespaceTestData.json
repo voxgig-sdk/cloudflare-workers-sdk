@@ -1,0 +1,127 @@
+{
+  "existing": {
+    "workers_kv_namespace": {
+      "WORKERS_KV_NAMESPACE00": {
+        "errors": [],
+        "id": "WORKERS_KV_NAMESPACE00",
+        "jurisdiction": "s70",
+        "keys": [],
+        "messages": [],
+        "result": "s73",
+        "result_info": {},
+        "success": false,
+        "title": "s76",
+        "type": "s77",
+        "withMetadata": true,
+        "account_id": "ACCOUNT01",
+        "namespace_id": "NAMESPACE01",
+        "key_name": "KEY_NAME01"
+      },
+      "WORKERS_KV_NAMESPACE01": {
+        "errors": [],
+        "id": "WORKERS_KV_NAMESPACE01",
+        "jurisdiction": "sde",
+        "keys": [],
+        "messages": [],
+        "result": "se1",
+        "result_info": {},
+        "success": false,
+        "title": "se4",
+        "type": "se5",
+        "withMetadata": true,
+        "account_id": "ACCOUNT01",
+        "namespace_id": "NAMESPACE01",
+        "key_name": "KEY_NAME01"
+      },
+      "WORKERS_KV_NAMESPACE02": {
+        "errors": [],
+        "id": "WORKERS_KV_NAMESPACE02",
+        "jurisdiction": "s14c",
+        "keys": [],
+        "messages": [],
+        "result": "s14f",
+        "result_info": {},
+        "success": false,
+        "title": "s152",
+        "type": "s153",
+        "withMetadata": true,
+        "account_id": "ACCOUNT01",
+        "namespace_id": "NAMESPACE01",
+        "key_name": "KEY_NAME01"
+      }
+    }
+  },
+  "new": {
+    "workers_kv_namespace": {
+      "workers_kv_namespace_ref01": {
+        "errors": [],
+        "jurisdiction": "s1ba",
+        "keys": [],
+        "messages": [],
+        "result": "s1bd",
+        "result_info": {},
+        "success": false,
+        "title": "s1c0",
+        "type": "s1c1",
+        "withMetadata": true
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk/delete": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk/get": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/storage/kv/namespaces": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/keys": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/storage/kv/namespaces": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/metadata/{key_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/storage/kv/namespaces/{namespace_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/storage/kv/namespaces/{namespace_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/bulk": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

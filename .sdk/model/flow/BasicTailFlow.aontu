@@ -1,0 +1,9 @@
+# BasicTailFlow
+
+main: kit: flow: BasicTailFlow:
+{
+  entity: "tail",
+  kind: "basic",
+  name: "BasicTailFlow",
+  "key$": "BasicTailFlow"
+}

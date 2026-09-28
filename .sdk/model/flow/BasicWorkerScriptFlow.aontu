@@ -1,0 +1,121 @@
+# BasicWorkerScriptFlow
+
+main: kit: flow: BasicWorkerScriptFlow:
+{
+  entity: "worker_script",
+  kind: "basic",
+  name: "BasicWorkerScriptFlow",
+  step: [
+    {
+      i: {
+        ref: "worker_script_ref01"
+      }
+
+      m: {
+        account_id: "account01",
+        script_id: "script01",
+        script_name: "script_name01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        account_id: "account01",
+        script_name: "script_name01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "worker_script_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        account_id: "account01"
+      }
+
+      i: {
+        ref: "worker_script_ref01",
+        srcdatavar: "worker_script_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-worker_script_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "worker_script_ref01",
+        srcdatavar: "worker_script_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "worker_script01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-worker_script_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "worker_script_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "worker_script01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      m: {
+        account_id: "account01",
+        script_name: "script_name01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "worker_script_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkerScriptFlow"
+}

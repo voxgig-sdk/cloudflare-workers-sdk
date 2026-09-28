@@ -1,0 +1,257 @@
+# Entity: workers_kv_api_response_common_no_result
+
+main: kit: entity: workers_kv_api_response_common_no_result: {
+
+  alias: field: {}
+
+  name: "workers_kv_api_response_common_no_result"
+  op: {
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "My-Key"
+                k: "param"
+                n: "key_name"
+                or: "key_name"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "0f2ac74b498b48028cb68387c421e279"
+                k: "param"
+                n: "namespace_id"
+                or: "namespace_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name}"
+          q: {
+            exist: [
+              "account_id"
+              "key_name"
+              "namespace_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "storage"
+            }
+            {
+              lit: "kv"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "values"
+            }
+            {
+              var: "key_name"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/storage/kv/namespaces/{namespace_id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "0f2ac74b498b48028cb68387c421e279"
+                k: "param"
+                n: "namespace_id"
+                or: "namespace_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}"
+          q: {
+            exist: [
+              "account_id"
+              "namespace_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "storage"
+            }
+            {
+              lit: "kv"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    update: {
+      name: "update"
+      points: [
+        {
+          co: {
+            id: "PUT /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "My-Key"
+                k: "param"
+                n: "key_name"
+                or: "key_name"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "0f2ac74b498b48028cb68387c421e279"
+                k: "param"
+                n: "namespace_id"
+                or: "namespace_id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 1578435000
+                k: "query"
+                n: "expiration"
+                or: "expiration"
+                r: false
+                t: "`$NUMBER`"
+              }
+              {
+                ex: 300
+                k: "query"
+                n: "expiration_ttl"
+                or: "expiration_ttl"
+                r: false
+                t: "`$NUMBER`"
+              }
+            ]
+          }
+          m: "PUT"
+          o: "/accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name}"
+          q: {
+            exist: [
+              "account_id"
+              "expiration"
+              "expiration_ttl"
+              "key_name"
+              "namespace_id"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "storage"
+            }
+            {
+              lit: "kv"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "namespace_id"
+            }
+            {
+              lit: "values"
+            }
+            {
+              var: "key_name"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account") path("$.main.kit.entity.namespace")]
+    [path("$.main.kit.entity.account") path("$.main.kit.entity.namespace") path("$.main.kit.entity.value")]
+  ]
+
+}

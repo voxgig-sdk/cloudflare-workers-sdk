@@ -1,0 +1,46 @@
+{
+  "existing": {
+    "workers_kv_api_response_common_no_result": {
+      "WORKERS_KV_API_RESPONSE_COMMON_NO_RESULT00": {
+        "account_id": "ACCOUNT01",
+        "key_name": "KEY_NAME01",
+        "namespace_id": "NAMESPACE01",
+        "id": "WORKERS_KV_API_RESPONSE_COMMON_NO_RESULT00"
+      },
+      "WORKERS_KV_API_RESPONSE_COMMON_NO_RESULT01": {
+        "account_id": "ACCOUNT01",
+        "key_name": "KEY_NAME01",
+        "namespace_id": "NAMESPACE01",
+        "id": "WORKERS_KV_API_RESPONSE_COMMON_NO_RESULT01"
+      },
+      "WORKERS_KV_API_RESPONSE_COMMON_NO_RESULT02": {
+        "account_id": "ACCOUNT01",
+        "key_name": "KEY_NAME01",
+        "namespace_id": "NAMESPACE01",
+        "id": "WORKERS_KV_API_RESPONSE_COMMON_NO_RESULT02"
+      }
+    }
+  },
+  "new": {
+    "workers_kv_api_response_common_no_result": {
+      "workers_kv_api_response_common_no_result_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/storage/kv/namespaces/{namespace_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/storage/kv/namespaces/{namespace_id}/values/{key_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

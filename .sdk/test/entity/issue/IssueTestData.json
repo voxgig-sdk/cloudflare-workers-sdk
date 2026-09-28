@@ -1,0 +1,166 @@
+{
+  "existing": {
+    "issue": {
+      "ISSUE00": {
+        "afterInactivitySeconds": 150,
+        "afterOccurrences": 151,
+        "enabled": true,
+        "errors": [],
+        "id": "ISSUE00",
+        "issueIds": [],
+        "messages": [],
+        "name": "s9d",
+        "policyId": "s9e",
+        "result": {},
+        "result_info": {},
+        "service": "sa1",
+        "status": "sa2",
+        "success": false,
+        "title": "sa4",
+        "account_id": "ACCOUNT01",
+        "group_id": "GROUP01",
+        "automation_id": "AUTOMATION01",
+        "issue_id": "ISSUE01"
+      },
+      "ISSUE01": {
+        "afterInactivitySeconds": 300,
+        "afterOccurrences": 301,
+        "enabled": true,
+        "errors": [],
+        "id": "ISSUE01",
+        "issueIds": [],
+        "messages": [],
+        "name": "s133",
+        "policyId": "s134",
+        "result": {},
+        "result_info": {},
+        "service": "s137",
+        "status": "s138",
+        "success": false,
+        "title": "s13a",
+        "account_id": "ACCOUNT01",
+        "group_id": "GROUP01",
+        "automation_id": "AUTOMATION01",
+        "issue_id": "ISSUE01"
+      },
+      "ISSUE02": {
+        "afterInactivitySeconds": 450,
+        "afterOccurrences": 451,
+        "enabled": true,
+        "errors": [],
+        "id": "ISSUE02",
+        "issueIds": [],
+        "messages": [],
+        "name": "s1c9",
+        "policyId": "s1ca",
+        "result": {},
+        "result_info": {},
+        "service": "s1cd",
+        "status": "s1ce",
+        "success": false,
+        "title": "s1d0",
+        "account_id": "ACCOUNT01",
+        "group_id": "GROUP01",
+        "automation_id": "AUTOMATION01",
+        "issue_id": "ISSUE01"
+      }
+    }
+  },
+  "new": {
+    "issue": {
+      "issue_ref01": {
+        "afterInactivitySeconds": 600,
+        "afterOccurrences": 601,
+        "enabled": true,
+        "errors": [],
+        "issueIds": [],
+        "messages": [],
+        "name": "s25f",
+        "policyId": "s260",
+        "result": {},
+        "result_info": {},
+        "service": "s263",
+        "status": "s264",
+        "success": false,
+        "title": "s266"
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/workers/observability/issues/groups/{groupId}/members": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/workers/observability/issues/{issueId}/notification-runs": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/workers/observability/issues/automations": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/workers/observability/issues/groups": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/observability/issues": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/observability/issues/{issueId}/occurrences": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/observability/issues/automations": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/observability/issues/summary": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/observability/issues/automations/{automationId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/observability/issues/{issueId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/workers/observability/issues/{issueId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/workers/observability/issues/groups/{groupId}/members/{issueId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/workers/observability/issues/automations/{automationId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/workers/observability/issues/groups/{groupId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/workers/observability/issues/automations/{automationId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

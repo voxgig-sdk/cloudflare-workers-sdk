@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>WorkersVersionsUpload | Cloudflare Workers</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare Workers<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-workers-sdk">voxgig-sdk/cloudflare-workers-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare Workers</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account.html">Account</a>
+<a href="../api/application.html">Application</a>
+<a href="../api/brapi.html">Brapi</a>
+<a href="../api/build.html">Build</a>
+<a href="../api/build_token.html">BuildToken</a>
+<a href="../api/builds_api.html">BuildsApi</a>
+<a href="../api/connection.html">Connection</a>
+<a href="../api/container_image.html">ContainerImage</a>
+<a href="../api/container_instance.html">ContainerInstance</a>
+<a href="../api/deploy_hook.html">DeployHook</a>
+<a href="../api/deployment.html">Deployment</a>
+<a href="../api/destination.html">Destination</a>
+<a href="../api/domain.html">Domain</a>
+<a href="../api/durable_objects_namespace.html">DurableObjectsNamespace</a>
+<a href="../api/environment_variable.html">EnvironmentVariable</a>
+<a href="../api/git_hub_integration.html">GitHubIntegration</a>
+<a href="../api/hyperdrive.html">Hyperdrive</a>
+<a href="../api/image_registry.html">ImageRegistry</a>
+<a href="../api/issue.html">Issue</a>
+<a href="../api/key.html">Key</a>
+<a href="../api/live_tail.html">LiveTail</a>
+<a href="../api/metrics_export.html">MetricsExport</a>
+<a href="../api/namespace.html">Namespace</a>
+<a href="../api/preview.html">Preview</a>
+<a href="../api/preview_deployment.html">PreviewDeployment</a>
+<a href="../api/query.html">Query</a>
+<a href="../api/repository_connection.html">RepositoryConnection</a>
+<a href="../api/rollout.html">Rollout</a>
+<a href="../api/saved_query.html">SavedQuery</a>
+<a href="../api/script.html">Script</a>
+<a href="../api/script_setting.html">ScriptSetting</a>
+<a href="../api/secret.html">Secret</a>
+<a href="../api/secrets_store_delete.html">SecretsStoreDelete</a>
+<a href="../api/secrets_store_quota.html">SecretsStoreQuota</a>
+<a href="../api/secrets_store_secret.html">SecretsStoreSecret</a>
+<a href="../api/secrets_store_store.html">SecretsStoreStore</a>
+<a href="../api/secrets_store_stores_response_collection.html">SecretsStoreStoresResponseCollection</a>
+<a href="../api/setting.html">Setting</a>
+<a href="../api/shared.html">Shared</a>
+<a href="../api/tail.html">Tail</a>
+<a href="../api/token.html">Token</a>
+<a href="../api/trigger.html">Trigger</a>
+<a href="../api/usage.html">Usage</a>
+<a href="../api/value.html">Value</a>
+<a href="../api/version.html">Version</a>
+<a href="../api/worker.html">Worker</a>
+<a href="../api/worker_cron_trigger.html">WorkerCronTrigger</a>
+<a href="../api/worker_deployment.html">WorkerDeployment</a>
+<a href="../api/worker_environment.html">WorkerEnvironment</a>
+<a href="../api/worker_route.html">WorkerRoute</a>
+<a href="../api/worker_script.html">WorkerScript</a>
+<a href="../api/worker_subdomain.html">WorkerSubdomain</a>
+<a href="../api/worker_tail_log.html">WorkerTailLog</a>
+<a href="../api/workers_account_setting.html">WorkersAccountSetting</a>
+<a href="../api/workers_api_response_null_result.html">WorkersApiResponseNullResult</a>
+<a href="../api/workers_completed_upload_asset.html">WorkersCompletedUploadAsset</a>
+<a href="../api/workers_create_assets_upload_session.html">WorkersCreateAssetsUploadSession</a>
+<a href="../api/workers_for_platform.html">WorkersForPlatform</a>
+<a href="../api/workers_kv_api_response_common_no_result.html">WorkersKvApiResponseCommonNoResult</a>
+<a href="../api/workers_kv_namespace.html">WorkersKvNamespace</a>
+<a href="../api/workers_namespace_list.html">WorkersNamespaceList</a>
+<a href="../api/workers_namespace_script_delete_bulk.html">WorkersNamespaceScriptDeleteBulk</a>
+<a href="../api/workers_namespace_script_response_single.html">WorkersNamespaceScriptResponseSingle</a>
+<a href="../api/workers_namespace_single.html">WorkersNamespaceSingle</a>
+<a href="../api/workers_pipelines_other.html">WorkersPipelinesOther</a>
+<a href="../api/workers_script_and_version_setting.html">WorkersScriptAndVersionSetting</a>
+<a href="../api/workers_script_response_collection.html">WorkersScriptResponseCollection</a>
+<a href="../api/workers_script_response_single.html">WorkersScriptResponseSingle</a>
+<a href="../api/workers_smart_placement.html">WorkersSmartPlacement</a>
+<a href="../api/workers_usage_model.html">WorkersUsageModel</a>
+<a href="../api/workers_versions_list.html">WorkersVersionsList</a>
+<a href="../api/workers_versions_single.html">WorkersVersionsSingle</a>
+<a aria-current="page" href="../api/workers_versions_upload.html">WorkersVersionsUpload</a><div class="nav-sections"><a class="nav-section" href="#post-accountsaccount_idworkersscriptsscript_nameversions">POST /accounts/{account_id}/workers/scripts/{script_name}/versions</a></div>
+<a href="../api/workflow.html">Workflow</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="workersversionsupload">WorkersVersionsUpload</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idworkersscriptsscript_nameversions"><code>/accounts/{account_id}/workers/scripts/{script_name}/versions</code></a></td>
+<td><code>create</code></td>
+<td>Upload Version response</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">created, err := client.WorkersVersionsUpload(nil).Create(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;script_name&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local created, err = client:WorkersVersionsUpload():create({ account_id = &quot;example&quot;, script_name = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$created = $client-&gt;WorkersVersionsUpload()-&gt;create([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;script_name&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">created = client.WorkersVersionsUpload().create({ &quot;account_id&quot;: &quot;example&quot;, &quot;script_name&quot;: &quot;example&quot; })
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">created = client.WorkersVersionsUpload.create({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;script_name&quot; =&gt; &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const created = await client.WorkersVersionsUpload().create({ account_id: &quot;example&quot;, script_name: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-accountsaccount_idworkersscriptsscript_nameversions" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/workers/scripts/{script_name}/versions</h3>
+<p>Operation ID: <code>worker-versions-upload-version</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>script_name</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>bindings_inherit</code> | <code>query</code> | <code>enum: strict</code> | No | When set to &quot;strict&quot;, the upload will fail if any <code>inherit</code> type bindings cannot be resolved against the previous version of the Worker. Without this, unresolvable inherit bindings are silently dropped. |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>multipart/form-data</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>files</code></td>
+<td><code>array of string (binary)</code></td>
+<td>No</td>
+<td>An array of modules (often JavaScript files) comprising a Worker script. At least one module must be present and referenced in the metadata as <code>main_module</code> or <code>body_part</code> by filename. Possible Content-Type(s) are: <code>application/javascript+module</code>, <code>text/javascript+module</code>, <code>application/javascript</code>, <code>text/javascript</code>, <code>text/x-python</code>, <code>text/x-python-requirement</code>, <code>application/wasm</code>, <code>text/plain</code>, <code>application/octet-stream</code>, <code>application/source-map</code>.</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>JSON-encoded metadata about the uploaded parts and Worker configuration.</td>
+</tr>
+<tr>
+<td><code>metadata.annotations</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.annotations.workers/alias</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Associated alias for a version.</td>
+</tr>
+<tr>
+<td><code>metadata.annotations.workers/commit_sha</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Full commit SHA associated with the version, detected from the CI environment. Maximum 64 bytes.</td>
+</tr>
+<tr>
+<td><code>metadata.annotations.workers/message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Human-readable message about the version. Truncated to 1000 bytes if longer.</td>
+</tr>
+<tr>
+<td><code>metadata.annotations.workers/pull_request_number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Number of the pull or merge request associated with the version, detected from the CI environment. Maximum 20 bytes.</td>
+</tr>
+<tr>
+<td><code>metadata.annotations.workers/pull_request_title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Title of the pull or merge request associated with the version, detected from the CI environment. Maximum 512 bytes.</td>
+</tr>
+<tr>
+<td><code>metadata.annotations.workers/pull_request_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>URL of the pull or merge request associated with the version, detected from the CI environment. Maximum 512 bytes.</td>
+</tr>
+<tr>
+<td><code>metadata.annotations.workers/repository_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>URL of the source repository the version was built from, detected from the CI environment. Maximum 512 bytes.</td>
+</tr>
+<tr>
+<td><code>metadata.annotations.workers/tag</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>User-provided identifier for the version. Maximum 100 bytes.</td>
+</tr>
+<tr>
+<td><code>metadata.bindings</code></td>
+<td><code>array of object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object</code></td>
+<td>No</td>
+<td>List of bindings attached to a Worker. You can find more about bindings on our docs: https://developers.cloudflare.com/workers/configuration/multipart-upload-metadata/#bindings.</td>
+</tr>
+<tr>
+<td><code>metadata.cache_options</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Global CacheW configuration for the Worker. When caching is on, the platform provisions a <code>cloudflare.app</code> zone for the Worker. A <code>type: worker</code> entry in the <code>exports</code> map can override this value for a single entrypoint.</td>
+</tr>
+<tr>
+<td><code>metadata.cache_options.cross_version_cache</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether cached responses are shared across Worker version uploads. This is independent of <code>enabled</code>. It can stay true while caching is off, so the preference survives turning caching off and back on.</td>
+</tr>
+<tr>
+<td><code>metadata.cache_options.enabled</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether caching is enabled for this Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.compatibility_date</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Date indicating targeted support in the Workers runtime. Backwards incompatible fixes to the runtime following this date will not affect this Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.compatibility_flags</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Flags that enable or disable certain features in the Workers runtime. Used to enable upcoming features or opt in or out of specific changes not included in a <code>compatibility_date</code>.</td>
+</tr>
+<tr>
+<td><code>metadata.exports</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Declarative exports for this version. Worker entrypoint entries (<code>type: worker</code>) carry cache configuration for that entrypoint.</td>
+</tr>
+<tr>
+<td><code>metadata.keep_bindings</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>List of binding types to keep from <code>previous_upload</code>.</td>
+</tr>
+<tr>
+<td><code>metadata.main_module</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Name of the uploaded file that contains the main module (for example the file exporting a <code>fetch</code> handler). Indicates a <code>module syntax</code> Worker, which is required for Version Upload.</td>
+</tr>
+<tr>
+<td><code>metadata.package_dependencies</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>The list of npm packages that were installed and used when this Worker version was built.</td>
+</tr>
+<tr>
+<td><code>metadata.package_dependencies[].installedVersion</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The exact version that was resolved and installed by the package manager.</td>
+</tr>
+<tr>
+<td><code>metadata.package_dependencies[].name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The npm package name.</td>
+</tr>
+<tr>
+<td><code>metadata.package_dependencies[].packageJsonVersion</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The version constraint as written in package.json.</td>
+</tr>
+<tr>
+<td><code>metadata.usage_model</code></td>
+<td><code>enum: standard, bundled, unbound</code></td>
+<td>No</td>
+<td>Usage model for the Worker invocations.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="200-upload-version-response" class="status" data-status="2xx">200: Upload Version response</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-upload-version-response-failure-when-the-upload-uses-the-declarative-exports-field-and-one-or-more-entries-fail-reconciliation-the-response-is-the-exports-reconciliation-error-envelope-error-code-100402-with-per-class-detail-in-errorsmetadetails">4XX: Upload Version response failure. When the upload uses the declarative <code>exports</code> field and one or more entries fail reconciliation, the response is the exports reconciliation error envelope (error code 100402) with per-class detail in <code>errors[].meta.details</code>.</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object or object</code>.</p>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

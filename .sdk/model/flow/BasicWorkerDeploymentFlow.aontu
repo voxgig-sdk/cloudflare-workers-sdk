@@ -1,0 +1,48 @@
+# BasicWorkerDeploymentFlow
+
+main: kit: flow: BasicWorkerDeploymentFlow:
+{
+  entity: "worker_deployment",
+  kind: "basic",
+  name: "BasicWorkerDeploymentFlow",
+  step: [
+    {
+      i: {
+        ref: "worker_deployment_ref01"
+      }
+
+      m: {
+        account_id: "account01",
+        script_id: "script01",
+        script_name: "script_name01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "worker_deployment_ref01",
+        srcdatavar: "worker_deployment_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "worker_deployment01",
+        script_id: "script01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-worker_deployment_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkerDeploymentFlow"
+}

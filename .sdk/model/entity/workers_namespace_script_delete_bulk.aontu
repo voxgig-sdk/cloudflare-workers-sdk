@@ -1,0 +1,106 @@
+# Entity: workers_namespace_script_delete_bulk
+
+main: kit: entity: workers_namespace_script_delete_bulk: {
+
+  alias: field: {}
+
+  name: "workers_namespace_script_delete_bulk"
+  op: {
+    remove: {
+      name: "remove"
+      points: [
+        {
+          co: {
+            id: "DELETE /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "023e105f4ecef8ad9ca31a8372d0c353"
+                k: "param"
+                n: "account_id"
+                or: "account_id"
+                r: true
+                t: "`$STRING`"
+              }
+              {
+                ex: "my-dispatch-namespace"
+                k: "param"
+                n: "dispatch_namespace"
+                or: "dispatch_namespace"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+            query: [
+              {
+                ex: 1000
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "production:yes,staging:no"
+                k: "query"
+                n: "tag"
+                or: "tag"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "DELETE"
+          o: "/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts"
+          q: {
+            exist: [
+              "account_id"
+              "dispatch_namespace"
+              "limit"
+              "tag"
+            ]
+          }
+          s: [
+            {
+              lit: "accounts"
+            }
+            {
+              var: "account_id"
+            }
+            {
+              lit: "workers"
+            }
+            {
+              lit: "dispatch"
+            }
+            {
+              lit: "namespaces"
+            }
+            {
+              var: "dispatch_namespace"
+            }
+            {
+              lit: "scripts"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+  fields: {
+  }
+
+
+  relations: ancestors: [
+    [path("$.main.kit.entity.account") path("$.main.kit.entity.namespace")]
+  ]
+
+}

@@ -1,0 +1,51 @@
+# BasicContainerInstanceFlow
+
+main: kit: flow: BasicContainerInstanceFlow:
+{
+  entity: "container_instance",
+  kind: "basic",
+  name: "BasicContainerInstanceFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01",
+        application_id: "application01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "container_instance_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "container_instance_ref01",
+        srcdatavar: "container_instance_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        account_id: "account01",
+        application_id: "application01",
+        id: "container_instance01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-container_instance_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicContainerInstanceFlow"
+}

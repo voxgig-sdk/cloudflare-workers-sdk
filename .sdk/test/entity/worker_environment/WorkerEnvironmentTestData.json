@@ -1,0 +1,36 @@
+{
+  "existing": {
+    "worker_environment": {
+      "WORKER_ENVIRONMENT00": {
+        "account_id": "ACCOUNT01",
+        "environment_name": "ENVIRONMENT_NAME01",
+        "service_id": "SERVICE01",
+        "id": "WORKER_ENVIRONMENT00"
+      },
+      "WORKER_ENVIRONMENT01": {
+        "account_id": "ACCOUNT01",
+        "environment_name": "ENVIRONMENT_NAME01",
+        "service_id": "SERVICE01",
+        "id": "WORKER_ENVIRONMENT01"
+      },
+      "WORKER_ENVIRONMENT02": {
+        "account_id": "ACCOUNT01",
+        "environment_name": "ENVIRONMENT_NAME01",
+        "service_id": "SERVICE01",
+        "id": "WORKER_ENVIRONMENT02"
+      }
+    }
+  },
+  "new": {
+    "worker_environment": {
+      "worker_environment_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/workers/services/{service_name}/environments/{environment_name}/content": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

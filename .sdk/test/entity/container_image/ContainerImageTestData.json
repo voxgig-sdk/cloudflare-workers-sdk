@@ -1,0 +1,35 @@
+{
+  "existing": {
+    "container_image": {
+      "CONTAINER_IMAGE00": {
+        "image": "sa",
+        "account_id": "ACCOUNT01",
+        "id": "CONTAINER_IMAGE00"
+      },
+      "CONTAINER_IMAGE01": {
+        "image": "s14",
+        "account_id": "ACCOUNT01",
+        "id": "CONTAINER_IMAGE01"
+      },
+      "CONTAINER_IMAGE02": {
+        "image": "s1e",
+        "account_id": "ACCOUNT01",
+        "id": "CONTAINER_IMAGE02"
+      }
+    }
+  },
+  "new": {
+    "container_image": {
+      "container_image_ref01": {
+        "image": "s28"
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/containers/image-preparations": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

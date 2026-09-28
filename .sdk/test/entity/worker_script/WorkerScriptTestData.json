@@ -1,0 +1,106 @@
+{
+  "existing": {
+    "worker_script": {
+      "WORKER_SCRIPT00": {
+        "errors": [],
+        "id": "WORKER_SCRIPT00",
+        "messages": [],
+        "result": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "script_name": "SCRIPT_NAME01",
+        "script_id": "SCRIPT01",
+        "secret_name": "SECRET_NAME01"
+      },
+      "WORKER_SCRIPT01": {
+        "errors": [],
+        "id": "WORKER_SCRIPT01",
+        "messages": [],
+        "result": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "script_name": "SCRIPT_NAME01",
+        "script_id": "SCRIPT01",
+        "secret_name": "SECRET_NAME01"
+      },
+      "WORKER_SCRIPT02": {
+        "errors": [],
+        "id": "WORKER_SCRIPT02",
+        "messages": [],
+        "result": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "script_name": "SCRIPT_NAME01",
+        "script_id": "SCRIPT01",
+        "secret_name": "SECRET_NAME01"
+      }
+    }
+  },
+  "new": {
+    "worker_script": {
+      "worker_script_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/workers/scripts/{script_name}/subdomain": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/scripts-search": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/scripts/{script_name}/secrets": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/scripts/{script_name}/subdomain": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/scripts/{script_name}/secrets/{secret_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/scripts/{script_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/scripts/{script_name}/content/v2": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/workers/scripts/{script_name}/secrets-bulk": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/workers/scripts/{script_name}/subdomain": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/workers/scripts/{script_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/workers/scripts/{script_name}/secrets": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

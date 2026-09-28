@@ -1,0 +1,52 @@
+{
+  "existing": {
+    "durable_objects_namespace": {
+      "DURABLE_OBJECTS_NAMESPACE00": {
+        "result": [],
+        "result_info": {},
+        "account_id": "ACCOUNT01",
+        "namespace_id": "NAMESPACE01",
+        "id": "DURABLE_OBJECTS_NAMESPACE00"
+      },
+      "DURABLE_OBJECTS_NAMESPACE01": {
+        "result": [],
+        "result_info": {},
+        "account_id": "ACCOUNT01",
+        "namespace_id": "NAMESPACE01",
+        "id": "DURABLE_OBJECTS_NAMESPACE01"
+      },
+      "DURABLE_OBJECTS_NAMESPACE02": {
+        "result": [],
+        "result_info": {},
+        "account_id": "ACCOUNT01",
+        "namespace_id": "NAMESPACE01",
+        "id": "DURABLE_OBJECTS_NAMESPACE02"
+      }
+    }
+  },
+  "new": {
+    "durable_objects_namespace": {
+      "durable_objects_namespace_ref01": {
+        "result": [],
+        "result_info": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/workers/durable_objects/namespaces/{id}/query/v2": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/durable_objects/namespaces/{id}/objects": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/durable_objects/namespaces": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

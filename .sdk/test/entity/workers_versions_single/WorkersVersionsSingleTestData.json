@@ -1,0 +1,53 @@
+{
+  "existing": {
+    "workers_versions_single": {
+      "WORKERS_VERSIONS_SINGLE00": {
+        "errors": [],
+        "messages": [],
+        "result": "s2a",
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "script_id": "SCRIPT01",
+        "version_id": "VERSION01",
+        "id": "WORKERS_VERSIONS_SINGLE00"
+      },
+      "WORKERS_VERSIONS_SINGLE01": {
+        "errors": [],
+        "messages": [],
+        "result": "s52",
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "script_id": "SCRIPT01",
+        "version_id": "VERSION01",
+        "id": "WORKERS_VERSIONS_SINGLE01"
+      },
+      "WORKERS_VERSIONS_SINGLE02": {
+        "errors": [],
+        "messages": [],
+        "result": "s7a",
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "script_id": "SCRIPT01",
+        "version_id": "VERSION01",
+        "id": "WORKERS_VERSIONS_SINGLE02"
+      }
+    }
+  },
+  "new": {
+    "workers_versions_single": {
+      "workers_versions_single_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": "sa2",
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/workers/scripts/{script_name}/versions/{version_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

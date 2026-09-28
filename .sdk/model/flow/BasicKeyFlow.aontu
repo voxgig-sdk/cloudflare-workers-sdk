@@ -1,0 +1,22 @@
+# BasicKeyFlow
+
+main: kit: flow: BasicKeyFlow:
+{
+  entity: "key",
+  kind: "basic",
+  name: "BasicKeyFlow",
+  step: [
+    {
+      i: {
+        ref: "key_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicKeyFlow"
+}

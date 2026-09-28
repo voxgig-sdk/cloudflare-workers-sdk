@@ -1,0 +1,224 @@
+{
+  "existing": {
+    "workflow": {
+      "WORKFLOW00": {
+        "class_name": "s82",
+        "concurrency": {},
+        "default_retention": {},
+        "errors": [],
+        "id": "WORKFLOW00",
+        "instances": [],
+        "limits": {},
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "schedules": [],
+        "script_name": "s8d",
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "event_type": "EVENT_TYPE01",
+        "instance_id": "INSTANCE01",
+        "workflow_id": "WORKFLOW01",
+        "workflow_name": "WORKFLOW_NAME01",
+        "version_id": "VERSION01"
+      },
+      "WORKFLOW01": {
+        "class_name": "s104",
+        "concurrency": {},
+        "default_retention": {},
+        "errors": [],
+        "id": "WORKFLOW01",
+        "instances": [],
+        "limits": {},
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "schedules": [],
+        "script_name": "s10f",
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "event_type": "EVENT_TYPE01",
+        "instance_id": "INSTANCE01",
+        "workflow_id": "WORKFLOW01",
+        "workflow_name": "WORKFLOW_NAME01",
+        "version_id": "VERSION01"
+      },
+      "WORKFLOW02": {
+        "class_name": "s186",
+        "concurrency": {},
+        "default_retention": {},
+        "errors": [],
+        "id": "WORKFLOW02",
+        "instances": [],
+        "limits": {},
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "schedules": [],
+        "script_name": "s191",
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "event_type": "EVENT_TYPE01",
+        "instance_id": "INSTANCE01",
+        "workflow_id": "WORKFLOW01",
+        "workflow_name": "WORKFLOW_NAME01",
+        "version_id": "VERSION01"
+      }
+    }
+  },
+  "new": {
+    "workflow": {
+      "workflow_ref01": {
+        "class_name": "s208",
+        "concurrency": {},
+        "default_retention": {},
+        "errors": [],
+        "instances": [],
+        "limits": {},
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "schedules": [],
+        "script_name": "s213",
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/workflows/{workflow_name}/instances/{instance_id}/events/{event_type}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/workflows/{workflow_name}/instances": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/workflows/{workflow_name}/instances/batch": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/workflows/{workflow_name}/instances/batch/delete": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/workflows/{workflow_name}/instances/batch/terminate": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workflows/{workflow_name}/instances": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workflows/{workflow_name}/instances/{instance_id}/step": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workflows": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workflows/{workflow_name}/versions": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workflows/{workflow_name}/instances/{instance_id}/subscribe/token": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workflows/{workflow_name}/versions/{version_id}/dag": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workflows/{workflow_name}/versions/{version_id}/graph": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workflows/{workflow_name}/instances/terminate": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workflows/settings": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workflows/{workflow_name}/instances/{instance_id}/subscribe": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workflows/{workflow_name}/instances/{instance_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workflows/{workflow_name}/versions/{version_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workflows/{workflow_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/triggers/{script_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/workflows/{workflow_name}/instances/{instance_id}/status": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/triggers/{script_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/workflows/settings": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/workflows/{workflow_name}/instances/{instance_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/workflows/{workflow_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/triggers/{script_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/workflows/{workflow_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/triggers/{script_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

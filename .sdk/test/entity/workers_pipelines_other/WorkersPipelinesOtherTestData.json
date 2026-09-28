@@ -1,0 +1,205 @@
+{
+  "existing": {
+    "workers_pipelines_other": {
+      "WORKERS_PIPELINES_OTHER00": {
+        "config": "sbe",
+        "created_at": "sbf",
+        "destination": {},
+        "endpoint": "sc1",
+        "failure_reason": "sc2",
+        "format": "sc3",
+        "graph": {},
+        "http": {},
+        "id": "WORKERS_PIPELINES_OTHER00",
+        "modified_at": "sc7",
+        "name": "sc8",
+        "schema": {},
+        "source": [],
+        "sql": "scb",
+        "status": "scc",
+        "tables": [],
+        "type": "sce",
+        "version": 207,
+        "worker_binding": {},
+        "account_id": "ACCOUNT01",
+        "pipeline_id": "PIPELINE01",
+        "pipeline_name": "PIPELINE_NAME01",
+        "sink_id": "SINK01",
+        "stream_id": "STREAM01"
+      },
+      "WORKERS_PIPELINES_OTHER01": {
+        "config": "s17c",
+        "created_at": "s17d",
+        "destination": {},
+        "endpoint": "s17f",
+        "failure_reason": "s180",
+        "format": "s181",
+        "graph": {},
+        "http": {},
+        "id": "WORKERS_PIPELINES_OTHER01",
+        "modified_at": "s185",
+        "name": "s186",
+        "schema": {},
+        "source": [],
+        "sql": "s189",
+        "status": "s18a",
+        "tables": [],
+        "type": "s18c",
+        "version": 397,
+        "worker_binding": {},
+        "account_id": "ACCOUNT01",
+        "pipeline_id": "PIPELINE01",
+        "pipeline_name": "PIPELINE_NAME01",
+        "sink_id": "SINK01",
+        "stream_id": "STREAM01"
+      },
+      "WORKERS_PIPELINES_OTHER02": {
+        "config": "s23a",
+        "created_at": "s23b",
+        "destination": {},
+        "endpoint": "s23d",
+        "failure_reason": "s23e",
+        "format": "s23f",
+        "graph": {},
+        "http": {},
+        "id": "WORKERS_PIPELINES_OTHER02",
+        "modified_at": "s243",
+        "name": "s244",
+        "schema": {},
+        "source": [],
+        "sql": "s247",
+        "status": "s248",
+        "tables": [],
+        "type": "s24a",
+        "version": 587,
+        "worker_binding": {},
+        "account_id": "ACCOUNT01",
+        "pipeline_id": "PIPELINE01",
+        "pipeline_name": "PIPELINE_NAME01",
+        "sink_id": "SINK01",
+        "stream_id": "STREAM01"
+      }
+    }
+  },
+  "new": {
+    "workers_pipelines_other": {
+      "workers_pipelines_other_ref01": {
+        "config": "s2f8",
+        "created_at": "s2f9",
+        "destination": {},
+        "endpoint": "s2fb",
+        "failure_reason": "s2fc",
+        "format": "s2fd",
+        "graph": {},
+        "http": {},
+        "modified_at": "s301",
+        "name": "s302",
+        "schema": {},
+        "source": [],
+        "sql": "s305",
+        "status": "s306",
+        "tables": [],
+        "type": "s308",
+        "version": 777,
+        "worker_binding": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/pipelines": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/pipelines/v1/pipelines": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/pipelines/v1/sinks": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/pipelines/v1/streams": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/pipelines/v1/validate_sql": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/pipelines/v1/sinks": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/pipelines/v1/streams": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/pipelines/v1/pipelines": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/pipelines": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/pipelines/v1/pipelines/{pipeline_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/pipelines/{pipeline_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/pipelines/v1/sinks/{sink_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/pipelines/v1/streams/{stream_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/pipelines/v1/streams/{stream_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/pipelines/v1/pipelines/{pipeline_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/pipelines/{pipeline_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/pipelines/v1/sinks/{sink_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/pipelines/v1/streams/{stream_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/pipelines/{pipeline_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

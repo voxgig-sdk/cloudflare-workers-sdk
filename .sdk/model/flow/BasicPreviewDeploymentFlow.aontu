@@ -1,0 +1,90 @@
+# BasicPreviewDeploymentFlow
+
+main: kit: flow: BasicPreviewDeploymentFlow:
+{
+  entity: "preview_deployment",
+  kind: "basic",
+  name: "BasicPreviewDeploymentFlow",
+  step: [
+    {
+      i: {
+        ref: "preview_deployment_ref01"
+      }
+
+      m: {
+        account_id: "account01",
+        preview_id: "preview01",
+        worker_id: "worker01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        account_id: "account01",
+        preview_id: "preview01",
+        worker_id: "worker01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "preview_deployment_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        account_id: "account01",
+        worker_id: "worker01"
+      }
+
+      i: {
+        ref: "preview_deployment_ref01",
+        srcdatavar: "preview_deployment_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-preview_deployment_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "preview_deployment_ref01",
+        srcdatavar: "preview_deployment_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "preview_deployment01",
+        preview_id: "preview01",
+        worker_id: "worker01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-preview_deployment_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicPreviewDeploymentFlow"
+}

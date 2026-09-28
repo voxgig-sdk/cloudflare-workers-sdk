@@ -1,0 +1,111 @@
+{
+  "existing": {
+    "hyperdrive": {
+      "HYPERDRIVE00": {
+        "caching": {},
+        "created_on": "s65",
+        "id": "HYPERDRIVE00",
+        "modified_on": "s67",
+        "mtls": {},
+        "name": "s69",
+        "origin": {},
+        "origin_connection_limit": 107,
+        "restarted_on": "s6c",
+        "result": {},
+        "account_id": "ACCOUNT01",
+        "config_id": "CONFIG01",
+        "integration": "INTEGRATION01",
+        "hyperdrive_id": "HYPERDRIVE01"
+      },
+      "HYPERDRIVE01": {
+        "caching": {},
+        "created_on": "sc9",
+        "id": "HYPERDRIVE01",
+        "modified_on": "scb",
+        "mtls": {},
+        "name": "scd",
+        "origin": {},
+        "origin_connection_limit": 207,
+        "restarted_on": "sd0",
+        "result": {},
+        "account_id": "ACCOUNT01",
+        "config_id": "CONFIG01",
+        "integration": "INTEGRATION01",
+        "hyperdrive_id": "HYPERDRIVE01"
+      },
+      "HYPERDRIVE02": {
+        "caching": {},
+        "created_on": "s12d",
+        "id": "HYPERDRIVE02",
+        "modified_on": "s12f",
+        "mtls": {},
+        "name": "s131",
+        "origin": {},
+        "origin_connection_limit": 307,
+        "restarted_on": "s134",
+        "result": {},
+        "account_id": "ACCOUNT01",
+        "config_id": "CONFIG01",
+        "integration": "INTEGRATION01",
+        "hyperdrive_id": "HYPERDRIVE01"
+      }
+    }
+  },
+  "new": {
+    "hyperdrive": {
+      "hyperdrive_ref01": {
+        "caching": {},
+        "created_on": "s191",
+        "modified_on": "s193",
+        "mtls": {},
+        "name": "s195",
+        "origin": {},
+        "origin_connection_limit": 407,
+        "restarted_on": "s198",
+        "result": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/hyperdrive/configs/{hyperdrive_id}/restart": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/hyperdrive/integrationsOperations/{integration}/createDatabaseSignature": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/hyperdrive/configs": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/hyperdrive/configs": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/hyperdrive/configs/{hyperdrive_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/hyperdrive/configs/{hyperdrive_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/hyperdrive/configs/{hyperdrive_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/hyperdrive/configs/{hyperdrive_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

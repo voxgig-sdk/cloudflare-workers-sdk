@@ -1,0 +1,71 @@
+{
+  "existing": {
+    "script_setting": {
+      "SCRIPT_SETTING00": {
+        "errors": [],
+        "logpush": false,
+        "messages": [],
+        "observability": "s53",
+        "result": {},
+        "success": false,
+        "tags": "s56",
+        "tail_consumers": [],
+        "account_id": "ACCOUNT01",
+        "script_name": "SCRIPT_NAME01",
+        "id": "SCRIPT_SETTING00"
+      },
+      "SCRIPT_SETTING01": {
+        "errors": [],
+        "logpush": false,
+        "messages": [],
+        "observability": "sa3",
+        "result": {},
+        "success": false,
+        "tags": "sa6",
+        "tail_consumers": [],
+        "account_id": "ACCOUNT01",
+        "script_name": "SCRIPT_NAME01",
+        "id": "SCRIPT_SETTING01"
+      },
+      "SCRIPT_SETTING02": {
+        "errors": [],
+        "logpush": false,
+        "messages": [],
+        "observability": "sf3",
+        "result": {},
+        "success": false,
+        "tags": "sf6",
+        "tail_consumers": [],
+        "account_id": "ACCOUNT01",
+        "script_name": "SCRIPT_NAME01",
+        "id": "SCRIPT_SETTING02"
+      }
+    }
+  },
+  "new": {
+    "script_setting": {
+      "script_setting_ref01": {
+        "errors": [],
+        "logpush": false,
+        "messages": [],
+        "observability": "s143",
+        "result": {},
+        "success": false,
+        "tags": "s146",
+        "tail_consumers": []
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/workers/scripts/{script_name}/script-settings": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/workers/scripts/{script_name}/script-settings": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

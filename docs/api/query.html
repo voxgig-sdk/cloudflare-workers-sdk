@@ -1,0 +1,1775 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Query | Cloudflare Workers</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare Workers<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-workers-sdk">voxgig-sdk/cloudflare-workers-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare Workers</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account.html">Account</a>
+<a href="../api/application.html">Application</a>
+<a href="../api/brapi.html">Brapi</a>
+<a href="../api/build.html">Build</a>
+<a href="../api/build_token.html">BuildToken</a>
+<a href="../api/builds_api.html">BuildsApi</a>
+<a href="../api/connection.html">Connection</a>
+<a href="../api/container_image.html">ContainerImage</a>
+<a href="../api/container_instance.html">ContainerInstance</a>
+<a href="../api/deploy_hook.html">DeployHook</a>
+<a href="../api/deployment.html">Deployment</a>
+<a href="../api/destination.html">Destination</a>
+<a href="../api/domain.html">Domain</a>
+<a href="../api/durable_objects_namespace.html">DurableObjectsNamespace</a>
+<a href="../api/environment_variable.html">EnvironmentVariable</a>
+<a href="../api/git_hub_integration.html">GitHubIntegration</a>
+<a href="../api/hyperdrive.html">Hyperdrive</a>
+<a href="../api/image_registry.html">ImageRegistry</a>
+<a href="../api/issue.html">Issue</a>
+<a href="../api/key.html">Key</a>
+<a href="../api/live_tail.html">LiveTail</a>
+<a href="../api/metrics_export.html">MetricsExport</a>
+<a href="../api/namespace.html">Namespace</a>
+<a href="../api/preview.html">Preview</a>
+<a href="../api/preview_deployment.html">PreviewDeployment</a>
+<a aria-current="page" href="../api/query.html">Query</a><div class="nav-sections"><a class="nav-section" href="#post-accountsaccount_idworkersobservabilitytelemetryquery">POST /accounts/{account_id}/workers/observability/telemetry/query</a></div>
+<a href="../api/repository_connection.html">RepositoryConnection</a>
+<a href="../api/rollout.html">Rollout</a>
+<a href="../api/saved_query.html">SavedQuery</a>
+<a href="../api/script.html">Script</a>
+<a href="../api/script_setting.html">ScriptSetting</a>
+<a href="../api/secret.html">Secret</a>
+<a href="../api/secrets_store_delete.html">SecretsStoreDelete</a>
+<a href="../api/secrets_store_quota.html">SecretsStoreQuota</a>
+<a href="../api/secrets_store_secret.html">SecretsStoreSecret</a>
+<a href="../api/secrets_store_store.html">SecretsStoreStore</a>
+<a href="../api/secrets_store_stores_response_collection.html">SecretsStoreStoresResponseCollection</a>
+<a href="../api/setting.html">Setting</a>
+<a href="../api/shared.html">Shared</a>
+<a href="../api/tail.html">Tail</a>
+<a href="../api/token.html">Token</a>
+<a href="../api/trigger.html">Trigger</a>
+<a href="../api/usage.html">Usage</a>
+<a href="../api/value.html">Value</a>
+<a href="../api/version.html">Version</a>
+<a href="../api/worker.html">Worker</a>
+<a href="../api/worker_cron_trigger.html">WorkerCronTrigger</a>
+<a href="../api/worker_deployment.html">WorkerDeployment</a>
+<a href="../api/worker_environment.html">WorkerEnvironment</a>
+<a href="../api/worker_route.html">WorkerRoute</a>
+<a href="../api/worker_script.html">WorkerScript</a>
+<a href="../api/worker_subdomain.html">WorkerSubdomain</a>
+<a href="../api/worker_tail_log.html">WorkerTailLog</a>
+<a href="../api/workers_account_setting.html">WorkersAccountSetting</a>
+<a href="../api/workers_api_response_null_result.html">WorkersApiResponseNullResult</a>
+<a href="../api/workers_completed_upload_asset.html">WorkersCompletedUploadAsset</a>
+<a href="../api/workers_create_assets_upload_session.html">WorkersCreateAssetsUploadSession</a>
+<a href="../api/workers_for_platform.html">WorkersForPlatform</a>
+<a href="../api/workers_kv_api_response_common_no_result.html">WorkersKvApiResponseCommonNoResult</a>
+<a href="../api/workers_kv_namespace.html">WorkersKvNamespace</a>
+<a href="../api/workers_namespace_list.html">WorkersNamespaceList</a>
+<a href="../api/workers_namespace_script_delete_bulk.html">WorkersNamespaceScriptDeleteBulk</a>
+<a href="../api/workers_namespace_script_response_single.html">WorkersNamespaceScriptResponseSingle</a>
+<a href="../api/workers_namespace_single.html">WorkersNamespaceSingle</a>
+<a href="../api/workers_pipelines_other.html">WorkersPipelinesOther</a>
+<a href="../api/workers_script_and_version_setting.html">WorkersScriptAndVersionSetting</a>
+<a href="../api/workers_script_response_collection.html">WorkersScriptResponseCollection</a>
+<a href="../api/workers_script_response_single.html">WorkersScriptResponseSingle</a>
+<a href="../api/workers_smart_placement.html">WorkersSmartPlacement</a>
+<a href="../api/workers_usage_model.html">WorkersUsageModel</a>
+<a href="../api/workers_versions_list.html">WorkersVersionsList</a>
+<a href="../api/workers_versions_single.html">WorkersVersionsSingle</a>
+<a href="../api/workers_versions_upload.html">WorkersVersionsUpload</a>
+<a href="../api/workflow.html">Workflow</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="query">Query</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idworkersobservabilitytelemetryquery"><code>/accounts/{account_id}/workers/observability/telemetry/query</code></a></td>
+<td><code>create</code></td>
+<td>Successful request</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">created, err := client.Query(nil).Create(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;errors&quot;: []any{}, &quot;messages&quot;: []any{}, &quot;queryId&quot;: &quot;example&quot;, &quot;result&quot;: map[string]any{}, &quot;success&quot;: true, &quot;timeframe&quot;: map[string]any{}}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local created, err = client:Query():create({ account_id = &quot;example&quot;, errors = {}, messages = {}, queryId = &quot;example&quot;, result = {}, success = true, timeframe = {} })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$created = $client-&gt;Query()-&gt;create([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;errors&quot; =&gt; [], &quot;messages&quot; =&gt; [], &quot;queryId&quot; =&gt; &quot;example&quot;, &quot;result&quot; =&gt; [], &quot;success&quot; =&gt; true, &quot;timeframe&quot; =&gt; []]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">created = client.Query().create({ &quot;account_id&quot;: &quot;example&quot;, &quot;errors&quot;: [], &quot;messages&quot;: [], &quot;queryId&quot;: &quot;example&quot;, &quot;result&quot;: {}, &quot;success&quot;: True, &quot;timeframe&quot;: {} })
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">created = client.Query.create({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;errors&quot; =&gt; [], &quot;messages&quot; =&gt; [], &quot;queryId&quot; =&gt; &quot;example&quot;, &quot;result&quot; =&gt; {}, &quot;success&quot; =&gt; true, &quot;timeframe&quot; =&gt; {} })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const created = await client.Query().create({ account_id: &quot;example&quot;, errors: [], messages: [], queryId: &quot;example&quot;, result: {}, success: true, timeframe: {} })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>chart</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When true, includes time-series data in the response.</td>
+</tr>
+<tr>
+<td><code>chartType</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Controls the SQL shape and response payload for the 'calculations' view.</td>
+</tr>
+<tr>
+<td><code>compare</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When true, includes a comparison dataset from the previous time period of equal length.</td>
+</tr>
+<tr>
+<td><code>distributionScale</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Value-axis bucketing for chartType 'distribution'.</td>
+</tr>
+<tr>
+<td><code>dry</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When true, executes the query without persisting the results.</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Errors</td>
+</tr>
+<tr>
+<td><code>granularity</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Number of time-series buckets.</td>
+</tr>
+<tr>
+<td><code>ignoreSeries</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When true, omits time-series data from the response and returns only aggregated values.</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Maximum number of events to return when view is 'events'.</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Messages</td>
+</tr>
+<tr>
+<td><code>offset</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Cursor for pagination in event, trace, invocation, and agent views.</td>
+</tr>
+<tr>
+<td><code>offsetBy</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Numeric offset for paginating grouped/pattern results (top-N lists).</td>
+</tr>
+<tr>
+<td><code>offsetDirection</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Pagination direction: 'next' for forward, 'prev' for backward.</td>
+</tr>
+<tr>
+<td><code>parameters</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Query parameters defining what data to retrieve, filters, calculations, group-bys, and ordering.</td>
+</tr>
+<tr>
+<td><code>queryId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Identifier for the query.</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Complete results of a query run.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Success</td>
+</tr>
+<tr>
+<td><code>timeframe</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Timeframe for the query using Unix timestamps in milliseconds.</td>
+</tr>
+<tr>
+<td><code>view</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Controls the shape of the response.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-accountsaccount_idworkersobservabilitytelemetryquery" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/workers/observability/telemetry/query</h3>
+<p>Operation ID: <code>telemetry.query</code>.</p>
+<p>Authentication: API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>) or bearer token (<code>api_token</code>) or API key in the header (<code>user_service_key</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes | Your Cloudflare account ID. |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>chart</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When true, includes time-series data in the response.</td>
+</tr>
+<tr>
+<td><code>chartType</code></td>
+<td><code>enum: timeseries_and_aggregate, timeseries, aggregate, distribution</code></td>
+<td>No</td>
+<td>Controls the SQL shape and response payload for the 'calculations' view. Omitted or '<code>timeseries_and_aggregate</code>': current behaviour, both the time-series and aggregate queries. 'timeseries': time-series only. 'aggregate': aggregate only. 'distribution': a bucketed 2D histogram (time × value buckets) returned in 'distribution' instead of 'calculations'. 'distribution' is not compatible with 'compare', combining them returns a 400.</td>
+</tr>
+<tr>
+<td><code>compare</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When true, includes a comparison dataset from the previous time period of equal length.</td>
+</tr>
+<tr>
+<td><code>distributionScale</code></td>
+<td><code>enum: log, linear</code></td>
+<td>No</td>
+<td>Value-axis bucketing for chartType 'distribution'. Omitted or 'log': geometric buckets, best for heavy-tailed latency. 'linear': fixed-width buckets, clearer for narrow or additive ranges. Ignored for other chartTypes. The response echoes the scheme used in distribution.bucketMode.</td>
+</tr>
+<tr>
+<td><code>dry</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When true, executes the query without persisting the results. Useful for validation or previewing.</td>
+</tr>
+<tr>
+<td><code>granularity</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Number of time-series buckets. Only used when view is 'calculations'. Omit to let the system auto-detect an appropriate granularity.</td>
+</tr>
+<tr>
+<td><code>ignoreSeries</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When true, omits time-series data from the response and returns only aggregated values. Reduces response size when series are not needed.</td>
+</tr>
+<tr>
+<td><code>limit</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Maximum number of events to return when view is 'events'. Also controls the number of group-by rows when view is 'calculations'.</td>
+</tr>
+<tr>
+<td><code>offset</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Cursor for pagination in event, trace, invocation, and agent views. Pass the $metadata.id of the last event, the trace cursor, or AgentRun.id to fetch the next page.</td>
+</tr>
+<tr>
+<td><code>offsetBy</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Numeric offset for paginating grouped/pattern results (top-N lists). Use together with limit. Not used by cursor-based pagination.</td>
+</tr>
+<tr>
+<td><code>offsetDirection</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Pagination direction: 'next' for forward, 'prev' for backward.</td>
+</tr>
+<tr>
+<td><code>parameters</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Query parameters defining what data to retrieve, filters, calculations, group-bys, and ordering. In practice this should always be provided for ad-hoc queries. Only omit when executing a previously saved query by queryId. Use the keys and values endpoints to discover available fields before building filters.</td>
+</tr>
+<tr>
+<td><code>parameters.calculations</code></td>
+<td><code>array of object or object</code></td>
+<td>No</td>
+<td>Aggregation calculations to compute (for example count, avg, p99). Each calculation produces aggregate values and optional time-series data.</td>
+</tr>
+<tr>
+<td><code>parameters.datasets</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Datasets to query. Leave empty to query all available datasets.</td>
+</tr>
+<tr>
+<td><code>parameters.filterCombination</code></td>
+<td><code>enum: and, or, AND, OR</code></td>
+<td>No</td>
+<td>Logical operator for combining top-level filters: 'and' (all must match) or 'or' (any must match). Defaults to 'and'.</td>
+</tr>
+<tr>
+<td><code>parameters.filters</code></td>
+<td><code>array of object or object and object or object</code></td>
+<td>No</td>
+<td>Filters to narrow query results. Use the keys and values endpoints to discover available fields before building filters. Supports nested groups via kind: 'group'. Maximum nesting depth is 4.</td>
+</tr>
+<tr>
+<td><code>parameters.groupBys</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Fields to group calculation results by. Only applicable when the query view is 'calculations'. Produces per-group aggregate values.</td>
+</tr>
+<tr>
+<td><code>parameters.groupBys[].type</code></td>
+<td><code>enum: string, number, boolean</code></td>
+<td>Yes</td>
+<td>Data type of the group-by field.</td>
+</tr>
+<tr>
+<td><code>parameters.groupBys[].value</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Field name to group results by (for example $metadata.service, $metadata.statusCode).</td>
+</tr>
+<tr>
+<td><code>parameters.havings</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Post-aggregation filters applied to calculation results. Use to filter groups after aggregation (for example only groups where count &gt; 100).</td>
+</tr>
+<tr>
+<td><code>parameters.havings[].key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Calculation alias or operator to filter on after aggregation.</td>
+</tr>
+<tr>
+<td><code>parameters.havings[].operation</code></td>
+<td><code>enum: eq, neq, gt, gte, lt, lte</code></td>
+<td>Yes</td>
+<td>Numeric comparison operator: eq, neq, gt, gte, lt, lte.</td>
+</tr>
+<tr>
+<td><code>parameters.havings[].value</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Threshold value to compare the calculation result against.</td>
+</tr>
+<tr>
+<td><code>parameters.limit</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Maximum number of group-by rows to return in calculation results. A value of 10 is a sensible default for most use cases.</td>
+</tr>
+<tr>
+<td><code>parameters.needle</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Full-text search expression applied across all event fields. Matches events containing the specified text.</td>
+</tr>
+<tr>
+<td><code>parameters.needle.isRegex</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When true, treats the value as a regular expression (RE2 syntax).</td>
+</tr>
+<tr>
+<td><code>parameters.needle.matchCase</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>When true, performs a case-sensitive search. Defaults to case-insensitive.</td>
+</tr>
+<tr>
+<td><code>parameters.needle.value</code></td>
+<td><code>string or number or boolean and string</code></td>
+<td>Yes</td>
+<td>The text or pattern to search for.</td>
+</tr>
+<tr>
+<td><code>parameters.orderBy</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Ordering for grouped calculation results. Only effective when a group-by is present.</td>
+</tr>
+<tr>
+<td><code>parameters.orderBy.order</code></td>
+<td><code>enum: asc, desc</code></td>
+<td>No</td>
+<td>Sort direction: 'asc' for ascending, 'desc' for descending.</td>
+</tr>
+<tr>
+<td><code>parameters.orderBy.value</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Alias of the calculation to order results by. Must match the alias (or operator) of a calculation in the query.</td>
+</tr>
+<tr>
+<td><code>queryId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Identifier for the query. When parameters are omitted, this ID is used to load a previously saved query's parameters. When providing parameters inline, pass any identifier (for example an ad-hoc ID).</td>
+</tr>
+<tr>
+<td><code>timeframe</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Timeframe for the query using Unix timestamps in milliseconds. 'from' must be earlier than 'to'. Narrower timeframes produce faster responses and more specific results.</td>
+</tr>
+<tr>
+<td><code>timeframe.from</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Start timestamp for the query timeframe. Unix timestamp in milliseconds</td>
+</tr>
+<tr>
+<td><code>timeframe.to</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>End timestamp for the query timeframe. Unix timestamp in milliseconds</td>
+</tr>
+<tr>
+<td><code>view</code></td>
+<td><code>enum: traces, events, calculations, invocations, requests, agents</code></td>
+<td>No</td>
+<td>Controls the shape of the response. 'events': individual log lines matching the query. 'calculations': aggregated metrics (count, avg, p99, etc.) with optional group-by breakdowns and time-series. 'invocations': events grouped by request ID. 'traces': distributed trace summaries. 'agents': agent-specific trace summaries.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="200-successful-request" class="status" data-status="2xx">200: Successful request</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>enum: Successful request</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Complete results of a query run. The populated fields depend on the requested view type (events, calculations, invocations, traces, or agents).</td>
+</tr>
+<tr>
+<td><code>result.agents</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Agent run summaries. Present when the query view is 'agents'. Each entry represents one trace containing at least one agent invocation.</td>
+</tr>
+<tr>
+<td><code>result.agents[].agentId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>ID from the earliest agent invocation that provides one.</td>
+</tr>
+<tr>
+<td><code>result.agents[].agentName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Name from the earliest agent invocation that provides one.</td>
+</tr>
+<tr>
+<td><code>result.agents[].conversationId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Conversation ID from the earliest invocation that provides one.</td>
+</tr>
+<tr>
+<td><code>result.agents[].errors</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Distinct errors reported by spans in the run.</td>
+</tr>
+<tr>
+<td><code>result.agents[].id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Stable pagination cursor for this agent run.</td>
+</tr>
+<tr>
+<td><code>result.agents[].inputTokens</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Input tokens summed across chat spans in the run's trace; informational, not billing data.</td>
+</tr>
+<tr>
+<td><code>result.agents[].models</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Distinct models reported by chat spans across the run's trace.</td>
+</tr>
+<tr>
+<td><code>result.agents[].outputTokens</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Output tokens summed across chat spans in the run's trace; informational, not billing data.</td>
+</tr>
+<tr>
+<td><code>result.agents[].providers</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Distinct GenAI providers reported by chat spans in the run.</td>
+</tr>
+<tr>
+<td><code>result.agents[].services</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Worker services represented in the run's trace.</td>
+</tr>
+<tr>
+<td><code>result.agents[].spans</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Number of spans in the run's trace.</td>
+</tr>
+<tr>
+<td><code>result.agents[].status</code></td>
+<td><code>enum: completed, error</code></td>
+<td>Yes</td>
+<td>Observed run status.</td>
+</tr>
+<tr>
+<td><code>result.agents[].traceDurationMs</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Total trace duration in milliseconds.</td>
+</tr>
+<tr>
+<td><code>result.agents[].traceEndMs</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>End of the run's trace as a Unix epoch in milliseconds.</td>
+</tr>
+<tr>
+<td><code>result.agents[].traceId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Trace identifier for this agent run.</td>
+</tr>
+<tr>
+<td><code>result.agents[].traceStartMs</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Start of the run's trace as a Unix epoch in milliseconds.</td>
+</tr>
+<tr>
+<td><code>result.calculations</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Aggregated calculation results. Present when the query view is 'calculations'. Contains computed metrics (count, avg, p99, etc.) with optional group-by breakdowns and time-series data.</td>
+</tr>
+<tr>
+<td><code>result.calculations[].aggregates</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.calculations[].aggregates[].count</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.calculations[].aggregates[].groups</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.calculations[].aggregates[].groups[].key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.calculations[].aggregates[].groups[].value</code></td>
+<td><code>string or number or boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.calculations[].aggregates[].interval</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.calculations[].aggregates[].sampleInterval</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.calculations[].aggregates[].value</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.calculations[].alias</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.calculations[].calculation</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.calculations[].series</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.calculations[].series[].data</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.calculations[].series[].data[].count</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.calculations[].series[].data[].firstSeen</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.calculations[].series[].data[].groups</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.calculations[].series[].data[].interval</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.calculations[].series[].data[].lastSeen</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.calculations[].series[].data[].sampleInterval</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.calculations[].series[].data[].value</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.calculations[].series[].time</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.compare</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Comparison calculation results from the previous time period. Present when the compare option is enabled. Same structure as calculations.</td>
+</tr>
+<tr>
+<td><code>result.compare[].aggregates</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.compare[].aggregates[].count</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.compare[].aggregates[].groups</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.compare[].aggregates[].groups[].key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.compare[].aggregates[].groups[].value</code></td>
+<td><code>string or number or boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.compare[].aggregates[].interval</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.compare[].aggregates[].sampleInterval</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.compare[].aggregates[].value</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.compare[].alias</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.compare[].calculation</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.compare[].series</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.compare[].series[].data</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.compare[].series[].data[].count</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.compare[].series[].data[].firstSeen</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.compare[].series[].data[].groups</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.compare[].series[].data[].interval</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.compare[].series[].data[].lastSeen</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.compare[].series[].data[].sampleInterval</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.compare[].series[].data[].value</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.compare[].series[].time</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.distribution</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Bucketed 2D histogram of a numeric field over time. Present when chartType is 'distribution'.</td>
+</tr>
+<tr>
+<td><code>result.distribution.bins</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Time-bucket labels (ISO-8601 strings), one per matrix column.</td>
+</tr>
+<tr>
+<td><code>result.distribution.bucketBoundaries</code></td>
+<td><code>array of number</code></td>
+<td>Yes</td>
+<td>Raw bucket edges in the value's native unit, length buckets.length + 1. Used for the colour scale and percentile mapping.</td>
+</tr>
+<tr>
+<td><code>result.distribution.bucketMode</code></td>
+<td><code>enum: log, linear</code></td>
+<td>Yes</td>
+<td>Bucketing scheme used to derive the boundaries. 'log' produces geometric edges; 'linear' produces fixed-width edges.</td>
+</tr>
+<tr>
+<td><code>result.distribution.buckets</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>Value-range labels, one per matrix row (for example '50–100ms').</td>
+</tr>
+<tr>
+<td><code>result.distribution.matrix</code></td>
+<td><code>array of array of number</code></td>
+<td>Yes</td>
+<td>Sampling-corrected counts. matrix[bucketIdx][binIdx] is the estimated number of events in value-bucket 'bucketIdx' during time-bin 'binIdx'.</td>
+</tr>
+<tr>
+<td><code>result.events</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Individual event results. Present when the query view is 'events'. Contains the matching log lines and their metadata.</td>
+</tr>
+<tr>
+<td><code>result.events.count</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>Total number of events matching the query (may exceed the number returned due to limits).</td>
+</tr>
+<tr>
+<td><code>result.events.events</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>List of individual telemetry events matching the query.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$containers</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Cloudflare Containers event information that enriches your logs for identifying and debugging issues.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Structured metadata extracted from the event. These fields are indexed and available for filtering and aggregation.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.account</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Cloudflare account identifier.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.cloudService</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Cloudflare product that generated this event (for example workers, pages).</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.coldStart</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.cost</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Estimated cost units for this invocation.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.duration</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Span duration in milliseconds.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.endTime</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Span end time as a Unix epoch in milliseconds.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.error</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Error message, present when the log represents an error.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.errorTemplate</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Templatized version of the error message used for grouping similar errors.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.fingerprint</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Content-based fingerprint used to group similar events.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique event ID. Use as the cursor value for offset-based pagination.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.level</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Log level (for example log, debug, info, warn, error).</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Log message text.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.messageTemplate</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Templatized version of the log message used for grouping similar messages.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.metricName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Metric name when the event represents a metric data point.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.origin</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Origin of the event (for example fetch, scheduled, queue).</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.parentSpanId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Span ID of the parent span in the trace hierarchy.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.provider</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Infrastructure provider identifier.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.rayId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Cloudflare Ray ID from the <code>cf-ray</code> header of the request that triggered the invocation.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.region</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Cloudflare data center / region that handled the request.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.requestId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Cloudflare request ID that ties all logs from a single invocation together.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.service</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Worker script name that produced this event.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.spanId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Span ID for this individual unit of work within a trace.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.spanName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Human-readable name for this span.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.stackId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Stack / deployment identifier.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.startTime</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Span start time as a Unix epoch in milliseconds.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.statusCode</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>HTTP response status code returned by the Worker.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.traceDuration</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Total duration of the entire trace in milliseconds.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.traceId</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Distributed trace ID linking spans across services.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.transactionName</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Logical transaction name for this request.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.trigger</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>What triggered the invocation (for example GET /users, POST /orders, queue message).</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.type</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Event type classifier (for example cf-worker-event, cf-worker-log).</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$metadata.url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Request URL that triggered the Worker invocation.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].$workers</code></td>
+<td><code>object or object</code></td>
+<td>No</td>
+<td>Cloudflare Workers event information that enriches your logs for identifying and debugging issues.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].dataset</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>The dataset this event belongs to (for example cloudflare-workers).</td>
+</tr>
+<tr>
+<td><code>result.events.events[].source</code></td>
+<td><code>string or object</code></td>
+<td>Yes</td>
+<td>Raw log payload. May be a string or a structured object depending on how the log was emitted.</td>
+</tr>
+<tr>
+<td><code>result.events.events[].timestamp</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Event timestamp as a Unix epoch in milliseconds.</td>
+</tr>
+<tr>
+<td><code>result.events.fields</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>List of fields discovered in the matched events. Useful for building dynamic UIs.</td>
+</tr>
+<tr>
+<td><code>result.events.fields[].key</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Field name present in the matched events.</td>
+</tr>
+<tr>
+<td><code>result.events.fields[].type</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Data type of the field (string, number, or boolean).</td>
+</tr>
+<tr>
+<td><code>result.events.series</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Time-series data for the matched events, bucketed by the query granularity.</td>
+</tr>
+<tr>
+<td><code>result.events.series[].data</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.events.series[].data[].aggregates</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.events.series[].data[].count</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.events.series[].data[].errors</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.events.series[].data[].groups</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Groups in the query results.</td>
+</tr>
+<tr>
+<td><code>result.events.series[].data[].interval</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.events.series[].data[].sampleInterval</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.events.series[].time</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result.invocations</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Events grouped by invocation (request ID). Present when the query view is 'invocations'. Each key is a request ID mapping to all events from that invocation.</td>
+</tr>
+<tr>
+<td><code>result.run</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Represents a single execution of a query against Workers Observability data, including the query definition, execution status, and performance statistics.</td>
+</tr>
+<tr>
+<td><code>result.run.accountId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Cloudflare account ID that owns this query run.</td>
+</tr>
+<tr>
+<td><code>result.run.created</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>ISO-8601 timestamp when the query run was created.</td>
+</tr>
+<tr>
+<td><code>result.run.dry</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether this was a dry run (results not persisted).</td>
+</tr>
+<tr>
+<td><code>result.run.granularity</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Number of time-series buckets used for the query. Higher values produce more detailed series data.</td>
+</tr>
+<tr>
+<td><code>result.run.id</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique identifier for this query run.</td>
+</tr>
+<tr>
+<td><code>result.run.query</code></td>
+<td><code>object and object</code></td>
+<td>Yes</td>
+<td>A saved query definition with its parameters, metadata, and ownership information.</td>
+</tr>
+<tr>
+<td><code>result.run.statistics</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Query performance statistics from the database (does not include network latency).</td>
+</tr>
+<tr>
+<td><code>result.run.statistics.abr_level</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>The level of Adaptive Bit Rate (ABR) sampling used for the query. If empty the ABR level is 1</td>
+</tr>
+<tr>
+<td><code>result.run.statistics.bytes_read</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Number of uncompressed bytes read from the table.</td>
+</tr>
+<tr>
+<td><code>result.run.statistics.elapsed</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Time in seconds for the query to run.</td>
+</tr>
+<tr>
+<td><code>result.run.statistics.rows_read</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Number of rows scanned from the table.</td>
+</tr>
+<tr>
+<td><code>result.run.status</code></td>
+<td><code>enum: STARTED, COMPLETED</code></td>
+<td>Yes</td>
+<td>Current execution status of the query run.</td>
+</tr>
+<tr>
+<td><code>result.run.timeframe</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Time range for the query execution. 'from' must be earlier than 'to'. No fractional milliseconds.</td>
+</tr>
+<tr>
+<td><code>result.run.timeframe.from</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>Start timestamp for the query timeframe. Unix timestamp in milliseconds</td>
+</tr>
+<tr>
+<td><code>result.run.timeframe.to</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td>End timestamp for the query timeframe. Unix timestamp in milliseconds</td>
+</tr>
+<tr>
+<td><code>result.run.updated</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>ISO-8601 timestamp when the query run was last updated.</td>
+</tr>
+<tr>
+<td><code>result.run.userId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>ID of the user who initiated the query run.</td>
+</tr>
+<tr>
+<td><code>result.statistics</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Query performance statistics from the database. Includes execution time, rows scanned, and bytes read. Does not include network latency.</td>
+</tr>
+<tr>
+<td><code>result.statistics.abr_level</code></td>
+<td><code>number</code></td>
+<td>No</td>
+<td>The level of Adaptive Bit Rate (ABR) sampling used for the query. If empty the ABR level is 1</td>
+</tr>
+<tr>
+<td><code>result.statistics.bytes_read</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Number of uncompressed bytes read from the table.</td>
+</tr>
+<tr>
+<td><code>result.statistics.elapsed</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Time in seconds for the query to run.</td>
+</tr>
+<tr>
+<td><code>result.statistics.rows_read</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Number of rows scanned from the table.</td>
+</tr>
+<tr>
+<td><code>result.traces</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>Trace summaries matching the query. Present when the query view is 'traces'. Each entry represents a distributed trace with its spans, duration, and services involved.</td>
+</tr>
+<tr>
+<td><code>result.traces[].errors</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Error messages encountered during the trace, if any.</td>
+</tr>
+<tr>
+<td><code>result.traces[].rootSpanName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Name of the root span that initiated the trace.</td>
+</tr>
+<tr>
+<td><code>result.traces[].rootTransactionName</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Logical transaction name for the root span.</td>
+</tr>
+<tr>
+<td><code>result.traces[].service</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td>List of Worker services involved in the trace.</td>
+</tr>
+<tr>
+<td><code>result.traces[].spans</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Total number of spans in the trace.</td>
+</tr>
+<tr>
+<td><code>result.traces[].traceDurationMs</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Total duration of the trace in milliseconds.</td>
+</tr>
+<tr>
+<td><code>result.traces[].traceEndMs</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Trace end time as a Unix epoch in milliseconds.</td>
+</tr>
+<tr>
+<td><code>result.traces[].traceId</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Unique identifier for the distributed trace.</td>
+</tr>
+<tr>
+<td><code>result.traces[].traceStartMs</code></td>
+<td><code>number</code></td>
+<td>Yes</td>
+<td>Trace start time as a Unix epoch in milliseconds.</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: true</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-bad-request" class="status" data-status="4xx">400: Bad Request</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].detail</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>enum: Bad Request</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="401-unauthorized" class="status" data-status="4xx">401: Unauthorized</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].detail</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>enum: Unauthorized</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="403-forbidden" class="status" data-status="4xx">403: Forbidden</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].detail</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>enum: Forbidden</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="429-too-many-requests" class="status" data-status="4xx">429: Too many requests</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].detail</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>enum: Too many requests</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="500-internal-error" class="status" data-status="5xx">500: Internal error</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].detail</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>enum: Internal error</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="504-gateway-timeout" class="status" data-status="5xx">504: Gateway timeout</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].detail</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>enum: Gateway timeout</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

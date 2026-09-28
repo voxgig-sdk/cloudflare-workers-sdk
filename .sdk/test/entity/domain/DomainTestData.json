@@ -1,0 +1,62 @@
+{
+  "existing": {
+    "domain": {
+      "DOMAIN00": {
+        "errors": [],
+        "id": "DOMAIN00",
+        "messages": [],
+        "result": {},
+        "success": true,
+        "account_id": "ACCOUNT01"
+      },
+      "DOMAIN01": {
+        "errors": [],
+        "id": "DOMAIN01",
+        "messages": [],
+        "result": {},
+        "success": true,
+        "account_id": "ACCOUNT01"
+      },
+      "DOMAIN02": {
+        "errors": [],
+        "id": "DOMAIN02",
+        "messages": [],
+        "result": {},
+        "success": true,
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "domain": {
+      "domain_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/workers/domains": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/domains/{domain_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/workers/domains/{domain_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/workers/domains": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

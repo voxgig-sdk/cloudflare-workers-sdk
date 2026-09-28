@@ -1,0 +1,38 @@
+# BasicBuildsApiFlow
+
+main: kit: flow: BasicBuildsApiFlow:
+{
+  entity: "builds_api",
+  kind: "basic",
+  name: "BasicBuildsApiFlow",
+  step: [
+    {
+      i: {
+        ref: "builds_api_ref01"
+      }
+
+      m: {
+        account_id: "account01",
+        trigger_id: "trigger01"
+      }
+
+      o: "create"
+    }
+
+    {
+      i: {
+        ref: "builds_api_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "builds_api01",
+        trigger_id: "trigger01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicBuildsApiFlow"
+}

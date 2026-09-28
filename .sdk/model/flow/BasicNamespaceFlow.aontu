@@ -1,0 +1,9 @@
+# BasicNamespaceFlow
+
+main: kit: flow: BasicNamespaceFlow:
+{
+  entity: "namespace",
+  kind: "basic",
+  name: "BasicNamespaceFlow",
+  "key$": "BasicNamespaceFlow"
+}

@@ -1,0 +1,60 @@
+{
+  "existing": {
+    "workers_account_setting": {
+      "WORKERS_ACCOUNT_SETTING00": {
+        "default_usage_model": "s3c",
+        "errors": [],
+        "green_compute": true,
+        "messages": [],
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "id": "WORKERS_ACCOUNT_SETTING00"
+      },
+      "WORKERS_ACCOUNT_SETTING01": {
+        "default_usage_model": "s78",
+        "errors": [],
+        "green_compute": true,
+        "messages": [],
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "id": "WORKERS_ACCOUNT_SETTING01"
+      },
+      "WORKERS_ACCOUNT_SETTING02": {
+        "default_usage_model": "sb4",
+        "errors": [],
+        "green_compute": true,
+        "messages": [],
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "id": "WORKERS_ACCOUNT_SETTING02"
+      }
+    }
+  },
+  "new": {
+    "workers_account_setting": {
+      "workers_account_setting_ref01": {
+        "default_usage_model": "sf0",
+        "errors": [],
+        "green_compute": true,
+        "messages": [],
+        "result": {},
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/workers/account-settings": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/workers/account-settings": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

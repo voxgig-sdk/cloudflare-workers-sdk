@@ -1,0 +1,22 @@
+# BasicQueryFlow
+
+main: kit: flow: BasicQueryFlow:
+{
+  entity: "query",
+  kind: "basic",
+  name: "BasicQueryFlow",
+  step: [
+    {
+      i: {
+        ref: "query_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicQueryFlow"
+}

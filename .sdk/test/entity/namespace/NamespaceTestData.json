@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "namespace": {
+      "NAMESPACE00": {
+        "id": "NAMESPACE00",
+        "account_id": "ACCOUNT01"
+      },
+      "NAMESPACE01": {
+        "id": "NAMESPACE01",
+        "account_id": "ACCOUNT01"
+      },
+      "NAMESPACE02": {
+        "id": "NAMESPACE02",
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "namespace": {
+      "namespace_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

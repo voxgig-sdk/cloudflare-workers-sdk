@@ -1,0 +1,29 @@
+# BasicGitHubIntegrationFlow
+
+main: kit: flow: BasicGitHubIntegrationFlow:
+{
+  entity: "git_hub_integration",
+  kind: "basic",
+  name: "BasicGitHubIntegrationFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01",
+        provider_account_id: "provider_account01",
+        provider_type: "provider_type01",
+        repo_id: "repo01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "git_hub_integration_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicGitHubIntegrationFlow"
+}

@@ -1,0 +1,51 @@
+{
+  "existing": {
+    "repository_connection": {
+      "REPOSITORY_CONNECTION00": {
+        "provider_account_id": "PROVIDER_ACCOUNT01",
+        "provider_account_name": "s33",
+        "provider_type": "s34",
+        "repo_id": "REPO01",
+        "repo_name": "s36",
+        "account_id": "ACCOUNT01",
+        "id": "REPOSITORY_CONNECTION00"
+      },
+      "REPOSITORY_CONNECTION01": {
+        "provider_account_id": "PROVIDER_ACCOUNT01",
+        "provider_account_name": "s65",
+        "provider_type": "s66",
+        "repo_id": "REPO01",
+        "repo_name": "s68",
+        "account_id": "ACCOUNT01",
+        "id": "REPOSITORY_CONNECTION01"
+      },
+      "REPOSITORY_CONNECTION02": {
+        "provider_account_id": "PROVIDER_ACCOUNT01",
+        "provider_account_name": "s97",
+        "provider_type": "s98",
+        "repo_id": "REPO01",
+        "repo_name": "s9a",
+        "account_id": "ACCOUNT01",
+        "id": "REPOSITORY_CONNECTION02"
+      }
+    }
+  },
+  "new": {
+    "repository_connection": {
+      "repository_connection_ref01": {
+        "provider_account_id": "PROVIDER_ACCOUNT01",
+        "provider_account_name": "sc9",
+        "provider_type": "sca",
+        "repo_id": "REPO01",
+        "repo_name": "scc"
+      }
+    }
+  },
+  "requests": {
+    "PUT /accounts/{account_id}/builds/repos/connections": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>PreviewDeployment | Cloudflare Workers</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare Workers<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-workers-sdk">voxgig-sdk/cloudflare-workers-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare Workers</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account.html">Account</a>
+<a href="../api/application.html">Application</a>
+<a href="../api/brapi.html">Brapi</a>
+<a href="../api/build.html">Build</a>
+<a href="../api/build_token.html">BuildToken</a>
+<a href="../api/builds_api.html">BuildsApi</a>
+<a href="../api/connection.html">Connection</a>
+<a href="../api/container_image.html">ContainerImage</a>
+<a href="../api/container_instance.html">ContainerInstance</a>
+<a href="../api/deploy_hook.html">DeployHook</a>
+<a href="../api/deployment.html">Deployment</a>
+<a href="../api/destination.html">Destination</a>
+<a href="../api/domain.html">Domain</a>
+<a href="../api/durable_objects_namespace.html">DurableObjectsNamespace</a>
+<a href="../api/environment_variable.html">EnvironmentVariable</a>
+<a href="../api/git_hub_integration.html">GitHubIntegration</a>
+<a href="../api/hyperdrive.html">Hyperdrive</a>
+<a href="../api/image_registry.html">ImageRegistry</a>
+<a href="../api/issue.html">Issue</a>
+<a href="../api/key.html">Key</a>
+<a href="../api/live_tail.html">LiveTail</a>
+<a href="../api/metrics_export.html">MetricsExport</a>
+<a href="../api/namespace.html">Namespace</a>
+<a href="../api/preview.html">Preview</a>
+<a aria-current="page" href="../api/preview_deployment.html">PreviewDeployment</a><div class="nav-sections"><a class="nav-section" href="#post-accountsaccount_idworkersworkersworker_idpreviewspreview_iddeployments">POST /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}/deployments</a>
+<a class="nav-section" href="#get-accountsaccount_idworkersworkersworker_idpreviewspreview_iddeployments">GET /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}/deployments</a>
+<a class="nav-section" href="#get-accountsaccount_idworkersworkersworker_idpreviewspreview_iddeploymentsdeployment_id">GET /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}/deployments/{deployment_id}</a>
+<a class="nav-section" href="#patch-accountsaccount_idworkersworkersworker_idpreviewspreview_iddeploymentslatest">PATCH /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}/deployments/latest</a></div>
+<a href="../api/query.html">Query</a>
+<a href="../api/repository_connection.html">RepositoryConnection</a>
+<a href="../api/rollout.html">Rollout</a>
+<a href="../api/saved_query.html">SavedQuery</a>
+<a href="../api/script.html">Script</a>
+<a href="../api/script_setting.html">ScriptSetting</a>
+<a href="../api/secret.html">Secret</a>
+<a href="../api/secrets_store_delete.html">SecretsStoreDelete</a>
+<a href="../api/secrets_store_quota.html">SecretsStoreQuota</a>
+<a href="../api/secrets_store_secret.html">SecretsStoreSecret</a>
+<a href="../api/secrets_store_store.html">SecretsStoreStore</a>
+<a href="../api/secrets_store_stores_response_collection.html">SecretsStoreStoresResponseCollection</a>
+<a href="../api/setting.html">Setting</a>
+<a href="../api/shared.html">Shared</a>
+<a href="../api/tail.html">Tail</a>
+<a href="../api/token.html">Token</a>
+<a href="../api/trigger.html">Trigger</a>
+<a href="../api/usage.html">Usage</a>
+<a href="../api/value.html">Value</a>
+<a href="../api/version.html">Version</a>
+<a href="../api/worker.html">Worker</a>
+<a href="../api/worker_cron_trigger.html">WorkerCronTrigger</a>
+<a href="../api/worker_deployment.html">WorkerDeployment</a>
+<a href="../api/worker_environment.html">WorkerEnvironment</a>
+<a href="../api/worker_route.html">WorkerRoute</a>
+<a href="../api/worker_script.html">WorkerScript</a>
+<a href="../api/worker_subdomain.html">WorkerSubdomain</a>
+<a href="../api/worker_tail_log.html">WorkerTailLog</a>
+<a href="../api/workers_account_setting.html">WorkersAccountSetting</a>
+<a href="../api/workers_api_response_null_result.html">WorkersApiResponseNullResult</a>
+<a href="../api/workers_completed_upload_asset.html">WorkersCompletedUploadAsset</a>
+<a href="../api/workers_create_assets_upload_session.html">WorkersCreateAssetsUploadSession</a>
+<a href="../api/workers_for_platform.html">WorkersForPlatform</a>
+<a href="../api/workers_kv_api_response_common_no_result.html">WorkersKvApiResponseCommonNoResult</a>
+<a href="../api/workers_kv_namespace.html">WorkersKvNamespace</a>
+<a href="../api/workers_namespace_list.html">WorkersNamespaceList</a>
+<a href="../api/workers_namespace_script_delete_bulk.html">WorkersNamespaceScriptDeleteBulk</a>
+<a href="../api/workers_namespace_script_response_single.html">WorkersNamespaceScriptResponseSingle</a>
+<a href="../api/workers_namespace_single.html">WorkersNamespaceSingle</a>
+<a href="../api/workers_pipelines_other.html">WorkersPipelinesOther</a>
+<a href="../api/workers_script_and_version_setting.html">WorkersScriptAndVersionSetting</a>
+<a href="../api/workers_script_response_collection.html">WorkersScriptResponseCollection</a>
+<a href="../api/workers_script_response_single.html">WorkersScriptResponseSingle</a>
+<a href="../api/workers_smart_placement.html">WorkersSmartPlacement</a>
+<a href="../api/workers_usage_model.html">WorkersUsageModel</a>
+<a href="../api/workers_versions_list.html">WorkersVersionsList</a>
+<a href="../api/workers_versions_single.html">WorkersVersionsSingle</a>
+<a href="../api/workers_versions_upload.html">WorkersVersionsUpload</a>
+<a href="../api/workflow.html">Workflow</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="previewdeployment">PreviewDeployment</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idworkersworkersworker_idpreviewspreview_iddeployments"><code>/accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}/deployments</code></a></td>
+<td><code>create</code></td>
+<td>Create Preview Deployment success</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idworkersworkersworker_idpreviewspreview_iddeployments"><code>/accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}/deployments</code></a></td>
+<td><code>list</code></td>
+<td>List Preview Deployments success</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idworkersworkersworker_idpreviewspreview_iddeploymentsdeployment_id"><code>/accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}/deployments/{deployment_id}</code></a></td>
+<td><code>load</code></td>
+<td>Get Preview Deployment success</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-accountsaccount_idworkersworkersworker_idpreviewspreview_iddeploymentslatest"><code>/accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}/deployments/latest</code></a></td>
+<td><code>update</code></td>
+<td>Patch Preview Deployment success</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">preview_deployments, err := client.PreviewDeployment(nil).List(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example_id&quot;, &quot;worker_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(preview_deployments)
+preview_deployment, err := client.PreviewDeployment(nil).Load(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example_id&quot;, &quot;preview_id&quot;: &quot;example&quot;, &quot;worker_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(preview_deployment)
+created, err := client.PreviewDeployment(nil).Create(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example&quot;, &quot;worker_id&quot;: &quot;example&quot;, &quot;errors&quot;: []any{}, &quot;messages&quot;: []any{}, &quot;result&quot;: &quot;example&quot;, &quot;success&quot;: true}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+updated, err := client.PreviewDeployment(nil).Update(map[string]any{&quot;id&quot;: &quot;example_id&quot;, &quot;account_id&quot;: &quot;example&quot;, &quot;preview_id&quot;: &quot;example&quot;, &quot;worker_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(updated)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local preview_deployments, err = client:PreviewDeployment():list({ account_id = &quot;example&quot;, id = &quot;example_id&quot;, worker_id = &quot;example&quot; })
+local preview_deployment, err = client:PreviewDeployment():load({ account_id = &quot;example&quot;, id = &quot;example_id&quot;, preview_id = &quot;example&quot;, worker_id = &quot;example&quot; })
+local created, err = client:PreviewDeployment():create({ account_id = &quot;example&quot;, id = &quot;example&quot;, worker_id = &quot;example&quot;, errors = {}, messages = {}, result = &quot;example&quot;, success = true })
+local updated, err = client:PreviewDeployment():update({ id = &quot;example_id&quot;, account_id = &quot;example&quot;, preview_id = &quot;example&quot;, worker_id = &quot;example&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$preview_deployments = $client-&gt;PreviewDeployment()-&gt;list([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example_id&quot;, &quot;worker_id&quot; =&gt; &quot;example&quot;]);
+$preview_deployment = $client-&gt;PreviewDeployment()-&gt;load([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example_id&quot;, &quot;preview_id&quot; =&gt; &quot;example&quot;, &quot;worker_id&quot; =&gt; &quot;example&quot;]);
+$created = $client-&gt;PreviewDeployment()-&gt;create([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example&quot;, &quot;worker_id&quot; =&gt; &quot;example&quot;, &quot;errors&quot; =&gt; [], &quot;messages&quot; =&gt; [], &quot;result&quot; =&gt; &quot;example&quot;, &quot;success&quot; =&gt; true]);
+$updated = $client-&gt;PreviewDeployment()-&gt;update([&quot;id&quot; =&gt; &quot;example_id&quot;, &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;preview_id&quot; =&gt; &quot;example&quot;, &quot;worker_id&quot; =&gt; &quot;example&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">preview_deployments = client.PreviewDeployment().list({&quot;account_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example_id&quot;, &quot;worker_id&quot;: &quot;example&quot;})
+preview_deployment = client.PreviewDeployment().load({&quot;account_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example_id&quot;, &quot;preview_id&quot;: &quot;example&quot;, &quot;worker_id&quot;: &quot;example&quot;})
+created = client.PreviewDeployment().create({ &quot;account_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example&quot;, &quot;worker_id&quot;: &quot;example&quot;, &quot;errors&quot;: [], &quot;messages&quot;: [], &quot;result&quot;: &quot;example&quot;, &quot;success&quot;: True })
+updated = client.PreviewDeployment().update({&quot;id&quot;: &quot;example_id&quot;, &quot;account_id&quot;: &quot;example&quot;, &quot;preview_id&quot;: &quot;example&quot;, &quot;worker_id&quot;: &quot;example&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">preview_deployments = client.PreviewDeployment.list({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example_id&quot;, &quot;worker_id&quot; =&gt; &quot;example&quot; })
+preview_deployment = client.PreviewDeployment.load({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example_id&quot;, &quot;preview_id&quot; =&gt; &quot;example&quot;, &quot;worker_id&quot; =&gt; &quot;example&quot; })
+created = client.PreviewDeployment.create({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example&quot;, &quot;worker_id&quot; =&gt; &quot;example&quot;, &quot;errors&quot; =&gt; [], &quot;messages&quot; =&gt; [], &quot;result&quot; =&gt; &quot;example&quot;, &quot;success&quot; =&gt; true })
+updated = client.PreviewDeployment.update({ &quot;id&quot; =&gt; &quot;example_id&quot;, &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;preview_id&quot; =&gt; &quot;example&quot;, &quot;worker_id&quot; =&gt; &quot;example&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const preview_deployments = await client.PreviewDeployment().list({ account_id: &quot;example&quot;, id: &quot;example_id&quot;, worker_id: &quot;example&quot; })
+const preview_deployment = await client.PreviewDeployment().load({ account_id: &quot;example&quot;, id: &quot;example_id&quot;, preview_id: &quot;example&quot;, worker_id: &quot;example&quot; })
+const created = await client.PreviewDeployment().create({ account_id: &quot;example&quot;, id: &quot;example&quot;, worker_id: &quot;example&quot;, errors: [], messages: [], result: &quot;example&quot;, success: true })
+const updated = await client.PreviewDeployment().update({ id: &quot;example_id&quot;, account_id: &quot;example&quot;, preview_id: &quot;example&quot;, worker_id: &quot;example&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Errors</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Id</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Messages</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>any</code></td>
+<td>Yes</td>
+<td>Result</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-accountsaccount_idworkersworkersworker_idpreviewspreview_iddeployments" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}/deployments</h3>
+<p>Operation ID: <code>workers.previews.deployments.create</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>worker_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>preview_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>ignore_defaults</code> | <code>query</code> | <code>boolean</code> | No |  |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object and object</code>.</p>
+<p><code>multipart/form-data</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>files</code></td>
+<td><code>array of string (binary)</code></td>
+<td>No</td>
+<td>Code, sourcemaps, and other content used at runtime. Each part's filename is the module name. Sourcemaps use <code>application/source-map</code>.</td>
+</tr>
+<tr>
+<td><code>metadata</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Configuration shared by JSON and multipart preview deployment uploads.</td>
+</tr>
+<tr>
+<td><code>metadata.annotations</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Metadata about the deployment.</td>
+</tr>
+<tr>
+<td><code>metadata.annotations.workers/commit_sha</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Full commit SHA associated with the deployment, detected from the CI environment. Maximum 64 bytes.</td>
+</tr>
+<tr>
+<td><code>metadata.annotations.workers/message</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Human-readable message about the deployment. Truncated to 1000 bytes if longer.</td>
+</tr>
+<tr>
+<td><code>metadata.annotations.workers/pull_request_number</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Number of the pull or merge request associated with the deployment, detected from the CI environment. Maximum 20 bytes.</td>
+</tr>
+<tr>
+<td><code>metadata.annotations.workers/pull_request_title</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Title of the pull or merge request associated with the deployment, detected from the CI environment. Maximum 512 bytes.</td>
+</tr>
+<tr>
+<td><code>metadata.annotations.workers/pull_request_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>URL of the pull or merge request associated with the deployment, detected from the CI environment. Maximum 512 bytes.</td>
+</tr>
+<tr>
+<td><code>metadata.annotations.workers/repository_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>URL of the source repository the deployment was built from, detected from the CI environment. Maximum 512 bytes.</td>
+</tr>
+<tr>
+<td><code>metadata.annotations.workers/tag</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>User-provided identifier for the deployment. Maximum 100 bytes.</td>
+</tr>
+<tr>
+<td><code>metadata.annotations.workers/triggered_by</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Operation that triggered the creation of the deployment.</td>
+</tr>
+<tr>
+<td><code>metadata.assets</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Configuration for assets within a Worker. <a href="https://developers.cloudflare.com/workers/static-assets/headers/#custom-headers"><code>_headers</code></a> and <a href="https://developers.cloudflare.com/workers/static-assets/redirects/"><code>_redirects</code></a> files should be included as modules named <code>_headers</code> and <code>_redirects</code> with content type <code>text/plain</code>.</td>
+</tr>
+<tr>
+<td><code>metadata.assets.config</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Configuration for assets within a Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.assets.config.base_path</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The public URL path prefix under which assets are served. A null request value resets it to <code>/</code>; responses represent the root as <code>/</code>. All versions in a gradual deployment must use the same canonical value. To change it, first deploy the version containing the change at 100%.</td>
+</tr>
+<tr>
+<td><code>metadata.assets.config.html_handling</code></td>
+<td><code>enum: auto-trailing-slash, force-trailing-slash, drop-trailing-slash, none</code></td>
+<td>No</td>
+<td>Determines the redirects and rewrites of requests for HTML content.</td>
+</tr>
+<tr>
+<td><code>metadata.assets.config.not_found_handling</code></td>
+<td><code>enum: none, 404-page, single-page-application</code></td>
+<td>No</td>
+<td>Determines the response when a request does not match a static asset, and there is no Worker script.</td>
+</tr>
+<tr>
+<td><code>metadata.assets.config.run_worker_first</code></td>
+<td><code>array of string or boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>metadata.assets.jwt</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Token provided upon successful upload of all files from a registered manifest.</td>
+</tr>
+<tr>
+<td><code>metadata.bindings</code></td>
+<td><code>array of object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object or object</code></td>
+<td>No</td>
+<td>Bindings attached to the deployment, as an array of objects that each name themselves. An upload can send <code>env</code> or <code>bindings</code>, and a read returns both. Uploads to a Preview whose parent Worker has a previews base config must use <code>env</code>.</td>
+</tr>
+<tr>
+<td><code>metadata.cache_options</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Global CacheW configuration for the Worker. When caching is on, the platform provisions a <code>cloudflare.app</code> zone for the Worker. A <code>type: worker</code> entry in the <code>exports</code> map can override this value for a single entrypoint.</td>
+</tr>
+<tr>
+<td><code>metadata.cache_options.cross_version_cache</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether cached responses are shared across Worker version uploads. This is independent of <code>enabled</code>. It can stay true while caching is off, so the preference survives turning caching off and back on.</td>
+</tr>
+<tr>
+<td><code>metadata.cache_options.enabled</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether caching is enabled for this Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.compatibility_date</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Date indicating targeted support in the Workers runtime. Backwards incompatible fixes to the runtime following this date will not affect this Worker.</td>
+</tr>
+<tr>
+<td><code>metadata.compatibility_flags</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Flags that enable or disable certain features in the Workers runtime. Used to enable upcoming features or opt in or out of specific changes not included in a <code>compatibility_date</code>.</td>
+</tr>
+<tr>
+<td><code>metadata.containers</code></td>
+<td><code>array of object</code></td>
+<td>No</td>
+<td>List of containers attached to a Worker. Containers can only be attached to Durable Object classes of this Worker script.</td>
+</tr>
+<tr>
+<td><code>metadata.containers[].class_name</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Select which Durable Object class should get this container attached.</td>
+</tr>
+<tr>
+<td><code>metadata.env</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Bindings attached to the deployment, keyed by binding name. An upload can send <code>env</code> or <code>bindings</code>, and a read returns both.</td>
+</tr>
+<tr>
+<td><code>metadata.exports</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Declarative exports for the deployment, including Durable Object classes (with their <code>storage</code> backend) and named Worker entrypoints. On reads, tombstoned lifecycle entries are omitted, so only live exports (<code>created</code> and <code>expecting-transfer</code>) are returned. <code>exports</code> and <code>migrations</code> are mutually exclusive on upload.</td>
+</tr>
+<tr>
+<td><code>metadata.limits</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Resource limits enforced at runtime.</td>
+</tr>
+<tr>
+<td><code>metadata.limits.cpu_ms</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>CPU time limit in milliseconds.</td>
+</tr>
+<tr>
+<td><code>metadata.limits.subrequests</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td>Subrequest limit per request.</td>
+</tr>
+<tr>
+<td><code>metadata.main_module</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>The name of the module that exports a <code>fetch</code> handler. Multipart uploads reference the file part by filename.</td>
+</tr>
+<tr>
+<td><code>metadata.migrations</code></td>
+<td><code>object and object or object and object</code></td>
+<td>No</td>
+<td>Migrations for Durable Objects associated with the deployment. Migrations are applied when the deployment is created.</td>
+</tr>
+<tr>
+<td><code>metadata.placement</code></td>
+<td><code>object or object or object or object or object or object or object or object</code></td>
+<td>No</td>
+<td>Configuration for <a href="https://developers.cloudflare.com/workers/configuration/smart-placement">Smart Placement</a>. Specify mode='smart' for Smart Placement, or one of region/hostname/host.</td>
+</tr>
+<tr>
+<td><code>metadata.usage_model</code></td>
+<td><code>enum: standard, bundled, unbound</code></td>
+<td>No</td>
+<td>Usage model for the deployment.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="200-create-preview-deployment-success" class="status" data-status="2xx">200: Create Preview Deployment success</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-create-preview-deployment-failure-when-the-upload-uses-the-declarative-exports-field-and-one-or-more-entries-fail-reconciliation-the-response-is-the-exports-reconciliation-error-envelope-error-code-100402-with-per-class-detail-in-errorsmetadetails">4XX: Create Preview Deployment failure. When the upload uses the declarative <code>exports</code> field and one or more entries fail reconciliation, the response is the exports reconciliation error envelope (error code 100402) with per-class detail in <code>errors[].meta.details</code>.</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object or object</code>.</p>
+<h2 id="list">list</h2>
+<h3 id="get-accountsaccount_idworkersworkersworker_idpreviewspreview_iddeployments" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}/deployments</h3>
+<p>Operation ID: <code>workers.previews.deployments.list</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>worker_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>preview_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No | Current page. |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No | Items per-page. |</p>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-list-preview-deployments-success" class="status" data-status="2xx">200: List Preview Deployments success</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="4xx-list-preview-deployments-failure">4XX: List Preview Deployments failure</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="load">load</h2>
+<h3 id="get-accountsaccount_idworkersworkersworker_idpreviewspreview_iddeploymentsdeployment_id" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}/deployments/{deployment_id}</h3>
+<p>Operation ID: <code>workers.previews.deployments.get</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>worker_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>preview_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>deployment_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>include</code> | <code>query</code> | <code>enum: modules</code> | No |  |</p>
+<h4 id="responses-2">Responses</h4>
+<h5 id="200-get-preview-deployment-success" class="status" data-status="2xx">200: Get Preview Deployment success</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-get-preview-deployment-failure">4XX: Get Preview Deployment failure</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>enum: null</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: false</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="update">update</h2>
+<h3 id="patch-accountsaccount_idworkersworkersworker_idpreviewspreview_iddeploymentslatest" class="operation" data-method="patch"><code>PATCH</code> /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}/deployments/latest</h3>
+<p>Operation ID: <code>workers.previews.deployments.patchLatest</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>worker_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>preview_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>ignore_defaults</code> | <code>query</code> | <code>boolean</code> | No |  |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object and object</code>.</p>
+<p><code>application/merge-patch+json</code></p>
+<p>The request body is <code>object and object</code>.</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-patch-preview-deployment-success" class="status" data-status="2xx">200: Patch Preview Deployment success</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="4xx-patch-preview-deployment-failure-when-the-patch-uses-the-declarative-exports-field-and-one-or-more-entries-fail-reconciliation-the-response-is-the-exports-reconciliation-error-envelope-error-code-100402-with-per-class-detail-in-errorsmetadetails">4XX: Patch Preview Deployment failure. When the patch uses the declarative <code>exports</code> field and one or more entries fail reconciliation, the response is the exports reconciliation error envelope (error code 100402) with per-class detail in <code>errors[].meta.details</code>.</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object or object</code>.</p>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

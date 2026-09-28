@@ -1,0 +1,27 @@
+{
+  "existing": {
+    "account": {
+      "ACCOUNT00": {
+        "id": "ACCOUNT00"
+      },
+      "ACCOUNT01": {
+        "id": "ACCOUNT01"
+      },
+      "ACCOUNT02": {
+        "id": "ACCOUNT02"
+      }
+    }
+  },
+  "new": {
+    "account": {
+      "account_ref01": {}
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/builds/account/limits": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

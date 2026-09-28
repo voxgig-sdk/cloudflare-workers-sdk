@@ -1,0 +1,23 @@
+# BasicRolloutFlow
+
+main: kit: flow: BasicRolloutFlow:
+{
+  entity: "rollout",
+  kind: "basic",
+  name: "BasicRolloutFlow",
+  step: [
+    {
+      i: {
+        ref: "rollout_ref01"
+      }
+
+      m: {
+        account_id: "account01",
+        application_id: "application01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicRolloutFlow"
+}

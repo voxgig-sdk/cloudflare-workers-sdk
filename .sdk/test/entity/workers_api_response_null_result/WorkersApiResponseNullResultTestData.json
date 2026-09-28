@@ -1,0 +1,82 @@
+{
+  "existing": {
+    "workers_api_response_null_result": {
+      "WORKERS_API_RESPONSE_NULL_RESULT00": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "namespace_id": "NAMESPACE01",
+        "script_id": "SCRIPT01",
+        "secret_name": "SECRET_NAME01",
+        "script_name": "SCRIPT_NAME01",
+        "tag": "TAG01",
+        "id": "WORKERS_API_RESPONSE_NULL_RESULT00"
+      },
+      "WORKERS_API_RESPONSE_NULL_RESULT01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "namespace_id": "NAMESPACE01",
+        "script_id": "SCRIPT01",
+        "secret_name": "SECRET_NAME01",
+        "script_name": "SCRIPT_NAME01",
+        "tag": "TAG01",
+        "id": "WORKERS_API_RESPONSE_NULL_RESULT01"
+      },
+      "WORKERS_API_RESPONSE_NULL_RESULT02": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "namespace_id": "NAMESPACE01",
+        "script_id": "SCRIPT01",
+        "secret_name": "SECRET_NAME01",
+        "script_name": "SCRIPT_NAME01",
+        "tag": "TAG01",
+        "id": "WORKERS_API_RESPONSE_NULL_RESULT02"
+      }
+    }
+  },
+  "new": {
+    "workers_api_response_null_result": {
+      "workers_api_response_null_result_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "DELETE /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets/{secret_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/tags/{tag}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/workers/scripts/{script_name}/secrets/{secret_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/tags/{tag}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

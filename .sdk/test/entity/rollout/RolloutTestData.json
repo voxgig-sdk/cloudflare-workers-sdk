@@ -1,0 +1,62 @@
+{
+  "existing": {
+    "rollout": {
+      "ROLLOUT00": {
+        "description": "s46",
+        "kind": "s47",
+        "percentage": 72,
+        "step_percentage": 73,
+        "steps": [],
+        "strategy": "s4b",
+        "target_configuration": {},
+        "account_id": "ACCOUNT01",
+        "application_id": "APPLICATION01",
+        "id": "ROLLOUT00"
+      },
+      "ROLLOUT01": {
+        "description": "s8c",
+        "kind": "s8d",
+        "percentage": 142,
+        "step_percentage": 143,
+        "steps": [],
+        "strategy": "s91",
+        "target_configuration": {},
+        "account_id": "ACCOUNT01",
+        "application_id": "APPLICATION01",
+        "id": "ROLLOUT01"
+      },
+      "ROLLOUT02": {
+        "description": "sd2",
+        "kind": "sd3",
+        "percentage": 212,
+        "step_percentage": 213,
+        "steps": [],
+        "strategy": "sd7",
+        "target_configuration": {},
+        "account_id": "ACCOUNT01",
+        "application_id": "APPLICATION01",
+        "id": "ROLLOUT02"
+      }
+    }
+  },
+  "new": {
+    "rollout": {
+      "rollout_ref01": {
+        "description": "s118",
+        "kind": "s119",
+        "percentage": 282,
+        "step_percentage": 283,
+        "steps": [],
+        "strategy": "s11d",
+        "target_configuration": {}
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/containers/applications/{application_id}/rollouts": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

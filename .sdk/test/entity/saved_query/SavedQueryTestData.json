@@ -1,0 +1,79 @@
+{
+  "existing": {
+    "saved_query": {
+      "SAVED_QUERY00": {
+        "description": "s50",
+        "errors": [],
+        "id": "SAVED_QUERY00",
+        "messages": [],
+        "name": "s54",
+        "parameters": {},
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01"
+      },
+      "SAVED_QUERY01": {
+        "description": "sa0",
+        "errors": [],
+        "id": "SAVED_QUERY01",
+        "messages": [],
+        "name": "sa4",
+        "parameters": {},
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01"
+      },
+      "SAVED_QUERY02": {
+        "description": "sf0",
+        "errors": [],
+        "id": "SAVED_QUERY02",
+        "messages": [],
+        "name": "sf4",
+        "parameters": {},
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "saved_query": {
+      "saved_query_ref01": {
+        "description": "s140",
+        "errors": [],
+        "messages": [],
+        "name": "s144",
+        "parameters": {},
+        "result": {},
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/workers/observability/queries": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/observability/queries": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/observability/queries/{queryId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/workers/observability/queries/{queryId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/workers/observability/queries/{queryId}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

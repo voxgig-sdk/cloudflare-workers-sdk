@@ -1,0 +1,45 @@
+# BasicWorkerSubdomainFlow
+
+main: kit: flow: BasicWorkerSubdomainFlow:
+{
+  entity: "worker_subdomain",
+  kind: "basic",
+  name: "BasicWorkerSubdomainFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "worker_subdomain_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "worker_subdomain_ref01",
+        srcdatavar: "worker_subdomain_ref01_data",
+        suffix: "_up0",
+        textfield: "subdomain"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-worker_subdomain_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkerSubdomainFlow"
+}

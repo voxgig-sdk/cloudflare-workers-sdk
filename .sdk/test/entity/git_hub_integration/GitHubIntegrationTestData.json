@@ -1,0 +1,57 @@
+{
+  "existing": {
+    "git_hub_integration": {
+      "GIT_HUB_INTEGRATION00": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "provider_account_id": "PROVIDER_ACCOUNT01",
+        "provider_type": "PROVIDER_TYPE01",
+        "repo_id": "REPO01"
+      },
+      "GIT_HUB_INTEGRATION01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "provider_account_id": "PROVIDER_ACCOUNT01",
+        "provider_type": "PROVIDER_TYPE01",
+        "repo_id": "REPO01"
+      },
+      "GIT_HUB_INTEGRATION02": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "provider_account_id": "PROVIDER_ACCOUNT01",
+        "provider_type": "PROVIDER_TYPE01",
+        "repo_id": "REPO01"
+      }
+    }
+  },
+  "new": {
+    "git_hub_integration": {
+      "git_hub_integration_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "result_info": {},
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/builds/repos/{provider_type}/{provider_account_id}/{repo_id}/config_autofill": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

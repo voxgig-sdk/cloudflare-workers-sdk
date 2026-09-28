@@ -1,0 +1,172 @@
+"use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || (function () {
+    var ownKeys = function(o) {
+        ownKeys = Object.getOwnPropertyNames || function (o) {
+            var ar = [];
+            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+            return ar;
+        };
+        return ownKeys(o);
+    };
+    return function (mod) {
+        if (mod && mod.__esModule) return mod;
+        var result = {};
+        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
+        __setModuleDefault(result, mod);
+        return result;
+    };
+})();
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const node_path_1 = __importDefault(require("node:path"));
+const Fs = __importStar(require("node:fs"));
+const node_test_1 = require("node:test");
+const node_assert_1 = __importDefault(require("node:assert"));
+const live_runner_1 = require("../../live-runner");
+const live_entity_1 = require("../../live-entity");
+const __1 = require("../../..");
+const utility_1 = require("../../utility");
+(0, utility_1.loadEnvLocal)(__dirname + '/../../../.env.local');
+(0, node_test_1.describe)('PreviewEntity', async () => {
+    // Per-test live pacing. Delay is read from sdk-test-control.json's
+    // `test.live.delayMs`; only sleeps when CLOUDFLARE_WORKERS_TEST_LIVE=TRUE.
+    (0, node_test_1.afterEach)((0, utility_1.liveDelay)('CLOUDFLARE_WORKERS_TEST_LIVE'));
+    (0, node_test_1.test)('instance', async () => {
+        const testsdk = __1.CloudflareWorkersSDK.test();
+        const ent = testsdk.Preview();
+        (0, node_assert_1.default)(null != ent);
+    });
+    (0, node_test_1.test)('basic', async (t) => {
+        const live = 'TRUE' === process.env.CLOUDFLARE_WORKERS_TEST_LIVE;
+        for (const op of ['create', 'list', 'update', 'load', 'remove']) {
+            if (!live && (0, utility_1.maybeSkipControl)(t, 'entityOp', 'preview.' + op, live))
+                return;
+        }
+        const setup = basicSetup();
+        if (setup.live) {
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "errors": { "a": true, "h": "Errors", "n": "errors", "r": true, "t": "`$ARRAY`", "key$": "errors", "index$": 0 }, "id": { "a": true, "h": "Id", "n": "id", "r": false, "t": "`$STRING`", "key$": "id", "index$": 1 }, "messages": { "a": true, "h": "Messages", "n": "messages", "r": true, "t": "`$ARRAY`", "key$": "messages", "index$": 2 }, "result": { "a": true, "h": "Result", "n": "result", "r": true, "t": "`$OBJECT`", "key$": "result", "index$": 3 }, "success": { "a": true, "h": "Success", "n": "success", "r": true, "sh": "Whether the API call was successful.", "t": "`$BOOLEAN`", "key$": "success", "index$": 4 } }, "id": { "field": "id", "name": "id" }, "name": "preview", "op": { "create": { "input": "data", "name": "create", "points": [{ "a": true, "co": { "id": "POST /accounts/{account_id}/workers/workers/{worker_id}/previews", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "ex": "023e105f4ecef8ad9ca31a8372d0c353", "k": "param", "n": "account_id", "or": "account_id", "r": true, "t": "`$STRING`", "index$": 0 }, { "a": true, "k": "param", "n": "worker_id", "or": "worker_id", "r": true, "t": "`$STRING`", "index$": 1 }], "query": [{ "a": true, "k": "query", "n": "ignore_base_config", "or": "ignore_base_config", "r": false, "t": "`$BOOLEAN`", "index$": 0 }, { "a": true, "k": "query", "n": "ignore_default", "or": "ignore_default", "r": false, "t": "`$BOOLEAN`", "index$": 1 }] }, "k": "http", "m": "POST", "o": "/accounts/{account_id}/workers/workers/{worker_id}/previews", "q": { "exist": ["account_id", "ignore_base_config", "ignore_default", "worker_id"] }, "r": {}, "s": [{ "lit": "accounts" }, { "var": "account_id" }, { "lit": "workers" }, { "lit": "workers" }, { "var": "worker_id" }, { "lit": "previews" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "create" }, "list": { "input": "data", "name": "list", "points": [{ "a": true, "co": { "id": "GET /accounts/{account_id}/workers/workers/{worker_id}/previews", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "ex": "023e105f4ecef8ad9ca31a8372d0c353", "k": "param", "n": "account_id", "or": "account_id", "r": true, "t": "`$STRING`", "index$": 0 }, { "a": true, "k": "param", "n": "worker_id", "or": "worker_id", "r": true, "t": "`$STRING`", "index$": 1 }], "query": [{ "a": true, "k": "query", "n": "name", "or": "name", "r": false, "t": "`$STRING`", "index$": 0 }, { "a": true, "ex": "desc", "k": "query", "n": "order", "or": "order", "r": false, "t": "`$STRING`", "index$": 1 }, { "a": true, "ex": "deployed_on", "k": "query", "n": "order_by", "or": "order_by", "r": false, "t": "`$STRING`", "index$": 2 }, { "a": true, "ex": 1, "k": "query", "n": "page", "or": "page", "r": false, "t": "`$INTEGER`", "index$": 3 }, { "a": true, "ex": 10, "k": "query", "n": "per_page", "or": "per_page", "r": false, "t": "`$INTEGER`", "index$": 4 }, { "a": true, "k": "query", "n": "slug", "or": "slug", "r": false, "t": "`$STRING`", "index$": 5 }] }, "k": "http", "m": "GET", "o": "/accounts/{account_id}/workers/workers/{worker_id}/previews", "q": { "exist": ["account_id", "name", "order", "order_by", "page", "per_page", "slug", "worker_id"] }, "r": {}, "s": [{ "lit": "accounts" }, { "var": "account_id" }, { "lit": "workers" }, { "lit": "workers" }, { "var": "worker_id" }, { "lit": "previews" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "list" }, "load": { "input": "data", "name": "load", "points": [{ "a": true, "co": { "id": "GET /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "ex": "023e105f4ecef8ad9ca31a8372d0c353", "k": "param", "n": "account_id", "or": "account_id", "r": true, "t": "`$STRING`", "index$": 0 }, { "a": true, "k": "param", "n": "id", "or": "preview_id", "r": true, "t": "`$STRING`", "index$": 1 }, { "a": true, "k": "param", "n": "worker_id", "or": "worker_id", "r": true, "t": "`$STRING`", "index$": 2 }] }, "k": "http", "m": "GET", "o": "/accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}", "q": { "exist": ["account_id", "id", "worker_id"] }, "r": { "param": { "preview_id": "id" } }, "s": [{ "lit": "accounts" }, { "var": "account_id" }, { "lit": "workers" }, { "lit": "workers" }, { "var": "worker_id" }, { "lit": "previews" }, { "var": "id" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "load" }, "patch": { "input": "data", "name": "patch", "points": [{ "a": true, "co": { "id": "PATCH /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "ex": "023e105f4ecef8ad9ca31a8372d0c353", "k": "param", "n": "account_id", "or": "account_id", "r": true, "t": "`$STRING`", "index$": 0 }, { "a": true, "k": "param", "n": "id", "or": "preview_id", "r": true, "t": "`$STRING`", "index$": 1 }, { "a": true, "k": "param", "n": "worker_id", "or": "worker_id", "r": true, "t": "`$STRING`", "index$": 2 }] }, "k": "http", "m": "PATCH", "o": "/accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}", "q": { "exist": ["account_id", "id", "worker_id"] }, "r": { "param": { "preview_id": "id" } }, "s": [{ "lit": "accounts" }, { "var": "account_id" }, { "lit": "workers" }, { "lit": "workers" }, { "var": "worker_id" }, { "lit": "previews" }, { "var": "id" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "patch" }, "remove": { "input": "data", "name": "remove", "points": [{ "a": true, "co": { "id": "DELETE /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "ex": "023e105f4ecef8ad9ca31a8372d0c353", "k": "param", "n": "account_id", "or": "account_id", "r": true, "t": "`$STRING`", "index$": 0 }, { "a": true, "k": "param", "n": "id", "or": "preview_id", "r": true, "t": "`$STRING`", "index$": 1 }, { "a": true, "k": "param", "n": "worker_id", "or": "worker_id", "r": true, "t": "`$STRING`", "index$": 2 }], "query": [{ "a": true, "k": "query", "n": "force", "or": "force", "r": false, "t": "`$BOOLEAN`", "index$": 0 }] }, "k": "http", "m": "DELETE", "o": "/accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}", "q": { "exist": ["account_id", "force", "id", "worker_id"] }, "r": { "param": { "preview_id": "id" } }, "s": [{ "lit": "accounts" }, { "var": "account_id" }, { "lit": "workers" }, { "lit": "workers" }, { "var": "worker_id" }, { "lit": "previews" }, { "var": "id" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "remove" }, "update": { "input": "data", "name": "update", "points": [{ "a": true, "co": { "id": "PUT /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "ex": "023e105f4ecef8ad9ca31a8372d0c353", "k": "param", "n": "account_id", "or": "account_id", "r": true, "t": "`$STRING`", "index$": 0 }, { "a": true, "k": "param", "n": "id", "or": "preview_id", "r": true, "t": "`$STRING`", "index$": 1 }, { "a": true, "k": "param", "n": "worker_id", "or": "worker_id", "r": true, "t": "`$STRING`", "index$": 2 }], "query": [{ "a": true, "k": "query", "n": "ignore_base_config", "or": "ignore_base_config", "r": false, "t": "`$BOOLEAN`", "index$": 0 }, { "a": true, "k": "query", "n": "ignore_default", "or": "ignore_default", "r": false, "t": "`$BOOLEAN`", "index$": 1 }] }, "k": "http", "m": "PUT", "o": "/accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}", "q": { "exist": ["account_id", "id", "ignore_base_config", "ignore_default", "worker_id"] }, "r": { "param": { "preview_id": "id" } }, "s": [{ "lit": "accounts" }, { "var": "account_id" }, { "lit": "workers" }, { "lit": "workers" }, { "var": "worker_id" }, { "lit": "previews" }, { "var": "id" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }], "key$": "update" } }, "relations": { "ancestors": [["$.main.kit.entity.account", "$.main.kit.entity.worker"]] }, "key$": "preview", "name__orig": "preview", "Name": "Preview", "name_": "preview", "name-": "preview", "NAME": "PREVIEW", "index$": 23 }, { "active": true, "entity": "preview", "key$": "BasicPreviewFlow", "kind": "basic", "name": "BasicPreviewFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": { "ref": "preview_ref01" }, "m": { "account_id": "account01", "worker_id": "worker01" }, "o": "create", "s": [], "v": [], "index$": 0 }, { "a": true, "d": {}, "i": {}, "m": { "account_id": "account01", "worker_id": "worker01" }, "o": "list", "s": [], "v": [{ "apply": "ItemExists", "def": { "ref": "preview_ref01" } }], "index$": 1 }, { "a": true, "d": { "account_id": "account01", "worker_id": "worker01" }, "i": { "ref": "preview_ref01", "srcdatavar": "preview_ref01_data", "suffix": "_up0" }, "m": {}, "o": "update", "s": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-preview_ref01" } }], "v": [], "index$": 2 }, { "a": true, "d": {}, "i": { "ref": "preview_ref01", "srcdatavar": "preview_ref01_data", "suffix": "_dt0" }, "m": { "account_id": "account01", "id": "preview01", "worker_id": "worker01" }, "o": "load", "s": [], "v": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-preview_ref01" } }], "index$": 3 }, { "a": true, "d": {}, "i": { "ref": "preview_ref01", "suffix": "_rm0" }, "m": { "account_id": "account01", "id": "preview01", "worker_id": "worker01" }, "o": "remove", "s": [], "v": [], "index$": 4 }, { "a": true, "d": {}, "i": { "suffix": "_rt0" }, "m": { "account_id": "account01", "worker_id": "worker01" }, "o": "list", "s": [], "v": [{ "apply": "ItemNotExists", "def": { "ref": "preview_ref01" } }], "index$": 5 }] }, 'Preview', { "POST /accounts/{account_id}/workers/workers/{worker_id}/previews": { "protocol": "http", "requestBody": { "description": "Preview creation parameters.", "required": true, "content": { "application/json": { "schema": { "allOf": [{ "type": "object", "properties": { "created_on": { "description": "When the Preview was created.", "format": "date-time", "readOnly": true, "type": "string", "x-auditable": true }, "deployed_on": { "description": "When the Preview's most recent deployment was created. `null` if the Preview has never been deployed.", "format": "date-time", "nullable": true, "readOnly": true, "type": "string" }, "id": { "description": "Immutable ID of the Preview.", "example": "63bafce9179948688866bb22268eb1c6", "pattern": "^[0-9a-f]{32}$", "readOnly": true, "type": "string", "x-auditable": true }, "logpush": { "default": false, "description": "Whether logpush is enabled for the Preview.", "type": "boolean", "x-auditable": true }, "name": { "description": "Human-readable name of the Preview.", "example": "feature/my-branch", "maxLength": 256, "pattern": "^[a-zA-Z0-9]([a-zA-Z0-9\\-_/.+=]*[a-zA-Z0-9])?$", "type": "string", "x-auditable": true }, "observability": { "description": "Observability settings for the Preview.", "properties": { "enabled": {}, "head_sampling_rate": {}, "issues": {}, "logs": {}, "redact_query_string": {}, "traces": {} }, "type": "object" }, "slug": { "description": "Immutable URL-safe identifier for the Preview.", "example": "feature-my-branch", "readOnly": true, "type": "string", "x-auditable": true }, "tags": { "default": [], "description": "Tags associated with the Preview.", "example": ["my-team", "my-preview"], "items": { "maxLength": 1024, "pattern": "^[^,&]*$", "type": "string" }, "maxItems": 8, "type": "array", "x-stainless-collection-type": "set" }, "tail_consumers": { "default": [], "description": "Other Workers that should consume logs from the Preview.", "items": { "properties": {}, "required": [], "type": "object" }, "type": "array", "x-stainless-collection-type": "set" }, "updated_on": { "description": "When the Preview was most recently updated.", "format": "date-time", "readOnly": true, "type": "string", "x-auditable": true }, "urls": { "description": "Routable URLs for the Preview.", "items": { "example": "https://feature-my-branch-my-worker.workers.dev", "type": "string" }, "readOnly": true, "type": "array" } }, "required": ["id", "slug", "name", "tags", "observability", "logpush", "tail_consumers", "urls", "created_on", "updated_on"], "x-ref": "#/components/schemas/workers_Preview" }, { "required": ["name"], "type": "object" }], "index$": 1 } } } }, "parameters": [{ "name": "account_id", "in": "path", "required": true, "schema": { "description": "Identifier.", "type": "string", "example": "023e105f4ecef8ad9ca31a8372d0c353", "maxLength": 32, "x-auditable": true, "x-ref": "#/components/schemas/workers_identifier" }, "index$": 0 }, { "name": "worker_id", "in": "path", "required": true, "schema": { "description": "Identifier for the Worker, which can be ID or name.", "type": "string" }, "index$": 1 }, { "name": "ignore_defaults", "in": "query", "schema": { "description": "If true, preview defaults/base config from the parent Worker is ignored.", "type": "boolean" }, "index$": 2 }, { "name": "ignore_base_config", "in": "query", "schema": { "description": "If true, preview base config from the parent Worker is ignored.", "type": "boolean" }, "index$": 3 }] }, "GET /accounts/{account_id}/workers/workers/{worker_id}/previews": { "protocol": "http", "parameters": [{ "name": "account_id", "in": "path", "required": true, "schema": { "description": "Identifier.", "type": "string", "example": "023e105f4ecef8ad9ca31a8372d0c353", "maxLength": 32, "x-auditable": true, "x-ref": "#/components/schemas/workers_identifier" }, "index$": 0 }, { "name": "worker_id", "in": "path", "required": true, "schema": { "description": "Identifier for the Worker, which can be ID or name.", "type": "string" }, "index$": 1 }, { "name": "page", "in": "query", "description": "Current page.", "schema": { "type": "integer", "default": 1, "minimum": 1 }, "index$": 2 }, { "name": "per_page", "in": "query", "description": "Items per-page.", "schema": { "type": "integer", "default": 10, "maximum": 100, "minimum": 1 }, "index$": 3 }, { "name": "order_by", "in": "query", "description": "Property to sort results by.", "schema": { "type": "string", "default": "deployed_on", "enum": ["deployed_on", "updated_on", "created_on", "slug", "name"] }, "index$": 4 }, { "name": "order", "in": "query", "description": "Sort direction.", "schema": { "type": "string", "default": "desc", "enum": ["asc", "desc"] }, "index$": 5 }, { "name": "slug", "in": "query", "description": "Partial-match filter on preview slug.", "schema": { "type": "string" }, "index$": 6 }, { "name": "name", "in": "query", "description": "Partial-match filter on preview name.", "schema": { "type": "string" }, "index$": 7 }] }, "GET /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}": { "protocol": "http", "parameters": [{ "name": "account_id", "in": "path", "required": true, "schema": { "description": "Identifier.", "type": "string", "example": "023e105f4ecef8ad9ca31a8372d0c353", "maxLength": 32, "x-auditable": true, "x-ref": "#/components/schemas/workers_identifier" }, "index$": 0 }, { "name": "worker_id", "in": "path", "required": true, "schema": { "description": "Identifier for the Worker, which can be ID or name.", "type": "string" }, "index$": 1 }, { "name": "preview_id", "in": "path", "required": true, "schema": { "description": "Identifier for the Preview, which can be ID, slug, or URL-encoded name.", "type": "string" }, "index$": 2 }] }, "PATCH /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}": { "protocol": "http", "requestBody": { "description": "Preview partial update parameters.", "required": true, "content": { "application/json": { "schema": { "allOf": [{ "type": "object", "properties": { "created_on": { "description": "When the Preview was created.", "format": "date-time", "readOnly": true, "type": "string", "x-auditable": true }, "deployed_on": { "description": "When the Preview's most recent deployment was created. `null` if the Preview has never been deployed.", "format": "date-time", "nullable": true, "readOnly": true, "type": "string" }, "id": { "description": "Immutable ID of the Preview.", "example": "63bafce9179948688866bb22268eb1c6", "pattern": "^[0-9a-f]{32}$", "readOnly": true, "type": "string", "x-auditable": true }, "logpush": { "default": false, "description": "Whether logpush is enabled for the Preview.", "type": "boolean", "x-auditable": true }, "name": { "description": "Human-readable name of the Preview.", "example": "feature/my-branch", "maxLength": 256, "pattern": "^[a-zA-Z0-9]([a-zA-Z0-9\\-_/.+=]*[a-zA-Z0-9])?$", "type": "string", "x-auditable": true }, "observability": { "description": "Observability settings for the Preview.", "properties": { "enabled": {}, "head_sampling_rate": {}, "issues": {}, "logs": {}, "redact_query_string": {}, "traces": {} }, "type": "object" }, "slug": { "description": "Immutable URL-safe identifier for the Preview.", "example": "feature-my-branch", "readOnly": true, "type": "string", "x-auditable": true }, "tags": { "default": [], "description": "Tags associated with the Preview.", "example": ["my-team", "my-preview"], "items": { "maxLength": 1024, "pattern": "^[^,&]*$", "type": "string" }, "maxItems": 8, "type": "array", "x-stainless-collection-type": "set" }, "tail_consumers": { "default": [], "description": "Other Workers that should consume logs from the Preview.", "items": { "properties": {}, "required": [], "type": "object" }, "type": "array", "x-stainless-collection-type": "set" }, "updated_on": { "description": "When the Preview was most recently updated.", "format": "date-time", "readOnly": true, "type": "string", "x-auditable": true }, "urls": { "description": "Routable URLs for the Preview.", "items": { "example": "https://feature-my-branch-my-worker.workers.dev", "type": "string" }, "readOnly": true, "type": "array" } }, "required": ["id", "slug", "name", "tags", "observability", "logpush", "tail_consumers", "urls", "created_on", "updated_on"], "x-ref": "#/components/schemas/workers_Preview" }, { "type": "object" }], "index$": 1 } }, "application/merge-patch+json": { "schema": { "allOf": [{ "type": "object", "properties": { "created_on": { "description": "When the Preview was created.", "format": "date-time", "readOnly": true, "type": "string", "x-auditable": true }, "deployed_on": { "description": "When the Preview's most recent deployment was created. `null` if the Preview has never been deployed.", "format": "date-time", "nullable": true, "readOnly": true, "type": "string" }, "id": { "description": "Immutable ID of the Preview.", "example": "63bafce9179948688866bb22268eb1c6", "pattern": "^[0-9a-f]{32}$", "readOnly": true, "type": "string", "x-auditable": true }, "logpush": { "default": false, "description": "Whether logpush is enabled for the Preview.", "type": "boolean", "x-auditable": true }, "name": { "description": "Human-readable name of the Preview.", "example": "feature/my-branch", "maxLength": 256, "pattern": "^[a-zA-Z0-9]([a-zA-Z0-9\\-_/.+=]*[a-zA-Z0-9])?$", "type": "string", "x-auditable": true }, "observability": { "description": "Observability settings for the Preview.", "properties": { "enabled": {}, "head_sampling_rate": {}, "issues": {}, "logs": {}, "redact_query_string": {}, "traces": {} }, "type": "object" }, "slug": { "description": "Immutable URL-safe identifier for the Preview.", "example": "feature-my-branch", "readOnly": true, "type": "string", "x-auditable": true }, "tags": { "default": [], "description": "Tags associated with the Preview.", "example": ["my-team", "my-preview"], "items": { "maxLength": 1024, "pattern": "^[^,&]*$", "type": "string" }, "maxItems": 8, "type": "array", "x-stainless-collection-type": "set" }, "tail_consumers": { "default": [], "description": "Other Workers that should consume logs from the Preview.", "items": { "properties": {}, "required": [], "type": "object" }, "type": "array", "x-stainless-collection-type": "set" }, "updated_on": { "description": "When the Preview was most recently updated.", "format": "date-time", "readOnly": true, "type": "string", "x-auditable": true }, "urls": { "description": "Routable URLs for the Preview.", "items": { "example": "https://feature-my-branch-my-worker.workers.dev", "type": "string" }, "readOnly": true, "type": "array" } }, "required": ["id", "slug", "name", "tags", "observability", "logpush", "tail_consumers", "urls", "created_on", "updated_on"], "x-ref": "#/components/schemas/workers_Preview" }, { "type": "object" }] } } } }, "parameters": [{ "name": "account_id", "in": "path", "required": true, "schema": { "description": "Identifier.", "type": "string", "example": "023e105f4ecef8ad9ca31a8372d0c353", "maxLength": 32, "x-auditable": true, "x-ref": "#/components/schemas/workers_identifier" }, "index$": 0 }, { "name": "worker_id", "in": "path", "required": true, "schema": { "description": "Identifier for the Worker, which can be ID or name.", "type": "string" }, "index$": 1 }, { "name": "preview_id", "in": "path", "required": true, "schema": { "description": "Identifier for the Preview, which can be ID, slug, or URL-encoded name.", "type": "string" }, "index$": 2 }] }, "DELETE /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}": { "protocol": "http", "parameters": [{ "name": "account_id", "in": "path", "required": true, "schema": { "description": "Identifier.", "type": "string", "example": "023e105f4ecef8ad9ca31a8372d0c353", "maxLength": 32, "x-auditable": true, "x-ref": "#/components/schemas/workers_identifier" }, "index$": 0 }, { "name": "worker_id", "in": "path", "required": true, "schema": { "description": "Identifier for the Worker, which can be ID or name.", "type": "string" }, "index$": 1 }, { "name": "preview_id", "in": "path", "required": true, "schema": { "description": "Identifier for the Preview, which can be ID, slug, or URL-encoded name.", "type": "string" }, "index$": 2 }, { "name": "force", "in": "query", "description": "If true, delete the Preview even when other Workers still reference it. Service bindings in those Workers may be left broken. Durable Object namespaces implemented by the deleted Preview are deleted even if other Workers reference them.", "schema": { "type": "boolean" }, "x-fern-parameter-name": "delete-with-references", "index$": 3 }] }, "PUT /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}": { "protocol": "http", "requestBody": { "description": "Preview update parameters.", "required": true, "content": { "application/json": { "schema": { "allOf": [{ "type": "object", "properties": { "created_on": { "description": "When the Preview was created.", "format": "date-time", "readOnly": true, "type": "string", "x-auditable": true }, "deployed_on": { "description": "When the Preview's most recent deployment was created. `null` if the Preview has never been deployed.", "format": "date-time", "nullable": true, "readOnly": true, "type": "string" }, "id": { "description": "Immutable ID of the Preview.", "example": "63bafce9179948688866bb22268eb1c6", "pattern": "^[0-9a-f]{32}$", "readOnly": true, "type": "string", "x-auditable": true }, "logpush": { "default": false, "description": "Whether logpush is enabled for the Preview.", "type": "boolean", "x-auditable": true }, "name": { "description": "Human-readable name of the Preview.", "example": "feature/my-branch", "maxLength": 256, "pattern": "^[a-zA-Z0-9]([a-zA-Z0-9\\-_/.+=]*[a-zA-Z0-9])?$", "type": "string", "x-auditable": true }, "observability": { "description": "Observability settings for the Preview.", "properties": { "enabled": {}, "head_sampling_rate": {}, "issues": {}, "logs": {}, "redact_query_string": {}, "traces": {} }, "type": "object" }, "slug": { "description": "Immutable URL-safe identifier for the Preview.", "example": "feature-my-branch", "readOnly": true, "type": "string", "x-auditable": true }, "tags": { "default": [], "description": "Tags associated with the Preview.", "example": ["my-team", "my-preview"], "items": { "maxLength": 1024, "pattern": "^[^,&]*$", "type": "string" }, "maxItems": 8, "type": "array", "x-stainless-collection-type": "set" }, "tail_consumers": { "default": [], "description": "Other Workers that should consume logs from the Preview.", "items": { "properties": {}, "required": [], "type": "object" }, "type": "array", "x-stainless-collection-type": "set" }, "updated_on": { "description": "When the Preview was most recently updated.", "format": "date-time", "readOnly": true, "type": "string", "x-auditable": true }, "urls": { "description": "Routable URLs for the Preview.", "items": { "example": "https://feature-my-branch-my-worker.workers.dev", "type": "string" }, "readOnly": true, "type": "array" } }, "required": ["id", "slug", "name", "tags", "observability", "logpush", "tail_consumers", "urls", "created_on", "updated_on"], "x-ref": "#/components/schemas/workers_Preview" }, { "required": ["name"], "type": "object" }], "index$": 1 } } } }, "parameters": [{ "name": "account_id", "in": "path", "required": true, "schema": { "description": "Identifier.", "type": "string", "example": "023e105f4ecef8ad9ca31a8372d0c353", "maxLength": 32, "x-auditable": true, "x-ref": "#/components/schemas/workers_identifier" }, "index$": 0 }, { "name": "worker_id", "in": "path", "required": true, "schema": { "description": "Identifier for the Worker, which can be ID or name.", "type": "string" }, "index$": 1 }, { "name": "preview_id", "in": "path", "required": true, "schema": { "description": "Identifier for the Preview, which can be ID, slug, or URL-encoded name.", "type": "string" }, "index$": 2 }, { "name": "ignore_defaults", "in": "query", "schema": { "description": "If true, preview defaults/base config from the parent Worker is ignored.", "type": "boolean" }, "index$": 3 }, { "name": "ignore_base_config", "in": "query", "schema": { "description": "If true, preview base config from the parent Worker is ignored.", "type": "boolean" }, "index$": 4 }] } });
+        }
+        const client = setup.client;
+        const struct = setup.struct;
+        const isempty = struct.isempty;
+        const select = struct.select;
+        // CREATE
+        const preview_ref01_ent = client.Preview();
+        let preview_ref01_data = setup.data.new.preview['preview_ref01'];
+        preview_ref01_data['account_id'] = setup.idmap['account01'];
+        preview_ref01_data['worker_id'] = setup.idmap['worker01'];
+        preview_ref01_data = (await preview_ref01_ent.create(preview_ref01_data)).data();
+        (0, node_assert_1.default)(null != preview_ref01_data.id);
+        // LIST
+        const preview_ref01_match = {};
+        preview_ref01_match['account_id'] = setup.idmap['account01'];
+        preview_ref01_match['worker_id'] = setup.idmap['worker01'];
+        const preview_ref01_list = (await preview_ref01_ent.list(preview_ref01_match)).map((e) => e.data());
+        (0, node_assert_1.default)(!isempty(select(preview_ref01_list, { id: preview_ref01_data.id })));
+        // UPDATE
+        const preview_ref01_data_up0 = {};
+        preview_ref01_data_up0.id = preview_ref01_data.id;
+        preview_ref01_data_up0['account_id'] = setup.idmap['account_id'];
+        preview_ref01_data_up0['worker_id'] = setup.idmap['worker_id'];
+        const preview_ref01_resdata_up0 = (await preview_ref01_ent.update(preview_ref01_data_up0)).data();
+        (0, node_assert_1.default)(preview_ref01_resdata_up0.id === preview_ref01_data_up0.id);
+        // LOAD
+        const preview_ref01_match_dt0 = {};
+        preview_ref01_match_dt0.id = preview_ref01_data.id;
+        const preview_ref01_data_dt0 = (await preview_ref01_ent.load(preview_ref01_match_dt0)).data();
+        (0, node_assert_1.default)(preview_ref01_data_dt0.id === preview_ref01_data.id);
+        // REMOVE
+        const preview_ref01_match_rm0 = { id: preview_ref01_data.id };
+        await preview_ref01_ent.remove(preview_ref01_match_rm0);
+        // LIST
+        const preview_ref01_match_rt0 = {};
+        preview_ref01_match_rt0['account_id'] = setup.idmap['account01'];
+        preview_ref01_match_rt0['worker_id'] = setup.idmap['worker01'];
+        const preview_ref01_list_rt0 = (await preview_ref01_ent.list(preview_ref01_match_rt0)).map((e) => e.data());
+        (0, node_assert_1.default)(isempty(select(preview_ref01_list_rt0, { id: preview_ref01_data.id })));
+    });
+});
+function basicSetup(extra) {
+    // TODO: fix test def options
+    const options = {}; // null
+    // TODO: needs test utility to resolve path
+    const entityDataFile = node_path_1.default.resolve(__dirname, '../../../../.sdk/test/entity/preview/PreviewTestData.json');
+    // TODO: file ready util needed?
+    const entityDataSource = Fs.readFileSync(entityDataFile).toString('utf8');
+    // TODO: need a xlang JSON parse utility in voxgig/struct with better error msgs
+    const entityData = JSON.parse(entityDataSource);
+    options.entity = entityData.existing;
+    let client = __1.CloudflareWorkersSDK.test(options, extra);
+    const struct = client.utility().struct;
+    const merge = struct.merge;
+    const transform = struct.transform;
+    let idmap = transform(['preview01', 'preview02', 'preview03', 'account01', 'account02', 'account03', 'worker01', 'worker02', 'worker03'], {
+        '`$PACK`': ['', {
+                '`$KEY`': '`$COPY`',
+                '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
+            }]
+    });
+    const env = (0, utility_1.envOverride)({
+        'CLOUDFLARE_WORKERS_TEST_PREVIEW_ENTID': idmap,
+        'CLOUDFLARE_WORKERS_TEST_LIVE': 'FALSE',
+        'CLOUDFLARE_WORKERS_TEST_EXPLAIN': 'FALSE',
+        'CLOUDFLARE_WORKERS_APIKEY': '',
+    });
+    idmap = env['CLOUDFLARE_WORKERS_TEST_PREVIEW_ENTID'];
+    const live = 'TRUE' === env.CLOUDFLARE_WORKERS_TEST_LIVE;
+    const transport = (0, live_runner_1.createLiveTransport)();
+    if (live) {
+        const rawIds = process.env['CLOUDFLARE_WORKERS_TEST_PREVIEW_ENTID'];
+        idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {};
+        if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+            throw new Error('Live ENTID must be a JSON object');
+        }
+        client = new __1.CloudflareWorkersSDK(merge([
+            // FIRST, so the generated fields below win: sdk-test-control.json's
+            // test.client.options adds to the live client, it does not redirect it.
+            (0, utility_1.liveClientOptions)(),
+            {
+                apikey: env.CLOUDFLARE_WORKERS_APIKEY,
+            },
+            // 'extra || {}', not a bare 'extra': struct.merge returns UNDEFINED when the
+            // last entry is undefined, and basicSetup is normally called with no
+            // argument at all - so a bare 'extra' silently discarded the apikey
+            // and server values above and handed the SDK undefined. Harmless
+            // while there was nothing in that object; not harmless now.
+            extra || {},
+            { system: { fetch: transport.fetch } }
+        ]));
+    }
+    const setup = {
+        idmap,
+        env,
+        options,
+        client,
+        struct,
+        data: entityData,
+        explain: 'TRUE' === env.CLOUDFLARE_WORKERS_TEST_EXPLAIN,
+        live,
+        transport,
+        now: Date.now(),
+    };
+    return setup;
+}
+//# sourceMappingURL=PreviewEntity.test.js.map

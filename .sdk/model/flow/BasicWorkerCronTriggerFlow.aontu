@@ -1,0 +1,49 @@
+# BasicWorkerCronTriggerFlow
+
+main: kit: flow: BasicWorkerCronTriggerFlow:
+{
+  entity: "worker_cron_trigger",
+  kind: "basic",
+  name: "BasicWorkerCronTriggerFlow",
+  step: [
+    {
+      m: {
+        account_id: "account01",
+        script_name: "script_name01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "worker_cron_trigger_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        account_id: "account01"
+      }
+
+      i: {
+        ref: "worker_cron_trigger_ref01",
+        srcdatavar: "worker_cron_trigger_ref01_data",
+        suffix: "_up0"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-worker_cron_trigger_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkerCronTriggerFlow"
+}

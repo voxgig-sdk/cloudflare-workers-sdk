@@ -1,0 +1,59 @@
+# BasicTriggerFlow
+
+main: kit: flow: BasicTriggerFlow:
+{
+  entity: "trigger",
+  kind: "basic",
+  name: "BasicTriggerFlow",
+  step: [
+    {
+      i: {
+        ref: "trigger_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+
+    {
+      d: {
+        account_id: "account01"
+      }
+
+      i: {
+        ref: "trigger_ref01",
+        srcdatavar: "trigger_ref01_data",
+        suffix: "_up0",
+        textfield: "build_command"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-trigger_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "trigger_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "trigger01"
+      }
+
+      o: "remove"
+    }
+  ],
+  "key$": "BasicTriggerFlow"
+}

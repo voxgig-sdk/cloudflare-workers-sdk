@@ -1,0 +1,22 @@
+# BasicValueFlow
+
+main: kit: flow: BasicValueFlow:
+{
+  entity: "value",
+  kind: "basic",
+  name: "BasicValueFlow",
+  step: [
+    {
+      i: {
+        ref: "value_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicValueFlow"
+}

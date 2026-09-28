@@ -1,0 +1,64 @@
+{
+  "existing": {
+    "live_tail": {
+      "LIVE_TAIL00": {
+        "errors": [],
+        "filterCombination": "s47",
+        "filters": [],
+        "messages": [],
+        "result": {},
+        "scriptId": "s4b",
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "id": "LIVE_TAIL00"
+      },
+      "LIVE_TAIL01": {
+        "errors": [],
+        "filterCombination": "s8d",
+        "filters": [],
+        "messages": [],
+        "result": {},
+        "scriptId": "s91",
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "id": "LIVE_TAIL01"
+      },
+      "LIVE_TAIL02": {
+        "errors": [],
+        "filterCombination": "sd3",
+        "filters": [],
+        "messages": [],
+        "result": {},
+        "scriptId": "sd7",
+        "success": true,
+        "account_id": "ACCOUNT01",
+        "id": "LIVE_TAIL02"
+      }
+    }
+  },
+  "new": {
+    "live_tail": {
+      "live_tail_ref01": {
+        "errors": [],
+        "filterCombination": "s119",
+        "filters": [],
+        "messages": [],
+        "result": {},
+        "scriptId": "s11d",
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/workers/observability/telemetry/live-tail": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/workers/observability/telemetry/live-tail/heartbeat": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

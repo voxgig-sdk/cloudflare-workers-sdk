@@ -1,0 +1,30 @@
+{
+  "existing": {
+    "workers_completed_upload_asset": {
+      "WORKERS_COMPLETED_UPLOAD_ASSET00": {
+        "account_id": "ACCOUNT01",
+        "id": "WORKERS_COMPLETED_UPLOAD_ASSET00"
+      },
+      "WORKERS_COMPLETED_UPLOAD_ASSET01": {
+        "account_id": "ACCOUNT01",
+        "id": "WORKERS_COMPLETED_UPLOAD_ASSET01"
+      },
+      "WORKERS_COMPLETED_UPLOAD_ASSET02": {
+        "account_id": "ACCOUNT01",
+        "id": "WORKERS_COMPLETED_UPLOAD_ASSET02"
+      }
+    }
+  },
+  "new": {
+    "workers_completed_upload_asset": {
+      "workers_completed_upload_asset_ref01": {}
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/workers/assets/upload": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

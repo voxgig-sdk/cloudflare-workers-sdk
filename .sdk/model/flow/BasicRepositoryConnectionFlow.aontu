@@ -1,0 +1,29 @@
+# BasicRepositoryConnectionFlow
+
+main: kit: flow: BasicRepositoryConnectionFlow:
+{
+  entity: "repository_connection",
+  kind: "basic",
+  name: "BasicRepositoryConnectionFlow",
+  step: [
+    {
+      i: {
+        ref: "repository_connection_ref01",
+        srcdatavar: "repository_connection_ref01_data",
+        suffix: "_up0",
+        textfield: "provider_account_id"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-repository_connection_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicRepositoryConnectionFlow"
+}

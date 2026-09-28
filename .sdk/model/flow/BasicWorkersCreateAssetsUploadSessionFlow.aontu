@@ -1,0 +1,23 @@
+# BasicWorkersCreateAssetsUploadSessionFlow
+
+main: kit: flow: BasicWorkersCreateAssetsUploadSessionFlow:
+{
+  entity: "workers_create_assets_upload_session",
+  kind: "basic",
+  name: "BasicWorkersCreateAssetsUploadSessionFlow",
+  step: [
+    {
+      i: {
+        ref: "workers_create_assets_upload_session_ref01"
+      }
+
+      m: {
+        account_id: "account01",
+        script_name: "script_name01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicWorkersCreateAssetsUploadSessionFlow"
+}

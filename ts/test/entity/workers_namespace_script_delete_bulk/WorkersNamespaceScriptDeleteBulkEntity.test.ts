@@ -1,0 +1,150 @@
+
+
+import Path from 'node:path'
+import * as Fs from 'node:fs'
+
+import { test, describe, afterEach } from 'node:test'
+import assert from 'node:assert'
+import { createLiveTransport } from '../../live-runner'
+import { runLiveEntity } from '../../live-entity'
+
+
+import { CloudflareWorkersSDK, BaseFeature, stdutil } from '../../..'
+
+import {
+  envOverride,
+  liveClientOptions,
+  liveDelay,
+  loadEnvLocal,
+  makeCtrl,
+  makeMatch,
+  makeReqdata,
+  makeStepData,
+  makeValid,
+  maybeSkipControl,
+} from '../../utility'
+
+
+loadEnvLocal(__dirname + '/../../../.env.local')
+
+
+describe('WorkersNamespaceScriptDeleteBulkEntity', async () => {
+
+  // Per-test live pacing. Delay is read from sdk-test-control.json's
+  // `test.live.delayMs`; only sleeps when CLOUDFLARE_WORKERS_TEST_LIVE=TRUE.
+  afterEach(liveDelay('CLOUDFLARE_WORKERS_TEST_LIVE'))
+
+  test('instance', async () => {
+    const testsdk = CloudflareWorkersSDK.test()
+    const ent = testsdk.WorkersNamespaceScriptDeleteBulk()
+    assert(null != ent)
+  })
+
+
+  test('basic', async (t) => {
+
+    const live = 'TRUE' === process.env.CLOUDFLARE_WORKERS_TEST_LIVE
+    for (const op of []) {
+      if (!live && maybeSkipControl(t, 'entityOp', 'workers_namespace_script_delete_bulk.' + op, live)) return
+    }
+
+    
+    const setup = basicSetup()
+    if (setup.live) {
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{},"name":"workers_namespace_script_delete_bulk","op":{"remove":{"input":"data","name":"remove","points":[{"a":true,"co":{"id":"DELETE /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts","source":"openapi3","version":2},"g":{"params":[{"a":true,"ex":"023e105f4ecef8ad9ca31a8372d0c353","k":"param","n":"account_id","or":"account_id","r":true,"t":"`$STRING`","index$":0},{"a":true,"ex":"my-dispatch-namespace","k":"param","n":"dispatch_namespace","or":"dispatch_namespace","r":true,"t":"`$STRING`","index$":1}],"query":[{"a":true,"ex":1000,"k":"query","n":"limit","or":"limit","r":false,"t":"`$INTEGER`","index$":0},{"a":true,"ex":"production:yes,staging:no","k":"query","n":"tag","or":"tag","r":true,"t":"`$STRING`","index$":1}]},"k":"http","m":"DELETE","o":"/accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts","q":{"exist":["account_id","dispatch_namespace","limit","tag"]},"r":{},"s":[{"lit":"accounts"},{"var":"account_id"},{"lit":"workers"},{"lit":"dispatch"},{"lit":"namespaces"},{"var":"dispatch_namespace"},{"lit":"scripts"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"remove"}},"relations":{"ancestors":[["$.main.kit.entity.account","$.main.kit.entity.namespace"]]},"key$":"workers_namespace_script_delete_bulk","name__orig":"workers_namespace_script_delete_bulk","Name":"WorkersNamespaceScriptDeleteBulk","name_":"workers_namespace_script_delete_bulk","name-":"workers-namespace-script-delete-bulk","NAME":"WORKERS_NAMESPACE_SCRIPT_DELETE_BULK","index$":61}, {"active":true,"entity":"workers_namespace_script_delete_bulk","key$":"BasicWorkersNamespaceScriptDeleteBulkFlow","kind":"basic","name":"BasicWorkersNamespaceScriptDeleteBulkFlow","param":{},"step":[]}, 'WorkersNamespaceScriptDeleteBulk', {"DELETE /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts":{"protocol":"http","parameters":[{"name":"account_id","in":"path","required":true,"schema":{"description":"Identifier.","type":"string","example":"023e105f4ecef8ad9ca31a8372d0c353","maxLength":32,"x-auditable":true,"x-ref":"#/components/schemas/workers_identifier"},"index$":0},{"name":"dispatch_namespace","in":"path","required":true,"schema":{"description":"Name of the Workers for Platforms dispatch namespace.","type":"string","example":"my-dispatch-namespace","pattern":"^.+$","x-auditable":true,"x-ref":"#/components/schemas/workers_dispatch_namespace_name"},"index$":1},{"name":"tags","in":"query","description":"Filter scripts by tags before deletion. Format: comma-separated list of tag:allowed pairs where allowed is 'yes' or 'no'.","required":true,"schema":{"type":"string","example":"production:yes,staging:no"},"index$":2},{"name":"limit","in":"query","description":"Limit the number of scripts to delete.","schema":{"type":"integer","example":1000},"index$":3}]}})
+    }
+    const client = setup.client
+    const struct = setup.struct
+
+    const isempty = struct.isempty
+    const select = struct.select
+
+    let workers_namespace_script_delete_bulk_ref01_data = Object.values(setup.data.existing.workers_namespace_script_delete_bulk)[0] as any
+
+  })
+})
+
+
+
+function basicSetup(extra?: any) {
+  // TODO: fix test def options
+  const options: any = {} // null
+
+  // TODO: needs test utility to resolve path
+  const entityDataFile =
+    Path.resolve(__dirname, 
+      '../../../../.sdk/test/entity/workers_namespace_script_delete_bulk/WorkersNamespaceScriptDeleteBulkTestData.json')
+
+  // TODO: file ready util needed?
+  const entityDataSource = Fs.readFileSync(entityDataFile).toString('utf8')
+
+  // TODO: need a xlang JSON parse utility in voxgig/struct with better error msgs
+  const entityData = JSON.parse(entityDataSource)
+
+  options.entity = entityData.existing
+
+  let client = CloudflareWorkersSDK.test(options, extra)
+  const struct = client.utility().struct
+  const merge = struct.merge
+  const transform = struct.transform
+
+  let idmap = transform(
+    ['workers_namespace_script_delete_bulk01','workers_namespace_script_delete_bulk02','workers_namespace_script_delete_bulk03','account01','account02','account03','namespace01','namespace02','namespace03'],
+    {
+      '`$PACK`': ['', {
+        '`$KEY`': '`$COPY`',
+        '`$VAL`': ['`$FORMAT`', 'upper', '`$COPY`']
+      }]
+    })
+
+  const env = envOverride({
+    'CLOUDFLARE_WORKERS_TEST_WORKERS_NAMESPACE_SCRIPT_DELETE_BULK_ENTID': idmap,
+    'CLOUDFLARE_WORKERS_TEST_LIVE': 'FALSE',
+    'CLOUDFLARE_WORKERS_TEST_EXPLAIN': 'FALSE',
+    'CLOUDFLARE_WORKERS_APIKEY': '',
+  })
+
+  idmap = env['CLOUDFLARE_WORKERS_TEST_WORKERS_NAMESPACE_SCRIPT_DELETE_BULK_ENTID']
+
+  const live = 'TRUE' === env.CLOUDFLARE_WORKERS_TEST_LIVE
+
+  const transport = createLiveTransport()
+  if (live) {
+    const rawIds = process.env['CLOUDFLARE_WORKERS_TEST_WORKERS_NAMESPACE_SCRIPT_DELETE_BULK_ENTID']
+    idmap = rawIds && rawIds.trim() ? JSON.parse(rawIds) : {}
+    if (!idmap || Array.isArray(idmap) || typeof idmap !== 'object') {
+      throw new Error('Live ENTID must be a JSON object')
+    }
+    client = new CloudflareWorkersSDK(merge([
+      // FIRST, so the generated fields below win: sdk-test-control.json's
+      // test.client.options adds to the live client, it does not redirect it.
+      liveClientOptions(),
+      {
+        apikey: env.CLOUDFLARE_WORKERS_APIKEY,
+      },
+      // 'extra || {}', not a bare 'extra': struct.merge returns UNDEFINED when the
+      // last entry is undefined, and basicSetup is normally called with no
+      // argument at all - so a bare 'extra' silently discarded the apikey
+      // and server values above and handed the SDK undefined. Harmless
+      // while there was nothing in that object; not harmless now.
+      extra || {},
+      { system: { fetch: transport.fetch } }
+    ]))
+  }
+
+  const setup = {
+    idmap,
+    env,
+    options,
+    client,
+    struct,
+    data: entityData,
+    explain: 'TRUE' === env.CLOUDFLARE_WORKERS_TEST_EXPLAIN,
+    live,
+    transport,
+    now: Date.now(),
+  }
+
+  return setup
+}
+  

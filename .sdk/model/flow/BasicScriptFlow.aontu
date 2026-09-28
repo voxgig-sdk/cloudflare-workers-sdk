@@ -1,0 +1,9 @@
+# BasicScriptFlow
+
+main: kit: flow: BasicScriptFlow:
+{
+  entity: "script",
+  kind: "basic",
+  name: "BasicScriptFlow",
+  "key$": "BasicScriptFlow"
+}

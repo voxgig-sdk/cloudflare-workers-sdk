@@ -1,0 +1,22 @@
+# BasicContainerImageFlow
+
+main: kit: flow: BasicContainerImageFlow:
+{
+  entity: "container_image",
+  kind: "basic",
+  name: "BasicContainerImageFlow",
+  step: [
+    {
+      i: {
+        ref: "container_image_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+  ],
+  "key$": "BasicContainerImageFlow"
+}

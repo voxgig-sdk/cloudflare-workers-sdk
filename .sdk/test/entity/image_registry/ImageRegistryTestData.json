@@ -1,0 +1,86 @@
+{
+  "existing": {
+    "image_registry": {
+      "IMAGE_REGISTRY00": {
+        "auth": {},
+        "domain": "s6f",
+        "errors": [],
+        "expiration_minutes": 113,
+        "id": "IMAGE_REGISTRY00",
+        "is_public": false,
+        "kind": "s74",
+        "messages": [],
+        "permissions": [],
+        "result": [],
+        "success": true,
+        "account_id": "ACCOUNT01"
+      },
+      "IMAGE_REGISTRY01": {
+        "auth": {},
+        "domain": "sdd",
+        "errors": [],
+        "expiration_minutes": 223,
+        "id": "IMAGE_REGISTRY01",
+        "is_public": false,
+        "kind": "se2",
+        "messages": [],
+        "permissions": [],
+        "result": [],
+        "success": true,
+        "account_id": "ACCOUNT01"
+      },
+      "IMAGE_REGISTRY02": {
+        "auth": {},
+        "domain": "s14b",
+        "errors": [],
+        "expiration_minutes": 333,
+        "id": "IMAGE_REGISTRY02",
+        "is_public": false,
+        "kind": "s150",
+        "messages": [],
+        "permissions": [],
+        "result": [],
+        "success": true,
+        "account_id": "ACCOUNT01"
+      }
+    }
+  },
+  "new": {
+    "image_registry": {
+      "image_registry_ref01": {
+        "auth": {},
+        "domain": "s1b9",
+        "errors": [],
+        "expiration_minutes": 443,
+        "is_public": false,
+        "kind": "s1be",
+        "messages": [],
+        "permissions": [],
+        "result": [],
+        "success": true
+      }
+    }
+  },
+  "requests": {
+    "POST /accounts/{account_id}/containers/registries/{domain}/credentials": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "POST /accounts/{account_id}/containers/registries": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/containers/registries": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/containers/registries/{domain}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

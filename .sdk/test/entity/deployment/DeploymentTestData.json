@@ -1,0 +1,44 @@
+{
+  "existing": {
+    "deployment": {
+      "DEPLOYMENT00": {
+        "id": "DEPLOYMENT00",
+        "account_id": "ACCOUNT01",
+        "preview_id": "PREVIEW01",
+        "worker_id": "WORKER01",
+        "script_id": "SCRIPT01"
+      },
+      "DEPLOYMENT01": {
+        "id": "DEPLOYMENT01",
+        "account_id": "ACCOUNT01",
+        "preview_id": "PREVIEW01",
+        "worker_id": "WORKER01",
+        "script_id": "SCRIPT01"
+      },
+      "DEPLOYMENT02": {
+        "id": "DEPLOYMENT02",
+        "account_id": "ACCOUNT01",
+        "preview_id": "PREVIEW01",
+        "worker_id": "WORKER01",
+        "script_id": "SCRIPT01"
+      }
+    }
+  },
+  "new": {
+    "deployment": {
+      "deployment_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /accounts/{account_id}/workers/workers/{worker_id}/previews/{preview_id}/deployments/{deployment_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "DELETE /accounts/{account_id}/workers/scripts/{script_name}/deployments/{deployment_id}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

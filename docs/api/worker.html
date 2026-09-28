@@ -1,0 +1,3077 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Worker | Cloudflare Workers</title><link rel="stylesheet" href="../assets/style.css"></head>
+<body><a class="skip" href="#content">Skip to content</a>
+<header class="site-header"><a class="site-title" href="../index.html">Cloudflare Workers<span>SDK documentation</span></a><div class="site-links"><a class="repo-link" href="https://github.com/voxgig-sdk/cloudflare-workers-sdk">voxgig-sdk/cloudflare-workers-sdk</a></div></header>
+<div class="site-notice" role="note"></div>
+<div class="shell"><nav class="site-nav" aria-label="Documentation"><div class="search"><label for="search">Search documentation</label><input id="search" type="search" data-base="../" placeholder="Find a guide or reference"><div id="results" aria-live="polite"></div></div><details><summary>Overview</summary><a href="../index.html">Cloudflare Workers</a></details>
+<details open><summary>API</summary><a href="../api/index.html">API overview</a>
+<a href="../api/account.html">Account</a>
+<a href="../api/application.html">Application</a>
+<a href="../api/brapi.html">Brapi</a>
+<a href="../api/build.html">Build</a>
+<a href="../api/build_token.html">BuildToken</a>
+<a href="../api/builds_api.html">BuildsApi</a>
+<a href="../api/connection.html">Connection</a>
+<a href="../api/container_image.html">ContainerImage</a>
+<a href="../api/container_instance.html">ContainerInstance</a>
+<a href="../api/deploy_hook.html">DeployHook</a>
+<a href="../api/deployment.html">Deployment</a>
+<a href="../api/destination.html">Destination</a>
+<a href="../api/domain.html">Domain</a>
+<a href="../api/durable_objects_namespace.html">DurableObjectsNamespace</a>
+<a href="../api/environment_variable.html">EnvironmentVariable</a>
+<a href="../api/git_hub_integration.html">GitHubIntegration</a>
+<a href="../api/hyperdrive.html">Hyperdrive</a>
+<a href="../api/image_registry.html">ImageRegistry</a>
+<a href="../api/issue.html">Issue</a>
+<a href="../api/key.html">Key</a>
+<a href="../api/live_tail.html">LiveTail</a>
+<a href="../api/metrics_export.html">MetricsExport</a>
+<a href="../api/namespace.html">Namespace</a>
+<a href="../api/preview.html">Preview</a>
+<a href="../api/preview_deployment.html">PreviewDeployment</a>
+<a href="../api/query.html">Query</a>
+<a href="../api/repository_connection.html">RepositoryConnection</a>
+<a href="../api/rollout.html">Rollout</a>
+<a href="../api/saved_query.html">SavedQuery</a>
+<a href="../api/script.html">Script</a>
+<a href="../api/script_setting.html">ScriptSetting</a>
+<a href="../api/secret.html">Secret</a>
+<a href="../api/secrets_store_delete.html">SecretsStoreDelete</a>
+<a href="../api/secrets_store_quota.html">SecretsStoreQuota</a>
+<a href="../api/secrets_store_secret.html">SecretsStoreSecret</a>
+<a href="../api/secrets_store_store.html">SecretsStoreStore</a>
+<a href="../api/secrets_store_stores_response_collection.html">SecretsStoreStoresResponseCollection</a>
+<a href="../api/setting.html">Setting</a>
+<a href="../api/shared.html">Shared</a>
+<a href="../api/tail.html">Tail</a>
+<a href="../api/token.html">Token</a>
+<a href="../api/trigger.html">Trigger</a>
+<a href="../api/usage.html">Usage</a>
+<a href="../api/value.html">Value</a>
+<a href="../api/version.html">Version</a>
+<a aria-current="page" href="../api/worker.html">Worker</a><div class="nav-sections"><a class="nav-section" href="#post-accountsaccount_idbuildsworkersscript_tagpreviewspreview_idbuilds">POST /accounts/{account_id}/builds/workers/{script_tag}/previews/{preview_id}/builds</a>
+<a class="nav-section" href="#post-accountsaccount_idbuildsworkersscript_tagmigrate_to_previews">POST /accounts/{account_id}/builds/workers/{script_tag}/migrate_to_previews</a>
+<a class="nav-section" href="#post-accountsaccount_idbuildsworkers">POST /accounts/{account_id}/builds/workers</a>
+<a class="nav-section" href="#post-accountsaccount_idworkersworkers">POST /accounts/{account_id}/workers/workers</a>
+<a class="nav-section" href="#get-accountsaccount_idworkersworkers">GET /accounts/{account_id}/workers/workers</a>
+<a class="nav-section" href="#get-accountsaccount_idbuildsworkersscript_tagpreviewspreview_idbuilds">GET /accounts/{account_id}/builds/workers/{script_tag}/previews/{preview_id}/builds</a>
+<a class="nav-section" href="#get-accountsaccount_idbuildsworkersexternal_script_idbuilds">GET /accounts/{account_id}/builds/workers/{external_script_id}/builds</a>
+<a class="nav-section" href="#get-accountsaccount_idbuildsworkersscript_tagpreviews">GET /accounts/{account_id}/builds/workers/{script_tag}/previews</a>
+<a class="nav-section" href="#get-accountsaccount_idbuildsworkersexternal_script_idtriggers">GET /accounts/{account_id}/builds/workers/{external_script_id}/triggers</a>
+<a class="nav-section" href="#get-accountsaccount_idbuildsworkersscript_tagpreviewspreview_id">GET /accounts/{account_id}/builds/workers/{script_tag}/previews/{preview_id}</a>
+<a class="nav-section" href="#get-accountsaccount_idbuildsworkersscript_tag">GET /accounts/{account_id}/builds/workers/{script_tag}</a>
+<a class="nav-section" href="#get-accountsaccount_idworkersworkersworker_id">GET /accounts/{account_id}/workers/workers/{worker_id}</a>
+<a class="nav-section" href="#patch-accountsaccount_idbuildsworkersscript_tag">PATCH /accounts/{account_id}/builds/workers/{script_tag}</a>
+<a class="nav-section" href="#patch-accountsaccount_idbuildsworkersscript_tagpreviewspreview_id">PATCH /accounts/{account_id}/builds/workers/{script_tag}/previews/{preview_id}</a>
+<a class="nav-section" href="#patch-accountsaccount_idworkersworkersworker_id">PATCH /accounts/{account_id}/workers/workers/{worker_id}</a>
+<a class="nav-section" href="#delete-accountsaccount_idworkersworkersworker_id">DELETE /accounts/{account_id}/workers/workers/{worker_id}</a>
+<a class="nav-section" href="#delete-accountsaccount_idbuildsworkersscript_tag">DELETE /accounts/{account_id}/builds/workers/{script_tag}</a>
+<a class="nav-section" href="#put-accountsaccount_idworkersworkersworker_id">PUT /accounts/{account_id}/workers/workers/{worker_id}</a></div>
+<a href="../api/worker_cron_trigger.html">WorkerCronTrigger</a>
+<a href="../api/worker_deployment.html">WorkerDeployment</a>
+<a href="../api/worker_environment.html">WorkerEnvironment</a>
+<a href="../api/worker_route.html">WorkerRoute</a>
+<a href="../api/worker_script.html">WorkerScript</a>
+<a href="../api/worker_subdomain.html">WorkerSubdomain</a>
+<a href="../api/worker_tail_log.html">WorkerTailLog</a>
+<a href="../api/workers_account_setting.html">WorkersAccountSetting</a>
+<a href="../api/workers_api_response_null_result.html">WorkersApiResponseNullResult</a>
+<a href="../api/workers_completed_upload_asset.html">WorkersCompletedUploadAsset</a>
+<a href="../api/workers_create_assets_upload_session.html">WorkersCreateAssetsUploadSession</a>
+<a href="../api/workers_for_platform.html">WorkersForPlatform</a>
+<a href="../api/workers_kv_api_response_common_no_result.html">WorkersKvApiResponseCommonNoResult</a>
+<a href="../api/workers_kv_namespace.html">WorkersKvNamespace</a>
+<a href="../api/workers_namespace_list.html">WorkersNamespaceList</a>
+<a href="../api/workers_namespace_script_delete_bulk.html">WorkersNamespaceScriptDeleteBulk</a>
+<a href="../api/workers_namespace_script_response_single.html">WorkersNamespaceScriptResponseSingle</a>
+<a href="../api/workers_namespace_single.html">WorkersNamespaceSingle</a>
+<a href="../api/workers_pipelines_other.html">WorkersPipelinesOther</a>
+<a href="../api/workers_script_and_version_setting.html">WorkersScriptAndVersionSetting</a>
+<a href="../api/workers_script_response_collection.html">WorkersScriptResponseCollection</a>
+<a href="../api/workers_script_response_single.html">WorkersScriptResponseSingle</a>
+<a href="../api/workers_smart_placement.html">WorkersSmartPlacement</a>
+<a href="../api/workers_usage_model.html">WorkersUsageModel</a>
+<a href="../api/workers_versions_list.html">WorkersVersionsList</a>
+<a href="../api/workers_versions_single.html">WorkersVersionsSingle</a>
+<a href="../api/workers_versions_upload.html">WorkersVersionsUpload</a>
+<a href="../api/workflow.html">Workflow</a></details>
+<details><summary>Guides</summary><a href="../guides/authentication.html">Authentication</a>
+<a href="../guides/first-call.html">Make your first API call</a>
+<a href="../guides/errors.html">Handle errors</a>
+<a href="../guides/concepts.html">Entities, SDKs, and tools</a></details>
+<details><summary>SDKs</summary><a href="../sdks/go.html">Golang</a>
+<a href="../sdks/lua.html">Lua</a>
+<a href="../sdks/php.html">PHP</a>
+<a href="../sdks/py.html">Python</a>
+<a href="../sdks/rb.html">Ruby</a>
+<a href="../sdks/ts.html">TypeScript</a></details>
+<details><summary>Tools</summary><a href="../tools/go-cli.html">Go CLI</a>
+<a href="../tools/go-mcp.html">Go MCP server</a></details>
+<details><summary>Features</summary><a href="../features/test.html">Test transport</a></details></nav><main id="content"><div class="page-context"><span class="section-dot" aria-hidden="true"></span>API</div><h1 id="worker">Worker</h1>
+<h2 id="operations">Operations</h2>
+<p>Every route this entity exposes. Each route links to its own reference on this page.</p>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Route</th>
+<th>SDK operation</th>
+<th>Returns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idbuildsworkersscript_tagpreviewspreview_idbuilds"><code>/accounts/{account_id}/builds/workers/{script_tag}/previews/{preview_id}/builds</code></a></td>
+<td><code>create</code></td>
+<td>Build created successfully</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idbuildsworkersscript_tagmigrate_to_previews"><code>/accounts/{account_id}/builds/workers/{script_tag}/migrate_to_previews</code></a></td>
+<td><code>create</code></td>
+<td>Worker migrated to Previews successfully</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idbuildsworkers"><code>/accounts/{account_id}/builds/workers</code></a></td>
+<td><code>create</code></td>
+<td>Worker build configuration created successfully</td>
+</tr>
+<tr>
+<td><code>POST</code></td>
+<td><a href="#post-accountsaccount_idworkersworkers"><code>/accounts/{account_id}/workers/workers</code></a></td>
+<td><code>create</code></td>
+<td>Create Worker success</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idworkersworkers"><code>/accounts/{account_id}/workers/workers</code></a></td>
+<td><code>list</code></td>
+<td>List Workers success</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idbuildsworkersscript_tagpreviewspreview_idbuilds"><code>/accounts/{account_id}/builds/workers/{script_tag}/previews/{preview_id}/builds</code></a></td>
+<td><code>list</code></td>
+<td>Builds retrieved successfully</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idbuildsworkersexternal_script_idbuilds"><code>/accounts/{account_id}/builds/workers/{external_script_id}/builds</code></a></td>
+<td><code>list</code></td>
+<td>Builds retrieved successfully</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idbuildsworkersscript_tagpreviews"><code>/accounts/{account_id}/builds/workers/{script_tag}/previews</code></a></td>
+<td><code>list</code></td>
+<td>Previews retrieved successfully</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idbuildsworkersexternal_script_idtriggers"><code>/accounts/{account_id}/builds/workers/{external_script_id}/triggers</code></a></td>
+<td><code>list</code></td>
+<td>Triggers retrieved successfully</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idbuildsworkersscript_tagpreviewspreview_id"><code>/accounts/{account_id}/builds/workers/{script_tag}/previews/{preview_id}</code></a></td>
+<td><code>load</code></td>
+<td>Preview retrieved successfully</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idbuildsworkersscript_tag"><code>/accounts/{account_id}/builds/workers/{script_tag}</code></a></td>
+<td><code>load</code></td>
+<td>Worker build configuration retrieved successfully</td>
+</tr>
+<tr>
+<td><code>GET</code></td>
+<td><a href="#get-accountsaccount_idworkersworkersworker_id"><code>/accounts/{account_id}/workers/workers/{worker_id}</code></a></td>
+<td><code>load</code></td>
+<td>Get Worker success</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-accountsaccount_idbuildsworkersscript_tag"><code>/accounts/{account_id}/builds/workers/{script_tag}</code></a></td>
+<td><code>patch</code></td>
+<td>Worker build configuration updated successfully</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-accountsaccount_idbuildsworkersscript_tagpreviewspreview_id"><code>/accounts/{account_id}/builds/workers/{script_tag}/previews/{preview_id}</code></a></td>
+<td><code>patch</code></td>
+<td>Preview updated successfully</td>
+</tr>
+<tr>
+<td><code>PATCH</code></td>
+<td><a href="#patch-accountsaccount_idworkersworkersworker_id"><code>/accounts/{account_id}/workers/workers/{worker_id}</code></a></td>
+<td><code>patch</code></td>
+<td>Partially Update Worker success</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idworkersworkersworker_id"><code>/accounts/{account_id}/workers/workers/{worker_id}</code></a></td>
+<td><code>remove</code></td>
+<td>Delete Worker success</td>
+</tr>
+<tr>
+<td><code>DELETE</code></td>
+<td><a href="#delete-accountsaccount_idbuildsworkersscript_tag"><code>/accounts/{account_id}/builds/workers/{script_tag}</code></a></td>
+<td><code>remove</code></td>
+<td>Worker build configuration deleted successfully</td>
+</tr>
+<tr>
+<td><code>PUT</code></td>
+<td><a href="#put-accountsaccount_idworkersworkersworker_id"><code>/accounts/{account_id}/workers/workers/{worker_id}</code></a></td>
+<td><code>update</code></td>
+<td>Update Worker success</td>
+</tr>
+</tbody>
+</table>
+<h2 id="examples">Examples</h2>
+<p>One example per SDK, generated from the API model. The argument names are the parameters and fields of this entity, and the values are placeholders. The examples are not compiled or executed.</p>
+<h3 id="golang">Golang</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/go.html#set-up-the-client">Golang setup</a>, then call the operations:</p>
+<pre><code class="language-go">workers, err := client.Worker(nil).List(map[string]any{&quot;account_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(workers)
+worker, err := client.Worker(nil).Load(map[string]any{&quot;account_id&quot;: &quot;example&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(worker)
+created, err := client.Worker(nil).Create(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;errors&quot;: []any{}, &quot;git_repository&quot;: &quot;example&quot;, &quot;messages&quot;: []any{}, &quot;previews_base_config&quot;: map[string]any{}, &quot;previews_enabled&quot;: true, &quot;production_settings&quot;: map[string]any{}, &quot;result&quot;: map[string]any{}, &quot;script_tag&quot;: &quot;example&quot;, &quot;success&quot;: true}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(created)
+updated, err := client.Worker(nil).Update(map[string]any{&quot;id&quot;: &quot;example_id&quot;, &quot;account_id&quot;: &quot;example&quot;, &quot;auto_build&quot;: true}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(updated)
+removed, err := client.Worker(nil).Remove(map[string]any{&quot;account_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example_id&quot;}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(removed)
+</code></pre>
+<h3 id="lua">Lua</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/lua.html#set-up-the-client">Lua setup</a>, then call the operations:</p>
+<pre><code class="language-lua">local workers, err = client:Worker():list({ account_id = &quot;example&quot; })
+local worker, err = client:Worker():load({ account_id = &quot;example&quot; })
+local created, err = client:Worker():create({ account_id = &quot;example&quot;, errors = {}, git_repository = &quot;example&quot;, messages = {}, previews_base_config = {}, previews_enabled = true, production_settings = {}, result = {}, script_tag = &quot;example&quot;, success = true })
+local updated, err = client:Worker():update({ id = &quot;example_id&quot;, account_id = &quot;example&quot;, auto_build = true })
+local removed, err = client:Worker():remove({ account_id = &quot;example&quot;, id = &quot;example_id&quot; })
+</code></pre>
+<h3 id="php">PHP</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/php.html#set-up-the-client">PHP setup</a>, then call the operations:</p>
+<pre><code class="language-php">$workers = $client-&gt;Worker()-&gt;list([&quot;account_id&quot; =&gt; &quot;example&quot;]);
+$worker = $client-&gt;Worker()-&gt;load([&quot;account_id&quot; =&gt; &quot;example&quot;]);
+$created = $client-&gt;Worker()-&gt;create([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;errors&quot; =&gt; [], &quot;git_repository&quot; =&gt; &quot;example&quot;, &quot;messages&quot; =&gt; [], &quot;previews_base_config&quot; =&gt; [], &quot;previews_enabled&quot; =&gt; true, &quot;production_settings&quot; =&gt; [], &quot;result&quot; =&gt; [], &quot;script_tag&quot; =&gt; &quot;example&quot;, &quot;success&quot; =&gt; true]);
+$updated = $client-&gt;Worker()-&gt;update([&quot;id&quot; =&gt; &quot;example_id&quot;, &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;auto_build&quot; =&gt; true]);
+$client-&gt;Worker()-&gt;remove([&quot;account_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example_id&quot;]);
+</code></pre>
+<h3 id="python">Python</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/py.html#set-up-the-client">Python setup</a>, then call the operations:</p>
+<pre><code class="language-py">workers = client.Worker().list({&quot;account_id&quot;: &quot;example&quot;})
+worker = client.Worker().load({&quot;account_id&quot;: &quot;example&quot;})
+created = client.Worker().create({ &quot;account_id&quot;: &quot;example&quot;, &quot;errors&quot;: [], &quot;git_repository&quot;: &quot;example&quot;, &quot;messages&quot;: [], &quot;previews_base_config&quot;: {}, &quot;previews_enabled&quot;: True, &quot;production_settings&quot;: {}, &quot;result&quot;: {}, &quot;script_tag&quot;: &quot;example&quot;, &quot;success&quot;: True })
+updated = client.Worker().update({&quot;id&quot;: &quot;example_id&quot;, &quot;account_id&quot;: &quot;example&quot;, &quot;auto_build&quot;: True})
+client.Worker().remove({&quot;account_id&quot;: &quot;example&quot;, &quot;id&quot;: &quot;example_id&quot;})
+</code></pre>
+<h3 id="ruby">Ruby</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/rb.html#set-up-the-client">Ruby setup</a>, then call the operations:</p>
+<pre><code class="language-rb">workers = client.Worker.list({ &quot;account_id&quot; =&gt; &quot;example&quot; })
+worker = client.Worker.load({ &quot;account_id&quot; =&gt; &quot;example&quot; })
+created = client.Worker.create({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;errors&quot; =&gt; [], &quot;git_repository&quot; =&gt; &quot;example&quot;, &quot;messages&quot; =&gt; [], &quot;previews_base_config&quot; =&gt; {}, &quot;previews_enabled&quot; =&gt; true, &quot;production_settings&quot; =&gt; {}, &quot;result&quot; =&gt; {}, &quot;script_tag&quot; =&gt; &quot;example&quot;, &quot;success&quot; =&gt; true })
+updated = client.Worker.update({ &quot;id&quot; =&gt; &quot;example_id&quot;, &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;auto_build&quot; =&gt; true })
+client.Worker.remove({ &quot;account_id&quot; =&gt; &quot;example&quot;, &quot;id&quot; =&gt; &quot;example_id&quot; })
+</code></pre>
+<h3 id="typescript">TypeScript</h3>
+<p>Construct <code>client</code> as shown in the <a href="../sdks/ts.html#set-up-the-client">TypeScript setup</a>, then call the operations:</p>
+<pre><code class="language-ts">const workers = await client.Worker().list({ account_id: &quot;example&quot; })
+const worker = await client.Worker().load({ account_id: &quot;example&quot; })
+const created = await client.Worker().create({ account_id: &quot;example&quot;, errors: [], git_repository: &quot;example&quot;, messages: [], previews_base_config: {}, previews_enabled: true, production_settings: {}, result: {}, script_tag: &quot;example&quot;, success: true })
+const updated = await client.Worker().update({ id: &quot;example_id&quot;, account_id: &quot;example&quot;, auto_build: true })
+await client.Worker().remove({ account_id: &quot;example&quot;, id: &quot;example_id&quot; })
+</code></pre>
+<h2 id="fields">Fields</h2>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>auto_build</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether pushes to the git branch build this Preview.</td>
+</tr>
+<tr>
+<td><code>auto_delete</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether deleting the git branch also deletes this Preview.</td>
+</tr>
+<tr>
+<td><code>branch</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Git branch name (required if <code>commit_hash</code> not provided)</td>
+</tr>
+<tr>
+<td><code>commit_hash</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Git commit hash (required if branch not provided)</td>
+</tr>
+<tr>
+<td><code>errors</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Errors</td>
+</tr>
+<tr>
+<td><code>git_repository</code></td>
+<td><code>any</code></td>
+<td>Yes</td>
+<td>Git repository settings to update</td>
+</tr>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Id</td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array</code></td>
+<td>Yes</td>
+<td>Messages</td>
+</tr>
+<tr>
+<td><code>previews_base_config</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Build and deploy settings when creating a Worker build configuration</td>
+</tr>
+<tr>
+<td><code>previews_enabled</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether Previews are enabled for this Worker</td>
+</tr>
+<tr>
+<td><code>production_settings</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Build and deploy settings when creating a Worker build configuration</td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>A single Preview of a Worker, with the build settings it currently uses.</td>
+</tr>
+<tr>
+<td><code>result_info</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Result Info</td>
+</tr>
+<tr>
+<td><code>script_tag</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>System-generated tag of the Worker.</td>
+</tr>
+<tr>
+<td><code>seed_repo</code></td>
+<td><code>any</code></td>
+<td>No</td>
+<td>Optional repository and file overrides used to seed this build.</td>
+</tr>
+<tr>
+<td><code>settings</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Partial build settings for updating a Worker build configuration</td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="create">create</h2>
+<h3 id="post-accountsaccount_idbuildsworkersscript_tagpreviewspreview_idbuilds" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/builds/workers/{script_tag}/previews/{preview_id}/builds</h3>
+<p>Operation ID: <code>createPreviewBuild</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>script_tag</code> | <code>path</code> | <code>string</code> | Yes | The Worker script tag (external script ID) |
+| <code>preview_id</code> | <code>path</code> | <code>string</code> | Yes | The script tag of the Preview, which is a Worker in its own right |</p>
+<h4 id="request-body">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>branch</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Git branch name (required if <code>commit_hash</code> not provided)</td>
+</tr>
+<tr>
+<td><code>commit_hash</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Git commit hash (required if branch not provided)</td>
+</tr>
+<tr>
+<td><code>seed_repo</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Optional repository and file overrides used to seed this build.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="responses">Responses</h4>
+<h5 id="200-build-created-successfully" class="status" data-status="2xx">200: Build created successfully</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="400-invalid-request" class="status" data-status="4xx">400: Invalid request</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12002,
+      &quot;message&quot;: &quot;Invalid request body&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h5 id="401-authentication-required" class="status" data-status="4xx">401: Authentication required</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12005,
+      &quot;message&quot;: &quot;Missing token from authorization header&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h5 id="404-resource-not-found" class="status" data-status="4xx">404: Resource not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12000,
+      &quot;message&quot;: &quot;Not found&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h3 id="post-accountsaccount_idbuildsworkersscript_tagmigrate_to_previews" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/builds/workers/{script_tag}/migrate_to_previews</h3>
+<p>Operation ID: <code>migrateWorkerToPreviews</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-1">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>script_tag</code> | <code>path</code> | <code>string</code> | Yes | The Worker script tag (external script ID) |</p>
+<h4 id="request-body-1">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>deploy_command</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Deploy command for the migrated Preview settings. Omit it to have the existing 'wrangler versions upload' command rewritten to 'wrangler preview' automatically, which fails with 400 when the existing command cannot be rewritten.</td>
+</tr>
+</tbody>
+</table>
+<p>Example request body:</p>
+<pre><code class="language-json">{}
+</code></pre>
+<h4 id="responses-1">Responses</h4>
+<h5 id="200-worker-migrated-to-previews-successfully" class="status" data-status="2xx">200: Worker migrated to Previews successfully</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="400-invalid-request-1" class="status" data-status="4xx">400: Invalid request</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12002,
+      &quot;message&quot;: &quot;Invalid request body&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h5 id="401-authentication-required-1" class="status" data-status="4xx">401: Authentication required</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12005,
+      &quot;message&quot;: &quot;Missing token from authorization header&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h5 id="404-resource-not-found-1" class="status" data-status="4xx">404: Resource not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12000,
+      &quot;message&quot;: &quot;Not found&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h3 id="post-accountsaccount_idbuildsworkers" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/builds/workers</h3>
+<p>Operation ID: <code>createWorkerBuild</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-2">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-2">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git_repository</code></td>
+<td><code>object or object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>previews_base_config</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Build and deploy settings when creating a Worker build configuration</td>
+</tr>
+<tr>
+<td><code>previews_base_config.build_caching_enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>previews_base_config.build_command</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Command to build the Worker.</td>
+</tr>
+<tr>
+<td><code>previews_base_config.build_token_uuid</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>UUID of the build token used when deploying the Worker.</td>
+</tr>
+<tr>
+<td><code>previews_base_config.deploy_command</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Command to deploy the Worker.</td>
+</tr>
+<tr>
+<td><code>previews_base_config.environment_variables</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Map of environment-variable names to build-time values. Names must begin with a letter or underscore and contain only letters, numbers, and underscores.</td>
+</tr>
+<tr>
+<td><code>previews_base_config.path_excludes</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Path patterns that must not start builds.</td>
+</tr>
+<tr>
+<td><code>previews_base_config.path_includes</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Path patterns that can start builds.</td>
+</tr>
+<tr>
+<td><code>previews_base_config.root_directory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>previews_enabled</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td>Whether Previews are enabled for this Worker</td>
+</tr>
+<tr>
+<td><code>production_settings</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td>Build and deploy settings when creating a Worker build configuration</td>
+</tr>
+<tr>
+<td><code>production_settings.build_caching_enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>production_settings.build_command</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Command to build the Worker.</td>
+</tr>
+<tr>
+<td><code>production_settings.build_token_uuid</code></td>
+<td><code>string (uuid)</code></td>
+<td>Yes</td>
+<td>UUID of the build token used when deploying the Worker.</td>
+</tr>
+<tr>
+<td><code>production_settings.deploy_command</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>Command to deploy the Worker.</td>
+</tr>
+<tr>
+<td><code>production_settings.environment_variables</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Map of environment-variable names to build-time values. Names must begin with a letter or underscore and contain only letters, numbers, and underscores.</td>
+</tr>
+<tr>
+<td><code>production_settings.path_excludes</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Path patterns that must not start builds.</td>
+</tr>
+<tr>
+<td><code>production_settings.path_includes</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Path patterns that can start builds.</td>
+</tr>
+<tr>
+<td><code>production_settings.root_directory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>script_tag</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td>System-generated tag of the Worker. This is not the Worker name.</td>
+</tr>
+</tbody>
+</table>
+<p>Example request body:</p>
+<pre><code class="language-json">{
+  &quot;git_repository&quot;: {
+    &quot;branch&quot;: &quot;main&quot;,
+    &quot;provider_account_id&quot;: &quot;cloudflare&quot;,
+    &quot;provider_account_name&quot;: &quot;Cloudflare&quot;,
+    &quot;provider_type&quot;: &quot;github&quot;,
+    &quot;repo_id&quot;: &quot;workers-sdk&quot;,
+    &quot;repo_name&quot;: &quot;workers-sdk&quot;
+  },
+  &quot;previews_base_config&quot;: {
+    &quot;build_caching_enabled&quot;: true,
+    &quot;build_command&quot;: &quot;npm run build&quot;,
+    &quot;build_token_uuid&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;deploy_command&quot;: &quot;npx wrangler preview&quot;,
+    &quot;environment_variables&quot;: {},
+    &quot;path_excludes&quot;: [
+      &quot;*.md&quot;
+    ],
+    &quot;path_includes&quot;: [
+      &quot;*&quot;
+    ],
+    &quot;root_directory&quot;: &quot;/&quot;
+  },
+  &quot;previews_enabled&quot;: true,
+  &quot;production_settings&quot;: {
+    &quot;build_caching_enabled&quot;: true,
+    &quot;build_command&quot;: &quot;npm run build&quot;,
+    &quot;build_token_uuid&quot;: &quot;00000000-0000-0000-0000-000000000000&quot;,
+    &quot;deploy_command&quot;: &quot;npx wrangler deploy&quot;,
+    &quot;environment_variables&quot;: {},
+    &quot;path_excludes&quot;: [
+      &quot;*.md&quot;
+    ],
+    &quot;path_includes&quot;: [
+      &quot;*&quot;
+    ],
+    &quot;root_directory&quot;: &quot;/&quot;
+  },
+  &quot;script_tag&quot;: &quot;my-worker&quot;
+}
+</code></pre>
+<h4 id="responses-2">Responses</h4>
+<h5 id="201-worker-build-configuration-created-successfully" class="status" data-status="2xx">201: Worker build configuration created successfully</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="400-invalid-request-2" class="status" data-status="4xx">400: Invalid request</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12002,
+      &quot;message&quot;: &quot;Invalid request body&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h5 id="401-authentication-required-2" class="status" data-status="4xx">401: Authentication required</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12005,
+      &quot;message&quot;: &quot;Missing token from authorization header&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h5 id="404-resource-not-found-2" class="status" data-status="4xx">404: Resource not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12000,
+      &quot;message&quot;: &quot;Not found&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h5 id="409-conflict---duplicate-resource" class="status" data-status="4xx">409: Conflict - duplicate resource</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12049,
+      &quot;message&quot;: &quot;Resource already exists&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h3 id="post-accountsaccount_idworkersworkers" class="operation" data-method="post"><code>POST</code> /accounts/{account_id}/workers/workers</h3>
+<p>Operation ID: <code>createWorker</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-3">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-3">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object and object</code>.</p>
+<h4 id="responses-3">Responses</h4>
+<h5 id="200-create-worker-success" class="status" data-status="2xx">200: Create Worker success</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="400-bad-request---invalid-input-data" class="status" data-status="4xx">400: Bad Request - Invalid input data</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="401-authentication-required-or-insufficient-permissions" class="status" data-status="4xx">401: Authentication required or insufficient permissions</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="403-forbidden---access-denied-or-limit-exceeded" class="status" data-status="4xx">403: Forbidden - Access denied or limit exceeded</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="409-conflict---resource-already-exists" class="status" data-status="4xx">409: Conflict - Resource already exists</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="500-internal-server-error---an-unexpected-server-error-occurred" class="status" data-status="5xx">500: Internal Server Error - An unexpected server error occurred</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h2 id="list">list</h2>
+<h3 id="get-accountsaccount_idworkersworkers" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/workers/workers</h3>
+<p>Operation ID: <code>listWorkers</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-4">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No | Current page. |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No | Items per-page. |
+| <code>order_by</code> | <code>query</code> | <code>enum: deployed_on, updated_on, created_on, name</code> | No | Property to sort results by. |
+| <code>order</code> | <code>query</code> | <code>enum: asc, desc</code> | No | Sort direction. |</p>
+<h4 id="responses-4">Responses</h4>
+<h5 id="200-list-workers-success" class="status" data-status="2xx">200: List Workers success</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object and object</code>.</p>
+<h5 id="401-authentication-required-or-insufficient-permissions-1" class="status" data-status="4xx">401: Authentication required or insufficient permissions</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="500-internal-server-error---an-unexpected-server-error-occurred-1" class="status" data-status="5xx">500: Internal Server Error - An unexpected server error occurred</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h3 id="get-accountsaccount_idbuildsworkersscript_tagpreviewspreview_idbuilds" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/builds/workers/{script_tag}/previews/{preview_id}/builds</h3>
+<p>Operation ID: <code>listBuildsByPreview</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-5">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>script_tag</code> | <code>path</code> | <code>string</code> | Yes | The Worker script tag (external script ID) |
+| <code>preview_id</code> | <code>path</code> | <code>string</code> | Yes | The script tag of the Preview, which is a Worker in its own right |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No | Page number for pagination |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No | Number of items per page |</p>
+<h4 id="responses-5">Responses</h4>
+<h5 id="200-builds-retrieved-successfully" class="status" data-status="2xx">200: Builds retrieved successfully</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="401-authentication-required-3" class="status" data-status="4xx">401: Authentication required</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12005,
+      &quot;message&quot;: &quot;Missing token from authorization header&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h5 id="404-resource-not-found-3" class="status" data-status="4xx">404: Resource not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12000,
+      &quot;message&quot;: &quot;Not found&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h3 id="get-accountsaccount_idbuildsworkersexternal_script_idbuilds" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/builds/workers/{external_script_id}/builds</h3>
+<p>Operation ID: <code>listBuildsByScript</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-6">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>external_script_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No | Page number for pagination |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No | Number of items per page |</p>
+<h4 id="responses-6">Responses</h4>
+<h5 id="200-builds-retrieved-successfully-1" class="status" data-status="2xx">200: Builds retrieved successfully</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="401-authentication-required-4" class="status" data-status="4xx">401: Authentication required</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12005,
+      &quot;message&quot;: &quot;Missing token from authorization header&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h3 id="get-accountsaccount_idbuildsworkersscript_tagpreviews" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/builds/workers/{script_tag}/previews</h3>
+<p>Operation ID: <code>listWorkerPreviews</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-7">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>script_tag</code> | <code>path</code> | <code>string</code> | Yes | The Worker script tag (external script ID) |
+| <code>page</code> | <code>query</code> | <code>integer</code> | No | Page number for pagination |
+| <code>per_page</code> | <code>query</code> | <code>integer</code> | No | Number of items per page |</p>
+<h4 id="responses-7">Responses</h4>
+<h5 id="200-previews-retrieved-successfully" class="status" data-status="2xx">200: Previews retrieved successfully</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="401-authentication-required-5" class="status" data-status="4xx">401: Authentication required</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12005,
+      &quot;message&quot;: &quot;Missing token from authorization header&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h3 id="get-accountsaccount_idbuildsworkersexternal_script_idtriggers" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/builds/workers/{external_script_id}/triggers</h3>
+<p>Operation ID: <code>listTriggersByScript</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-8">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>external_script_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-8">Responses</h4>
+<h5 id="200-triggers-retrieved-successfully" class="status" data-status="2xx">200: Triggers retrieved successfully</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="401-authentication-required-6" class="status" data-status="4xx">401: Authentication required</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12005,
+      &quot;message&quot;: &quot;Missing token from authorization header&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h2 id="load">load</h2>
+<h3 id="get-accountsaccount_idbuildsworkersscript_tagpreviewspreview_id" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/builds/workers/{script_tag}/previews/{preview_id}</h3>
+<p>Operation ID: <code>getWorkerPreview</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-9">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>script_tag</code> | <code>path</code> | <code>string</code> | Yes | The Worker script tag (external script ID) |
+| <code>preview_id</code> | <code>path</code> | <code>string</code> | Yes | The script tag of the Preview, which is a Worker in its own right |</p>
+<h4 id="responses-9">Responses</h4>
+<h5 id="200-preview-retrieved-successfully" class="status" data-status="2xx">200: Preview retrieved successfully</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="401-authentication-required-7" class="status" data-status="4xx">401: Authentication required</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12005,
+      &quot;message&quot;: &quot;Missing token from authorization header&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h5 id="404-resource-not-found-4" class="status" data-status="4xx">404: Resource not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12000,
+      &quot;message&quot;: &quot;Not found&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h3 id="get-accountsaccount_idbuildsworkersscript_tag" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/builds/workers/{script_tag}</h3>
+<p>Operation ID: <code>getWorkerBuild</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-10">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>script_tag</code> | <code>path</code> | <code>string</code> | Yes | The Worker script tag (external script ID) |</p>
+<h4 id="responses-10">Responses</h4>
+<h5 id="200-worker-build-configuration-retrieved-successfully" class="status" data-status="2xx">200: Worker build configuration retrieved successfully</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="401-authentication-required-8" class="status" data-status="4xx">401: Authentication required</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12005,
+      &quot;message&quot;: &quot;Missing token from authorization header&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h5 id="404-resource-not-found-5" class="status" data-status="4xx">404: Resource not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12000,
+      &quot;message&quot;: &quot;Not found&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h3 id="get-accountsaccount_idworkersworkersworker_id" class="operation" data-method="get"><code>GET</code> /accounts/{account_id}/workers/workers/{worker_id}</h3>
+<p>Operation ID: <code>getWorker</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-11">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>worker_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="responses-11">Responses</h4>
+<h5 id="200-get-worker-success" class="status" data-status="2xx">200: Get Worker success</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="400-bad-request---missing-or-invalid-parameters" class="status" data-status="4xx">400: Bad Request - Missing or invalid parameters</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="404-not-found---worker-does-not-exist" class="status" data-status="4xx">404: Not Found - Worker does not exist</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="500-internal-server-error---an-unexpected-server-error-occurred-2" class="status" data-status="5xx">500: Internal Server Error - An unexpected server error occurred</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h2 id="patch">patch</h2>
+<h3 id="patch-accountsaccount_idbuildsworkersscript_tag" class="operation" data-method="patch"><code>PATCH</code> /accounts/{account_id}/builds/workers/{script_tag}</h3>
+<p>Operation ID: <code>updateWorkerBuild</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-12">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>script_tag</code> | <code>path</code> | <code>string</code> | Yes | The Worker script tag (external script ID) |
+| <code>patch_existing_previews</code> | <code>query</code> | <code>enum: true, false</code> | No | Apply a <code>previews_base_config</code> patch to every existing Preview of the Worker as well as to the base config. |</p>
+<h4 id="request-body-4">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git_repository</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Git repository settings to update</td>
+</tr>
+<tr>
+<td><code>git_repository.branch</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>New git branch to watch for builds</td>
+</tr>
+<tr>
+<td><code>previews_base_config</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Partial build settings for updating a Worker build configuration</td>
+</tr>
+<tr>
+<td><code>previews_base_config.build_caching_enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether builds reuse cached dependencies and build artifacts.</td>
+</tr>
+<tr>
+<td><code>previews_base_config.build_command</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Command to build the Worker.</td>
+</tr>
+<tr>
+<td><code>previews_base_config.build_token_uuid</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>UUID of the build token used when deploying the Worker.</td>
+</tr>
+<tr>
+<td><code>previews_base_config.deploy_command</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Command to deploy the Worker.</td>
+</tr>
+<tr>
+<td><code>previews_base_config.environment_variables</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Environment variable updates. Set the variable entry to null to delete it.</td>
+</tr>
+<tr>
+<td><code>previews_base_config.path_excludes</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Path patterns that must not start builds.</td>
+</tr>
+<tr>
+<td><code>previews_base_config.path_includes</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Path patterns that can start builds.</td>
+</tr>
+<tr>
+<td><code>previews_base_config.root_directory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Repository directory in which build and deploy commands run.</td>
+</tr>
+<tr>
+<td><code>previews_enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Enable or disable Previews for this Worker. Enabling requires <code>previews_base_config</code> to already exist or to be sent in the same request.</td>
+</tr>
+<tr>
+<td><code>production_settings</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Partial build settings for updating a Worker build configuration</td>
+</tr>
+<tr>
+<td><code>production_settings.build_caching_enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether builds reuse cached dependencies and build artifacts.</td>
+</tr>
+<tr>
+<td><code>production_settings.build_command</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Command to build the Worker.</td>
+</tr>
+<tr>
+<td><code>production_settings.build_token_uuid</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>UUID of the build token used when deploying the Worker.</td>
+</tr>
+<tr>
+<td><code>production_settings.deploy_command</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Command to deploy the Worker.</td>
+</tr>
+<tr>
+<td><code>production_settings.environment_variables</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Environment variable updates. Set the variable entry to null to delete it.</td>
+</tr>
+<tr>
+<td><code>production_settings.path_excludes</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Path patterns that must not start builds.</td>
+</tr>
+<tr>
+<td><code>production_settings.path_includes</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Path patterns that can start builds.</td>
+</tr>
+<tr>
+<td><code>production_settings.root_directory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Repository directory in which build and deploy commands run.</td>
+</tr>
+</tbody>
+</table>
+<p>Example request body:</p>
+<pre><code class="language-json">{
+  &quot;production_settings&quot;: {
+    &quot;build_command&quot;: &quot;npm run build:production&quot;,
+    &quot;deploy_command&quot;: &quot;npx wrangler deploy --env production&quot;
+  }
+}
+</code></pre>
+<h4 id="responses-12">Responses</h4>
+<h5 id="200-worker-build-configuration-updated-successfully" class="status" data-status="2xx">200: Worker build configuration updated successfully</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="400-invalid-request-3" class="status" data-status="4xx">400: Invalid request</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12002,
+      &quot;message&quot;: &quot;Invalid request body&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h5 id="401-authentication-required-9" class="status" data-status="4xx">401: Authentication required</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12005,
+      &quot;message&quot;: &quot;Missing token from authorization header&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h5 id="404-resource-not-found-6" class="status" data-status="4xx">404: Resource not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12000,
+      &quot;message&quot;: &quot;Not found&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h3 id="patch-accountsaccount_idbuildsworkersscript_tagpreviewspreview_id" class="operation" data-method="patch"><code>PATCH</code> /accounts/{account_id}/builds/workers/{script_tag}/previews/{preview_id}</h3>
+<p>Operation ID: <code>updateWorkerPreview</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-13">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>script_tag</code> | <code>path</code> | <code>string</code> | Yes | The Worker script tag (external script ID) |
+| <code>preview_id</code> | <code>path</code> | <code>string</code> | Yes | The script tag of the Preview, which is a Worker in its own right |</p>
+<h4 id="request-body-5">Request body</h4>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>auto_build</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether pushes to the git branch build this Preview. Deploy hooks, manual builds, and retries run regardless of this setting.</td>
+</tr>
+<tr>
+<td><code>auto_delete</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether deleting the git branch also deletes this Preview.</td>
+</tr>
+<tr>
+<td><code>branch</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Git branch this Preview tracks</td>
+</tr>
+<tr>
+<td><code>settings</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Partial build settings for updating a Worker build configuration</td>
+</tr>
+<tr>
+<td><code>settings.build_caching_enabled</code></td>
+<td><code>boolean</code></td>
+<td>No</td>
+<td>Whether builds reuse cached dependencies and build artifacts.</td>
+</tr>
+<tr>
+<td><code>settings.build_command</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Command to build the Worker.</td>
+</tr>
+<tr>
+<td><code>settings.build_token_uuid</code></td>
+<td><code>string (uuid)</code></td>
+<td>No</td>
+<td>UUID of the build token used when deploying the Worker.</td>
+</tr>
+<tr>
+<td><code>settings.deploy_command</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Command to deploy the Worker.</td>
+</tr>
+<tr>
+<td><code>settings.environment_variables</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td>Environment variable updates. Set the variable entry to null to delete it.</td>
+</tr>
+<tr>
+<td><code>settings.path_excludes</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Path patterns that must not start builds.</td>
+</tr>
+<tr>
+<td><code>settings.path_includes</code></td>
+<td><code>array of string</code></td>
+<td>No</td>
+<td>Path patterns that can start builds.</td>
+</tr>
+<tr>
+<td><code>settings.root_directory</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td>Repository directory in which build and deploy commands run.</td>
+</tr>
+</tbody>
+</table>
+<p>Example request body:</p>
+<pre><code class="language-json">{
+  &quot;auto_build&quot;: false,
+  &quot;settings&quot;: {
+    &quot;build_command&quot;: &quot;npm run build:preview&quot;
+  }
+}
+</code></pre>
+<h4 id="responses-13">Responses</h4>
+<h5 id="200-preview-updated-successfully" class="status" data-status="2xx">200: Preview updated successfully</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="400-invalid-request-4" class="status" data-status="4xx">400: Invalid request</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12002,
+      &quot;message&quot;: &quot;Invalid request body&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h5 id="401-authentication-required-10" class="status" data-status="4xx">401: Authentication required</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12005,
+      &quot;message&quot;: &quot;Missing token from authorization header&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h5 id="404-resource-not-found-7" class="status" data-status="4xx">404: Resource not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12000,
+      &quot;message&quot;: &quot;Not found&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h5 id="409-conflict---duplicate-resource-1" class="status" data-status="4xx">409: Conflict - duplicate resource</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12049,
+      &quot;message&quot;: &quot;Resource already exists&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h3 id="patch-accountsaccount_idworkersworkersworker_id" class="operation" data-method="patch"><code>PATCH</code> /accounts/{account_id}/workers/workers/{worker_id}</h3>
+<p>Operation ID: <code>editWorker</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-14">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>worker_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-6">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object and object</code>.</p>
+<p><code>application/merge-patch+json</code></p>
+<p>The request body is <code>object and object</code>.</p>
+<h4 id="responses-14">Responses</h4>
+<h5 id="200-partially-update-worker-success" class="status" data-status="2xx">200: Partially Update Worker success</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="400-bad-request---invalid-input-data-1" class="status" data-status="4xx">400: Bad Request - Invalid input data</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="401-authentication-required-or-insufficient-permissions-2" class="status" data-status="4xx">401: Authentication required or insufficient permissions</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="403-forbidden---insufficient-permissions-or-quota-exceeded" class="status" data-status="4xx">403: Forbidden - Insufficient permissions or quota exceeded</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="404-not-found---worker-does-not-exist-1" class="status" data-status="4xx">404: Not Found - Worker does not exist</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="409-conflict---worker-name-already-exists" class="status" data-status="4xx">409: Conflict - Worker name already exists</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="500-internal-server-error---an-unexpected-server-error-occurred-3" class="status" data-status="5xx">500: Internal Server Error - An unexpected server error occurred</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h2 id="remove">remove</h2>
+<h3 id="delete-accountsaccount_idworkersworkersworker_id" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/workers/workers/{worker_id}</h3>
+<p>Operation ID: <code>deleteWorker</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-15">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>worker_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>force</code> | <code>query</code> | <code>boolean</code> | No | If true, delete the Worker even when other Workers still reference it. Service bindings in those Workers may be left broken. Durable Object namespaces implemented by the deleted Worker are deleted even if other Workers reference them. |</p>
+<h4 id="responses-15">Responses</h4>
+<h5 id="200-delete-worker-success" class="status" data-status="2xx">200: Delete Worker success</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].code</code></td>
+<td><code>integer</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].documentation_url</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].source</code></td>
+<td><code>object</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages[].source.pointer</code></td>
+<td><code>string</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>enum: true</code></td>
+<td>Yes</td>
+<td>Whether the API call was successful.</td>
+</tr>
+</tbody>
+</table>
+<h5 id="400-bad-request---missing-or-invalid-parameters-1" class="status" data-status="4xx">400: Bad Request - Missing or invalid parameters</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="401-authentication-required-or-insufficient-permissions-3" class="status" data-status="4xx">401: Authentication required or insufficient permissions</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="404-not-found---worker-does-not-exist-2" class="status" data-status="4xx">404: Not Found - Worker does not exist</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="500-internal-server-error---an-unexpected-server-error-occurred-4" class="status" data-status="5xx">500: Internal Server Error - An unexpected server error occurred</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h3 id="delete-accountsaccount_idbuildsworkersscript_tag" class="operation" data-method="delete"><code>DELETE</code> /accounts/{account_id}/builds/workers/{script_tag}</h3>
+<p>Operation ID: <code>deleteWorkerBuild</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-16">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>script_tag</code> | <code>path</code> | <code>string</code> | Yes | The Worker script tag (external script ID) |</p>
+<h4 id="responses-16">Responses</h4>
+<h5 id="200-worker-build-configuration-deleted-successfully" class="status" data-status="2xx">200: Worker build configuration deleted successfully</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="401-authentication-required-11" class="status" data-status="4xx">401: Authentication required</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12005,
+      &quot;message&quot;: &quot;Missing token from authorization header&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h5 id="404-resource-not-found-8" class="status" data-status="4xx">404: Resource not found</h5>
+<p><code>application/json</code></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>errors</code></td>
+<td><code>array of object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].code</code></td>
+<td><code>integer</code></td>
+<td>No</td>
+<td></td>
+</tr>
+<tr>
+<td><code>errors[].message</code></td>
+<td><code>string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>messages</code></td>
+<td><code>array of string</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>result</code></td>
+<td><code>object</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>success</code></td>
+<td><code>boolean</code></td>
+<td>Yes</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>Example response:</p>
+<pre><code class="language-json">{
+  &quot;errors&quot;: [
+    {
+      &quot;code&quot;: 12000,
+      &quot;message&quot;: &quot;Not found&quot;
+    }
+  ],
+  &quot;messages&quot;: [],
+  &quot;result&quot;: null,
+  &quot;success&quot;: false
+}
+</code></pre>
+<h2 id="update">update</h2>
+<h3 id="put-accountsaccount_idworkersworkersworker_id" class="operation" data-method="put"><code>PUT</code> /accounts/{account_id}/workers/workers/{worker_id}</h3>
+<p>Operation ID: <code>updateWorker</code>.</p>
+<p>Authentication: bearer token (<code>api_token</code>) or API key in the header (<code>api_email</code>) or API key in the header (<code>api_key</code>).</p>
+<h4 id="parameters-17">Parameters</h4>
+<p>| Parameter | In | Type | Required | Description |
+| --- | --- | --- | --- |
+| <code>account_id</code> | <code>path</code> | <code>string</code> | Yes |  |
+| <code>worker_id</code> | <code>path</code> | <code>string</code> | Yes |  |</p>
+<h4 id="request-body-7">Request body</h4>
+<p><code>application/json</code></p>
+<p>The request body is <code>object and object</code>.</p>
+<h4 id="responses-17">Responses</h4>
+<h5 id="200-update-worker-success" class="status" data-status="2xx">200: Update Worker success</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="400-bad-request---invalid-input-data-2" class="status" data-status="4xx">400: Bad Request - Invalid input data</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="401-authentication-required-or-insufficient-permissions-4" class="status" data-status="4xx">401: Authentication required or insufficient permissions</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="403-forbidden---insufficient-permissions-or-quota-exceeded-1" class="status" data-status="4xx">403: Forbidden - Insufficient permissions or quota exceeded</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="404-not-found---worker-does-not-exist-3" class="status" data-status="4xx">404: Not Found - Worker does not exist</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="409-conflict---worker-name-already-exists-1" class="status" data-status="4xx">409: Conflict - Worker name already exists</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+<h5 id="500-internal-server-error---an-unexpected-server-error-occurred-5" class="status" data-status="5xx">500: Internal Server Error - An unexpected server error occurred</h5>
+<p><code>application/json</code></p>
+<p>The response is <code>object and object</code>.</p>
+</main></div>
+<script src="../assets/search.js" defer></script></body></html>

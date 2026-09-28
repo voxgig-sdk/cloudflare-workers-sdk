@@ -1,0 +1,126 @@
+# BasicDeployHookFlow
+
+main: kit: flow: BasicDeployHookFlow:
+{
+  entity: "deploy_hook",
+  kind: "basic",
+  name: "BasicDeployHookFlow",
+  step: [
+    {
+      i: {
+        ref: "deploy_hook_ref01"
+      }
+
+      m: {
+        account_id: "account01",
+        deploy_hook_uuid: "deploy_hook_uuid01",
+        script_name: "script_name01",
+        worker_id: "worker01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        account_id: "account01",
+        script_name: "script_name01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "deploy_hook_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        account_id: "account01",
+        worker_id: "worker01"
+      }
+
+      i: {
+        ref: "deploy_hook_ref01",
+        srcdatavar: "deploy_hook_ref01_data",
+        suffix: "_up0",
+        textfield: "branch"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-deploy_hook_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "deploy_hook_ref01",
+        srcdatavar: "deploy_hook_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "deploy_hook01",
+        worker_id: "worker01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-deploy_hook_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "deploy_hook_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "deploy_hook01",
+        worker_id: "worker01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      m: {
+        account_id: "account01",
+        script_name: "script_name01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "deploy_hook_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicDeployHookFlow"
+}

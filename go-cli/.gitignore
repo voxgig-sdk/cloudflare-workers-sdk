@@ -1,0 +1,4 @@
+/dist/
+/cloudflare-workers-cli
+/go-cli
+.jostraca/

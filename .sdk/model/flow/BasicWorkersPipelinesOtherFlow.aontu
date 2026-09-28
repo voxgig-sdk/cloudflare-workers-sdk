@@ -1,0 +1,118 @@
+# BasicWorkersPipelinesOtherFlow
+
+main: kit: flow: BasicWorkersPipelinesOtherFlow:
+{
+  entity: "workers_pipelines_other",
+  kind: "basic",
+  name: "BasicWorkersPipelinesOtherFlow",
+  step: [
+    {
+      i: {
+        ref: "workers_pipelines_other_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "workers_pipelines_other_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        account_id: "account01"
+      }
+
+      i: {
+        ref: "workers_pipelines_other_ref01",
+        srcdatavar: "workers_pipelines_other_ref01_data",
+        suffix: "_up0",
+        textfield: "created_at"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-workers_pipelines_other_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "workers_pipelines_other_ref01",
+        srcdatavar: "workers_pipelines_other_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "workers_pipelines_other01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-workers_pipelines_other_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "workers_pipelines_other_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "workers_pipelines_other01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "workers_pipelines_other_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicWorkersPipelinesOtherFlow"
+}

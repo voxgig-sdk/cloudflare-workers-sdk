@@ -1,0 +1,52 @@
+{
+  "existing": {
+    "workers_script_response_single": {
+      "WORKERS_SCRIPT_RESPONSE_SINGLE00": {
+        "account_id": "ACCOUNT01",
+        "environment_name": "ENVIRONMENT_NAME01",
+        "service_id": "SERVICE01",
+        "namespace_id": "NAMESPACE01",
+        "script_name": "SCRIPT_NAME01",
+        "id": "WORKERS_SCRIPT_RESPONSE_SINGLE00"
+      },
+      "WORKERS_SCRIPT_RESPONSE_SINGLE01": {
+        "account_id": "ACCOUNT01",
+        "environment_name": "ENVIRONMENT_NAME01",
+        "service_id": "SERVICE01",
+        "namespace_id": "NAMESPACE01",
+        "script_name": "SCRIPT_NAME01",
+        "id": "WORKERS_SCRIPT_RESPONSE_SINGLE01"
+      },
+      "WORKERS_SCRIPT_RESPONSE_SINGLE02": {
+        "account_id": "ACCOUNT01",
+        "environment_name": "ENVIRONMENT_NAME01",
+        "service_id": "SERVICE01",
+        "namespace_id": "NAMESPACE01",
+        "script_name": "SCRIPT_NAME01",
+        "id": "WORKERS_SCRIPT_RESPONSE_SINGLE02"
+      }
+    }
+  },
+  "new": {
+    "workers_script_response_single": {
+      "workers_script_response_single_ref01": {}
+    }
+  },
+  "requests": {
+    "PUT /accounts/{account_id}/workers/services/{service_name}/environments/{environment_name}/content": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/content": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/workers/scripts/{script_name}/content": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

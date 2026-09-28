@@ -1,0 +1,112 @@
+{
+  "existing": {
+    "workers_for_platform": {
+      "WORKERS_FOR_PLATFORM00": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "dispatch_namespace": "DISPATCH_NAMESPACE01",
+        "namespace_id": "NAMESPACE01",
+        "script_name": "SCRIPT_NAME01",
+        "script_id": "SCRIPT01",
+        "secret_name": "SECRET_NAME01",
+        "id": "WORKERS_FOR_PLATFORM00"
+      },
+      "WORKERS_FOR_PLATFORM01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "dispatch_namespace": "DISPATCH_NAMESPACE01",
+        "namespace_id": "NAMESPACE01",
+        "script_name": "SCRIPT_NAME01",
+        "script_id": "SCRIPT01",
+        "secret_name": "SECRET_NAME01",
+        "id": "WORKERS_FOR_PLATFORM01"
+      },
+      "WORKERS_FOR_PLATFORM02": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false,
+        "account_id": "ACCOUNT01",
+        "dispatch_namespace": "DISPATCH_NAMESPACE01",
+        "namespace_id": "NAMESPACE01",
+        "script_name": "SCRIPT_NAME01",
+        "script_id": "SCRIPT01",
+        "secret_name": "SECRET_NAME01",
+        "id": "WORKERS_FOR_PLATFORM02"
+      }
+    }
+  },
+  "new": {
+    "workers_for_platform": {
+      "workers_for_platform_ref01": {
+        "errors": [],
+        "messages": [],
+        "result": {},
+        "success": false
+      }
+    }
+  },
+  "requests": {
+    "GET /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/bindings": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/settings": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/tags": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets/{secret_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "GET /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/content": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PATCH /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/settings": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/secrets": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    },
+    "PUT /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts/{script_name}/tags": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}

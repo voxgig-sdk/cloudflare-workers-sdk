@@ -1,0 +1,118 @@
+# BasicSavedQueryFlow
+
+main: kit: flow: BasicSavedQueryFlow:
+{
+  entity: "saved_query",
+  kind: "basic",
+  name: "BasicSavedQueryFlow",
+  step: [
+    {
+      i: {
+        ref: "saved_query_ref01"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "create"
+    }
+
+    {
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "saved_query_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      d: {
+        account_id: "account01"
+      }
+
+      i: {
+        ref: "saved_query_ref01",
+        srcdatavar: "saved_query_ref01_data",
+        suffix: "_up0",
+        textfield: "description"
+      }
+
+      o: "update",
+      s: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-saved_query_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "saved_query_ref01",
+        srcdatavar: "saved_query_ref01_data",
+        suffix: "_dt0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "saved_query01"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-saved_query_ref01"
+          }
+        }
+      ]
+    }
+
+    {
+      i: {
+        ref: "saved_query_ref01",
+        suffix: "_rm0"
+      }
+
+      m: {
+        account_id: "account01",
+        id: "saved_query01"
+      }
+
+      o: "remove"
+    }
+
+    {
+      i: {
+        suffix: "_rt0"
+      }
+
+      m: {
+        account_id: "account01"
+      }
+
+      o: "list",
+      v: [
+        {
+          apply: "ItemNotExists",
+          def: {
+            ref: "saved_query_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSavedQueryFlow"
+}

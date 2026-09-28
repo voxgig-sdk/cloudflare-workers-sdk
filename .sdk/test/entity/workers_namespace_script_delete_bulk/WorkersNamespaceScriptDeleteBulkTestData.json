@@ -1,0 +1,33 @@
+{
+  "existing": {
+    "workers_namespace_script_delete_bulk": {
+      "WORKERS_NAMESPACE_SCRIPT_DELETE_BULK00": {
+        "account_id": "ACCOUNT01",
+        "dispatch_namespace": "DISPATCH_NAMESPACE01",
+        "id": "WORKERS_NAMESPACE_SCRIPT_DELETE_BULK00"
+      },
+      "WORKERS_NAMESPACE_SCRIPT_DELETE_BULK01": {
+        "account_id": "ACCOUNT01",
+        "dispatch_namespace": "DISPATCH_NAMESPACE01",
+        "id": "WORKERS_NAMESPACE_SCRIPT_DELETE_BULK01"
+      },
+      "WORKERS_NAMESPACE_SCRIPT_DELETE_BULK02": {
+        "account_id": "ACCOUNT01",
+        "dispatch_namespace": "DISPATCH_NAMESPACE01",
+        "id": "WORKERS_NAMESPACE_SCRIPT_DELETE_BULK02"
+      }
+    }
+  },
+  "new": {
+    "workers_namespace_script_delete_bulk": {
+      "workers_namespace_script_delete_bulk_ref01": {}
+    }
+  },
+  "requests": {
+    "DELETE /accounts/{account_id}/workers/dispatch/namespaces/{dispatch_namespace}/scripts": {
+      "provenance": "operation-contract",
+      "version": 2,
+      "source": "openapi3"
+    }
+  }
+}
